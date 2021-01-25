@@ -1,8 +1,20 @@
 package fr.elpresidente.game.ressources;
 
-class Agriculture implements Ressource {
+import fr.elpresidente.game.builders.RessourceBuilder;
+
+class Agriculture implements Ressource, RessourceBuilder {
 
     private int size;
+
+    @Override
+    public void init() {
+
+    }
+
+    @Override
+    public void loadFromSave() {
+
+    }
 
     public int getSize() {
         return size;

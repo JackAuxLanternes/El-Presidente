@@ -1,8 +1,20 @@
 package fr.elpresidente.game.ressources;
 
-class Industry implements Ressource {
+import fr.elpresidente.game.builders.RessourceBuilder;
+
+class Industry implements Ressource, RessourceBuilder {
 
     private int size;
+
+    @Override
+    public void init() {
+        
+    }
+
+    @Override
+    public void loadFromSave() {
+
+    }
 
     public int getSize() {
         return size;
