@@ -1,6 +1,7 @@
 package fr.elpresidente.game.launcher;
 
 import fr.elpresidente.game.builders.GameBuilder;
+import fr.elpresidente.game.status.Game;
 
 public class GameLauncher implements GameBuilder {
 
@@ -12,7 +13,8 @@ public class GameLauncher implements GameBuilder {
 
     @Override
     public void createNewGame() {
-
+        Game game = new Game();
+        game.gameLoop();
     }
 
     @Override
