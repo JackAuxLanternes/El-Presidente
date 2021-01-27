@@ -8,12 +8,15 @@ public class RessourcesController {
 
     private final Industry industry;
 
-    private Treasury treasury;
+    private final Treasury treasury;
+
+    private final Food food;
 
     private RessourcesController() {
         agriculture = new Agriculture();
         industry = new Industry();
         treasury = new Treasury();
+        food = new Food();
     }
 
     public static RessourcesController getInstance() {
@@ -29,8 +32,16 @@ public class RessourcesController {
         return agriculture.getSize();
     }
 
+    public void setAgricultureSize(int size) {
+        agriculture.setSize(size);
+    }
+
     public int getIndustrySize() {
         return industry.getSize();
+    }
+
+    public void setIndustrySize(int size) {
+        industry.setSize(size);
     }
 
     public int getRessourcesSize() {
@@ -45,7 +56,24 @@ public class RessourcesController {
         return industry.getAnnualYields();
     }
 
+    public void processRessourcesAnnualYields() {
+        treasury.addAmount(getIndustryAnnualYields());
+        food.addAmount(getAgricultureAnnualYields());
+    }
+
     public int getTreasuryAmount() {
         return treasury.getAmount();
+    }
+
+    public void setTreasuryAmount(int amount) {
+        treasury.setAmount(amount);
+    }
+
+    public int getFoodAmount() {
+        return food.getAmount();
+    }
+
+    public void setFoodAmount(int amount) {
+        food.setAmount(amount);
     }
 }

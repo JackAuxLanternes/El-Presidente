@@ -2,7 +2,7 @@ package fr.elpresidente.game.ressources;
 
 import fr.elpresidente.game.builders.RessourceBuilder;
 
-class Industry implements Ressource, RessourceBuilder {
+class Industry implements Resource, RessourceBuilder {
 
     private int size;
 

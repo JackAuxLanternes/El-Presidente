@@ -1,6 +1,6 @@
 package fr.elpresidente.game.ressources;
 
-public interface Ressource {
+public interface Resource {
 
     int size = 0;
 

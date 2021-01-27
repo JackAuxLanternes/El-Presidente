@@ -1,12 +1,12 @@
 package fr.elpresidente.game.ressources;
 
-class Treasury implements Consumable {
+class Food implements Consumable {
 
     private int amount;
 
     @Override
     public int getAmount() {
-        return amount;
+        return this.amount;
     }
 
     @Override

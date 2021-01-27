@@ -2,7 +2,7 @@ package fr.elpresidente.game.ressources;
 
 import fr.elpresidente.game.builders.RessourceBuilder;
 
-class Agriculture implements Ressource, RessourceBuilder {
+class Agriculture implements Resource, RessourceBuilder {
 
     private int size;
 
