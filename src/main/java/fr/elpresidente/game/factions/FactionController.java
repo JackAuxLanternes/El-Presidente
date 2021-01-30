@@ -56,7 +56,7 @@ public class FactionController {
 
     private double determineGlobalSatisfaction() {
 
-        return this.determineSatisfactionMultipliedBySupporters() / this.determineTotalPartisans();
+        return this.determineSatisfactionMultipliedBySupporters() / this.determineTotalSupporters();
     }
 
     private double determineSatisfactionMultipliedBySupporters() {
@@ -71,7 +71,7 @@ public class FactionController {
                 this.religious.getSatisfaction() * this.religious.getSupporters();
     }
 
-    private double determineTotalPartisans() {
+    public double determineTotalSupporters() {
 
         return this.capitalist.getSupporters() +
                 this.communist.getSupporters() +

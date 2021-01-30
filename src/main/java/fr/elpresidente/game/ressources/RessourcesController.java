@@ -25,6 +25,12 @@ public class RessourcesController {
         return instance;
     }
 
+    public void buyAgriculutreYields(int number_yields) {
+
+        this.treasury.substractAmountAccordingToYields(number_yields);
+        this.agriculture.addYields(number_yields);
+    }
+
     public int getAgricultureSize() {
         return agriculture.getSize();
     }
@@ -37,8 +43,8 @@ public class RessourcesController {
         return agriculture.getSize() + industry.getSize();
     }
 
-    public int getAgricultureAnnualYields() {
-        return agriculture.getAnnualYields();
+    public int getAgricultureYields() {
+        return agriculture.getYields();
     }
 
     public int getIndustryAnnualYields() {
@@ -48,4 +54,6 @@ public class RessourcesController {
     public int getTreasuryAmount() {
         return treasury.getAmount();
     }
+
+
 }

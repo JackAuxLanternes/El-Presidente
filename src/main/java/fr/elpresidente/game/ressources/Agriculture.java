@@ -5,6 +5,7 @@ import fr.elpresidente.game.builders.RessourceBuilder;
 class Agriculture implements Ressource, RessourceBuilder {
 
     private int size;
+    private int yields;
 
     @Override
     public void init() {
@@ -28,7 +29,22 @@ class Agriculture implements Ressource, RessourceBuilder {
         this.size += size;
     }
 
+    @Override
     public int getAnnualYields() {
         return this.size * 40;
     }
+
+    public void setAnnualYields() {
+        this.yields = this.getAnnualYields();
+    }
+
+    public int getYields() {
+        return this.yields;
+    }
+
+    public void addYields(int number_yields) {
+        this.yields += (number_yields);
+    }
+
+
 }
