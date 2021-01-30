@@ -40,10 +40,10 @@ public class ConsumableController {
         if(amount_to_substract >= 0) {
             this.treasury.substractAmount(amount_to_substract);
         }
-        this.amountToSubstractLessThan0(amount_food);
+        this.errorAmountToSubstractLessThan0(amount_food);
     }
 
-    private void amountToSubstractLessThan0(int amount_food) {
+    private void errorAmountToSubstractLessThan0(int amount_food) {
         throw new Error("you can't buy " + amount_food + " agriculutre yields you have only " +
                 this.treasury.getAmount() + "$ and on yield cost " + Treasury.PRICE_ONE_YIELD_AGRICULTURE);
     }
