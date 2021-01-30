@@ -6,14 +6,28 @@ public class FactionController {
 
     private static FactionController instance;
 
-    private HashMap<FactionEnumeration, Faction> factionHashMap;
+    private final Faction capitalist;
+    private final Faction communist;
+    private final Faction ecologist;
+    private final Faction liberal;
+    private final Faction loyalist;
+    private final Faction militarist;
+    private final Faction nationalist;
+    private final Faction religious;
 
     private FactionController() {
-        initFactionHashMap();
+        capitalist = new Capitalist();
+        communist = new Communist();
+        ecologist = new Ecologist();
+        liberal = new Liberal();
+        loyalist = new Loyalist();
+        militarist = new Militarist();
+        nationalist = new Nationalist();
+        religious = new Religious();
     }
 
     public static FactionController getInstance() {
-        if (instance == null)
+        if (isIntanceNotInitialized())
         {
             instance = new FactionController();
         }
@@ -21,19 +35,12 @@ public class FactionController {
         return instance;
     }
 
-    private void initFactionHashMap() {
-        factionHashMap = new HashMap<>();
-        factionHashMap.put(FactionEnumeration.CAPITALISTS, new Faction("Capitalists"));
-        factionHashMap.put(FactionEnumeration.COMMUNISTS, new Faction("Communists"));
-        factionHashMap.put(FactionEnumeration.ECOLOGISTS, new Faction("Ecologists"));
-        factionHashMap.put(FactionEnumeration.LIBERALS, new Faction("Liberals"));
-        factionHashMap.put(FactionEnumeration.LOYALISTS, new Faction("Loyalists"));
-        factionHashMap.put(FactionEnumeration.MILITARISTS, new Faction("Militarists"));
-        factionHashMap.put(FactionEnumeration.NATIONALISTS, new Faction("Nationalists"));
-        factionHashMap.put(FactionEnumeration.RELIGIOUS, new Faction("Religious"));
+    private static Boolean isIntanceNotInitialized() {
+        if (instance == null) {
+            return true;
+        }
+
+        return false;
     }
 
-    public HashMap<FactionEnumeration, Faction> getFactionHashMap() {
-        return factionHashMap;
-    }
 }
