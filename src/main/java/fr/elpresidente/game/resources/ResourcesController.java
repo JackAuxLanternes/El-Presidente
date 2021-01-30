@@ -4,12 +4,9 @@ public class ResourcesController {
 
     private static ResourcesController instance;
 
-    private ConsumableController consumableController;
+    private final Resource agriculture;
 
-    private final Agriculture agriculture;
-
-    private final Industry industry;
-
+    private final Resource industry;
 
     private ResourcesController() {
         agriculture = new Agriculture();
@@ -25,12 +22,11 @@ public class ResourcesController {
         return instance;
     }
 
-
-    public Agriculture getAgriculture() {
+    public Resource getAgriculture() {
         return this.agriculture;
     }
 
-    public Industry getIndustry() {
+    public Resource getIndustry() {
         return this.industry;
     }
 }

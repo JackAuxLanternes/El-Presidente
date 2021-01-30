@@ -14,6 +14,7 @@ public class GameLauncher implements GameBuilder {
     @Override
     public void createNewGame() {
         Game game = new Game();
+        game.initGame();
         game.gameLoop();
     }
 

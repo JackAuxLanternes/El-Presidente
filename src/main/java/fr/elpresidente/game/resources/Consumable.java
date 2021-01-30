@@ -10,5 +10,5 @@ public interface Consumable {
 
     void setAnnualAmount(Resource resource);
 
-    public void substractAmount(int amount);
+    void substractAmount(int amount);
 }

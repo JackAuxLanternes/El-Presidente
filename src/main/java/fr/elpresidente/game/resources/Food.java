@@ -1,6 +1,6 @@
 package fr.elpresidente.game.resources;
 
-public class Food implements Consumable {
+class Food implements Consumable {
 
     private int amount;
 
@@ -21,13 +21,11 @@ public class Food implements Consumable {
 
     @Override
     public void setAnnualAmount(Resource resource) {
-        this.amount = resource.getAnnualYields();
+
     }
 
     @Override
     public void substractAmount(int amount) {
 
     }
-
-
 }

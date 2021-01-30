@@ -1,7 +1,5 @@
 package fr.elpresidente.game.factions;
 
-import java.util.HashMap;
-
 public class FactionController {
 
     private static FactionController instance;
