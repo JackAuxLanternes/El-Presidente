@@ -1,6 +1,7 @@
 package fr.elpresidente.game.status;
 
-import fr.elpresidente.game.ressources.RessourcesController;
+import fr.elpresidente.game.ressources.ResourcesController;
+import fr.elpresidente.game.scenario.ScenarioLoader;
 import fr.elpresidente.game.turn.Seasons;
 import fr.elpresidente.game.turn.TurnController;
 
@@ -13,10 +14,10 @@ public class Game {
     }
 
     public void initGame() {
-        RessourcesController.getInstance().setAgricultureSize(20);
-        RessourcesController.getInstance().setIndustrySize(20);
-        RessourcesController.getInstance().setTreasuryAmount(1000);
-        RessourcesController.getInstance().setFoodAmount(1000);
+        ResourcesController.getInstance().setAgricultureSize(20);
+        ResourcesController.getInstance().setIndustrySize(20);
+        ResourcesController.getInstance().setTreasuryAmount(1000);
+        ResourcesController.getInstance().setFoodAmount(1000);
     }
 
     public void gameLoop() {
@@ -39,13 +40,13 @@ public class Game {
         System.out.println("=== Year #" + turnController.getYear() + ", " + turnController.getCurrentTurn());
         System.out.println("====== Report");
         System.out.println("=== Industry: "
-                + RessourcesController.getInstance().getIndustrySize()
+                + ResourcesController.getInstance().getIndustrySize()
                 + ", Agriculture: "
-                + RessourcesController.getInstance().getAgricultureSize());
+                + ResourcesController.getInstance().getAgricultureSize());
         System.out.println("=== Money: "
-                + RessourcesController.getInstance().getTreasuryAmount()
+                + ResourcesController.getInstance().getTreasuryAmount()
                 + ", Food: "
-                + RessourcesController.getInstance().getFoodAmount());
+                + ResourcesController.getInstance().getFoodAmount());
         System.out.println("==============================");
     }
 }

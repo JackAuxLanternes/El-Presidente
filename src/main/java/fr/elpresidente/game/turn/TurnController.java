@@ -1,7 +1,7 @@
 package fr.elpresidente.game.turn;
 
 import fr.elpresidente.game.builders.TurnBuilder;
-import fr.elpresidente.game.ressources.RessourcesController;
+import fr.elpresidente.game.ressources.ResourcesController;
 
 public class TurnController implements TurnBuilder {
 
@@ -36,7 +36,7 @@ public class TurnController implements TurnBuilder {
     @Override
     public void newYear() {
         incrementYear();
-        RessourcesController.getInstance().processRessourcesAnnualYields();
+        ResourcesController.getInstance().processRessourcesAnnualYields();
     }
 
     public Seasons getCurrentTurn() {

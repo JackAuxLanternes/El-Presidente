@@ -1,5 +1,7 @@
 package fr.elpresidente.game.factions;
 
+import fr.elpresidente.game.ressources.ResourcesController;
+
 import java.util.HashMap;
 
 public class FactionController {
