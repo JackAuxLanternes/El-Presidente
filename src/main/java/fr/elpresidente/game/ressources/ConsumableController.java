@@ -36,11 +36,12 @@ public class ConsumableController {
     }
 
     public void substractAmountTreasuryAccordingToAmountFood(int amount_food) {
-        int amount_to_substract = this.determineAmountForAmount_food(amount_food);
-        if(amount_to_substract >= 0) {
+        int amount_to_substract = this.determineAmountForAmountFood(amount_food);
+        if(amount_to_substract < this.treasury.getAmount()) {
             this.treasury.substractAmount(amount_to_substract);
+        }else {
+            this.errorAmountToSubstractLessThan0(amount_food);
         }
-        this.errorAmountToSubstractLessThan0(amount_food);
     }
 
     private void errorAmountToSubstractLessThan0(int amount_food) {
@@ -49,7 +50,7 @@ public class ConsumableController {
     }
 
 
-    private int determineAmountForAmount_food(int amount_food) {
+    private int determineAmountForAmountFood(int amount_food) {
         return amount_food * Treasury.PRICE_ONE_YIELD_AGRICULTURE;
     }
 }

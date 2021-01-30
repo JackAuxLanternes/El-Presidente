@@ -36,22 +36,21 @@ public class FactionController {
     }
 
     private static Boolean isIntanceNotInitialized() {
-        if (instance == null) {
-            return true;
-        }
-
-        return false;
+        return instance == null;
     }
 
     public void applyEventToFactions() {
 
     }
 
+    public void removeSupporters() {
+        // déclenché quand on a moins de 4 amount de Food par personne
+        // On supprime des partisans aléatoirement dans nimporte quelle faction
+        // On retire les 2% de satisfaction pour toutes les factions pour chaque partisan remove
+    }
+
     public boolean isSatisfactionSuperiorThanThreshold(int thresholdDifficulty) {
-        if (this.determineGlobalSatisfaction() > thresholdDifficulty) {
-            return true;
-        }
-        return false;
+        return this.determineGlobalSatisfaction() > thresholdDifficulty;
     }
 
     private double determineGlobalSatisfaction() {

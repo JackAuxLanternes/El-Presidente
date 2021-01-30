@@ -17,14 +17,17 @@ class Agriculture implements Ressource, RessourceBuilder {
 
     }
 
+    @Override
     public int getSize() {
         return size;
     }
 
+    @Override
     public void setSize(int size) {
         this.size = size;
     }
 
+    @Override
     public void addSize(int size) {
         this.size += size;
     }

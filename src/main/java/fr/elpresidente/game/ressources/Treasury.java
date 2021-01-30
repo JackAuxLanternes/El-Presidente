@@ -2,7 +2,7 @@ package fr.elpresidente.game.ressources;
 
 public class Treasury implements Consumable{
 
-    public static int PRICE_ONE_YIELD_AGRICULTURE = 8;
+    public final static int PRICE_ONE_YIELD_AGRICULTURE = 8;
     private int amount;
 
     @Override
