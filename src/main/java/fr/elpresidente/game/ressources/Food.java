@@ -1,13 +1,14 @@
 package fr.elpresidente.game.ressources;
 
-public class Treasury implements Consumable{
+import java.util.Collections;
 
-    public static int PRICE_ONE_YIELD_AGRICULTURE = 8;
+public class Food implements Consumable {
+
     private int amount;
 
     @Override
     public int getAmount() {
-        return amount;
+        return this.amount;
     }
 
     @Override
@@ -27,7 +28,7 @@ public class Treasury implements Consumable{
 
     @Override
     public void substractAmount(int amount) {
-        this.amount -= amount;
+
     }
 
 
