@@ -1,14 +1,36 @@
 package fr.elpresidente.game.factions;
 
-public interface Faction {
+public class Faction {
 
-    public int getSupporters();
+    private final String name;
+    private int supporters;
+    private double satisfaction;
 
-    public void setSupporters(int supporters);
+    public Faction(String name) {
+        this.name = name;
 
-    public double getSatisfaction();
+    }
+    public String getName() {
+        return name;
+    }
 
-    public void setSatisfaction(double satisfaction);
+    public int getSupporters() {
+        return supporters;
+    }
 
-    public void addSatisfaction(double satisfaction);
+    public void setSupporters(int supporters) {
+        this.supporters = supporters;
+    }
+
+    public double getSatisfaction() {
+        return satisfaction;
+    }
+
+    public void setSatisfaction(double satisfaction) {
+        this.satisfaction = satisfaction;
+    }
+
+    public void addSatisfaction(double satisfaction) {
+        this.satisfaction += satisfaction;
+    }
 }

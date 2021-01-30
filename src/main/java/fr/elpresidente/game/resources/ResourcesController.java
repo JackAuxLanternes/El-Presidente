@@ -1,8 +1,8 @@
-package fr.elpresidente.game.ressources;
+package fr.elpresidente.game.resources;
 
-public class RessourcesController {
+public class ResourcesController {
 
-    private static RessourcesController instance;
+    private static ResourcesController instance;
 
     private ConsumableController consumableController;
 
@@ -11,15 +11,15 @@ public class RessourcesController {
     private final Industry industry;
 
 
-    private RessourcesController() {
+    private ResourcesController() {
         agriculture = new Agriculture();
         industry = new Industry();
     }
 
-    public static RessourcesController getInstance() {
+    public static ResourcesController getInstance() {
         if (instance == null)
         {
-            instance = new RessourcesController();
+            instance = new ResourcesController();
         }
 
         return instance;

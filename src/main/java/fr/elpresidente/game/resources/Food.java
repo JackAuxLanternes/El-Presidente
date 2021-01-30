@@ -1,13 +1,12 @@
-package fr.elpresidente.game.ressources;
+package fr.elpresidente.game.resources;
 
-public class Treasury implements Consumable{
+public class Food implements Consumable {
 
-    public final static int PRICE_ONE_YIELD_AGRICULTURE = 8;
     private int amount;
 
     @Override
     public int getAmount() {
-        return amount;
+        return this.amount;
     }
 
     @Override
@@ -21,13 +20,13 @@ public class Treasury implements Consumable{
     }
 
     @Override
-    public void setAnnualAmount(Ressource ressource) {
-        this.amount = ressource.getAnnualYields();
+    public void setAnnualAmount(Resource resource) {
+        this.amount = resource.getAnnualYields();
     }
 
     @Override
     public void substractAmount(int amount) {
-        this.amount -= amount;
+
     }
 
 

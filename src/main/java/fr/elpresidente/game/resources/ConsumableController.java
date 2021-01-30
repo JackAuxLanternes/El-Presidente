@@ -1,10 +1,10 @@
-package fr.elpresidente.game.ressources;
+package fr.elpresidente.game.resources;
 
 public class ConsumableController {
 
     private static ConsumableController instance;
 
-    private RessourcesController ressourcesController;
+    private ResourcesController resourcesController;
 
     private final Consumable food;
 
@@ -17,8 +17,8 @@ public class ConsumableController {
     }
 
     public void setAnnualConsumable() {
-        this.food.setAnnualAmount(ressourcesController.getAgriculture());
-        this.treasury.setAnnualAmount(ressourcesController.getIndustry());
+        this.food.setAnnualAmount(resourcesController.getAgriculture());
+        this.treasury.setAnnualAmount(resourcesController.getIndustry());
     }
 
     public Consumable getFood() {

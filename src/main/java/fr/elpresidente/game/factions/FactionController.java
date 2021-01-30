@@ -6,24 +6,18 @@ public class FactionController {
 
     private static FactionController instance;
 
-    private final Faction capitalist;
-    private final Faction communist;
-    private final Faction ecologist;
-    private final Faction liberal;
-    private final Faction loyalist;
-    private final Faction militarist;
-    private final Faction nationalist;
-    private final Faction religious;
+    private final Factions factions;
 
     private FactionController() {
-        capitalist = new Capitalist();
-        communist = new Communist();
-        ecologist = new Ecologist();
-        liberal = new Liberal();
-        loyalist = new Loyalist();
-        militarist = new Militarist();
-        nationalist = new Nationalist();
-        religious = new Religious();
+        factions = new Factions();
+        factions.addFaction(new Faction("capitalist"));
+        factions.addFaction(new Faction("communist"));
+        factions.addFaction(new Faction("ecologist"));
+        factions.addFaction(new Faction("liberal"));
+        factions.addFaction(new Faction("loyalist"));
+        factions.addFaction(new Faction("militarist"));
+        factions.addFaction(new Faction("nationalist"));
+        factions.addFaction(new Faction("religious"));
     }
 
     public static FactionController getInstance() {
@@ -60,26 +54,15 @@ public class FactionController {
 
     private double determineSatisfactionMultipliedBySupporters() {
 
-        return this.capitalist.getSatisfaction() * this.capitalist.getSupporters() +
-                this.communist.getSatisfaction() * this.communist.getSupporters() +
-                this.ecologist.getSatisfaction() * this.ecologist.getSupporters() +
-                this.liberal.getSatisfaction() * this.liberal.getSupporters() +
-                this.loyalist.getSatisfaction() * this.loyalist.getSupporters() +
-                this.militarist.getSatisfaction() * this.militarist.getSupporters() +
-                this.nationalist.getSatisfaction() * this.nationalist.getSupporters() +
-                this.religious.getSatisfaction() * this.religious.getSupporters();
+        return this.factions.getFactionList()
+                .stream().mapToDouble(faction -> faction.getSupporters() * faction.getSatisfaction()).sum();
+
     }
 
     public double determineTotalSupporters() {
 
-        return this.capitalist.getSupporters() +
-                this.communist.getSupporters() +
-                this.ecologist.getSupporters() +
-                this.liberal.getSupporters() +
-                this.loyalist.getSupporters() +
-                this.militarist.getSupporters() +
-                this.nationalist.getSupporters() +
-                this.religious.getSupporters();
+        return this.factions.getFactionList()
+                .stream().mapToInt(faction -> faction.getSupporters()).sum();
     }
 
 

@@ -1,4 +1,4 @@
-package fr.elpresidente.game.ressources;
+package fr.elpresidente.game.resources;
 
 public interface Consumable {
 
@@ -8,7 +8,7 @@ public interface Consumable {
 
     void addAmount(int amount);
 
-    void setAnnualAmount(Ressource ressource);
+    void setAnnualAmount(Resource resource);
 
     public void substractAmount(int amount);
 }

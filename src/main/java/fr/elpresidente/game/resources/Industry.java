@@ -1,8 +1,8 @@
-package fr.elpresidente.game.ressources;
+package fr.elpresidente.game.resources;
 
 import fr.elpresidente.game.builders.RessourceBuilder;
 
-class Industry implements Ressource, RessourceBuilder {
+class Industry implements Resource, RessourceBuilder {
 
     private int size;
     private final int PERCENTAGE_MULTIPLIER_INDUSTRY_IN_TREASURY = 10;
