@@ -43,4 +43,46 @@ public class FactionController {
         return false;
     }
 
+    public void applyEventToFactions() {
+
+    }
+
+    public boolean isSatisfactionSuperiorThanThreshold(int thresholdDifficulty) {
+        if (this.determineGlobalSatisfaction() > thresholdDifficulty) {
+            return true;
+        }
+        return false;
+    }
+
+    private double determineGlobalSatisfaction() {
+
+        return this.determineSatisfactionMultipliedBySupporters() / this.determineTotalPartisans();
+    }
+
+    private double determineSatisfactionMultipliedBySupporters() {
+
+        return this.capitalist.getSatisfaction() * this.capitalist.getSupporters() +
+                this.communist.getSatisfaction() * this.communist.getSupporters() +
+                this.ecologist.getSatisfaction() * this.ecologist.getSupporters() +
+                this.liberal.getSatisfaction() * this.liberal.getSupporters() +
+                this.loyalist.getSatisfaction() * this.loyalist.getSupporters() +
+                this.militarist.getSatisfaction() * this.militarist.getSupporters() +
+                this.nationalist.getSatisfaction() * this.nationalist.getSupporters() +
+                this.religious.getSatisfaction() * this.religious.getSupporters();
+    }
+
+    private double determineTotalPartisans() {
+
+        return this.capitalist.getSupporters() +
+                this.communist.getSupporters() +
+                this.ecologist.getSupporters() +
+                this.liberal.getSupporters() +
+                this.loyalist.getSupporters() +
+                this.militarist.getSupporters() +
+                this.nationalist.getSupporters() +
+                this.religious.getSupporters();
+    }
+
+
+
 }
