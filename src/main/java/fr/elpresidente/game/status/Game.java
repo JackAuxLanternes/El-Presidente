@@ -1,7 +1,7 @@
 package fr.elpresidente.game.status;
 
-import fr.elpresidente.game.ressources.ResourcesController;
-import fr.elpresidente.game.scenario.ScenarioLoader;
+import fr.elpresidente.game.resources.ConsumableController;
+import fr.elpresidente.game.resources.ResourcesController;
 import fr.elpresidente.game.turn.Seasons;
 import fr.elpresidente.game.turn.TurnController;
 
@@ -14,10 +14,10 @@ public class Game {
     }
 
     public void initGame() {
-        ResourcesController.getInstance().setAgricultureSize(20);
-        ResourcesController.getInstance().setIndustrySize(20);
-        ResourcesController.getInstance().setTreasuryAmount(1000);
-        ResourcesController.getInstance().setFoodAmount(1000);
+        ResourcesController.getInstance().getAgriculture().setSize(20);
+        ResourcesController.getInstance().getIndustry().setSize(20);
+        ConsumableController.getInstance().getTreasury().setAmount(1000);
+        ConsumableController.getInstance().getFood().setAmount(1000);
     }
 
     public void gameLoop() {
@@ -29,10 +29,7 @@ public class Game {
     }
 
     public boolean isDefeated() {
-        if (turnController.getYear() > 0) {
-            return true;
-        }
-        return false;
+        return turnController.getYear() > 0;
     }
 
     public void showGameStatus() {
@@ -40,13 +37,13 @@ public class Game {
         System.out.println("=== Year #" + turnController.getYear() + ", " + turnController.getCurrentTurn());
         System.out.println("====== Report");
         System.out.println("=== Industry: "
-                + ResourcesController.getInstance().getIndustrySize()
+                + ResourcesController.getInstance().getIndustry().getSize()
                 + ", Agriculture: "
-                + ResourcesController.getInstance().getAgricultureSize());
+                + ResourcesController.getInstance().getAgriculture().getSize());
         System.out.println("=== Money: "
-                + ResourcesController.getInstance().getTreasuryAmount()
+                + ConsumableController.getInstance().getTreasury().getAmount()
                 + ", Food: "
-                + ResourcesController.getInstance().getFoodAmount());
+                + ConsumableController.getInstance().getFood().getAmount());
         System.out.println("==============================");
     }
 }

@@ -14,12 +14,15 @@ public class ResourcesController {
     }
 
     public static ResourcesController getInstance() {
-        if (instance == null)
-        {
+        if (isInstanceNotInitialized()) {
             instance = new ResourcesController();
         }
 
         return instance;
+    }
+
+    private static boolean isInstanceNotInitialized() {
+        return instance == null;
     }
 
     public Resource getAgriculture() {

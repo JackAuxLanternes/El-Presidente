@@ -46,23 +46,17 @@ public class FactionController {
     }
 
     private double determineGlobalSatisfaction() {
-
         return this.determineSatisfactionMultipliedBySupporters() / this.determineTotalSupporters();
     }
 
     private double determineSatisfactionMultipliedBySupporters() {
-
         return this.factions.getFactionList()
                 .stream().mapToDouble(faction -> faction.getSupporters() * faction.getSatisfaction()).sum();
 
     }
 
     public double determineTotalSupporters() {
-
         return this.factions.getFactionList()
                 .stream().mapToInt(faction -> faction.getSupporters()).sum();
     }
-
-
-
 }

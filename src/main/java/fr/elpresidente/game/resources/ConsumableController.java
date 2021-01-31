@@ -16,6 +16,18 @@ public class ConsumableController {
         treasury = new Treasury();
     }
 
+    public static ConsumableController getInstance() {
+        if (isInstanceNotInitialized()) {
+            instance = new ConsumableController();
+        }
+
+        return instance;
+    }
+
+    private static boolean isInstanceNotInitialized() {
+        return instance == null;
+    }
+
     public void setAnnualConsumable() {
         this.food.setAnnualAmount(resourcesController.getAgriculture());
         this.treasury.setAnnualAmount(resourcesController.getIndustry());
