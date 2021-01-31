@@ -1,5 +1,7 @@
 package fr.elpresidente.game.factions;
 
+import java.util.List;
+
 public class FactionController {
 
     private static FactionController instance;
@@ -19,7 +21,7 @@ public class FactionController {
     }
 
     public static FactionController getInstance() {
-        if (isIntanceNotInitialized())
+        if (isInstanceNotInitialized())
         {
             instance = new FactionController();
         }
@@ -27,8 +29,13 @@ public class FactionController {
         return instance;
     }
 
-    private static Boolean isIntanceNotInitialized() {
+    private static Boolean isInstanceNotInitialized() {
         return instance == null;
+    }
+
+    public void initFactions(){
+        this.factions.getFactionList().forEach(faction -> faction.setSatisfaction(50));
+        this.factions.getFactionList().forEach(faction -> faction.setSupporters(4));
     }
 
     public void applyEventToFactions() {
@@ -45,7 +52,7 @@ public class FactionController {
         return this.determineGlobalSatisfaction() > thresholdDifficulty;
     }
 
-    private double determineGlobalSatisfaction() {
+    public double determineGlobalSatisfaction() {
         return this.determineSatisfactionMultipliedBySupporters() / this.determineTotalSupporters();
     }
 
@@ -58,5 +65,9 @@ public class FactionController {
     public double determineTotalSupporters() {
         return this.factions.getFactionList()
                 .stream().mapToInt(faction -> faction.getSupporters()).sum();
+    }
+
+    public List<Faction> getFactions() {
+        return factions.getFactionList();
     }
 }
