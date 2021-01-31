@@ -1,4 +1,4 @@
-package fr.esgi.poo;
+package fr.elpresidente.game;
 
 import static org.junit.Assert.assertTrue;
 
