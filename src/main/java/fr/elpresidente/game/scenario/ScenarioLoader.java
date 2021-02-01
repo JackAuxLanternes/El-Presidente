@@ -13,7 +13,7 @@ public class ScenarioLoader {
     private String jsonFileContent;
 
     public ScenarioLoader() {
-        setJsonFile(new File("C:\\Users\\quent\\Documents\\Cours\\JAVA\\El-Presidente\\src\\main\\resources\\scenario.json"));
+        setJsonFile(new File("/Users/remy/Documents/ESGI/outil_technique_development/El-Presidente/src/main/resources/scenario.json"));
         setJsonFileContent("");
     }
 
