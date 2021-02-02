@@ -45,14 +45,17 @@ public class ResourcesController {
 
     private int getMaximumPossibleValueToAddWith(int value)
     {
-        int cumulative = value + getCumulativeResources();
-
-        if (cumulative > 100)
+        if (getCumulative(value) > 100)
         {
-            return value - (cumulative - 100);
+            return value - (getCumulative(value) - 100);
         }
 
         return value;
+    }
+
+    private int getCumulative(int value)
+    {
+        return value + getCumulativeResources();
     }
 
     public int getCumulativeResources()
