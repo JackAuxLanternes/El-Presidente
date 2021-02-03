@@ -41,7 +41,7 @@ public class FactionController {
 
         if(isTotalSupportSuperiorThanNumberSupporter(number_supporter)) {
             this.removeSupportersRandomly(number_supporter);
-            this.substractSatisfactionAccordingToNumberSupporter(number_supporter);
+            this.substractSatisfactionAccordingToNumberSupporterRemove(number_supporter);
         }
         this.errorSupporterToRemoveSuperiorThanTotalSuporters(number_supporter);
     }
@@ -103,7 +103,7 @@ public class FactionController {
         this.factions.get(random_index_faction).setSupporters(this.factions.get(random_index_faction).getSupporters() + 1 );
     }
 
-    private void substractSatisfactionAccordingToNumberSupporter(int number_supporter) {
+    private void substractSatisfactionAccordingToNumberSupporterRemove(int number_supporter) {
         int percentage_for_one_supporter = 2;
 
         this.factions
