@@ -43,7 +43,7 @@ public class ConsumableController {
     public void buyFoodUnits(int amount_food) {
         if(buyMaximumFoodPossible(amount_food) != amount_food)
         {
-            this.errorAmountToSubstractLessThan0(amount_food);
+            System.out.println("You have not enough money, you have used all of your money to pay equivalent food");
         }
     }
 
