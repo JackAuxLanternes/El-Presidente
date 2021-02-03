@@ -4,6 +4,10 @@ class Food implements Consumable {
 
     private int amount;
 
+    public Food(int amount) {
+        this.amount = amount;
+    }
+
     @Override
     public int getAmount() {
         return this.amount;
