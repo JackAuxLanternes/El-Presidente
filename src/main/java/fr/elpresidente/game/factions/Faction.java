@@ -10,6 +10,11 @@ public class Faction {
         this.name = name;
 
     }
+
+    public double getSatisfactionMultiplySupporter() {
+        return this.getSupporters() * this.getSatisfaction();
+    }
+
     public String getName() {
         return name;
     }

@@ -2,22 +2,25 @@ package fr.elpresidente.game.factions;
 
 import fr.elpresidente.game.resources.Treasury;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class FactionController {
 
     private static FactionController instance;
 
-    private final Factions factions;
+    private final List<Faction> factions;
 
     private FactionController() {
-        factions = new Factions();
-        factions.addFaction(new Faction("capitalist"));
-        factions.addFaction(new Faction("communist"));
-        factions.addFaction(new Faction("ecologist"));
-        factions.addFaction(new Faction("liberal"));
-        factions.addFaction(new Faction("loyalist"));
-        factions.addFaction(new Faction("militarist"));
-        factions.addFaction(new Faction("nationalist"));
-        factions.addFaction(new Faction("religious"));
+        factions = new ArrayList<Faction>();
+        factions.add(new Faction("capitalist"));
+        factions.add(new Faction("communist"));
+        factions.add(new Faction("ecologist"));
+        factions.add(new Faction("liberal"));
+        factions.add(new Faction("loyalist"));
+        factions.add(new Faction("militarist"));
+        factions.add(new Faction("nationalist"));
+        factions.add(new Faction("religious"));
     }
 
     public static FactionController getInstance() {
@@ -67,13 +70,12 @@ public class FactionController {
     }
 
     private double determineSatisfactionMultipliedBySupporters() {
-        return this.factions.getFactionList()
-                .stream().mapToDouble(faction -> faction.getSupporters() * faction.getSatisfaction()).sum();
-
+        return this.factions
+                .stream().mapToDouble(faction -> faction.getSatisfactionMultiplySupporter()).sum();
     }
 
     public int determineTotalSupporters() {
-        return this.factions.getFactionList()
+        return this.factions
                 .stream().mapToInt(faction -> faction.getSupporters()).sum();
     }
 
@@ -91,28 +93,28 @@ public class FactionController {
 
     private void removeSupporterRandomFaction() {
 
-        int random_index_faction = (int) Math.random() * this.factions.getFactionList().size();
-        this.factions.getFactionList().get(random_index_faction).setSupporters(this.factions.getFactionList().get(random_index_faction).getSupporters() -1);
+        int random_index_faction = this.determineNumberBetweenThreshold(0, this.factions.size());
+        this.factions.get(random_index_faction).setSupporters(this.factions.get(random_index_faction).getSupporters() - 1 );
     }
 
     private void addSupporterRandomFaction() {
 
-        int random_index_faction = (int) Math.random() * this.factions.getFactionList().size();
-        this.factions.getFactionList().get(random_index_faction).setSupporters(this.factions.getFactionList().get(random_index_faction).getSupporters() +1);
+        int random_index_faction = this.determineNumberBetweenThreshold(0, this.factions.size());
+        this.factions.get(random_index_faction).setSupporters(this.factions.get(random_index_faction).getSupporters() + 1 );
     }
 
     private void substractSatisfactionAccordingToNumberSupporter(int number_supporter) {
         int percentage_for_one_supporter = 2;
 
-        this.factions.getFactionList()
+        this.factions
                 .forEach(faction -> faction.setSatisfaction(faction.getSatisfaction() - (percentage_for_one_supporter * number_supporter) ));
     }
 
     private int determineNumberSupportersRandomly() {
-        return this.determinePercentageSupportersToAdd() * this.determineTotalSupporters();
+        return this.determineNumberBetweenThreshold(1, 10) * this.determineTotalSupporters();
     }
 
-    private int determinePercentageSupportersToAdd() {
-         return (int) Math.random() * 10 + 1;
+    private int determineNumberBetweenThreshold(int min, int max) {
+         return (int) (Math.random()*((max-min)+1))+min;
     }
 }
