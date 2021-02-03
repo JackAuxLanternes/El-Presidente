@@ -28,11 +28,6 @@ public class ConsumableController {
         return instance == null;
     }
 
-    public void setAnnualConsumable() {
-        this.food.setAnnualAmount(resourcesController.getAgriculture());
-        this.treasury.setAnnualAmount(resourcesController.getIndustry());
-    }
-
     public Consumable getFood() {
         return this.food;
     }
@@ -51,7 +46,8 @@ public class ConsumableController {
         int amount_to_substract = this.determineAmountForAmountFood(amount_food);
         if(amount_to_substract < this.treasury.getAmount()) {
             this.treasury.substractAmount(amount_to_substract);
-        }else {
+        }
+        else {
             this.errorAmountToSubstractLessThan0(amount_food);
         }
     }

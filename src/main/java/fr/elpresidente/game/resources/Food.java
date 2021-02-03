@@ -20,11 +20,6 @@ class Food implements Consumable {
     }
 
     @Override
-    public void setAnnualAmount(Resource resource) {
-
-    }
-
-    @Override
     public void substractAmount(int amount) {
 
     }

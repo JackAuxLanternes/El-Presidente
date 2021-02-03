@@ -21,11 +21,6 @@ public class Treasury implements Consumable{
     }
 
     @Override
-    public void setAnnualAmount(Resource resource) {
-        this.amount = resource.getAnnualYields();
-    }
-
-    @Override
     public void substractAmount(int amount) {
         this.amount -= amount;
     }
