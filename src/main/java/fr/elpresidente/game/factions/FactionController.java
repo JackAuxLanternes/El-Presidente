@@ -1,5 +1,7 @@
 package fr.elpresidente.game.factions;
 
+import fr.elpresidente.game.resources.Treasury;
+
 public class FactionController {
 
     private static FactionController instance;
@@ -31,20 +33,24 @@ public class FactionController {
         return instance == null;
     }
 
-    public void applyEventToFactions() {
-
-    }
 
     public void removeSupportersForFood(int number_supporter) {
-        //On teste que le nombre de supporter est > à number_supporter
-        // déclenché quand on a moins de 4 amount de Food par personne
-        // On supprime des partisans aléatoirement dans nimporte quelle faction
-        // On retire les 2% de satisfaction pour toutes les factions pour chaque partisan remove
+
         if(isTotalSupportSuperiorThanNumberSupporter(number_supporter)) {
             this.removeSupportersRandomly(number_supporter);
             this.substractSatisfactionAccordingToNumberSupporter(number_supporter);
         }
-        //gestion d'erreur ici à ajouter
+        this.errorSupporterToRemoveSuperiorThanTotalSuporters(number_supporter);
+    }
+
+    private void errorSupporterToRemoveSuperiorThanTotalSuporters(int number_supporter) {
+        throw new Error("you can't kill " + number_supporter + " supporters, you have only a total of" +
+                this.determineTotalSupporters()  + " supporters ");
+    }
+
+    public void addNewSupportersThanksToAgricultureSurplus() {
+
+        this.addSupportersRandomly(this.determineNumberSupportersRandomly());
     }
 
 
@@ -66,21 +72,33 @@ public class FactionController {
 
     }
 
-    public double determineTotalSupporters() {
+    public int determineTotalSupporters() {
         return this.factions.getFactionList()
                 .stream().mapToInt(faction -> faction.getSupporters()).sum();
     }
 
     private void removeSupportersRandomly(int number_supporter) {
         for(int i = 0; i < number_supporter; i++) {
-            this.removeSupporter();
+            this.removeSupporterRandomFaction();
         }
     }
 
-    private void removeSupporter() {
+    private void addSupportersRandomly(int number_supporter) {
+        for(int i = 0; i < number_supporter; i++) {
+            this.removeSupporterRandomFaction();
+        }
+    }
+
+    private void removeSupporterRandomFaction() {
 
         int random_index_faction = (int) Math.random() * this.factions.getFactionList().size();
         this.factions.getFactionList().get(random_index_faction).setSupporters(this.factions.getFactionList().get(random_index_faction).getSupporters() -1);
+    }
+
+    private void addSupporterRandomFaction() {
+
+        int random_index_faction = (int) Math.random() * this.factions.getFactionList().size();
+        this.factions.getFactionList().get(random_index_faction).setSupporters(this.factions.getFactionList().get(random_index_faction).getSupporters() +1);
     }
 
     private void substractSatisfactionAccordingToNumberSupporter(int number_supporter) {
@@ -88,5 +106,13 @@ public class FactionController {
 
         this.factions.getFactionList()
                 .forEach(faction -> faction.setSatisfaction(faction.getSatisfaction() - (percentage_for_one_supporter * number_supporter) ));
+    }
+
+    private int determineNumberSupportersRandomly() {
+        return this.determinePercentageSupportersToAdd() * this.determineTotalSupporters();
+    }
+
+    private int determinePercentageSupportersToAdd() {
+         return (int) Math.random() * 10 + 1;
     }
 }
