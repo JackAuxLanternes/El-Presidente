@@ -1,7 +1,5 @@
 package fr.elpresidente.game.factions;
 
-import fr.elpresidente.game.resources.Treasury;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +22,7 @@ public class FactionController {
     }
 
     public static FactionController getInstance() {
-        if (isIntanceNotInitialized())
+        if (isInstanceNotInitialized())
         {
             instance = new FactionController();
         }
@@ -32,10 +30,14 @@ public class FactionController {
         return instance;
     }
 
-    private static Boolean isIntanceNotInitialized() {
+    private static Boolean isInstanceNotInitialized() {
         return instance == null;
     }
 
+    public void initFactions(){
+        this.factions.forEach(faction -> faction.setSatisfaction(50));
+        this.factions.forEach(faction -> faction.setSupporters(4));
+    }
 
     public void removeSupportersForFood(int number_supporter) {
 
@@ -55,7 +57,6 @@ public class FactionController {
 
         this.addSupportersRandomly(this.determineNumberSupportersRandomly());
     }
-
 
     public boolean isTotalSupportSuperiorThanNumberSupporter(int number_supporter) {
         return this.determineTotalSupporters() > number_supporter;
@@ -87,7 +88,7 @@ public class FactionController {
 
     private void addSupportersRandomly(int number_supporter) {
         for(int i = 0; i < number_supporter; i++) {
-            this.removeSupporterRandomFaction();
+            this.addSupporterRandomFaction();
         }
     }
 
@@ -115,6 +116,6 @@ public class FactionController {
     }
 
     private int determineNumberBetweenThreshold(int min, int max) {
-         return (int) (Math.random()*((max-min)+1))+min;
+        return (int) (Math.random()*((max-min)+1))+min;
     }
 }
