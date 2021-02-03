@@ -33,17 +33,22 @@ public class ResourcesController {
         return this.industry;
     }
 
-    public void addIndustry(int value)
+    public void addIndustrySize(int value)
     {
-        industry.addSize(getMaximumPossibleValueToAddWith(value));
+        industry.addSize(getMaximumPossibleValueToAddToSize(value));
     }
 
-    public void addAgriculture(int value)
+    public void addAgricultureSize(int value)
     {
-        agriculture.addSize(getMaximumPossibleValueToAddWith(value));
+        agriculture.addSize(getMaximumPossibleValueToAddToSize(value));
     }
 
-    private int getMaximumPossibleValueToAddWith(int value)
+    public int getCumulativeResources()
+    {
+        return agriculture.getSize() + industry.getSize();
+    }
+
+    private int getMaximumPossibleValueToAddToSize(int value)
     {
         if (getCumulative(value) > 100)
         {
@@ -56,10 +61,5 @@ public class ResourcesController {
     private int getCumulative(int value)
     {
         return value + getCumulativeResources();
-    }
-
-    public int getCumulativeResources()
-    {
-        return agriculture.getSize() + industry.getSize();
     }
 }

@@ -8,8 +8,8 @@ public class ResourcesTest extends TestCase{
 
     public void testTheCumulativeOfRessourcesShouldBeEqualTo60WithAdding20AgricultureAnd40Industry()
     {
-        resourcesController.addAgriculture(20);
-        resourcesController.addIndustry(40);
+        resourcesController.addAgricultureSize(20);
+        resourcesController.addIndustrySize(40);
 
         assertEquals(20, resourcesController.getAgriculture().getSize());
         assertEquals(40, resourcesController.getIndustry().getSize());
@@ -18,8 +18,8 @@ public class ResourcesTest extends TestCase{
 
     public void testTheCumulativeOfRessourcesShouldBeEqualTo100EvenWithAdding80AgricultureAnd70Industry()
     {
-        resourcesController.addAgriculture(80);
-        resourcesController.addIndustry(70);
+        resourcesController.addAgricultureSize(80);
+        resourcesController.addIndustrySize(70);
 
         assertEquals(80, resourcesController.getAgriculture().getSize());
         assertEquals(20, resourcesController.getIndustry().getSize());
@@ -28,8 +28,8 @@ public class ResourcesTest extends TestCase{
 
     public void testTheCumulativeOfRessourcesShouldBeEqualTo100EvenWithAdding200IndustryAndAgricultureStayAt0()
     {
-        resourcesController.addIndustry(200);
-        resourcesController.addAgriculture(200);
+        resourcesController.addIndustrySize(200);
+        resourcesController.addAgricultureSize(200);
 
         assertEquals(0, resourcesController.getAgriculture().getSize());
         assertEquals(100, resourcesController.getIndustry().getSize());
