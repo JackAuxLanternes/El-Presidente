@@ -1,6 +1,7 @@
 package fr.elpresidente.game.turn;
 
 import fr.elpresidente.game.builders.TurnBuilder;
+import fr.elpresidente.game.endOfYearEvents.FoodMarket;
 import fr.elpresidente.game.resources.ConsumableController;
 import fr.elpresidente.game.resources.ResourcesController;
 
@@ -37,8 +38,8 @@ public class TurnController implements TurnBuilder {
     @Override
     public void newYear() {
         incrementYear();
-        ConsumableController.getInstance().getFood().addAmount(ResourcesController.getInstance().getAgriculture().getAnnualYields());
-        ConsumableController.getInstance().getTreasury().addAmount(ResourcesController.getInstance().getIndustry().getAnnualYields());
+
+        FoodMarket.getInstance().buyFoodUnits();
     }
 
     public Seasons getCurrentTurn() {
