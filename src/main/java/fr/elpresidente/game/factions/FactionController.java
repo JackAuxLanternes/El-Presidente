@@ -2,6 +2,8 @@ package fr.elpresidente.game.factions;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 
 public class FactionController {
 
@@ -53,12 +55,33 @@ public class FactionController {
                 this.determineTotalSupporters()  + " supporters ");
     }
 
+    public void substractSatisfactionForOneFaction(String name_faction, double satisfaction_percentage) {
+
+        Faction faction_research = this.factions
+                .stream().filter(faction -> faction.getName().equals(name_faction)).findFirst().orElseThrow(NoSuchElementException::new);
+        faction_research.addSatisfaction(faction_research.getSatisfaction() - satisfaction_percentage);
+    }
+
+    public void addSatisfactionForOneFaction(String name_faction, double satisfaction_percentage) {
+
+        Faction faction_research = this.factions
+                .stream().filter(faction -> faction.getName().equals(name_faction)).findFirst().orElseThrow(NoSuchElementException::new);
+        faction_research.addSatisfaction(faction_research.getSatisfaction() + satisfaction_percentage);
+    }
+
+    public int getSupportersFromNameFaction(String name_faction) {
+
+        Faction faction_research = this.factions
+                .stream().filter(faction -> faction.getName().equals(name_faction)).findFirst().orElseThrow(NoSuchElementException::new);
+        return faction_research.getSupporters();
+    }
+
     public void addNewSupportersThanksToAgricultureSurplus() {
 
         this.addSupportersRandomly(this.determineNumberSupportersRandomly());
     }
 
-    public boolean isTotalSupportSuperiorThanNumberSupporter(int number_supporter) {
+    private boolean isTotalSupportSuperiorThanNumberSupporter(int number_supporter) {
         return this.determineTotalSupporters() > number_supporter;
     }
 
@@ -75,7 +98,7 @@ public class FactionController {
                 .stream().mapToDouble(faction -> faction.getSatisfactionMultiplySupporter()).sum();
     }
 
-    public int determineTotalSupporters() {
+    private int determineTotalSupporters() {
         return this.factions
                 .stream().mapToInt(faction -> faction.getSupporters()).sum();
     }
@@ -112,7 +135,8 @@ public class FactionController {
     }
 
     private int determineNumberSupportersRandomly() {
-        return this.determineNumberBetweenThreshold(1, 10) * this.determineTotalSupporters();
+        int limit_percentage = 10;
+        return this.determineNumberBetweenThreshold(1, limit_percentage) * this.determineTotalSupporters();
     }
 
     private int determineNumberBetweenThreshold(int min, int max) {
