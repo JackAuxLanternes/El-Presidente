@@ -38,4 +38,8 @@ public class Faction {
     public void addSatisfaction(double satisfaction) {
         this.satisfaction += satisfaction;
     }
+
+    public void substractSatisfaction(double satisfaction) {
+        this.satisfaction -= satisfaction;
+    }
 }

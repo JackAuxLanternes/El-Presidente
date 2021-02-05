@@ -30,7 +30,7 @@ public class Game {
         ResourcesController.getInstance().getIndustry().setSize(20);
         ConsumableController.getInstance().getTreasury().setAmount(1000);
         ConsumableController.getInstance().getFood().setAmount(1000);
-        FactionController.getInstance().initFactions();
+        FactionController.getInstance().initFactions(4, 50);
     }
 
     public void initFromScenario(Scenario scenario) {

@@ -42,9 +42,9 @@ public class FactionController {
         }
     }
 
-    public void initFactions(){
-        this.factions.forEach(faction -> faction.setSatisfaction(50));
-        this.factions.forEach(faction -> faction.setSupporters(4));
+    public void initFactions(int supporters, double satisfaction){
+        this.factions.forEach(faction -> faction.setSatisfaction(satisfaction));
+        this.factions.forEach(faction -> faction.setSupporters(supporters));
     }
 
     public void removeSupportersForFood(int number_supporter) {
@@ -61,12 +61,6 @@ public class FactionController {
                 this.determineTotalSupporters()  + " supporters ");
     }
 
-    public void substractSatisfactionForOneFaction(String name_faction, double satisfaction_percentage) {
-
-        Faction faction_research = this.getFactionFromNameFaction(name_faction);
-        faction_research.addSatisfaction(faction_research.getSatisfaction() - satisfaction_percentage);
-    }
-
     public void addSatisfactionPercentageForOneFaction(String name_faction, double satisfaction_percentage) {
 
         Faction faction_research = this.getFactionFromNameFaction(name_faction);
@@ -76,9 +70,8 @@ public class FactionController {
     public Faction getFactionFromNameFaction(String name_faction) {
         return this.factions
                 .stream().filter(faction -> faction.getName().equals(name_faction)).findFirst()
-                    .orElseThrow(NoSuchElementException::new);
+                    .orElseThrow(() -> new NoSuchElementException("the faction "+ name_faction +" doesn\'t exist"));
     }
-
 
     public void addNewSupportersThanksToAgricultureSurplus() {
 
@@ -87,10 +80,6 @@ public class FactionController {
 
     private boolean isTotalSupportSuperiorThanNumberSupporter(int number_supporter) {
         return this.determineTotalSupporters() > number_supporter;
-    }
-
-    public boolean isSatisfactionSuperiorThanThreshold(int thresholdDifficulty) {
-        return this.determineGlobalSatisfaction() > thresholdDifficulty;
     }
 
     public double determineGlobalSatisfaction() {
