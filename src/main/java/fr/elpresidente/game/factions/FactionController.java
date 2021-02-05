@@ -62,7 +62,7 @@ public class FactionController {
 
     }
 
-    public double determineTotalSupporters() {
+    public int determineTotalSupporters() {
         return this.factions.getFactionList()
                 .stream().mapToInt(faction -> faction.getSupporters()).sum();
     }

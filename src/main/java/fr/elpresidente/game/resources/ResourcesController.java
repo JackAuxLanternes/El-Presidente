@@ -32,4 +32,18 @@ public class ResourcesController {
     public Resource getIndustry() {
         return this.industry;
     }
+
+    public void addResourceSize(Resource resource, int size) {
+        if (isResourceExpendable(size)) {
+            resource.addSize(size);
+        }
+    }
+
+    public boolean isResourceExpendable(int size) {
+        return getResourceTotalSize() + size < 100;
+    }
+
+    public int getResourceTotalSize() {
+        return this.agriculture.getSize() + this.industry.getSize();
+    }
 }

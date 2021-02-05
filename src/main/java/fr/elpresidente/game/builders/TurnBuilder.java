@@ -8,6 +8,7 @@ public interface TurnBuilder {
 
     void buildTurn();
 
-    void newYear();
+    void nextTurn();
 
+    void newYear();
 }

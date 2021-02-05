@@ -26,6 +26,6 @@ class Food implements Consumable {
 
     @Override
     public void substractAmount(int amount) {
-
+        this.amount -= amount;
     }
 }
