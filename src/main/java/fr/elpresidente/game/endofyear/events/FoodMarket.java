@@ -1,5 +1,6 @@
 package fr.elpresidente.game.endofyear.events;
 
+import fr.elpresidente.game.factions.FactionController;
 import fr.elpresidente.game.resources.ConsumableController;
 
 import java.util.Scanner;
@@ -71,7 +72,15 @@ public class FoodMarket {
 
     private int getFoodNeeded()
     {
-        return 0; //W.I.P.
+        int food_needed = ConsumableController.getInstance().getFood().getAmount() - FactionController.getInstance().determineTotalSupporters() * 4;
+        if (food_needed < 0)
+        {
+            return food_needed * (-1);
+        }
+        else
+        {
+            return 0;
+        }
     }
 
     private static boolean isInstanceNotInitialized() {
