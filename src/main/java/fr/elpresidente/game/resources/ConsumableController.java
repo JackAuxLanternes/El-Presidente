@@ -8,16 +8,12 @@ public class ConsumableController {
 
     private final Consumable food;
 
-    private static final int STARTING_QUANTITY_OF_FOOD = 1000;
-
     private final Consumable treasury;
-
-    private static final int STARTING_QUANTITY_OF_TREASURY = 400;
 
 
     private ConsumableController() {
-        food = new Food(STARTING_QUANTITY_OF_FOOD);
-        treasury = new Treasury(STARTING_QUANTITY_OF_TREASURY);
+        food = new Food(0);
+        treasury = new Treasury(0);
     }
 
     public static ConsumableController getInstance() {
