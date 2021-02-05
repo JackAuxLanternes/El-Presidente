@@ -36,6 +36,12 @@ public class FactionController {
         return instance == null;
     }
 
+    public static void resetInstance() {
+        if(instance != null){
+            instance = null;
+        }
+    }
+
     public void initFactions(){
         this.factions.forEach(faction -> faction.setSatisfaction(50));
         this.factions.forEach(faction -> faction.setSupporters(4));
@@ -57,24 +63,22 @@ public class FactionController {
 
     public void substractSatisfactionForOneFaction(String name_faction, double satisfaction_percentage) {
 
-        Faction faction_research = this.factions
-                .stream().filter(faction -> faction.getName().equals(name_faction)).findFirst().orElseThrow(NoSuchElementException::new);
+        Faction faction_research = this.getFactionFromNameFaction(name_faction);
         faction_research.addSatisfaction(faction_research.getSatisfaction() - satisfaction_percentage);
     }
 
-    public void addSatisfactionForOneFaction(String name_faction, double satisfaction_percentage) {
+    public void addSatisfactionPercentageForOneFaction(String name_faction, double satisfaction_percentage) {
 
-        Faction faction_research = this.factions
-                .stream().filter(faction -> faction.getName().equals(name_faction)).findFirst().orElseThrow(NoSuchElementException::new);
-        faction_research.addSatisfaction(faction_research.getSatisfaction() + satisfaction_percentage);
+        Faction faction_research = this.getFactionFromNameFaction(name_faction);
+        faction_research.addSatisfaction(faction_research.getSatisfaction() * satisfaction_percentage / 100);
     }
 
-    public int getSupportersFromNameFaction(String name_faction) {
-
-        Faction faction_research = this.factions
-                .stream().filter(faction -> faction.getName().equals(name_faction)).findFirst().orElseThrow(NoSuchElementException::new);
-        return faction_research.getSupporters();
+    public Faction getFactionFromNameFaction(String name_faction) {
+        return this.factions
+                .stream().filter(faction -> faction.getName().equals(name_faction)).findFirst()
+                    .orElseThrow(NoSuchElementException::new);
     }
+
 
     public void addNewSupportersThanksToAgricultureSurplus() {
 
