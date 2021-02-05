@@ -24,6 +24,17 @@ public class ConsumableController {
         return instance;
     }
 
+    public static void deleteInstance() {
+        if(instance != null){
+            instance = null;
+        }
+    }
+
+    public static ConsumableController resetInstance() {
+        deleteInstance();
+        return getInstance();
+    }
+
     private static boolean isInstanceNotInitialized() {
         return instance == null;
     }
