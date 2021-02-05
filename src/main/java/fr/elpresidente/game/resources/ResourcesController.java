@@ -8,7 +8,7 @@ public class ResourcesController {
 
     private final Resource industry;
 
-    public ResourcesController() {
+    private ResourcesController() {
         agriculture = new Agriculture();
         industry = new Industry();
     }
@@ -17,8 +17,18 @@ public class ResourcesController {
         if (isInstanceNotInitialized()) {
             instance = new ResourcesController();
         }
-
         return instance;
+    }
+
+    public static void deleteInstance() {
+        if(instance != null){
+            instance = null;
+        }
+    }
+
+    public static ResourcesController resetInstance() {
+        deleteInstance();
+        return getInstance();
     }
 
     private static boolean isInstanceNotInitialized() {
