@@ -8,7 +8,5 @@ public interface Consumable {
 
     void addAmount(int amount);
 
-    void setAnnualAmount(Resource resource);
-
     void substractAmount(int amount);
 }

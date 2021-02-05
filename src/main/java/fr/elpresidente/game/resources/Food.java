@@ -4,6 +4,10 @@ class Food implements Consumable {
 
     private int amount;
 
+    public Food(int amount) {
+        this.amount = amount;
+    }
+
     @Override
     public int getAmount() {
         return this.amount;
@@ -20,12 +24,7 @@ class Food implements Consumable {
     }
 
     @Override
-    public void setAnnualAmount(Resource resource) {
-
-    }
-
-    @Override
     public void substractAmount(int amount) {
-
+        this.amount -= amount;
     }
 }

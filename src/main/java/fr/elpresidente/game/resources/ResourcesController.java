@@ -8,7 +8,7 @@ public class ResourcesController {
 
     private final Resource industry;
 
-    private ResourcesController() {
+    public ResourcesController() {
         agriculture = new Agriculture();
         industry = new Industry();
     }
@@ -31,5 +31,35 @@ public class ResourcesController {
 
     public Resource getIndustry() {
         return this.industry;
+    }
+
+    public void addIndustrySize(int value)
+    {
+        industry.addSize(getMaximumPossibleValueToAddToSize(value));
+    }
+
+    public void addAgricultureSize(int value)
+    {
+        agriculture.addSize(getMaximumPossibleValueToAddToSize(value));
+    }
+
+    public int getCumulativeResources()
+    {
+        return agriculture.getSize() + industry.getSize();
+    }
+
+    private int getMaximumPossibleValueToAddToSize(int value)
+    {
+        if (getCumulative(value) > 100)
+        {
+            return value - (getCumulative(value) - 100);
+        }
+
+        return value;
+    }
+
+    private int getCumulative(int value)
+    {
+        return value + getCumulativeResources();
     }
 }

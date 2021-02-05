@@ -5,6 +5,10 @@ public class Treasury implements Consumable{
     public final static int PRICE_ONE_YIELD_AGRICULTURE = 8;
     private int amount;
 
+    public Treasury(int amount) {
+        this.amount = amount;
+    }
+
     @Override
     public int getAmount() {
         return amount;
@@ -18,11 +22,6 @@ public class Treasury implements Consumable{
     @Override
     public void addAmount(int amount) {
         this.amount += amount;
-    }
-
-    @Override
-    public void setAnnualAmount(Resource resource) {
-        this.amount = resource.getAnnualYields();
     }
 
     @Override

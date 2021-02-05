@@ -5,7 +5,7 @@ import fr.elpresidente.game.builders.RessourceBuilder;
 class Industry implements Resource, RessourceBuilder {
 
     private int size;
-    private final int PERCENTAGE_MULTIPLIER_INDUSTRY_IN_TREASURY = 10;
+    private static final int PERCENTAGE_MULTIPLIER_INDUSTRY_IN_TREASURY = 10;
 
     @Override
     public void init() {
@@ -30,7 +30,7 @@ class Industry implements Resource, RessourceBuilder {
     }
 
     public int getAnnualYields() {
-        return this.size * this.PERCENTAGE_MULTIPLIER_INDUSTRY_IN_TREASURY;
+        return this.size * PERCENTAGE_MULTIPLIER_INDUSTRY_IN_TREASURY;
     }
 
 }

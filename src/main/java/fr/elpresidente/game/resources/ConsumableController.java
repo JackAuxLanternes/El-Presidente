@@ -8,12 +8,16 @@ public class ConsumableController {
 
     private final Consumable food;
 
+    private static final int STARTING_QUANTITY_OF_FOOD = 1000;
+
     private final Consumable treasury;
+
+    private static final int STARTING_QUANTITY_OF_TREASURY = 400;
 
 
     private ConsumableController() {
-        food = new Food();
-        treasury = new Treasury();
+        food = new Food(STARTING_QUANTITY_OF_FOOD);
+        treasury = new Treasury(STARTING_QUANTITY_OF_TREASURY);
     }
 
     public static ConsumableController getInstance() {
@@ -28,11 +32,6 @@ public class ConsumableController {
         return instance == null;
     }
 
-    public void setAnnualConsumable() {
-        this.food.setAnnualAmount(resourcesController.getAgriculture());
-        this.treasury.setAnnualAmount(resourcesController.getIndustry());
-    }
-
     public Consumable getFood() {
         return this.food;
     }
@@ -41,28 +40,5 @@ public class ConsumableController {
         return this.treasury;
     }
 
-    public void buyFoodUnits(int amount_food) {
 
-        this.substractAmountTreasuryAccordingToAmountFood(amount_food);
-        this.food.addAmount(amount_food);
-    }
-
-    public void substractAmountTreasuryAccordingToAmountFood(int amount_food) {
-        int amount_to_substract = this.determineAmountForAmountFood(amount_food);
-        if(amount_to_substract < this.treasury.getAmount()) {
-            this.treasury.substractAmount(amount_to_substract);
-        }else {
-            this.errorAmountToSubstractLessThan0(amount_food);
-        }
-    }
-
-    private void errorAmountToSubstractLessThan0(int amount_food) {
-        throw new Error("you can't buy " + amount_food + " agriculutre yields you have only " +
-                this.treasury.getAmount() + "$ and on yield cost " + Treasury.PRICE_ONE_YIELD_AGRICULTURE);
-    }
-
-
-    private int determineAmountForAmountFood(int amount_food) {
-        return amount_food * Treasury.PRICE_ONE_YIELD_AGRICULTURE;
-    }
 }
