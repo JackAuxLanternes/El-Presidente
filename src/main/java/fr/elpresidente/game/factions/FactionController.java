@@ -47,19 +47,6 @@ public class FactionController {
         this.factions.forEach(faction -> faction.setSupporters(supporters));
     }
 
-    public void removeSupportersForFood(int number_supporter) {
-
-        if(isTotalSupportSuperiorThanNumberSupporter(number_supporter)) {
-            this.removeSupportersRandomly(number_supporter);
-            this.substractSatisfactionAccordingToNumberSupporterRemove(number_supporter);
-        }
-        this.errorSupporterToRemoveSuperiorThanTotalSuporters(number_supporter);
-    }
-
-    private void errorSupporterToRemoveSuperiorThanTotalSuporters(int number_supporter) {
-        throw new Error("you can't kill " + number_supporter + " supporters, you have only a total of" +
-                this.determineTotalSupporters()  + " supporters ");
-    }
 
     public void addSatisfactionPercentageForOneFaction(String name_faction, double satisfaction_percentage) {
 
@@ -96,7 +83,7 @@ public class FactionController {
                 .stream().mapToInt(faction -> faction.getSupporters()).sum();
     }
 
-    private void removeSupportersRandomly(int number_supporter) {
+    public void removeSupportersRandomly(int number_supporter) {
         for(int i = 0; i < number_supporter; i++) {
             this.removeSupporterRandomFaction();
         }
@@ -120,7 +107,7 @@ public class FactionController {
         this.factions.get(random_index_faction).setSupporters(this.factions.get(random_index_faction).getSupporters() + 1 );
     }
 
-    private void substractSatisfactionAccordingToNumberSupporterRemove(int number_supporter) {
+    public void substractSatisfactionAccordingToNumberSupporters(int number_supporter) {
         int percentage_for_one_supporter = 2;
 
         this.factions
