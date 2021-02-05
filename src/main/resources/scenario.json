@@ -1,169 +1,353 @@
 {
-  "date":
-  {
-    "year" : 1973,
-    "season" : "winter"
+  "date": {
+    "year": 1953,
+    "season": "winter"
   },
-  "factions":
-  [
+  "resources": [
+	{
+		"name": "industry",
+		"value": 20
+	},
+	{
+		"name": "agriculture",
+		"value": 20
+	}
+  ],
+  "consumable": [
+	{
+		"name": "food",
+		"value": 12000
+	},
+	{
+		"name": "treasury",
+		"value": 3000
+	}
+  ],
+  "factions": [
     {
-      "name":"capitalistes",
-      "popularity":70
+      "name": "capitalistes",
+      "popularity": 50
     },
     {
-      "name":"communistes",
-      "popularity":70
+      "name": "communistes",
+      "popularity": 50
     },
     {
-      "name":"liberaux",
-      "popularity":50
+      "name": "liberaux",
+      "popularity": 50
     },
     {
-      "name":"religieux",
-      "popularity":50
+      "name": "religieux",
+      "popularity": 35
     },
     {
-      "name":"militaristes",
-      "popularity":60
+      "name": "militaristes",
+      "popularity": 40
     },
     {
-      "name":"ecologistes",
-      "popularity":35
+      "name": "ecologistes",
+      "popularity": 35
     },
     {
-      "name":"nationalistes",
-      "popularity":40
+      "name": "nationalistes",
+      "popularity": 40
     },
     {
-      "name":"loyalistes",
-      "popularity":50
+      "name": "loyalistes",
+      "popularity": 70
     }
   ],
-  "events":
-  [
+  "events": [
     {
-      "year":1973,
-      "season":"summer",
-      "description":"Coup d'état militaire en Urugay",
-      "choices":
-      [
+      "year": 1953,
+      "season": "winter",
+      "description": "Mort de Staline. La population se demande comment se place El-presidente face à ce (tragique ?) évènement.",
+      "choices": [
         {
-          "name":"Supporter le coup d'état (les militaristes approuveront)",
-          "effects":
-          [
+          "name": "La mort d'un camarade ne fait que renforcer les fondations du communisme, envoyer une délégation aux funérailles (les gauchistes approuveront)",
+          "effects": [
             {
-              "type":"faction",
-              "key":"militaristes",
-              "change":10
+              "type": "faction",
+              "key": "communisme",
+              "change": 25
             },
             {
-              "type":"ressources",
-              "key":"treasury",
-              "change":-500
+              "type": "faction",
+              "key": "liberaux",
+              "change": 15
+            },
+            {
+              "type": "faction",
+              "key": "capitalistes",
+              "change": -25
+            },
+            {
+              "type": "faction",
+              "key": "nationalistes",
+              "change": -10
+            },
+            {
+              "type": "faction",
+              "key": "militaristes",
+              "change": -5
+            },
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": -100
             }
           ]
         },
         {
-          "name":"Envoyer des diplomates (les liberaux approuveront)",
-          "effects":
-          [
+          "name": "Staline disait: \"La mort d'un homme est une tragédie. La mort d'un million d'hommes est une statistique.\", El-presidente dit: \"Faisons de sa mort une statistique\". (les gauchistes s'enerveront)",
+          "effects": [
             {
-              "type":"faction",
-              "key":"liberaux",
-              "change":5
+              "type": "faction",
+              "key": "capitalistes",
+              "change": 20
             },
             {
-              "type":"faction",
-              "key":"militaristes",
-              "change":-5
+              "type": "faction",
+              "key": "nationalistes",
+              "change": 5
+            },
+            {
+              "type": "faction",
+              "key": "communisme",
+              "change": -20
+            },
+            {
+              "type": "faction",
+              "key": "liberaux",
+              "change": -5
             }
           ]
         },
         {
-          "name":"Rester neutre (les militaristes seront déçus)",
-          "effects":
-          [
+          "name": "Esperont que le peuple Sovietique retrouveras un peu de liberté, ouvrons les communications avec Moskwa (Les liberaux approuvent)",
+          "effects": [
             {
-              "type":"faction",
-              "key":"militaristes",
-              "change":-5
+              "type": "faction",
+              "key": "liberaux",
+              "change": 15
+            },
+            {
+              "type": "faction",
+              "key": "communistes",
+              "change": 5
+            },
+            {
+              "type": "faction",
+              "key": "ecologistes",
+              "change": 5
+            },
+            {
+              "type": "faction",
+              "key": "militaristes",
+              "change": -10
+            },
+            {
+              "type": "faction",
+              "key": "capitalistes",
+              "change": -10
+            }
+          ]
+        },
+        {
+          "name": "El-presidente n'as pas d'amis, seul des alliers de circonstance! En cas de conflit nous seront pret à prendre les armes (les militaristes approuvent)",
+          "effects": [
+            {
+              "type": "faction",
+              "key": "militaristes",
+              "change": 15
+            },
+            {
+              "type": "faction",
+              "key": "nationalistes",
+              "change": 10
+            },
+            {
+              "type": "faction",
+              "key": "loyalistes",
+              "change": 5
+            },
+            {
+              "type": "faction",
+              "key": "liberaux",
+              "change": -15
+            },
+            {
+              "type": "faction",
+              "key": "ecologistes",
+              "change": -5
+            },
+            {
+              "type": "faction",
+              "key": "communistes",
+              "change": -5
+            },
+            {
+              "type": "faction",
+              "key": "capitalistes",
+              "change": -5
+            },
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": -1000
+            },
+            {
+              "type": "resources",
+              "key": "industry",
+              "change": 3
             }
           ]
         }
       ]
     },
     {
-      "year":1973,
-      "season":"autumn",
-      "description":"Choc petrolier",
-      "choices":
-      [
-
+      "year": 1953,
+      "season": "summer",
+      "description": "Fin de la guerre de corée",
+      "choices": [
         {
-          "name":"Demander l'aide des USA (les capitalistes approuveront)",
-          "effects":
-          [
+          "name": "La Corée est en ruine, envoyons des fonds et du matériels pour les civils (les liberaux approuvent)",
+          "effects": [
             {
-              "type":"faction",
-              "key":"capitalistes",
-              "change":10
+              "type": "faction",
+              "key": "liberaux",
+              "change": 10
             },
             {
-              "type":"faction",
-              "key":"capitalistes",
-              "change":-15
+              "type": "faction",
+              "key": "religieux",
+              "change": 10
             },
             {
-              "type":"ressources",
-              "key":"treasury",
-              "change":-1000
+              "type": "faction",
+              "key": "capitalistes",
+              "change": -5
+            },
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": -500
             }
           ]
         },
         {
-          "name":"Demander l'aide de l'URSS (les communistes approuveront)",
-          "effects":
-          [
+          "name": "L'histoire se répète et aucune armée n'est invincible, étudions ce conflit pour développer nos stratégies militaire (les militaristes approuvent)",
+          "effects": [
             {
-              "type":"faction",
-              "key":"capitalistes",
-              "change":-15
+              "type": "faction",
+              "key": "militaristes",
+              "change": 10
             },
             {
-              "type":"faction",
-              "key":"capitalistes",
-              "change":10
+              "type": "faction",
+              "key": "nationalistes",
+              "change": 5
             },
             {
-              "type":"ressources",
-              "key":"treasury",
-              "change":-1000
+              "type": "consumable",
+              "key": "treasury",
+              "change": -1000
             }
           ]
         },
         {
-          "name":"La republique d'El-presidente doit devenir autonome en pétrole via l'industrie",
-          "effects":
-          [
+          "name": "El-presidente n'as pas le temps pour ce genre de conflits",
+          "effects": [
             {
-              "type":"ressources",
-              "key":"treasury",
-              "change":-1500
+              "type": "faction",
+              "key": "loyalistes",
+              "change": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "year": 1953,
+      "season": "autumn",
+      "description": "Le cinéma semble se développer mondialement, peut-être que cela pourrait profiter à El-presidente",
+      "choices": [
+        {
+          "name": "Créer un bureau de propagande qui produira des films (toute les factions gagneront en satisfaction)",
+          "effects": [
+            {
+              "type": "faction",
+              "key": "capitalistes",
+              "change": 3
             },
             {
-              "type":"faction",
-              "key":"ecologistes",
-              "change":-5
+              "type": "faction",
+              "key": "communistes",
+              "change": 3
             },
             {
-              "type":"faction",
-              "key":"nationalistes",
-              "change":5
+              "type": "faction",
+              "key": "liberaux",
+              "change": 3
             },
             {
-              "type":"ressources",
-              "key":"industrie",
-              "change":3
+              "type": "faction",
+              "key": "religieux",
+              "change": 3
+            },
+            {
+              "type": "faction",
+              "key": "militaristes",
+              "change": 3
+            },
+            {
+              "type": "faction",
+              "key": "ecologistes",
+              "change": 3
+            },
+            {
+              "type": "faction",
+              "key": "nationalistes",
+              "change": 3
+            },
+            {
+              "type": "faction",
+              "key": "loyalistes",
+              "change": 3
+            },
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": -500
+            }
+          ]
+        },
+        {
+          "name": "Investir dans la réalisation de films à exporter (nous rapporteras de l'argent plus tard)",
+          "effects": [
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": -500
+            }
+          ],
+          "trigger": "movie_profit_from_export"
+        }
+      ]
+    }
+  ],
+  "conditional_events": [
+    {
+      "id": "movie_profit_from_export",
+      "description": "Il semblerait que le reste du monde est fasciné par la beautée de notre ile, ces plages de sable fin, son eau bleu turquoise et sa faune sauvage!",
+      "choices": [
+        {
+          "name": "Profitons de cet engoument pour renflouer nos caisses !",
+          "effects": [
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": 1200
             }
           ]
         }

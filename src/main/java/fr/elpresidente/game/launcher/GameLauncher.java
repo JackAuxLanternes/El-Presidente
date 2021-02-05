@@ -1,6 +1,7 @@
 package fr.elpresidente.game.launcher;
 
 import fr.elpresidente.game.builders.GameBuilder;
+import fr.elpresidente.game.scenario.Scenario;
 import fr.elpresidente.game.status.Game;
 
 public class GameLauncher implements GameBuilder {
@@ -12,9 +13,9 @@ public class GameLauncher implements GameBuilder {
     }
 
     @Override
-    public void createNewGame() {
+    public void createNewGame(Scenario scenario) {
         Game game = new Game();
-        game.initGame();
+        game.initFromScenario(scenario);
         game.gameLoop();
     }
 

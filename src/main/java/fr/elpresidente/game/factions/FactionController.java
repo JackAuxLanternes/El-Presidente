@@ -89,7 +89,7 @@ public class FactionController {
         return this.determineGlobalSatisfaction() > thresholdDifficulty;
     }
 
-    private double determineGlobalSatisfaction() {
+    public double determineGlobalSatisfaction() {
         return this.determineSatisfactionMultipliedBySupporters() / this.determineTotalSupporters();
     }
 
@@ -98,7 +98,7 @@ public class FactionController {
                 .stream().mapToDouble(faction -> faction.getSatisfactionMultiplySupporter()).sum();
     }
 
-    private int determineTotalSupporters() {
+    public int determineTotalSupporters() {
         return this.factions
                 .stream().mapToInt(faction -> faction.getSupporters()).sum();
     }
@@ -141,5 +141,9 @@ public class FactionController {
 
     private int determineNumberBetweenThreshold(int min, int max) {
         return (int) (Math.random()*((max-min)+1))+min;
+    }
+
+    public List<Faction> getFactions() {
+        return factions;
     }
 }

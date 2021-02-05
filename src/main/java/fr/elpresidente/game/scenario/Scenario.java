@@ -10,15 +10,24 @@ public class Scenario {
 
     private JSONObject date;
 
+    private JSONArray resources;
+
+    private JSONArray consumable;
+
     private JSONArray factions;
 
-    private JSONArray events;
+    private JSONArray scriptedEvents;
+
+    private JSONArray conditionalEvents;
 
     public Scenario(String jsonFileContent) {
         setJsonObject((JSONObject) JSONValue.parse(jsonFileContent));
         setDate((JSONObject) getJsonObject().get("date"));
+        setResources((JSONArray) getJsonObject().get("resources"));
+        setConsumable((JSONArray) getJsonObject().get("consumable"));
         setFactions((JSONArray) getJsonObject().get("factions"));
-        setEvents((JSONArray) getJsonObject().get("events"));
+        setScriptedEvents((JSONArray) getJsonObject().get("events"));
+        setConditionalEvents((JSONArray) getJsonObject().get("conditional_events"));
     }
 
     public JSONObject getJsonObject() {
@@ -37,6 +46,22 @@ public class Scenario {
         this.date = date;
     }
 
+    public JSONArray getResources() {
+        return resources;
+    }
+
+    public void setResources(JSONArray resources) {
+        this.resources = resources;
+    }
+
+    public JSONArray getConsumable() {
+        return consumable;
+    }
+
+    public void setConsumable(JSONArray consumable) {
+        this.consumable = consumable;
+    }
+
     public JSONArray getFactions() {
         return factions;
     }
@@ -45,11 +70,19 @@ public class Scenario {
         this.factions = factions;
     }
 
-    public JSONArray getEvents() {
-        return events;
+    public JSONArray getScriptedEvents() {
+        return scriptedEvents;
     }
 
-    public void setEvents(JSONArray events) {
-        this.events = events;
+    public void setScriptedEvents(JSONArray scriptedEvents) {
+        this.scriptedEvents = scriptedEvents;
+    }
+
+    public JSONArray getConditionalEvents() {
+        return conditionalEvents;
+    }
+
+    public void setConditionalEvents(JSONArray conditionalEvents) {
+        this.conditionalEvents = conditionalEvents;
     }
 }

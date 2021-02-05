@@ -3,7 +3,7 @@ package fr.elpresidente.game;
 import fr.elpresidente.game.launcher.GameLauncher;
 import fr.elpresidente.game.launcher.LauncherGameType;
 import fr.elpresidente.game.launcher.LauncherMenu;
-import fr.elpresidente.game.scenario.ScenarioLoader;
+import fr.elpresidente.game.scenario.ScenarioParser;
 
 public class Main {
     public static void main(String[] args) {
@@ -11,16 +11,16 @@ public class Main {
         GameLauncher gameLauncher = new GameLauncher();
         LauncherMenu launcherMenu = new LauncherMenu();
 
-        ScenarioLoader scenarioLoader = new ScenarioLoader();
-        scenarioLoader.loadScenario();
 
-        gameLauncher.init();
 
         try {
             LauncherGameType gameType = launcherMenu.choseGameType();
 
             if (gameType == LauncherGameType.NEW_GAME) {
-                gameLauncher.createNewGame();
+                ScenarioParser scenarioParser = new ScenarioParser();
+                scenarioParser.openScenario();
+                gameLauncher.createNewGame(scenarioParser.getScenario());
+                gameLauncher.init();
             } else if (gameType == LauncherGameType.LOAD_GAME) {
                 gameLauncher.loadSavedGame();
             }
