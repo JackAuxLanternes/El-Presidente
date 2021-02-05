@@ -1,6 +1,6 @@
 package fr.elpresidente.game;
 
-import fr.elpresidente.game.endOfYearEvents.Bribe;
+import fr.elpresidente.game.endofyear.events.Bribe;
 import fr.elpresidente.game.factions.FactionController;
 import junit.framework.TestCase;
 

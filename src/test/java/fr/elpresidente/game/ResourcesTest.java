@@ -4,7 +4,7 @@ import fr.elpresidente.game.resources.ResourcesController;
 import junit.framework.TestCase;
 
 public class ResourcesTest extends TestCase{
-    ResourcesController resourcesController = new ResourcesController();
+    ResourcesController resourcesController = ResourcesController.getInstance();
 
     public void testTheCumulativeOfRessourcesShouldBeEqualTo60WithAdding20AgricultureAnd40Industry()
     {
@@ -18,6 +18,7 @@ public class ResourcesTest extends TestCase{
 
     public void testTheCumulativeOfRessourcesShouldBeEqualTo100EvenWithAdding80AgricultureAnd70Industry()
     {
+        resourcesController = ResourcesController.resetInstance();
         resourcesController.addAgricultureSize(80);
         resourcesController.addIndustrySize(70);
 
@@ -28,6 +29,7 @@ public class ResourcesTest extends TestCase{
 
     public void testTheCumulativeOfRessourcesShouldBeEqualTo100EvenWithAdding200IndustryAndAgricultureStayAt0()
     {
+        resourcesController = ResourcesController.resetInstance();
         resourcesController.addIndustrySize(200);
         resourcesController.addAgricultureSize(200);
 

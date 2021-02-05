@@ -1,4 +1,4 @@
-package fr.elpresidente.game.endOfYearEvents;
+package fr.elpresidente.game.endofyear.events;
 
 import fr.elpresidente.game.resources.ConsumableController;
 
@@ -11,14 +11,6 @@ public class FoodMarket {
     private static FoodMarket instance;
 
     ConsumableController controller = ConsumableController.getInstance();
-
-    public static FoodMarket getInstance() {
-        if (isInstanceNotInitialized()) {
-            instance = new FoodMarket();
-        }
-
-        return instance;
-    }
 
     public void buyFoodUnits() {
         if(getFoodNeeded() > 0)
