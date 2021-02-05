@@ -1,7 +1,7 @@
 {
   "date": {
-    "year": 1953,
-    "season": "winter"
+    "year": 1952,
+    "season": "AUTUMN"
   },
   "resources": [
 	{
@@ -26,7 +26,7 @@
   "factions": [
     {
       "name": "capitalist",
-      "popularity": 50,
+      "popularity": 55,
 	  "supporters": 10
     },
     {
@@ -41,12 +41,12 @@
     },
     {
       "name": "religious",
-      "popularity": 35,
+      "popularity": 45,
 	  "supporters": 10
     },
     {
       "name": "militarist",
-      "popularity": 40,
+      "popularity": 60,
 	  "supporters": 10
     },
     {
@@ -56,7 +56,7 @@
     },
     {
       "name": "nationalist",
-      "popularity": 40,
+      "popularity": 50,
 	  "supporters": 10
     },
     {
@@ -68,7 +68,7 @@
   "events": [
     {
       "year": 1953,
-      "season": "winter",
+      "season": "WINTER",
       "description": "Mort de Staline. La population se demande comment se place El-presidente face à ce (tragique ?) évènement.",
       "choices": [
         {
@@ -215,7 +215,7 @@
     },
     {
       "year": 1953,
-      "season": "summer",
+      "season": "SUMMER",
       "description": "Fin de la guerre de corée",
       "choices": [
         {
@@ -277,7 +277,7 @@
     },
     {
       "year": 1953,
-      "season": "autumn",
+      "season": "AUTUMN",
       "description": "Le cinéma semble se développer mondialement, peut-être que cela pourrait profiter à El-presidente",
       "choices": [
         {

@@ -1,10 +1,13 @@
 package fr.elpresidente.game.scenario;
 
+import fr.elpresidente.game.events.EventController;
 import fr.elpresidente.game.factions.Faction;
 import fr.elpresidente.game.factions.FactionController;
 import fr.elpresidente.game.resources.ConsumableController;
 import fr.elpresidente.game.resources.ResourcesController;
 import fr.elpresidente.game.tools.JSONTools;
+import fr.elpresidente.game.turn.Seasons;
+import fr.elpresidente.game.turn.TurnController;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -12,18 +15,27 @@ public class ScenarioLoader {
 
     private Scenario scenario;
 
-    public ScenarioLoader(Scenario scenario) {
+    private TurnController turnController;
+
+    public ScenarioLoader(Scenario scenario, TurnController turnController) {
         this.setScenario(scenario);
+        this.setTurnController(turnController);
     }
 
     public void tryToLoadScenario() {
         try {
+            this.loadDateScenario();
             this.loadResourceScenario();
             this.loadConsumableScenario();
             this.loadFactionsScenario();
+            this.loadEventsFromScenario();
         } catch (NullPointerException nullPointerException) {
             throw new NullPointerException("Couldn't load scenario completely, check file is in the right folder and not corrupted.\n" + nullPointerException);
         }
+    }
+
+    public void loadDateScenario() {
+        turnController.setStartDate(JSONTools.extractIntFromJSONObject(scenario.getDate(), "year"), JSONTools.extractSeasonFromJSONObject(scenario.getDate()));
     }
 
     public void loadResourceScenario() {
@@ -52,7 +64,16 @@ public class ScenarioLoader {
         }
     }
 
+    public void loadEventsFromScenario() {
+        EventController.getInstance().setScriptedEvents(scenario.getScriptedEvents());
+        EventController.getInstance().setConditionalEvents(scenario.getConditionalEvents());
+    }
+
     private void setScenario(Scenario scenario) {
         this.scenario = scenario;
+    }
+
+    private void setTurnController(TurnController turnController) {
+        this.turnController = turnController;
     }
 }

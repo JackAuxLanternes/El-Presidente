@@ -34,7 +34,7 @@ public class Game {
     }
 
     public void initFromScenario(Scenario scenario) {
-        ScenarioLoader scenarioLoader = new ScenarioLoader(scenario);
+        ScenarioLoader scenarioLoader = new ScenarioLoader(scenario, turnController);
         scenarioLoader.tryToLoadScenario();
     }
 
@@ -48,6 +48,6 @@ public class Game {
     }
 
     public boolean isDefeated() {
-        return turnController.getYear() > 0;
+        return turnController.getYear() > 1955;
     }
 }
