@@ -1,7 +1,7 @@
 {
   "date": {
-    "year": 1953,
-    "season": "winter"
+    "year": 1952,
+    "season": "AUTUMN"
   },
   "resources": [
 	{
@@ -25,42 +25,50 @@
   ],
   "factions": [
     {
-      "name": "capitalistes",
-      "popularity": 50
+      "name": "capitalist",
+      "popularity": 55,
+	  "supporters": 10
     },
     {
-      "name": "communistes",
-      "popularity": 50
+      "name": "communist",
+      "popularity": 50,
+	  "supporters": 10
     },
     {
-      "name": "liberaux",
-      "popularity": 50
+      "name": "liberal",
+      "popularity": 50,
+	  "supporters": 10
     },
     {
-      "name": "religieux",
-      "popularity": 35
+      "name": "religious",
+      "popularity": 45,
+	  "supporters": 10
     },
     {
-      "name": "militaristes",
-      "popularity": 40
+      "name": "militarist",
+      "popularity": 60,
+	  "supporters": 10
     },
     {
-      "name": "ecologistes",
-      "popularity": 35
+      "name": "ecologist",
+      "popularity": 35,
+	  "supporters": 10
     },
     {
-      "name": "nationalistes",
-      "popularity": 40
+      "name": "nationalist",
+      "popularity": 50,
+	  "supporters": 10
     },
     {
-      "name": "loyalistes",
-      "popularity": 70
+      "name": "loyalist",
+      "popularity": 70,
+	  "supporters": 10
     }
   ],
   "events": [
     {
       "year": 1953,
-      "season": "winter",
+      "season": "WINTER",
       "description": "Mort de Staline. La population se demande comment se place El-presidente face à ce (tragique ?) évènement.",
       "choices": [
         {
@@ -73,22 +81,22 @@
             },
             {
               "type": "faction",
-              "key": "liberaux",
+              "key": "liberal",
               "change": 15
             },
             {
               "type": "faction",
-              "key": "capitalistes",
+              "key": "capitalist",
               "change": -25
             },
             {
               "type": "faction",
-              "key": "nationalistes",
+              "key": "nationalist",
               "change": -10
             },
             {
               "type": "faction",
-              "key": "militaristes",
+              "key": "militarist",
               "change": -5
             },
             {
@@ -103,12 +111,12 @@
           "effects": [
             {
               "type": "faction",
-              "key": "capitalistes",
+              "key": "capitalist",
               "change": 20
             },
             {
               "type": "faction",
-              "key": "nationalistes",
+              "key": "nationalist",
               "change": 5
             },
             {
@@ -118,77 +126,77 @@
             },
             {
               "type": "faction",
-              "key": "liberaux",
+              "key": "liberal",
               "change": -5
             }
           ]
         },
         {
-          "name": "Esperont que le peuple Sovietique retrouveras un peu de liberté, ouvrons les communications avec Moskwa (Les liberaux approuvent)",
+          "name": "Esperont que le peuple Sovietique retrouveras un peu de liberté, ouvrons les communications avec Moskwa (Les liberal approuvent)",
           "effects": [
             {
               "type": "faction",
-              "key": "liberaux",
+              "key": "liberal",
               "change": 15
             },
             {
               "type": "faction",
-              "key": "communistes",
+              "key": "communist",
               "change": 5
             },
             {
               "type": "faction",
-              "key": "ecologistes",
+              "key": "ecologist",
               "change": 5
             },
             {
               "type": "faction",
-              "key": "militaristes",
+              "key": "militarist",
               "change": -10
             },
             {
               "type": "faction",
-              "key": "capitalistes",
+              "key": "capitalist",
               "change": -10
             }
           ]
         },
         {
-          "name": "El-presidente n'as pas d'amis, seul des alliers de circonstance! En cas de conflit nous seront pret à prendre les armes (les militaristes approuvent)",
+          "name": "El-presidente n'as pas d'amis, seul des alliers de circonstance! En cas de conflit nous seront pret à prendre les armes (les militarist approuvent)",
           "effects": [
             {
               "type": "faction",
-              "key": "militaristes",
+              "key": "militarist",
               "change": 15
             },
             {
               "type": "faction",
-              "key": "nationalistes",
+              "key": "nationalist",
               "change": 10
             },
             {
               "type": "faction",
-              "key": "loyalistes",
+              "key": "loyalist",
               "change": 5
             },
             {
               "type": "faction",
-              "key": "liberaux",
+              "key": "liberal",
               "change": -15
             },
             {
               "type": "faction",
-              "key": "ecologistes",
+              "key": "ecologist",
               "change": -5
             },
             {
               "type": "faction",
-              "key": "communistes",
+              "key": "communist",
               "change": -5
             },
             {
               "type": "faction",
-              "key": "capitalistes",
+              "key": "capitalist",
               "change": -5
             },
             {
@@ -207,25 +215,25 @@
     },
     {
       "year": 1953,
-      "season": "summer",
+      "season": "SUMMER",
       "description": "Fin de la guerre de corée",
       "choices": [
         {
-          "name": "La Corée est en ruine, envoyons des fonds et du matériels pour les civils (les liberaux approuvent)",
+          "name": "La Corée est en ruine, envoyons des fonds et du matériels pour les civils (les liberal approuvent)",
           "effects": [
             {
               "type": "faction",
-              "key": "liberaux",
+              "key": "liberal",
               "change": 10
             },
             {
               "type": "faction",
-              "key": "religieux",
+              "key": "religious",
               "change": 10
             },
             {
               "type": "faction",
-              "key": "capitalistes",
+              "key": "capitalist",
               "change": -5
             },
             {
@@ -236,16 +244,16 @@
           ]
         },
         {
-          "name": "L'histoire se répète et aucune armée n'est invincible, étudions ce conflit pour développer nos stratégies militaire (les militaristes approuvent)",
+          "name": "L'histoire se répète et aucune armée n'est invincible, étudions ce conflit pour développer nos stratégies militaire (les militarist approuvent)",
           "effects": [
             {
               "type": "faction",
-              "key": "militaristes",
+              "key": "militarist",
               "change": 10
             },
             {
               "type": "faction",
-              "key": "nationalistes",
+              "key": "nationalist",
               "change": 5
             },
             {
@@ -260,7 +268,7 @@
           "effects": [
             {
               "type": "faction",
-              "key": "loyalistes",
+              "key": "loyalist",
               "change": 5
             }
           ]
@@ -269,7 +277,7 @@
     },
     {
       "year": 1953,
-      "season": "autumn",
+      "season": "AUTUMN",
       "description": "Le cinéma semble se développer mondialement, peut-être que cela pourrait profiter à El-presidente",
       "choices": [
         {
@@ -277,42 +285,42 @@
           "effects": [
             {
               "type": "faction",
-              "key": "capitalistes",
+              "key": "capitalist",
               "change": 3
             },
             {
               "type": "faction",
-              "key": "communistes",
+              "key": "communist",
               "change": 3
             },
             {
               "type": "faction",
-              "key": "liberaux",
+              "key": "liberal",
               "change": 3
             },
             {
               "type": "faction",
-              "key": "religieux",
+              "key": "religious",
               "change": 3
             },
             {
               "type": "faction",
-              "key": "militaristes",
+              "key": "militarist",
               "change": 3
             },
             {
               "type": "faction",
-              "key": "ecologistes",
+              "key": "ecologist",
               "change": 3
             },
             {
               "type": "faction",
-              "key": "nationalistes",
+              "key": "nationalist",
               "change": 3
             },
             {
               "type": "faction",
-              "key": "loyalistes",
+              "key": "loyalist",
               "change": 3
             },
             {

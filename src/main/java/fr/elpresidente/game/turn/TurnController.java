@@ -1,6 +1,7 @@
 package fr.elpresidente.game.turn;
 
 import fr.elpresidente.game.builders.TurnBuilder;
+import fr.elpresidente.game.events.EventController;
 import fr.elpresidente.game.factions.FactionController;
 import fr.elpresidente.game.resources.ConsumableController;
 import fr.elpresidente.game.resources.ResourcesController;
@@ -10,6 +11,12 @@ public class TurnController implements TurnBuilder {
     private Seasons currentTurn;
 
     private int year;
+
+    @Override
+    public void setStartDate(int year, Seasons season) {
+        this.year = year;
+        this.currentTurn = season;
+    }
 
     @Override
     public Seasons getNextTurn() {
@@ -32,12 +39,13 @@ public class TurnController implements TurnBuilder {
 
     @Override
     public void buildTurn() {
+        EventController.getInstance().findEvent(year, currentTurn);
     }
 
     @Override
     public void nextTurn() {
-        buildTurn();
         setCurrentTurn(getNextTurn());
+        buildTurn();
     }
 
     @Override

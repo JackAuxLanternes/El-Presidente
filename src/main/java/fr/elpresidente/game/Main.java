@@ -11,8 +11,6 @@ public class Main {
         GameLauncher gameLauncher = new GameLauncher();
         LauncherMenu launcherMenu = new LauncherMenu();
 
-
-
         try {
             LauncherGameType gameType = launcherMenu.choseGameType();
 
