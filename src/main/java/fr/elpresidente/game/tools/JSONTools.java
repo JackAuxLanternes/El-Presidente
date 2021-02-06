@@ -4,10 +4,16 @@ import fr.elpresidente.game.turn.Seasons;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import java.util.ArrayList;
+
 public class JSONTools {
 
     public static int extractIntFromJSONObject(JSONObject jsonObject, String key) {
         return Math.toIntExact((long) jsonObject.get(key));
+    }
+
+    public static String extractStringFromJSONObject(JSONObject jsonObject, String key) {
+        return jsonObject.get(key).toString();
     }
 
     public static Seasons extractSeasonFromJSONObject(JSONObject jsonObject) {
@@ -51,11 +57,23 @@ public class JSONTools {
         return null;
     }
 
+    public static ArrayList<JSONObject> collectJSONArrayChilrenAsArrayList(JSONArray jsonArray) {
+        ArrayList<JSONObject> values = new ArrayList<>();
+        for (Object element : jsonArray) {
+            values.add((JSONObject) element);
+        }
+        return values;
+    }
+
     public static boolean doesJSONObjectContainsKeyValue(JSONObject jsonObject, Object key, Object value) {
         return jsonObject.containsKey(key) && jsonObject.containsValue(value);
     }
 
     public static boolean doesJSONObjectDateMatch(JSONObject eventObject, int year, Seasons season) {
         return extractIntFromJSONObject(eventObject, "year") == year && extractSeasonFromJSONObject(eventObject) == season;
+    }
+
+    public static boolean isJSONObjectNull(JSONObject jsonObject) {
+        return jsonObject == null;
     }
 }

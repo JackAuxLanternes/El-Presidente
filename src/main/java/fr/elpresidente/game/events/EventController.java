@@ -3,6 +3,7 @@ package fr.elpresidente.game.events;
 import fr.elpresidente.game.tools.JSONTools;
 import fr.elpresidente.game.turn.Seasons;
 import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 public class EventController {
 
@@ -13,9 +14,27 @@ public class EventController {
     private JSONArray conditionalEvents;
 
     public Event findEvent(int year, Seasons season) {
-        //To search event in JSON: JSONTools.findJSONObjectForScriptedEvent(scriptedEvents, year, season));
+        Event event = searchScriptedEvent(year, season);
 
-        return null;
+        if (isEventNull(event)) {
+            return null;
+        }
+
+        return event;
+    }
+
+    private Event searchScriptedEvent(int year, Seasons season) {
+        JSONObject jsonEvent = JSONTools.findJSONObjectForScriptedEvent(scriptedEvents, year, season);
+
+        if (JSONTools.isJSONObjectNull(jsonEvent)) {
+            return null;
+        }
+
+        return new Event(jsonEvent);
+    }
+
+    private boolean isEventNull(Event event) {
+        return event == null;
     }
 
     private static boolean isInstanceNotInitialized() {
