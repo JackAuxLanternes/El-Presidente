@@ -10,7 +10,7 @@ public class FoodMarketTest extends TestCase {
 
     public void setup()
     {
-        FactionController.getInstance().initFactions();
+        FactionController.getInstance().initFactions(4, 50);
         ConsumableController.resetInstance();
     }
 
