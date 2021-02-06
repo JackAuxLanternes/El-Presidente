@@ -9,11 +9,9 @@ import static fr.elpresidente.game.resources.Treasury.PRICE_ONE_YIELD_AGRICULTUR
 
 public class FoodMarket {
 
-    private static FoodMarket instance;
-
     ConsumableController controller = ConsumableController.getInstance();
 
-    public void buyFoodUnits() {
+    public void goToFoodMarket() {
         if(getFoodNeeded() > 0)
         {
             askUserIfHeWantToBuyFood();
@@ -70,9 +68,9 @@ public class FoodMarket {
         return amount_to_substract;
     }
 
-    private int getFoodNeeded()
+    public int getFoodNeeded()
     {
-        int food_needed = ConsumableController.getInstance().getFood().getAmount() - FactionController.getInstance().determineTotalSupporters() * 4;
+        int food_needed = ConsumableController.getInstance().getFood().getAmount() - (FactionController.getInstance().determineTotalSupporters() * 4);
         if (food_needed < 0)
         {
             return food_needed * (-1);
@@ -81,10 +79,6 @@ public class FoodMarket {
         {
             return 0;
         }
-    }
-
-    private static boolean isInstanceNotInitialized() {
-        return instance == null;
     }
 
     private int determineAmountForAmountFood(int amount_food) {
