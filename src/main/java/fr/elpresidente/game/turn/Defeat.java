@@ -1,20 +1,21 @@
 package fr.elpresidente.game.turn;
 
+import fr.elpresidente.game.difficulty.DifficultyController;
 import fr.elpresidente.game.factions.FactionController;
 
 public class Defeat {
 
-    private FactionController factionController;
+    private final FactionController factionController;
 
     public Defeat() {
         this.factionController = FactionController.getInstance();
     }
 
-    public boolean completeConditionsToContinue(double threshold_percentage) {
-        return this.isSatisfactionSuperiorThanThreshold(threshold_percentage);
+    public boolean completeConditionsToContinue() throws Exception {
+        return this.isSatisfactionSuperiorThanThreshold();
     }
 
-    public boolean isSatisfactionSuperiorThanThreshold(double threshold_percentage) {
-        return this.factionController.determineGlobalSatisfaction() > threshold_percentage;
+    public boolean isSatisfactionSuperiorThanThreshold() throws Exception {
+        return this.factionController.determineGlobalSatisfaction() > DifficultyController.getInstance().getPercentage();
     }
 }
