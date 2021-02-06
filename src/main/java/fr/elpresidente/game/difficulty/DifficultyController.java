@@ -1,5 +1,8 @@
 package fr.elpresidente.game.difficulty;
 
+import fr.elpresidente.game.difficulty.Difficulty;
+import fr.elpresidente.game.difficulty.DifficultyEnum;
+
 public class DifficultyController {
 
     private static DifficultyController instance;
@@ -22,7 +25,7 @@ public class DifficultyController {
         this.difficulty = difficulty;
     }
 
-    public double getDifficultyLooseMultiplier() throws Exception {
+    /*public double getDifficultyLooseMultiplier() throws Exception {
         switch (difficulty)
         {
             case EASY:
@@ -53,5 +56,5 @@ public class DifficultyController {
         }
 
         throw new Exception("You can't trigger this method because you didn't initialize difficulty");
-    }
+    }*/
 }

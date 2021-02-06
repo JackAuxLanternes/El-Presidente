@@ -1,7 +1,8 @@
 package fr.elpresidente.game.difficulty;
 
-public enum Difficulty {
-    EASY,
-    NORMAL,
-    HARD,
+public interface Difficulty {
+
+    double getDifficultyLooseMultiplier();
+
+    int getPercentage();
 }
