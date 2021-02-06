@@ -60,11 +60,6 @@ public class FactionController {
                     .orElseThrow(() -> new NoSuchElementException("the faction "+ name_faction +" doesn\'t exist"));
     }
 
-    public void addNewSupportersThanksToAgricultureSurplus() {
-
-        this.addSupportersRandomly(this.determineNumberSupportersRandomly());
-    }
-
     private boolean isTotalSupportSuperiorThanNumberSupporter(int number_supporter) {
         return this.determineTotalSupporters() > number_supporter;
     }
@@ -89,7 +84,7 @@ public class FactionController {
         }
     }
 
-    private void addSupportersRandomly(int number_supporter) {
+    public void addSupportersRandomly(int number_supporter) {
         for(int i = 0; i < number_supporter; i++) {
             this.addSupporterRandomFaction();
         }
@@ -98,29 +93,23 @@ public class FactionController {
     private void removeSupporterRandomFaction() {
 
         int random_index_faction = this.determineNumberBetweenThreshold(0, this.factions.size() - 1);
-        this.factions.get(random_index_faction).setSupporters(this.factions.get(random_index_faction).getSupporters() - 1 );
+        this.factions.get(random_index_faction).substractSupporter(1);
     }
 
     private void addSupporterRandomFaction() {
 
-        int random_index_faction = this.determineNumberBetweenThreshold(0, this.factions.size());
-        this.factions.get(random_index_faction).setSupporters(this.factions.get(random_index_faction).getSupporters() + 1 );
+        int random_index_faction = this.determineNumberBetweenThreshold(0, this.factions.size() - 1);
+        this.factions.get(random_index_faction).addSupporter(1);
     }
 
     public void substractSatisfactionAccordingToNumberSupporters(int number_supporter) {
         int percentage_for_one_supporter = 2;
-        System.out.println("number_supporter -> " + number_supporter);
 
         this.factions
                 .forEach(faction -> faction.substractSatisfaction( percentage_for_one_supporter * number_supporter ));
     }
 
-    private int determineNumberSupportersRandomly() {
-        int limit_percentage = 10;
-        return this.determineNumberBetweenThreshold(1, limit_percentage) * this.determineTotalSupporters();
-    }
-
-    private int determineNumberBetweenThreshold(int min, int max) {
+    public int determineNumberBetweenThreshold(int min, int max) {
         return (int) (Math.random()*((max-min)+1))+min;
     }
 

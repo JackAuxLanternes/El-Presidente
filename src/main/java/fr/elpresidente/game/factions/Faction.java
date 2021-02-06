@@ -42,4 +42,12 @@ public class Faction {
     public void substractSatisfaction(double satisfaction) {
         this.satisfaction -= satisfaction;
     }
+
+    public void addSupporter(int supporters) {
+        this.supporters += supporters;
+    }
+
+    public void substractSupporter(int supporters) {
+        this.supporters -= supporters;
+    }
 }

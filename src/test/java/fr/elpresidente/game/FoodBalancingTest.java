@@ -1,34 +1,35 @@
 package fr.elpresidente.game;
 
-import fr.elpresidente.game.endofyear.events.BalanceSheet;
+import fr.elpresidente.game.endofyear.events.BalanceSheetEvent;
+import fr.elpresidente.game.endofyear.events.Foodbalancing;
 import fr.elpresidente.game.factions.FactionController;
 import fr.elpresidente.game.resources.ConsumableController;
 import junit.framework.TestCase;
 
-public class BalanceSheetTest extends TestCase {
+public class FoodBalancingTest extends TestCase {
 
-    public void testIfWedontHaveToEliminateSupporters()
+    public void testIfWeDontHaveToEliminateSupporters()
     {
-        BalanceSheet balanceSheet = new BalanceSheet();
+        BalanceSheetEvent foodbalancing = new Foodbalancing();
         FactionController factionController = FactionController.getInstance();
         factionController.initFactions(4, 50);
         ConsumableController consumableController = ConsumableController.getInstance();
         consumableController.getFood().setAmount(200);
 
-        balanceSheet.foodBalancingForSupporters();
+        foodbalancing.callEvent();
 
         assertEquals(72, consumableController.getFood().getAmount());
     }
 
     public void testIfWeHaveToEliminateSupporters()
     {
-        BalanceSheet balanceSheet = new BalanceSheet();
+        BalanceSheetEvent foodbalancing = new Foodbalancing();
         FactionController factionController = FactionController.getInstance();
         factionController.initFactions(4, 50);
         ConsumableController consumableController = ConsumableController.getInstance();
         consumableController.getFood().setAmount(50);
         assertEquals(50.0, factionController.determineGlobalSatisfaction());
-        balanceSheet.foodBalancingForSupporters();
+        foodbalancing.callEvent();
 
         factionController.getFactions().forEach(faction -> System.out.println(faction.getSatisfaction()));
 
