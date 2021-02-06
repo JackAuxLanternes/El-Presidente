@@ -13,14 +13,15 @@ public class EventController {
 
     private JSONArray conditionalEvents;
 
-    public Event findEvent(int year, Seasons season) {
+    private Event currentEvent;
+
+    public void findEvent(int year, Seasons season) {
+        resetCurrentEvent();
         Event event = searchScriptedEvent(year, season);
 
-        if (isEventNull(event)) {
-            return null;
+        if (!isEventNull(event)) {
+            setCurrentEvent(event);
         }
-
-        return event;
     }
 
     private Event searchScriptedEvent(int year, Seasons season) {
@@ -55,5 +56,17 @@ public class EventController {
 
     public void setConditionalEvents(JSONArray conditionalEvents) {
         this.conditionalEvents = conditionalEvents;
+    }
+
+    private void setCurrentEvent(Event currentEvent) {
+        this.currentEvent = currentEvent;
+    }
+
+    private void resetCurrentEvent() {
+        this.currentEvent = null;
+    }
+
+    public Event getCurrentEvent() {
+        return currentEvent;
     }
 }

@@ -21,6 +21,18 @@ public class Event {
 
     private void initEvent() {
         this.description = JSONTools.extractStringFromJSONObject(this.event, "description");
-        this.choices = JSONTools.collectJSONArrayChilrenAsArrayList((JSONArray) this.event.get("choices"));
+        this.choices = JSONTools.collectJSONArrayChildrenAsArrayList((JSONArray) this.event.get("choices"));
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public ArrayList<String> getChoicesName() {
+        ArrayList<String> choicesName = new ArrayList<>();
+        for (JSONObject choice : choices) {
+            choicesName.add(JSONTools.extractStringFromJSONObject(choice, "name"));
+        }
+        return choicesName;
     }
 }

@@ -1,5 +1,6 @@
 package fr.elpresidente.game.status;
 
+import fr.elpresidente.game.events.EventController;
 import fr.elpresidente.game.factions.Faction;
 import fr.elpresidente.game.factions.FactionController;
 import fr.elpresidente.game.resources.ConsumableController;
@@ -19,12 +20,14 @@ public class GameDisplay {
         showTurnStatus();
         showResourcesStatus();
         showFactionsStatus();
+        waitForUserToContinue("Le journal vient d'arriver! Appuyez sur [ENTER] pour le lire...");
+        showEvent();
         System.out.println("==============================");
-        waitForUserInput();
+        waitForUserToContinue("Fin du tour, appuyez sur [ENTER] pour continuer...");
     }
 
-    public void waitForUserInput() {
-        System.out.println("Press [ENTER] to continue...");
+    public void waitForUserToContinue(String message) {
+        System.out.println(message);
         try {
             System.in.read();
             System.in.skip(System.in.available());
@@ -63,9 +66,22 @@ public class GameDisplay {
                     + faction.getName()
                     + ": "
                     + faction.getSatisfaction()
-                    + "%, ce qui nous rapporte "
+                    + "%, cette faction compte "
                     + faction.getSupporters()
                     + " partisants");
+        }
+    }
+
+    public void showEvent() {
+        System.out.println("===== El-Présigaro =====");
+        if (EventController.getInstance().getCurrentEvent() != null) {
+            System.out.println("= " + EventController.getInstance().getCurrentEvent().getDescription());
+            for (int i = 0; i < EventController.getInstance().getCurrentEvent().getChoicesName().size(); i++) {
+                System.out.println("===");
+                System.out.println((i + 1) + " → " + EventController.getInstance().getCurrentEvent().getChoicesName().get(i));
+            }
+        } else {
+            System.out.println("No news good news");
         }
     }
 
