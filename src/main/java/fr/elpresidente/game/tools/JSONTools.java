@@ -57,7 +57,7 @@ public class JSONTools {
         return null;
     }
 
-    public static ArrayList<JSONObject> collectJSONArrayChilrenAsArrayList(JSONArray jsonArray) {
+    public static ArrayList<JSONObject> collectJSONArrayChildrenAsArrayList(JSONArray jsonArray) {
         ArrayList<JSONObject> values = new ArrayList<>();
         for (Object element : jsonArray) {
             values.add((JSONObject) element);
