@@ -16,6 +16,7 @@ public class EventController {
     private Event currentEvent;
 
     public void findEvent(int year, Seasons season) {
+
         resetCurrentEvent();
         Event event = searchScriptedEvent(year, season);
 

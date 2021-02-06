@@ -11,8 +11,11 @@ public class GameDisplay {
 
     private final TurnController turnController;
 
+    private final GameEventDisplayManager gameEventDisplayManager;
+
     public GameDisplay(TurnController turnController) {
         this.turnController = turnController;
+        this.gameEventDisplayManager = new GameEventDisplayManager();
     }
 
     public void showGameStatus() {
@@ -21,7 +24,7 @@ public class GameDisplay {
         showResourcesStatus();
         showFactionsStatus();
         waitForUserToContinue("Le journal vient d'arriver! Appuyez sur [ENTER] pour le lire...");
-        showEvent();
+        gameEventDisplayManager.showEvent();
         System.out.println("==============================");
         waitForUserToContinue("Fin du tour, appuyez sur [ENTER] pour continuer...");
     }
@@ -68,20 +71,7 @@ public class GameDisplay {
                     + faction.getSatisfaction()
                     + "%, cette faction compte "
                     + faction.getSupporters()
-                    + " partisants");
-        }
-    }
-
-    public void showEvent() {
-        System.out.println("===== El-Présigaro =====");
-        if (EventController.getInstance().getCurrentEvent() != null) {
-            System.out.println("= " + EventController.getInstance().getCurrentEvent().getDescription());
-            for (int i = 0; i < EventController.getInstance().getCurrentEvent().getChoicesName().size(); i++) {
-                System.out.println("===");
-                System.out.println((i + 1) + " → " + EventController.getInstance().getCurrentEvent().getChoicesName().get(i));
-            }
-        } else {
-            System.out.println("No news good news");
+                    + " partisans");
         }
     }
 
