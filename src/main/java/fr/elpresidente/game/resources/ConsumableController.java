@@ -39,6 +39,17 @@ public class ConsumableController {
         return instance == null;
     }
 
+    public Consumable getConsumableFromConsumableName(String consumableName) throws Exception
+    {
+        switch (consumableName)
+        {
+            case "food" : return food;
+            case "treasury" : return treasury;
+            default:
+                throw new Exception("This Consumable doesn't exist");
+        }
+    }
+
     public Consumable getFood() {
         return this.food;
     }
@@ -46,6 +57,4 @@ public class ConsumableController {
     public Consumable getTreasury() {
         return this.treasury;
     }
-
-
 }
