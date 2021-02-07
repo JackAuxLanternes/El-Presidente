@@ -92,13 +92,19 @@ public class FactionController {
 
     private void removeSupporterRandomFaction() {
 
-        int random_index_faction = this.determineNumberBetweenThreshold(0, this.factions.size() - 1);
+        int random_index_faction;
+        do {
+            random_index_faction = this.determineNumberBetweenThreshold(0, this.factions.size() - 1);
+        }while(this.factions.get(random_index_faction).getSupporters() <= 0);
         this.factions.get(random_index_faction).substractSupporter(1);
     }
 
     private void addSupporterRandomFaction() {
 
-        int random_index_faction = this.determineNumberBetweenThreshold(0, this.factions.size() - 1);
+        int random_index_faction;
+        do {
+            random_index_faction = this.determineNumberBetweenThreshold(0, this.factions.size() - 1);
+        }while(this.factions.get(random_index_faction).getSupporters() <= 0);
         this.factions.get(random_index_faction).addSupporter(1);
     }
 

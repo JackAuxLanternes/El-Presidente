@@ -36,11 +36,19 @@ public class Faction {
     }
 
     public void addSatisfaction(double satisfaction) {
-        this.satisfaction += satisfaction;
+
+        if(isSatisfactionSuperiorThan0())
+            this.satisfaction += satisfaction;
+    }
+
+    private boolean isSatisfactionSuperiorThan0() {
+        return this.satisfaction > 0;
     }
 
     public void substractSatisfaction(double satisfaction) {
-        this.satisfaction -= satisfaction;
+
+        if(isSatisfactionSuperiorThan0())
+            this.satisfaction -= satisfaction;
     }
 
     public void addSupporter(int supporters) {
