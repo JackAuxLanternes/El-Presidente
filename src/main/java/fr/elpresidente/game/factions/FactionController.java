@@ -101,6 +101,7 @@ public class FactionController {
 
     private void addSupporterRandomFaction() {
 
+        /*TODO vérifier que j'ai au moins une faction avec Supporters > 0*/
         int random_index_faction;
         do {
             random_index_faction = this.determineNumberBetweenThreshold(0, this.factions.size() - 1);
