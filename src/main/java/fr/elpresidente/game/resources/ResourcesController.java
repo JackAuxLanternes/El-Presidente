@@ -43,6 +43,17 @@ public class ResourcesController {
         return this.industry;
     }
 
+    public Resource getResourceFromResourceName(String resourceName) throws Exception
+    {
+        switch (resourceName)
+        {
+            case "agriculture" : return agriculture;
+            case "industry" : return industry;
+            default:
+                throw new Exception("This Resource doesn't exist");
+        }
+    }
+
     public void addIndustrySize(int value)
     {
         industry.addSize(getMaximumPossibleValueToAddToSize(value));
