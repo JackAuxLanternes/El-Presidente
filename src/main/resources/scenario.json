@@ -1,7 +1,7 @@
 {
   "date": {
-    "year": 1952,
-    "season": "AUTUMN"
+    "year": 1953,
+    "season": "WINTER"
   },
   "resources": [
 	{
@@ -76,7 +76,7 @@
           "effects": [
             {
               "type": "faction",
-              "key": "communisme",
+              "key": "communist",
               "change": 25
             },
             {
@@ -121,7 +121,7 @@
             },
             {
               "type": "faction",
-              "key": "communisme",
+              "key": "communist",
               "change": -20
             },
             {
@@ -205,7 +205,7 @@
               "change": -1000
             },
             {
-              "type": "resources",
+              "type": "resource",
               "key": "industry",
               "change": 3
             }
@@ -345,21 +345,93 @@
     }
   ],
   "conditional_events": [
-    {
-      "id": "movie_profit_from_export",
-      "description": "Il semblerait que le reste du monde est fasciné par la beautée de notre ile, ces plages de sable fin, son eau bleu turquoise et sa faune sauvage!",
-      "choices": [
-        {
-          "name": "Profitons de cet engoument pour renflouer nos caisses !",
-          "effects": [
-            {
-              "type": "consumable",
-              "key": "treasury",
-              "change": 1200
-            }
-          ]
-        }
-      ]
-    }
+	{
+	  "id": "movie_profit_from_export",
+	  "description": "Il semblerait que le reste du monde est fasciné par la beautée de notre ile, ces plages de sable fin, son eau bleu turquoise et sa faune sauvage!",
+	  "choices": [
+		{
+		  "name": "Profitons de cet engoument pour renflouer nos caisses !",
+		  "effects": [
+			{
+			  "type": "consumable",
+			  "key": "treasury",
+			  "change": 1200
+			}
+		  ]
+		},
+		{
+			"name": "Investissons immédiatement cet argent pour améliorer notre industrie",
+			"effects": [
+				{
+					"type": "resource",
+					"key": "industry",
+					"change": 5
+				}
+			]
+		},
+		{
+			"name": "Investissons immédiatement cet argent pour améliorer notre agriculture",
+			"effects": [
+				{
+					"type": "resource",
+					"key": "agriculture",
+					"change": 5
+				}
+			]
+		}
+	  ]
+	}
+  ],
+  "generic_events": [
+	{
+		"description": "El-presidente s'ennuie",
+		"choices": [
+			{
+				"name": "Une bonne après-midi au stand de tir lui changeras les idées! (les militarist approuvent)",
+				"effects": [
+					{
+						"type": "faction",
+						"key": "militarist",
+						"change": 1
+					},
+					{
+						"type": "consumable",
+						"key": "treasury",
+						"change": -50
+					}
+				]
+			},
+			{
+				"name": "Une bonne soirée au strip-club lui changeras les idées! (les religious n'approuvent pas mais El-presidente s'amuseras beaucoup)",
+				"effects": [
+					{
+						"type": "faction",
+						"key": "religious",
+						"change": -1
+					},
+					{
+						"type": "consumable",
+						"key": "treasury",
+						"change": -50
+					}
+				]
+			},
+			{
+				"name": "Une banquet avec ces conseillers lui changeras les idées! (les conseillers mangent beaucoup)",
+				"effects": [
+					{
+						"type": "consumable",
+						"key": "food",
+						"change": -20
+					},
+					{
+						"type": "consumable",
+						"key": "treasury",
+						"change": -50
+					}
+				]
+			}
+		]
+	}
   ]
 }
