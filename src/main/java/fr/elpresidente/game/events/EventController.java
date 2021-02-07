@@ -16,7 +16,10 @@ public class EventController {
     private Event currentEvent;
 
     public void findEvent(int year, Seasons season) {
-
+        if (currentEvent != null && currentEvent.getTriggerEvent() != null) {
+            setCurrentEvent(new Event(JSONTools.findJSONObjectInJSONArrayWithKeyValue(conditionalEvents, "id", currentEvent.getTriggerEvent())));
+            return;
+        }
         resetCurrentEvent();
         Event event = searchScriptedEvent(year, season);
 

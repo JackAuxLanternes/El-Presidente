@@ -17,6 +17,8 @@ public class Event {
 
     private ArrayList<JSONObject> choices;
 
+    private String triggerEvent = null;
+
     public Event(JSONObject event) {
         this.event = event;
         this.initEvent();
@@ -44,6 +46,10 @@ public class Event {
         for (JSONObject effect : effects) {
             applyEffect(effect);
         }
+
+        if (canTriggerEvent(userChoice)) {
+            setTriggerEvent(JSONTools.extractStringFromJSONObject(choices.get(userChoice), "trigger"));
+        }
     }
 
     private void applyEffect(JSONObject jsonEffect) {
@@ -59,14 +65,12 @@ public class Event {
     }
 
     private void changeFactionPopularity(JSONObject jsonEffect) {
-        System.out.println("entering change faction");
         FactionController.getInstance()
                 .getFactionFromNameFaction(JSONTools.extractStringFromJSONObject(jsonEffect, "key"))
                 .addSatisfaction(JSONTools.extractIntFromJSONObject(jsonEffect, "change"));
     }
     //ToDo change if structure with getResourceFromResourceName
     private void changeResourceAmount(JSONObject jsonEffect) {
-        System.out.println("entering change resource");
         String resource = JSONTools.extractStringFromJSONObject(jsonEffect, "key");
         if (resource.equals("agriculture")) {
             ResourcesController.getInstance().getAgriculture().addSize(JSONTools.extractIntFromJSONObject(jsonEffect, "change"));
@@ -76,12 +80,23 @@ public class Event {
     }
     //ToDo change if structure with getConsumableFromConsumableName
     private void changeConsumableAmount(JSONObject jsonEffect) {
-        System.out.println("entering change consumable");
         String resource = JSONTools.extractStringFromJSONObject(jsonEffect, "key");
         if (resource.equals("food")) {
             ConsumableController.getInstance().getFood().addAmount(JSONTools.extractIntFromJSONObject(jsonEffect, "change"));
         } else if (resource.equals("treasury")){
             ConsumableController.getInstance().getTreasury().addAmount(JSONTools.extractIntFromJSONObject(jsonEffect, "change"));
         }
+    }
+
+    private boolean canTriggerEvent(int userChoice) {
+        return choices.get(userChoice).containsKey("trigger");
+    }
+
+    public String getTriggerEvent() {
+        return triggerEvent;
+    }
+
+    private void setTriggerEvent(String triggerEvent) {
+        this.triggerEvent = triggerEvent;
     }
 }
