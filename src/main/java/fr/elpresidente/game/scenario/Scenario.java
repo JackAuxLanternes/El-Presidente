@@ -20,6 +20,8 @@ public class Scenario {
 
     private JSONArray conditionalEvents;
 
+    private JSONArray genericEvents;
+
     public Scenario(String jsonFileContent) {
         setJsonObject((JSONObject) JSONValue.parse(jsonFileContent));
         setDate((JSONObject) getJsonObject().get("date"));
@@ -28,6 +30,7 @@ public class Scenario {
         setFactions((JSONArray) getJsonObject().get("factions"));
         setScriptedEvents((JSONArray) getJsonObject().get("events"));
         setConditionalEvents((JSONArray) getJsonObject().get("conditional_events"));
+        setGenericEvents((JSONArray) getJsonObject().get("generic_events"));
     }
 
     public JSONObject getJsonObject() {
@@ -84,5 +87,13 @@ public class Scenario {
 
     public void setConditionalEvents(JSONArray conditionalEvents) {
         this.conditionalEvents = conditionalEvents;
+    }
+
+    public JSONArray getGenericEvents() {
+        return genericEvents;
+    }
+
+    public void setGenericEvents(JSONArray genericEvents) {
+        this.genericEvents = genericEvents;
     }
 }

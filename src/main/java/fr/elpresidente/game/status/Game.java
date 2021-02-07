@@ -39,6 +39,7 @@ public class Game {
     }
 
     public void gameLoop() {
+        turnController.buildTurn();
         while (!isDefeated()) {
             gameDisplay.showGameStatus();
             turnController.nextTurn();

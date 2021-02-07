@@ -5,6 +5,8 @@ import fr.elpresidente.game.turn.Seasons;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import java.util.Random;
+
 public class EventController {
 
     private static EventController instance;
@@ -12,6 +14,8 @@ public class EventController {
     private JSONArray scriptedEvents;
 
     private JSONArray conditionalEvents;
+
+    private JSONArray genericEvents;
 
     private Event currentEvent;
 
@@ -25,6 +29,8 @@ public class EventController {
 
         if (!isEventNull(event)) {
             setCurrentEvent(event);
+        } else {
+            setCurrentEvent(fillWithGenericEvent());
         }
     }
 
@@ -36,6 +42,11 @@ public class EventController {
         }
 
         return new Event(jsonEvent);
+    }
+
+    private Event fillWithGenericEvent() {
+        Random random = new Random();
+        return new Event((JSONObject) genericEvents.get(random.nextInt(genericEvents.size() + 1)));
     }
 
     private boolean isEventNull(Event event) {
@@ -60,6 +71,10 @@ public class EventController {
 
     public void setConditionalEvents(JSONArray conditionalEvents) {
         this.conditionalEvents = conditionalEvents;
+    }
+
+    public void setGenericEvents(JSONArray genericEvents) {
+        this.genericEvents = genericEvents;
     }
 
     private void setCurrentEvent(Event currentEvent) {

@@ -67,6 +67,7 @@ public class ScenarioLoader {
     public void loadEventsFromScenario() {
         EventController.getInstance().setScriptedEvents(scenario.getScriptedEvents());
         EventController.getInstance().setConditionalEvents(scenario.getConditionalEvents());
+        EventController.getInstance().setGenericEvents(scenario.getGenericEvents());
     }
 
     private void setScenario(Scenario scenario) {

@@ -12,14 +12,10 @@ public class GameEventDisplayManager {
     private int choicesSize;
 
     public void showEvent() {
-        if (EventController.getInstance().getCurrentEvent() != null) {
-            setEventInfo();
-            printHeadline();
-            printEventChoices();
-            readUserChoice();
-        } else {
-            System.out.println("No news good news");
-        }
+        setEventInfo();
+        printHeadline();
+        printEventChoices();
+        readUserChoice();
     }
 
     private void printHeadline() {
