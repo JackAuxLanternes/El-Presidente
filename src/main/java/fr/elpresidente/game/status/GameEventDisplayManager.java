@@ -39,9 +39,9 @@ public class GameEventDisplayManager {
         do {
             System.out.println("Quel est votre choix ? (Entrez un numéro valide de décision)");
             Scanner scanner = new Scanner(System.in);
-            userChoice = scanner.nextInt();
+            userChoice = scanner.nextInt() - 1;
         } while (!isUserChoiceNotInRangeOfEventChoices(userChoice));
-        System.out.println("El-Presidente à choisis: " + userChoice);
+        event.processEffectForChoice(userChoice);
     }
 
     private void setEventInfo() {
@@ -50,6 +50,6 @@ public class GameEventDisplayManager {
     }
 
     private boolean isUserChoiceNotInRangeOfEventChoices(int userChoice) {
-        return userChoice >= 1 && userChoice <= choicesSize + 1;
+        return userChoice >= 0 && userChoice < choicesSize;
     }
 }
