@@ -5,6 +5,7 @@ import fr.elpresidente.game.events.EventController;
 import fr.elpresidente.game.factions.FactionController;
 import fr.elpresidente.game.resources.ConsumableController;
 import fr.elpresidente.game.resources.ResourcesController;
+import org.json.simple.JSONObject;
 
 public class TurnController implements TurnBuilder {
 
@@ -55,6 +56,14 @@ public class TurnController implements TurnBuilder {
         ConsumableController.getInstance().getTreasury().addAmount(ResourcesController.getInstance().getIndustry().getAnnualYields());
         //TODO replace with constante or getter to avoid using * 4
         ConsumableController.getInstance().getFood().substractAmount(FactionController.getInstance().determineTotalSupporters() * 4);
+    }
+
+    public JSONObject toJSONObject() {
+        JSONObject date = new JSONObject();
+        date.put("year", this.getYear());
+        date.put("season", this.getCurrentTurn().toString());
+
+        return date;
     }
 
     public Seasons getCurrentTurn() {

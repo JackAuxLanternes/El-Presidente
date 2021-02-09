@@ -39,7 +39,7 @@ public class ScenarioWriter {
 
         JSONObject jsonObject = new JSONObject();
 
-        JSONObject date = createDate();
+        JSONObject date = turnController.toJSONObject();
         jsonObject.put("date", date);
 
         JSONArray resourcesArray = ResourcesController.getInstance().toJSONArray();
