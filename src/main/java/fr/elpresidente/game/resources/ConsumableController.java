@@ -1,5 +1,8 @@
 package fr.elpresidente.game.resources;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 public class ConsumableController {
 
     private static ConsumableController instance;
@@ -48,6 +51,15 @@ public class ConsumableController {
             default:
                 throw new Exception("This Consumable doesn't exist");
         }
+    }
+
+    public JSONArray toJSONArray() {
+
+        JSONArray consumablesArray = new JSONArray();
+        consumablesArray.add(this.food.toJSONObject());
+        consumablesArray.add(this.treasury.toJSONObject());
+
+        return consumablesArray;
     }
 
     public Consumable getFood() {

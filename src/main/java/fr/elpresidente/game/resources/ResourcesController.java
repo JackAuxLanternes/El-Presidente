@@ -1,5 +1,7 @@
 package fr.elpresidente.game.resources;
 
+import org.json.simple.JSONArray;
+
 public class ResourcesController {
 
     private static ResourcesController instance;
@@ -77,6 +79,15 @@ public class ResourcesController {
         }
 
         return value;
+    }
+
+    public JSONArray toJSONArray() {
+
+        JSONArray resourcesArray = new JSONArray();
+        resourcesArray.add(this.agriculture.toJSONObject());
+        resourcesArray.add(this.industry.toJSONObject());
+
+        return resourcesArray;
     }
 
     private int getCumulative(int value)

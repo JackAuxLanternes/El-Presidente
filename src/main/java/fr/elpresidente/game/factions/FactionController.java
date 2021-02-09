@@ -1,6 +1,7 @@
 package fr.elpresidente.game.factions;
 
 import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -122,7 +123,19 @@ public class FactionController {
         return (int) (Math.random()*((max-min)+1))+min;
     }
 
+    public JSONArray toJSONArray() {
 
+        JSONArray factionArray = new JSONArray();
+        for(Faction faction : FactionController.getInstance().getFactions()) {
+            JSONObject factionJSONObject = new JSONObject();
+            factionJSONObject.put("name", faction.getName());
+            factionJSONObject.put("popularity", (int) faction.getSatisfaction());
+            factionJSONObject.put("supporters", faction.getSupporters());
+            factionArray.add(factionJSONObject);
+        }
+
+        return factionArray;
+    }
 
     public List<Faction> getFactions() {
         return factions;

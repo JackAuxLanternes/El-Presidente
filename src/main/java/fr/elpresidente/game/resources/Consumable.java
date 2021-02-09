@@ -1,5 +1,7 @@
 package fr.elpresidente.game.resources;
 
+import org.json.simple.JSONObject;
+
 public interface Consumable {
 
     int getAmount();
@@ -9,4 +11,6 @@ public interface Consumable {
     void addAmount(int amount);
 
     void substractAmount(int amount);
+
+    JSONObject toJSONObject();
 }

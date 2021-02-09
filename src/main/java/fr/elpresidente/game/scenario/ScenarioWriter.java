@@ -16,8 +16,6 @@ public class ScenarioWriter {
 
     private Scenario scenario;
 
-    private File jsonFile;
-
     private TurnController turnController;
 
     public ScenarioWriter(Scenario scenario, TurnController turnController) {
@@ -29,9 +27,7 @@ public class ScenarioWriter {
         //Write JSON file
         try (FileWriter file = new FileWriter(file_name)) {
 
-            JSONObject jsonObject = createScenario();
-
-            file.write(jsonObject.toJSONString());
+            file.write(createScenario().toJSONString());
             file.flush();
 
         } catch (IOException e) {
@@ -43,20 +39,16 @@ public class ScenarioWriter {
 
         JSONObject jsonObject = new JSONObject();
 
-        // partie date
         JSONObject date = createDate();
         jsonObject.put("date", date);
 
-        //Resources
-        JSONArray resourcesArray = createRessources();
+        JSONArray resourcesArray = ResourcesController.getInstance().toJSONArray();
         jsonObject.put("resources", resourcesArray);
 
-        //Consumables
-        JSONArray consumablesArray = createConsumables();
+        JSONArray consumablesArray = ConsumableController.getInstance().toJSONArray();
         jsonObject.put("consumable", consumablesArray);
 
-        //Factions
-        JSONArray factionArray = createFactions();
+        JSONArray factionArray = FactionController.getInstance().toJSONArray();
         jsonObject.put("factions", factionArray);
 
         addEventPartToScenario(jsonObject);
@@ -65,60 +57,18 @@ public class ScenarioWriter {
     }
 
     private void addEventPartToScenario(JSONObject jsonObject) {
+
         jsonObject.put("events", scenario.getScriptedEvents());
         jsonObject.put("conditional_events", scenario.getConditionalEvents());
         jsonObject.put("generic_events", scenario.getGenericEvents());
     }
 
     private JSONObject createDate() {
+
         JSONObject date = new JSONObject();
         date.put("year", turnController.getYear());
         date.put("season", turnController.getCurrentTurn().toString());
 
         return date;
-    }
-
-    private JSONArray createRessources() {
-
-        JSONArray resourcesArray = new JSONArray();
-        JSONObject resourcesObjectIndustry = createJSONObject("name", "industry");
-        JSONObject resourcesObjectAgriculture = createJSONObject("name", "agriculture");
-        resourcesObjectIndustry.put("value", ResourcesController.getInstance().getIndustry().getSize());
-        resourcesObjectAgriculture.put("value", ResourcesController.getInstance().getAgriculture().getSize());
-        resourcesArray.add(resourcesObjectIndustry);
-        resourcesArray.add(resourcesObjectAgriculture);
-
-        return resourcesArray;
-    }
-
-    private JSONArray createConsumables() {
-
-        JSONArray consumablesArray = new JSONArray();
-        JSONObject consumablesFood = createJSONObject("name", "food");
-        JSONObject consumablesTreasury = createJSONObject("name", "treasury");
-        consumablesFood.put("value", ConsumableController.getInstance().getFood().getAmount());
-        consumablesTreasury.put("value", ConsumableController.getInstance().getTreasury().getAmount());
-        consumablesArray.add(consumablesFood);
-        consumablesArray.add(consumablesTreasury);
-
-        return consumablesArray;
-    }
-
-    private JSONArray createFactions() {
-        JSONArray factionArray = new JSONArray();
-        for(Faction faction : FactionController.getInstance().getFactions()) {
-            JSONObject factionJSONObject = createJSONObject("name", faction.getName());
-            factionJSONObject.put("popularity", (int) faction.getSatisfaction());
-            factionJSONObject.put("supporters", faction.getSupporters());
-            factionArray.add(factionJSONObject);
-        }
-
-        return factionArray;
-    }
-
-    private JSONObject createJSONObject(String key, String value) {
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put(key, value);
-        return jsonObject;
     }
 }

@@ -1,5 +1,7 @@
 package fr.elpresidente.game.resources;
 
+import org.json.simple.JSONObject;
+
 public interface Resource {
 
     int size = 0;
@@ -11,4 +13,6 @@ public interface Resource {
     void addSize(int size);
 
     int getAnnualYields();
+
+    JSONObject toJSONObject();
 }

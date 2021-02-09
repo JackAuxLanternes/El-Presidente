@@ -1,5 +1,7 @@
 package fr.elpresidente.game.resources;
 
+import org.json.simple.JSONObject;
+
 public class Treasury implements Consumable{
 
     public final static int PRICE_ONE_YIELD_AGRICULTURE = 8;
@@ -27,6 +29,15 @@ public class Treasury implements Consumable{
     @Override
     public void substractAmount(int amount) {
         this.amount -= amount;
+    }
+
+    @Override
+    public JSONObject toJSONObject() {
+        JSONObject consumablesTreasury = new JSONObject();
+        consumablesTreasury.put("name", "treasury");
+        consumablesTreasury.put("value", this.amount);
+
+        return consumablesTreasury;
     }
 
 

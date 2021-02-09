@@ -1,6 +1,7 @@
 package fr.elpresidente.game.resources;
 
 import fr.elpresidente.game.builders.RessourceBuilder;
+import org.json.simple.JSONObject;
 
 class Agriculture implements Resource, RessourceBuilder {
 
@@ -35,6 +36,15 @@ class Agriculture implements Resource, RessourceBuilder {
     @Override
     public int getAnnualYields() {
         return this.size * PERCENTAGE_MULTIPLIER_AGRICULUTRE_IN_FOOD;
+    }
+
+    @Override
+    public JSONObject toJSONObject() {
+        JSONObject resourcesAgriculture = new JSONObject();
+        resourcesAgriculture.put("name", "agriculture");
+        resourcesAgriculture.put("value", this.size);
+
+        return resourcesAgriculture;
     }
 
 

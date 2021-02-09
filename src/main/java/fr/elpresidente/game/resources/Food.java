@@ -1,5 +1,7 @@
 package fr.elpresidente.game.resources;
 
+import org.json.simple.JSONObject;
+
 class Food implements Consumable {
 
     private int amount;
@@ -26,5 +28,14 @@ class Food implements Consumable {
     @Override
     public void substractAmount(int amount) {
         this.amount -= amount;
+    }
+
+    @Override
+    public JSONObject toJSONObject() {
+        JSONObject consumablesFood = new JSONObject();
+        consumablesFood.put("name", "food");
+        consumablesFood.put("value", this.amount);
+
+        return consumablesFood;
     }
 }

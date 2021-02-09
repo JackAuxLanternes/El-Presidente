@@ -16,7 +16,7 @@ public class Main {
             LauncherGameType gameType = launcherMenu.choseGameType();
 
             if (gameType == LauncherGameType.NEW_GAME) {
-                ScenarioParser scenarioParser = new ScenarioParser("scenario.json");
+                ScenarioParser scenarioParser = new ScenarioParser("example.json");
                 scenarioParser.openScenario();
                 gameLauncher.createNewGame(scenarioParser.getScenario());
                 gameLauncher.init();
