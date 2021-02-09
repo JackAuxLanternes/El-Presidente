@@ -26,7 +26,7 @@ public class Bribe {
     private void payThePriceForFactionsupporters(int number_supporters) {
 
         int price_payed_for_one_supporter = 15;
-        this.consumableController.getTreasury().substractAmount(price_payed_for_one_supporter * number_supporters);
+        this.consumableController.getTreasury().subtractAmount(price_payed_for_one_supporter * number_supporters);
     }
 
     private void addSatisfactionPercentageToTheFaction(String name_faction, int number_supporters) {

@@ -3,11 +3,12 @@ package fr.elpresidente.game.resources;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import java.util.ArrayList;
+import java.util.NoSuchElementException;
+
 public class ConsumableController {
 
     private static ConsumableController instance;
-
-    private ResourcesController resourcesController;
 
     private final Consumable food;
 
@@ -44,13 +45,9 @@ public class ConsumableController {
 
     public Consumable getConsumableFromConsumableName(String consumableName) throws Exception
     {
-        switch (consumableName)
-        {
-            case "food" : return food;
-            case "treasury" : return treasury;
-            default:
-                throw new Exception("This Consumable doesn't exist");
-        }
+        return toArrayList()
+                .stream().filter(resource -> resource.getName().equals(consumableName)).findFirst()
+                .orElseThrow(() -> new NoSuchElementException("the resource " + consumableName + " doesn\'t exist"));
     }
 
     public JSONArray toJSONArray() {
@@ -60,6 +57,14 @@ public class ConsumableController {
         consumablesArray.add(this.treasury.toJSONObject());
 
         return consumablesArray;
+    }
+
+    public ArrayList<Consumable> toArrayList() {
+        ArrayList<Consumable> consumables = new ArrayList<>();
+        consumables.add(this.food);
+        consumables.add(this.treasury);
+
+        return consumables;
     }
 
     public Consumable getFood() {

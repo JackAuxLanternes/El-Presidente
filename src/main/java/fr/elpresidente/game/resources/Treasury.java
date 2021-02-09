@@ -7,6 +7,8 @@ public class Treasury implements Consumable{
     public final static int PRICE_ONE_YIELD_AGRICULTURE = 8;
     private int amount;
 
+    private final String name = "treasury";
+
     public Treasury(int amount) {
         this.amount = amount;
     }
@@ -27,14 +29,19 @@ public class Treasury implements Consumable{
     }
 
     @Override
-    public void substractAmount(int amount) {
+    public void subtractAmount(int amount) {
         this.amount -= amount;
+    }
+
+    @Override
+    public String getName() {
+        return this.name;
     }
 
     @Override
     public JSONObject toJSONObject() {
         JSONObject consumablesTreasury = new JSONObject();
-        consumablesTreasury.put("name", "treasury");
+        consumablesTreasury.put("name", this.getName());
         consumablesTreasury.put("value", this.amount);
 
         return consumablesTreasury;

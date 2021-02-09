@@ -55,7 +55,7 @@ public class TurnController implements TurnBuilder {
         ConsumableController.getInstance().getFood().addAmount(ResourcesController.getInstance().getAgriculture().getAnnualYields());
         ConsumableController.getInstance().getTreasury().addAmount(ResourcesController.getInstance().getIndustry().getAnnualYields());
         //TODO replace with constante or getter to avoid using * 4
-        ConsumableController.getInstance().getFood().substractAmount(FactionController.getInstance().determineTotalSupporters() * 4);
+        ConsumableController.getInstance().getFood().subtractAmount(FactionController.getInstance().determineTotalSupporters() * 4);
     }
 
     public JSONObject toJSONObject() {

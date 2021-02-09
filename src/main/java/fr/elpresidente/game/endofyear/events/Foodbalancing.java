@@ -2,7 +2,6 @@ package fr.elpresidente.game.endofyear.events;
 
 import fr.elpresidente.game.factions.FactionController;
 import fr.elpresidente.game.resources.ConsumableController;
-import fr.elpresidente.game.resources.ResourcesController;
 
 import java.util.NoSuchElementException;
 
@@ -60,6 +59,6 @@ public class Foodbalancing implements BalanceSheetEvent{
 
     private void feedSupporters() {
 
-        this.consumableController.getFood().substractAmount(this.factionController.determineTotalSupporters() * this.FOOD_NEEDED_BY_SUPPORTER);
+        this.consumableController.getFood().subtractAmount(this.factionController.determineTotalSupporters() * this.FOOD_NEEDED_BY_SUPPORTER);
     }
 }

@@ -2,6 +2,9 @@ package fr.elpresidente.game.resources;
 
 import org.json.simple.JSONArray;
 
+import java.util.ArrayList;
+import java.util.NoSuchElementException;
+
 public class ResourcesController {
 
     private static ResourcesController instance;
@@ -47,13 +50,9 @@ public class ResourcesController {
 
     public Resource getResourceFromResourceName(String resourceName) throws Exception
     {
-        switch (resourceName)
-        {
-            case "agriculture" : return agriculture;
-            case "industry" : return industry;
-            default:
-                throw new Exception("This Resource doesn't exist");
-        }
+        return toArrayList()
+                .stream().filter(resource -> resource.getName().equals(resourceName)).findFirst()
+                .orElseThrow(() -> new NoSuchElementException("the resource " + resourceName + " doesn\'t exist"));
     }
 
     public void addIndustrySize(int value)
@@ -88,6 +87,14 @@ public class ResourcesController {
         resourcesArray.add(this.industry.toJSONObject());
 
         return resourcesArray;
+    }
+
+    public ArrayList<Resource> toArrayList() {
+        ArrayList<Resource> resources = new ArrayList<>();
+        resources.add(this.agriculture);
+        resources.add(this.industry);
+
+        return resources;
     }
 
     private int getCumulative(int value)

@@ -55,13 +55,13 @@ public class FoodMarket {
         int amount_to_substract = this.determineAmountForAmountFood(amount_food);
         if(amount_to_substract < controller.getTreasury().getAmount())
         {
-            controller.getTreasury().substractAmount(amount_to_substract);
+            controller.getTreasury().subtractAmount(amount_to_substract);
             controller.getFood().addAmount(amount_food);
         }
         else
         {
             amount_to_substract = controller.getTreasury().getAmount();
-            controller.getTreasury().substractAmount(amount_to_substract);
+            controller.getTreasury().subtractAmount(amount_to_substract);
             controller.getFood().addAmount(amount_to_substract);
         }
 
