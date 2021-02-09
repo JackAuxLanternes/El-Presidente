@@ -4,8 +4,6 @@ import fr.elpresidente.game.scenario.Scenario;
 
 public interface GameBuilder {
 
-    void init();
-
     void createNewGame(Scenario scenario);
 
     void loadSavedGame(Scenario scenario);
