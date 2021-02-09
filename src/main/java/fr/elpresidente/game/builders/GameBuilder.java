@@ -8,5 +8,5 @@ public interface GameBuilder {
 
     void createNewGame(Scenario scenario);
 
-    void loadSavedGame();
+    void loadSavedGame(Scenario scenario);
 }

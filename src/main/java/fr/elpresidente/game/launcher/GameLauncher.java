@@ -16,11 +16,13 @@ public class GameLauncher implements GameBuilder {
     public void createNewGame(Scenario scenario) {
         Game game = new Game();
         game.initFromScenario(scenario);
-        game.gameLoop();
+        game.gameLoop(scenario);
     }
 
     @Override
-    public void loadSavedGame() {
-
+    public void loadSavedGame(Scenario scenario) {
+        Game game = new Game();
+        game.initFromScenario(scenario);
+        //game.gameLoop();
     }
 }

@@ -6,6 +6,7 @@ import fr.elpresidente.game.resources.ConsumableController;
 import fr.elpresidente.game.resources.ResourcesController;
 import fr.elpresidente.game.scenario.Scenario;
 import fr.elpresidente.game.scenario.ScenarioLoader;
+import fr.elpresidente.game.scenario.ScenarioWriter;
 import fr.elpresidente.game.tools.JSONTools;
 import fr.elpresidente.game.turn.Seasons;
 import fr.elpresidente.game.turn.TurnController;
@@ -36,16 +37,24 @@ public class Game {
     public void initFromScenario(Scenario scenario) {
         ScenarioLoader scenarioLoader = new ScenarioLoader(scenario, turnController);
         scenarioLoader.tryToLoadScenario();
+        //gameDisplay.showGameStatus();
     }
 
-    public void gameLoop() {
+    public void gameLoop(Scenario scenario) {
         turnController.buildTurn();
+
         while (!isDefeated()) {
+            saveGame(scenario);
             gameDisplay.showGameStatus();
             turnController.nextTurn();
         }
 
         gameDisplay.showGameStatus();
+    }
+
+    private void saveGame(Scenario scenario) {
+        ScenarioWriter scenarioWriter = new ScenarioWriter(scenario, turnController);
+        scenarioWriter.writeScenario("example.json");
     }
 
     public boolean isDefeated() {

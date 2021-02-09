@@ -4,6 +4,7 @@ import fr.elpresidente.game.launcher.GameLauncher;
 import fr.elpresidente.game.launcher.LauncherGameType;
 import fr.elpresidente.game.launcher.LauncherMenu;
 import fr.elpresidente.game.scenario.ScenarioParser;
+import fr.elpresidente.game.scenario.ScenarioWriter;
 
 public class Main {
     public static void main(String[] args) {
@@ -15,12 +16,15 @@ public class Main {
             LauncherGameType gameType = launcherMenu.choseGameType();
 
             if (gameType == LauncherGameType.NEW_GAME) {
-                ScenarioParser scenarioParser = new ScenarioParser();
+                ScenarioParser scenarioParser = new ScenarioParser("scenario.json");
                 scenarioParser.openScenario();
                 gameLauncher.createNewGame(scenarioParser.getScenario());
                 gameLauncher.init();
             } else if (gameType == LauncherGameType.LOAD_GAME) {
-                gameLauncher.loadSavedGame();
+
+                ScenarioParser scenarioParser = new ScenarioParser("scenario_saved.json");
+                scenarioParser.openScenario();
+                gameLauncher.loadSavedGame(scenarioParser.getScenario());
             }
 
         } catch (Exception e) {

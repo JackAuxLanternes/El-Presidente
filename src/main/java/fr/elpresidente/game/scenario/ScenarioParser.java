@@ -12,8 +12,8 @@ public class ScenarioParser {
 
     private String jsonFileContent;
 
-    public ScenarioParser() {
-        setJsonFile(new File("scenario.json"));
+    public ScenarioParser(String file_name) {
+        setJsonFile(new File(file_name));
         setJsonFileContent("");
     }
 

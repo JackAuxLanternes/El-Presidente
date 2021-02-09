@@ -26,7 +26,7 @@ public class EventController {
         }
         resetCurrentEvent();
         Event event = searchScriptedEvent(year, season);
-
+        System.out.println(event.getDescription());
         if (!isEventNull(event)) {
             setCurrentEvent(event);
         } else {
