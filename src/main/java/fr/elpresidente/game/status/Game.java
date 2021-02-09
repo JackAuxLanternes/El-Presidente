@@ -37,7 +37,6 @@ public class Game {
     public void initFromScenario(Scenario scenario) {
         ScenarioLoader scenarioLoader = new ScenarioLoader(scenario, turnController);
         scenarioLoader.tryToLoadScenario();
-        //gameDisplay.showGameStatus();
     }
 
     public void gameLoop(Scenario scenario) {

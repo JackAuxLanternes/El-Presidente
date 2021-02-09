@@ -16,13 +16,13 @@ public class Main {
             LauncherGameType gameType = launcherMenu.choseGameType();
 
             if (gameType == LauncherGameType.NEW_GAME) {
-                ScenarioParser scenarioParser = new ScenarioParser("example.json");
+                ScenarioParser scenarioParser = new ScenarioParser("scenario.json");
                 scenarioParser.openScenario();
                 gameLauncher.createNewGame(scenarioParser.getScenario());
                 gameLauncher.init();
             } else if (gameType == LauncherGameType.LOAD_GAME) {
 
-                ScenarioParser scenarioParser = new ScenarioParser("scenario_saved.json");
+                ScenarioParser scenarioParser = new ScenarioParser("example.json");
                 scenarioParser.openScenario();
                 gameLauncher.loadSavedGame(scenarioParser.getScenario());
             }
