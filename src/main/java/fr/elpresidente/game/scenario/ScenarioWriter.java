@@ -29,35 +29,9 @@ public class ScenarioWriter {
         //Write JSON file
         try (FileWriter file = new FileWriter(file_name)) {
 
-            for(Faction faction : FactionController.getInstance().getFactions()) {
+            JSONObject jsonObject = createScenario();
 
-            }
-            JSONObject jsonObject = new JSONObject();
-
-            // partie date
-            JSONObject date = createDate();
-            jsonObject.put("date", date);
-
-            // partie pas event qui bouge
-            //Resources
-            JSONArray resourcesArray = createRessources();
-            jsonObject.put("resources", resourcesArray);
-
-            //Consumables
-            JSONArray consumablesArray = createConsumables();
-            jsonObject.put("consumable", consumablesArray);
-            //jsonObject.put("consumable", scenario.getConsumable());
-
-            //Factions
-            JSONArray factionArray = createFactions();
-            jsonObject.put("factions", factionArray);
-            //jsonObject.put("factions", scenario.getFactions());
-            // partie events qui ne bouge pas
-            jsonObject.put("events", scenario.getScriptedEvents());
-            jsonObject.put("conditional_events", scenario.getConditionalEvents());
-            jsonObject.put("generic_events", scenario.getGenericEvents());
             file.write(jsonObject.toJSONString());
-            //file.write(employeeList.toJSONString());
             file.flush();
 
         } catch (IOException e) {
@@ -65,16 +39,35 @@ public class ScenarioWriter {
         }
     }
 
-    private JSONObject createJSONObject(String key, int value) {
+    private JSONObject createScenario() {
+
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put(key, value);
+
+        // partie date
+        JSONObject date = createDate();
+        jsonObject.put("date", date);
+
+        //Resources
+        JSONArray resourcesArray = createRessources();
+        jsonObject.put("resources", resourcesArray);
+
+        //Consumables
+        JSONArray consumablesArray = createConsumables();
+        jsonObject.put("consumable", consumablesArray);
+
+        //Factions
+        JSONArray factionArray = createFactions();
+        jsonObject.put("factions", factionArray);
+
+        addEventPartToScenario(jsonObject);
+
         return jsonObject;
     }
 
-    private JSONObject createJSONObject(String key, String value) {
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put(key, value);
-        return jsonObject;
+    private void addEventPartToScenario(JSONObject jsonObject) {
+        jsonObject.put("events", scenario.getScriptedEvents());
+        jsonObject.put("conditional_events", scenario.getConditionalEvents());
+        jsonObject.put("generic_events", scenario.getGenericEvents());
     }
 
     private JSONObject createDate() {
@@ -121,5 +114,11 @@ public class ScenarioWriter {
         }
 
         return factionArray;
+    }
+
+    private JSONObject createJSONObject(String key, String value) {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put(key, value);
+        return jsonObject;
     }
 }

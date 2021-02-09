@@ -1,5 +1,7 @@
 package fr.elpresidente.game.factions;
 
+import org.json.simple.JSONArray;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -119,6 +121,8 @@ public class FactionController {
     public int determineNumberBetweenThreshold(int min, int max) {
         return (int) (Math.random()*((max-min)+1))+min;
     }
+
+
 
     public List<Faction> getFactions() {
         return factions;
