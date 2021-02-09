@@ -26,7 +26,7 @@ public class ResourcesController {
     }
 
     public static void deleteInstance() {
-        if(instance != null){
+        if (instance != null) {
             instance = null;
         }
     }
@@ -48,32 +48,26 @@ public class ResourcesController {
         return this.industry;
     }
 
-    public Resource getResourceFromResourceName(String resourceName) throws Exception
-    {
+    public Resource getResourceFromResourceName(String resourceName) throws Exception {
         return toArrayList()
                 .stream().filter(resource -> resource.getName().equals(resourceName)).findFirst()
                 .orElseThrow(() -> new NoSuchElementException("the resource " + resourceName + " doesn\'t exist"));
     }
 
-    public void addIndustrySize(int value)
-    {
+    public void addIndustrySize(int value) {
         industry.addSize(getMaximumPossibleValueToAddToSize(value));
     }
 
-    public void addAgricultureSize(int value)
-    {
+    public void addAgricultureSize(int value) {
         agriculture.addSize(getMaximumPossibleValueToAddToSize(value));
     }
 
-    public int getCumulativeResources()
-    {
+    public int getCumulativeResources() {
         return agriculture.getSize() + industry.getSize();
     }
 
-    private int getMaximumPossibleValueToAddToSize(int value)
-    {
-        if (getCumulative(value) > 100)
-        {
+    private int getMaximumPossibleValueToAddToSize(int value) {
+        if (getCumulative(value) > 100) {
             return value - (getCumulative(value) - 100);
         }
 
@@ -97,8 +91,7 @@ public class ResourcesController {
         return resources;
     }
 
-    private int getCumulative(int value)
-    {
+    private int getCumulative(int value) {
         return value + getCumulativeResources();
     }
 }

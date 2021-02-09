@@ -13,7 +13,7 @@ class Industry implements Resource, RessourceBuilder {
 
     @Override
     public void init() {
-        
+
     }
 
     @Override

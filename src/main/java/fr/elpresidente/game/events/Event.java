@@ -68,7 +68,7 @@ public class Event {
         }
     }
 
-    private void changeFactionPopularity(JSONObject jsonEffect) throws Exception  {
+    private void changeFactionPopularity(JSONObject jsonEffect) throws Exception {
         FactionController.getInstance()
                 .getFactionFromNameFaction(JSONTools.extractStringFromJSONObject(jsonEffect, "key"))
                 .addSatisfaction(JSONTools.extractIntFromJSONObject(jsonEffect, "change"));

@@ -1,6 +1,5 @@
 package fr.elpresidente.game.status;
 
-import fr.elpresidente.game.events.EventController;
 import fr.elpresidente.game.factions.Faction;
 import fr.elpresidente.game.factions.FactionController;
 import fr.elpresidente.game.resources.ConsumableController;
@@ -92,7 +91,7 @@ public class GameDisplay {
     }
 
     public void displayShortChart(double value) {
-        displayShortChart( (int) Math.round(value) );
+        displayShortChart((int) Math.round(value));
     }
 
     public void displayShortChart(int value) {

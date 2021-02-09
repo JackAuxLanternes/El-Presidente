@@ -12,54 +12,39 @@ public class FoodMarket {
     ConsumableController controller = ConsumableController.getInstance();
 
     public void goToFoodMarket() {
-        if(getFoodNeeded() > 0)
-        {
+        if (getFoodNeeded() > 0) {
             askUserIfHeWantToBuyFood();
-        }
-        else
-        {
+        } else {
             System.out.println("You didn't need to go to the food market, you have enough food");
         }
     }
 
-    private void askUserIfHeWantToBuyFood()
-    {
+    private void askUserIfHeWantToBuyFood() {
         System.out.println("You have not enough food for your citizens, did you to go to the food market for buying food ?");
         Scanner scanner = new Scanner(System.in);
         int choice = scanner.nextInt();
 
-        if(choice == 1)
-        {
+        if (choice == 1) {
             goBuyFood();
-        }
-        else
-        {
+        } else {
             System.out.println("You're evil.");
         }
     }
 
-    private void goBuyFood()
-    {
-        if(buyMaximumFoodPossible(getFoodNeeded()) != getFoodNeeded())
-        {
+    private void goBuyFood() {
+        if (buyMaximumFoodPossible(getFoodNeeded()) != getFoodNeeded()) {
             System.out.println("You have not enough money, you have used all of your money to pay equivalent food");
-        }
-        else
-        {
+        } else {
             System.out.println("Great, your citizen didn't die this year !");
         }
     }
 
-    private int buyMaximumFoodPossible(int amount_food)
-    {
+    private int buyMaximumFoodPossible(int amount_food) {
         int amount_to_substract = this.determineAmountForAmountFood(amount_food);
-        if(amount_to_substract < controller.getTreasury().getAmount())
-        {
+        if (amount_to_substract < controller.getTreasury().getAmount()) {
             controller.getTreasury().subtractAmount(amount_to_substract);
             controller.getFood().addAmount(amount_food);
-        }
-        else
-        {
+        } else {
             amount_to_substract = controller.getTreasury().getAmount();
             controller.getTreasury().subtractAmount(amount_to_substract);
             controller.getFood().addAmount(amount_to_substract);
@@ -68,15 +53,11 @@ public class FoodMarket {
         return amount_to_substract;
     }
 
-    public int getFoodNeeded()
-    {
+    public int getFoodNeeded() {
         int food_needed = ConsumableController.getInstance().getFood().getAmount() - (FactionController.getInstance().determineTotalSupporters() * 4);
-        if (food_needed < 0)
-        {
+        if (food_needed < 0) {
             return food_needed * (-1);
-        }
-        else
-        {
+        } else {
             return 0;
         }
     }

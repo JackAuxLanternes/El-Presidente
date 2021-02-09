@@ -2,7 +2,7 @@ package fr.elpresidente.game.resources;
 
 import org.json.simple.JSONObject;
 
-public class Treasury implements Consumable{
+public class Treasury implements Consumable {
 
     public final static int PRICE_ONE_YIELD_AGRICULTURE = 8;
     private int amount;

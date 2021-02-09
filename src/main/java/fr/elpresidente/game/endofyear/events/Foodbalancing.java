@@ -5,7 +5,7 @@ import fr.elpresidente.game.resources.ConsumableController;
 
 import java.util.NoSuchElementException;
 
-public class Foodbalancing implements BalanceSheetEvent{
+public class Foodbalancing implements BalanceSheetEvent {
 
     private FactionController factionController;
     private ConsumableController consumableController;
@@ -19,7 +19,7 @@ public class Foodbalancing implements BalanceSheetEvent{
 
     public void callEvent() {
 
-        if(!this.IsEnoughFoodForSupporters()) {
+        if (!this.IsEnoughFoodForSupporters()) {
             this.removeSupportersRandomlyToEquilibrateFood();
         }
         this.feedSupporters();
@@ -28,7 +28,7 @@ public class Foodbalancing implements BalanceSheetEvent{
 
     private boolean IsEnoughFoodForSupporters() {
 
-        return this.factionController.determineTotalSupporters() <= ( this.consumableController.getFood().getAmount() / this.FOOD_NEEDED_BY_SUPPORTER );
+        return this.factionController.determineTotalSupporters() <= (this.consumableController.getFood().getAmount() / this.FOOD_NEEDED_BY_SUPPORTER);
     }
 
 
@@ -44,11 +44,11 @@ public class Foodbalancing implements BalanceSheetEvent{
 
     private void removeSupportersAndSatisfactionAccordingly(double maximum_supporter) {
 
-        if(maximum_supporter > 0) {
+        if (maximum_supporter > 0) {
             int number_supporter_that_have_to_be_removed = this.determineNumberSupporterThatHaveToBeRemoved(maximum_supporter);
             this.factionController.removeSupportersRandomly(number_supporter_that_have_to_be_removed);
             this.factionController.substractSatisfactionAccordingToNumberSupporters(number_supporter_that_have_to_be_removed);
-        }else {
+        } else {
             throw new NoSuchElementException("You can't delete all your Supporters, you don't have enough food");
         }
     }

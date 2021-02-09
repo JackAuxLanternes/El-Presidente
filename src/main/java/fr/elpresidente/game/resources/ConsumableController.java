@@ -1,7 +1,6 @@
 package fr.elpresidente.game.resources;
 
 import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
@@ -29,7 +28,7 @@ public class ConsumableController {
     }
 
     public static void deleteInstance() {
-        if(instance != null){
+        if (instance != null) {
             instance = null;
         }
     }
@@ -43,8 +42,7 @@ public class ConsumableController {
         return instance == null;
     }
 
-    public Consumable getConsumableFromConsumableName(String consumableName) throws Exception
-    {
+    public Consumable getConsumableFromConsumableName(String consumableName) throws Exception {
         return toArrayList()
                 .stream().filter(resource -> resource.getName().equals(consumableName)).findFirst()
                 .orElseThrow(() -> new NoSuchElementException("the resource " + consumableName + " doesn\'t exist"));
