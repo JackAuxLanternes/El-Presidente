@@ -62,13 +62,4 @@ public class ScenarioWriter {
         jsonObject.put("conditional_events", scenario.getConditionalEvents());
         jsonObject.put("generic_events", scenario.getGenericEvents());
     }
-
-    private JSONObject createDate() {
-
-        JSONObject date = new JSONObject();
-        date.put("year", turnController.getYear());
-        date.put("season", turnController.getCurrentTurn().toString());
-
-        return date;
-    }
 }
