@@ -1,6 +1,5 @@
 package fr.elpresidente.game.scenario;
 
-import fr.elpresidente.game.factions.Faction;
 import fr.elpresidente.game.factions.FactionController;
 import fr.elpresidente.game.resources.ConsumableController;
 import fr.elpresidente.game.resources.ResourcesController;
@@ -8,7 +7,6 @@ import fr.elpresidente.game.turn.TurnController;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 

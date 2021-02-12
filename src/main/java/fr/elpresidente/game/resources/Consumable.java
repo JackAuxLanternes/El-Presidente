@@ -10,7 +10,9 @@ public interface Consumable {
 
     void addAmount(int amount);
 
-    void substractAmount(int amount);
+    void subtractAmount(int amount);
+
+    String getName();
 
     JSONObject toJSONObject();
 }

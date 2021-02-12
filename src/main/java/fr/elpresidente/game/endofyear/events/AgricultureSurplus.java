@@ -3,7 +3,7 @@ package fr.elpresidente.game.endofyear.events;
 import fr.elpresidente.game.factions.FactionController;
 import fr.elpresidente.game.resources.ResourcesController;
 
-public class AgricultureSurplus implements BalanceSheetEvent{
+public class AgricultureSurplus implements BalanceSheetEvent {
 
     private FactionController factionController;
     private ResourcesController resourcesController;
@@ -14,7 +14,7 @@ public class AgricultureSurplus implements BalanceSheetEvent{
     }
 
     public void callEvent() {
-        if(isAgricultureAloneIsSurplus()) {
+        if (isAgricultureAloneIsSurplus()) {
             this.addNewSupportersThanksToAgricultureSurplus();
         }
     }
@@ -29,6 +29,6 @@ public class AgricultureSurplus implements BalanceSheetEvent{
 
     public int determineNumberSupportersRandomly() {
         int limit_percentage = 10;
-        return this.factionController. determineNumberBetweenThreshold(1, limit_percentage) * this.factionController.determineTotalSupporters() / 100;
+        return this.factionController.determineNumberBetweenThreshold(1, limit_percentage) * this.factionController.determineTotalSupporters() / 100;
     }
 }

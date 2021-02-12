@@ -6,7 +6,6 @@ import org.json.simple.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Optional;
 
 public class FactionController {
 
@@ -27,8 +26,7 @@ public class FactionController {
     }
 
     public static FactionController getInstance() {
-        if (isInstanceNotInitialized())
-        {
+        if (isInstanceNotInitialized()) {
             instance = new FactionController();
         }
 
@@ -40,12 +38,12 @@ public class FactionController {
     }
 
     public static void resetInstance() {
-        if(instance != null){
+        if (instance != null) {
             instance = null;
         }
     }
 
-    public void initFactions(int supporters, double satisfaction){
+    public void initFactions(int supporters, double satisfaction) {
         this.factions.forEach(faction -> faction.setSatisfaction(satisfaction));
         this.factions.forEach(faction -> faction.setSupporters(supporters));
     }
@@ -60,7 +58,7 @@ public class FactionController {
     public Faction getFactionFromNameFaction(String name_faction) {
         return this.factions
                 .stream().filter(faction -> faction.getName().equals(name_faction)).findFirst()
-                    .orElseThrow(() -> new NoSuchElementException("the faction "+ name_faction +" doesn\'t exist"));
+                .orElseThrow(() -> new NoSuchElementException("the faction " + name_faction + " doesn\'t exist"));
     }
 
     private boolean isTotalSupportSuperiorThanNumberSupporter(int number_supporter) {
@@ -82,13 +80,13 @@ public class FactionController {
     }
 
     public void removeSupportersRandomly(int number_supporter) {
-        for(int i = 0; i < number_supporter; i++) {
+        for (int i = 0; i < number_supporter; i++) {
             this.removeSupporterRandomFaction();
         }
     }
 
     public void addSupportersRandomly(int number_supporter) {
-        for(int i = 0; i < number_supporter; i++) {
+        for (int i = 0; i < number_supporter; i++) {
             this.addSupporterRandomFaction();
         }
     }
@@ -98,7 +96,7 @@ public class FactionController {
         int random_index_faction;
         do {
             random_index_faction = this.determineNumberBetweenThreshold(0, this.factions.size() - 1);
-        }while(this.factions.get(random_index_faction).getSupporters() <= 0);
+        } while (this.factions.get(random_index_faction).getSupporters() <= 0);
         this.factions.get(random_index_faction).substractSupporter(1);
     }
 
@@ -108,7 +106,7 @@ public class FactionController {
         int random_index_faction;
         do {
             random_index_faction = this.determineNumberBetweenThreshold(0, this.factions.size() - 1);
-        }while(this.factions.get(random_index_faction).getSupporters() <= 0);
+        } while (this.factions.get(random_index_faction).getSupporters() <= 0);
         this.factions.get(random_index_faction).addSupporter(1);
     }
 
@@ -116,17 +114,17 @@ public class FactionController {
         int percentage_for_one_supporter = 2;
 
         this.factions
-                .forEach(faction -> faction.substractSatisfaction( percentage_for_one_supporter * number_supporter ));
+                .forEach(faction -> faction.substractSatisfaction(percentage_for_one_supporter * number_supporter));
     }
 
     public int determineNumberBetweenThreshold(int min, int max) {
-        return (int) (Math.random()*((max-min)+1))+min;
+        return (int) (Math.random() * ((max - min) + 1)) + min;
     }
 
     public JSONArray toJSONArray() {
 
         JSONArray factionArray = new JSONArray();
-        for(Faction faction : FactionController.getInstance().getFactions()) {
+        for (Faction faction : FactionController.getInstance().getFactions()) {
             JSONObject factionJSONObject = new JSONObject();
             factionJSONObject.put("name", faction.getName());
             factionJSONObject.put("popularity", (int) faction.getSatisfaction());

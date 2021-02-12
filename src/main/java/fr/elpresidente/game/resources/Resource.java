@@ -14,5 +14,7 @@ public interface Resource {
 
     int getAnnualYields();
 
+    String getName();
+
     JSONObject toJSONObject();
 }

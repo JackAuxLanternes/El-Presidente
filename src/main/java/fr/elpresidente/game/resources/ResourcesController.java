@@ -2,6 +2,9 @@ package fr.elpresidente.game.resources;
 
 import org.json.simple.JSONArray;
 
+import java.util.ArrayList;
+import java.util.NoSuchElementException;
+
 public class ResourcesController {
 
     private static ResourcesController instance;
@@ -23,7 +26,7 @@ public class ResourcesController {
     }
 
     public static void deleteInstance() {
-        if(instance != null){
+        if (instance != null) {
             instance = null;
         }
     }
@@ -45,36 +48,26 @@ public class ResourcesController {
         return this.industry;
     }
 
-    public Resource getResourceFromResourceName(String resourceName) throws Exception
-    {
-        switch (resourceName)
-        {
-            case "agriculture" : return agriculture;
-            case "industry" : return industry;
-            default:
-                throw new Exception("This Resource doesn't exist");
-        }
+    public Resource getResourceFromResourceName(String resourceName) throws Exception {
+        return toArrayList()
+                .stream().filter(resource -> resource.getName().equals(resourceName)).findFirst()
+                .orElseThrow(() -> new NoSuchElementException("the resource " + resourceName + " doesn\'t exist"));
     }
 
-    public void addIndustrySize(int value)
-    {
+    public void addIndustrySize(int value) {
         industry.addSize(getMaximumPossibleValueToAddToSize(value));
     }
 
-    public void addAgricultureSize(int value)
-    {
+    public void addAgricultureSize(int value) {
         agriculture.addSize(getMaximumPossibleValueToAddToSize(value));
     }
 
-    public int getCumulativeResources()
-    {
+    public int getCumulativeResources() {
         return agriculture.getSize() + industry.getSize();
     }
 
-    private int getMaximumPossibleValueToAddToSize(int value)
-    {
-        if (getCumulative(value) > 100)
-        {
+    private int getMaximumPossibleValueToAddToSize(int value) {
+        if (getCumulative(value) > 100) {
             return value - (getCumulative(value) - 100);
         }
 
@@ -90,8 +83,15 @@ public class ResourcesController {
         return resourcesArray;
     }
 
-    private int getCumulative(int value)
-    {
+    public ArrayList<Resource> toArrayList() {
+        ArrayList<Resource> resources = new ArrayList<>();
+        resources.add(this.agriculture);
+        resources.add(this.industry);
+
+        return resources;
+    }
+
+    private int getCumulative(int value) {
         return value + getCumulativeResources();
     }
 }

@@ -4,7 +4,6 @@ import fr.elpresidente.game.launcher.GameLauncher;
 import fr.elpresidente.game.launcher.LauncherGameType;
 import fr.elpresidente.game.launcher.LauncherMenu;
 import fr.elpresidente.game.scenario.ScenarioParser;
-import fr.elpresidente.game.scenario.ScenarioWriter;
 
 public class Main {
     public static void main(String[] args) {
@@ -19,7 +18,6 @@ public class Main {
                 ScenarioParser scenarioParser = new ScenarioParser("scenario.json");
                 scenarioParser.openScenario();
                 gameLauncher.createNewGame(scenarioParser.getScenario());
-                gameLauncher.init();
             } else if (gameType == LauncherGameType.LOAD_GAME) {
 
                 ScenarioParser scenarioParser = new ScenarioParser("example.json");

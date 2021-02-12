@@ -19,7 +19,7 @@ public class JSONTools {
     public static Seasons extractSeasonFromJSONObject(JSONObject jsonObject) {
         String season = (String) jsonObject.get("season");
 
-        switch (season){
+        switch (season) {
             case "WINTER":
                 return Seasons.WINTER;
 

@@ -1,6 +1,6 @@
 package fr.elpresidente.game.difficulty;
 
-public class HardDifficulty implements Difficulty{
+public class HardDifficulty implements Difficulty {
     @Override
     public double getDifficultyLooseMultiplier() {
         return 2;

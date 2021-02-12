@@ -8,6 +8,8 @@ class Agriculture implements Resource, RessourceBuilder {
     private int size;
     private static final int PERCENTAGE_MULTIPLIER_AGRICULUTRE_IN_FOOD = 40;
 
+    private final String name = "agriculture";
+
     @Override
     public void init() {
 
@@ -39,9 +41,14 @@ class Agriculture implements Resource, RessourceBuilder {
     }
 
     @Override
+    public String getName() {
+        return this.name;
+    }
+
+    @Override
     public JSONObject toJSONObject() {
         JSONObject resourcesAgriculture = new JSONObject();
-        resourcesAgriculture.put("name", "agriculture");
+        resourcesAgriculture.put("name", this.getName());
         resourcesAgriculture.put("value", this.size);
 
         return resourcesAgriculture;
