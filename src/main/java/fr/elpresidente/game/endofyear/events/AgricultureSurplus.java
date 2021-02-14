@@ -7,6 +7,7 @@ public class AgricultureSurplus implements BalanceSheetEvent {
 
     private FactionController factionController;
     private ResourcesController resourcesController;
+    private final int FOOD_NEEDED_BY_SUPPORTER = 4;
 
     public AgricultureSurplus() {
         this.factionController = FactionController.getInstance();
@@ -24,7 +25,11 @@ public class AgricultureSurplus implements BalanceSheetEvent {
     }
 
     private boolean isAgricultureAloneIsSurplus() {
-        return this.resourcesController.getAgriculture().getSize() > this.resourcesController.getIndustry().getSize();
+        return this.resourcesController.getAgriculture().getAnnualYields() > this.determineTotalFoodThatSupportersNeed();
+    }
+
+    private int determineTotalFoodThatSupportersNeed() {
+        return this.factionController.determineTotalSupporters() * FOOD_NEEDED_BY_SUPPORTER;
     }
 
     public int determineNumberSupportersRandomly() {

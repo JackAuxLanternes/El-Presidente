@@ -19,7 +19,6 @@ public class AgricultureSurplusTest extends TestCase {
         int value_to_add_to_supporter_to_get_the_max =  factionController.determineTotalSupporters() * 10 / 100;
         ResourcesController resourcesController = ResourcesController.getInstance();
         resourcesController.getAgriculture().setSize(51);
-        resourcesController.getIndustry().setSize(48);
 
         agricultureSurplus.callEvent();
         assertTrue( faction_initial_number_supporters + value_to_add_to_supporter_to_get_the_max >= factionController.determineTotalSupporters());
@@ -30,11 +29,10 @@ public class AgricultureSurplusTest extends TestCase {
     {
         BalanceSheetEvent agricultureSurplus = new AgricultureSurplus();
         FactionController factionController = FactionController.getInstance();
-        factionController.initFactions(10, 50);
+        factionController.initFactions(32, 50);
         int faction_initial_number_supporters = factionController.determineTotalSupporters();
         ResourcesController resourcesController = ResourcesController.getInstance();
-        resourcesController.getAgriculture().setSize(48);
-        resourcesController.getIndustry().setSize(51);
+        resourcesController.getAgriculture().setSize(25);
 
         agricultureSurplus.callEvent();
         assertEquals(  true,faction_initial_number_supporters == factionController.determineTotalSupporters());
