@@ -984,6 +984,341 @@
           ]
         }
       ]
+    },
+    {
+      "id": "new_electric_grid",
+      "description": "Le nouveau réseau électrique dépasse toutes nos attentes !",
+      "choices": [
+        {
+          "name": "Le surplus d'électricité doit être redirigé vers les usines (génère du profit)",
+          "effects": [
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": 1600
+            }
+          ]
+        },
+        {
+          "name": "Le surplus d'électricité doit être utilisé pour nos champs (génère de la nourriture)",
+          "effects": [
+            {
+              "type": "consumable",
+              "key": "food",
+              "change": 1200
+            }
+          ]
+        },
+        {
+          "name": "Le surplus d'électricité doit être renvoyer vers les habitations pour un meuilleur niveau de vie (attire des supporters)",
+          "effects": [
+            {
+              "type": "supporters",
+              "key": "random",
+              "change": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "create_naval_energies",
+      "description": "El-Presidente ne comprend toujours pas comment fonctionne la centrale osmotique, mais elle fonctionne !",
+      "choices": [
+        {
+          "name": "Revendre les plans à la société Norvégienne Statkraft (attention la société paye en NOK)",
+          "effects": [
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": 400
+            }
+          ]
+        },
+        {
+          "name": "Une centrale reste une centrale, construisons en sur l'île (augmente l'industrie)",
+          "effects": [
+            {
+              "type": "resource",
+              "key": "industry",
+              "change": 3
+            }
+          ]
+        },
+        {
+          "name": "Remplaçons une partie de notre production actuelle par cette nouvelle centrale (attire des écologistes, quelle veine !)",
+          "effects": [
+            {
+              "type": "faction",
+              "key": "ecologist",
+              "change": 25
+            },
+            {
+              "type": "supporters",
+              "key": "ecologist",
+              "change": 15
+            },
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": -200
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "victory_at_the_JO",
+      "description": "Les efforts de nos athlètes ont portés leur fruits ! Félicitons les d'avoir porté nos couleurs vers la victoire.",
+      "choices": [
+        {
+          "name": "Organisons une fête ! (toute les factions sont contentes)",
+          "effects": [
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": -200
+            },
+            {
+              "type": "consumable",
+              "key": "food",
+              "change": -120
+            },
+            {
+              "type": "faction",
+              "key": "capitalist",
+              "change": 4
+            },
+            {
+              "type": "faction",
+              "key": "communist",
+              "change": 4
+            },
+            {
+              "type": "faction",
+              "key": "liberal",
+              "change": 4
+            },
+            {
+              "type": "faction",
+              "key": "religious",
+              "change": 4
+            },
+            {
+              "type": "faction",
+              "key": "militarist",
+              "change": 4
+            },
+            {
+              "type": "faction",
+              "key": "ecologist",
+              "change": 4
+            },
+            {
+              "type": "faction",
+              "key": "nationalist",
+              "change": 8
+            },
+            {
+              "type": "faction",
+              "key": "loyalist",
+              "change": 4
+            }
+          ]
+        },
+        {
+          "name": "Certains pays voudront surrement engagé nos entraineurs, exportons notre savoir (gain financier léger)",
+          "effects": [
+            {
+              "type": "supporters",
+              "key": "random",
+              "change": -2
+            },
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": 120
+            }
+          ]
+        },
+        {
+          "name": "Les remerciements resterons solenelles, nous ne voulons pas que notre population se relache trop longtemps (les factions apprécient légèrement)",
+          "effects": [
+            {
+              "type": "faction",
+              "key": "capitalist",
+              "change": 1
+            },
+            {
+              "type": "faction",
+              "key": "communist",
+              "change": 1
+            },
+            {
+              "type": "faction",
+              "key": "liberal",
+              "change": 1
+            },
+            {
+              "type": "faction",
+              "key": "religious",
+              "change": 1
+            },
+            {
+              "type": "faction",
+              "key": "militarist",
+              "change": 1
+            },
+            {
+              "type": "faction",
+              "key": "ecologist",
+              "change": 1
+            },
+            {
+              "type": "faction",
+              "key": "nationalist",
+              "change": 3
+            },
+            {
+              "type": "faction",
+              "key": "loyalist",
+              "change": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "france_and_uk_support",
+      "description": "La France et le Royaume-Unis nous remercie de notre aide, ils cherchent un moyen de nous aider à leur tour.",
+      "choices": [
+        {
+          "name": "Garder votre or, je garde ma puissance, soldat passez votre chemin! (la strasbourgeoise)",
+          "effects": [
+            {
+              "type": "faction",
+              "key": "capitalist",
+              "change": 2
+            },
+            {
+              "type": "faction",
+              "key": "communist",
+              "change": 2
+            },
+            {
+              "type": "faction",
+              "key": "liberal",
+              "change": 2
+            },
+            {
+              "type": "faction",
+              "key": "religious",
+              "change": 2
+            },
+            {
+              "type": "faction",
+              "key": "militarist",
+              "change": 2
+            },
+            {
+              "type": "faction",
+              "key": "ecologist",
+              "change": 2
+            },
+            {
+              "type": "faction",
+              "key": "nationalist",
+              "change": 4
+            },
+            {
+              "type": "faction",
+              "key": "loyalist",
+              "change": 2
+            }
+          ]
+        },
+        {
+          "name": "Nous avons besoin d'argent (gain financier)",
+          "effects": [
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": 800
+            }
+          ]
+        },
+        {
+          "name": "Nous avons besoin de nourriture (gain de nourriture)",
+          "effects": [
+            {
+              "type": "consumable",
+              "key": "food",
+              "change": 200
+            }
+          ]
+        },
+        {
+          "name": "Nous avons besoin d'aide pour nous développer (augment l'industrie et l'agriculture)",
+          "effects": [
+            {
+              "type": "resource",
+              "key": "industry",
+              "change": 4
+            },
+            {
+              "type": "resource",
+              "key": "agriculture",
+              "change": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "congratulation_from_nato",
+      "description": "Notre assistance rapide envers l'Egypte nous vaut les félicitations l'Organisation du traité de l'Atlantique nord (OTAN ou NATO pour les anglais)",
+      "choices": [
+        {
+          "name": "Une chance unique pour récupérer un prix nobel de la paix et améliorer l'image d'El-Presidente (attire des liberaux)",
+          "effects": [
+            {
+              "type": "supporters",
+              "key": "liberal",
+              "change": 8
+            }
+          ]
+        },
+        {
+          "name": "Notre intervention à un prix, envoyons la facture ! (l'OTAN paieras une partie)",
+          "effects": [
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": 500
+            }
+          ]
+        },
+        {
+          "name": "Tirons les leçons militaires de cet évènement (les militaristes approuvent)",
+          "effects": [
+            {
+              "type": "faction",
+              "key": "militarist",
+              "change": 10
+            },
+            {
+              "type": "faction",
+              "key": "nationalist",
+              "change": 5
+            },
+            {
+              "type": "faction",
+              "key": "loyalist",
+              "change": 3
+            }
+          ]
+        }
+      ]
     }
   ],
   "generic_events": [
