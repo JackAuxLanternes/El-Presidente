@@ -39,7 +39,7 @@ public class Faction {
 
         if (isSatisfactionSuperiorThan0())
             this.satisfaction += satisfaction;
-        this.normalizedSatisfactioMaxValue();
+        this.normalizedSatisfactionMaxValue();
     }
 
     private boolean isSatisfactionSuperiorThan0() {
@@ -54,10 +54,10 @@ public class Faction {
         return this.satisfaction > 100;
     }
 
-    public void substractSatisfaction(double satisfaction) {
+    public void subtractSatisfaction(double satisfaction) {
 
         this.satisfaction -= satisfaction;
-        this.normalizedSatisfactioMinValue();
+        this.normalizedSatisfactionMinValue();
     }
 
     public void addSupporter(int supporters) {
@@ -65,7 +65,7 @@ public class Faction {
             this.supporters += supporters;
     }
 
-    public void substractSupporter(int supporters) {
+    public void subtractSupporter(int supporters) {
 
         this.supporters -= supporters;
         this.normalizedSupportersMinValue();
@@ -76,12 +76,12 @@ public class Faction {
             this.supporters = 0;
     }
 
-    private void normalizedSatisfactioMaxValue() {
+    private void normalizedSatisfactionMaxValue() {
         if (!isSatisfactionGreaterThan100())
             this.satisfaction = 100;
     }
 
-    private void normalizedSatisfactioMinValue() {
+    private void normalizedSatisfactionMinValue() {
         if (!isSatisfactionSuperiorThan0())
             this.satisfaction = 0;
     }

@@ -97,7 +97,7 @@ public class FactionController {
         do {
             random_index_faction = this.determineNumberBetweenThreshold(0, this.factions.size() - 1);
         } while (this.factions.get(random_index_faction).getSupporters() <= 0);
-        this.factions.get(random_index_faction).substractSupporter(1);
+        this.factions.get(random_index_faction).subtractSupporter(1);
     }
 
     private void addSupporterRandomFaction() {
@@ -114,7 +114,7 @@ public class FactionController {
         int percentage_for_one_supporter = 2;
 
         this.factions
-                .forEach(faction -> faction.substractSatisfaction(percentage_for_one_supporter * number_supporter));
+                .forEach(faction -> faction.subtractSatisfaction(percentage_for_one_supporter * number_supporter));
     }
 
     public int determineNumberBetweenThreshold(int min, int max) {

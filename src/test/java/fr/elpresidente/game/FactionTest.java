@@ -36,7 +36,7 @@ public class FactionTest extends TestCase {
         factionController.initFactions(0, 10);
         Faction faction = factionController.getFactionFromNameFaction("capitalist");
 
-        faction.substractSupporter(2);
+        faction.subtractSupporter(2);
 
 
         assertEquals(0, faction.getSupporters());
