@@ -61,7 +61,9 @@ public class Event {
 
         if (type.equals("faction")) {
             changeFactionPopularity(jsonEffect);
-        } else if (type.equals("resource")) {
+        } else if (type.equals("supporters")) {
+            changeFactionSupporters(jsonEffect);
+        }else if (type.equals("resource")) {
             changeResourceAmount(jsonEffect);
         } else if (type.equals("consumable")) {
             changeConsumableAmount(jsonEffect);
@@ -72,6 +74,33 @@ public class Event {
         FactionController.getInstance()
                 .getFactionFromNameFaction(JSONTools.extractStringFromJSONObject(jsonEffect, "key"))
                 .addSatisfaction(JSONTools.extractIntFromJSONObject(jsonEffect, "change"));
+    }
+
+    private void changeFactionSupporters(JSONObject jsonEffect) throws Exception {
+        String faction_name = JSONTools.extractStringFromJSONObject(jsonEffect, "key");
+        int change = JSONTools.extractIntFromJSONObject(jsonEffect, "change");
+
+        if (faction_name.equals("random")) {
+            changeFactionSupportersRandomly(change);
+        } else {
+            changeFactionSupportersFromFactionName(faction_name, change);
+        }
+    }
+
+    private void changeFactionSupportersRandomly(int change) {
+        if (change > 0) {
+            FactionController.getInstance().addSupportersRandomly(change);
+        } else {
+            FactionController.getInstance().removeSupportersRandomly(change);
+        }
+    }
+
+    private void changeFactionSupportersFromFactionName(String faction_name, int change) {
+        if (change > 0) {
+            FactionController.getInstance().getFactionFromNameFaction(faction_name).addSupporter(change);
+        } else {
+            FactionController.getInstance().getFactionFromNameFaction(faction_name).subtractSupporter(change);
+        }
     }
 
     private void changeResourceAmount(JSONObject jsonEffect) throws Exception {

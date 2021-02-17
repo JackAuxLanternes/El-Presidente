@@ -4,65 +4,65 @@
     "season": "WINTER"
   },
   "resources": [
-	{
-		"name": "industry",
-		"value": 20
-	},
-	{
-		"name": "agriculture",
-		"value": 20
-	}
+    {
+      "name": "industry",
+      "value": 20
+    },
+    {
+      "name": "agriculture",
+      "value": 20
+    }
   ],
   "consumable": [
-	{
-		"name": "food",
-		"value": 12000
-	},
-	{
-		"name": "treasury",
-		"value": 3000
-	}
+    {
+      "name": "food",
+      "value": 12000
+    },
+    {
+      "name": "treasury",
+      "value": 3000
+    }
   ],
   "factions": [
     {
       "name": "capitalist",
       "popularity": 55,
-	  "supporters": 10
+      "supporters": 10
     },
     {
       "name": "communist",
       "popularity": 50,
-	  "supporters": 10
+      "supporters": 10
     },
     {
       "name": "liberal",
       "popularity": 50,
-	  "supporters": 10
+      "supporters": 10
     },
     {
       "name": "religious",
       "popularity": 45,
-	  "supporters": 10
+      "supporters": 10
     },
     {
       "name": "militarist",
       "popularity": 60,
-	  "supporters": 10
+      "supporters": 10
     },
     {
       "name": "ecologist",
       "popularity": 35,
-	  "supporters": 10
+      "supporters": 10
     },
     {
       "name": "nationalist",
       "popularity": 50,
-	  "supporters": 10
+      "supporters": 10
     },
     {
       "name": "loyalist",
       "popularity": 70,
-	  "supporters": 10
+      "supporters": 10
     }
   ],
   "events": [
@@ -342,96 +342,1035 @@
           "trigger": "movie_profit_from_export"
         }
       ]
+    },
+    {
+      "year": 1954,
+      "season": "SPRING",
+      "description": "Dwight D. Eisenhower rend la théorie des dominos publique",
+      "choices": [
+        {
+          "name": "Cette théorie sans fondements est une excuse pour empêcher la révolution communiste mondiale (les communistes approuvent)",
+          "effects": [
+            {
+              "type": "faction",
+              "key": "capitalist",
+              "change": -5
+            },
+            {
+              "type": "faction",
+              "key": "communist",
+              "change": 10
+            },
+            {
+              "type": "faction",
+              "key": "liberal",
+              "change": 8
+            },
+            {
+              "type": "faction",
+              "key": "militarist",
+              "change": -5
+            },
+            {
+              "type": "faction",
+              "key": "nationalist",
+              "change": -2
+            },
+            {
+              "type": "faction",
+              "key": "loyalist",
+              "change": 2
+            }
+          ]
+        },
+        {
+          "name": "Eisenhower sais de quoi il parle, cette théorie fera l'oeuvre d'une analyse poussée (les capitalistes approuvent)",
+          "effects": [
+            {
+              "type": "faction",
+              "key": "capitalist",
+              "change": 10
+            },
+            {
+              "type": "faction",
+              "key": "communist",
+              "change": -5
+            },
+            {
+              "type": "faction",
+              "key": "liberal",
+              "change": -2
+            },
+            {
+              "type": "faction",
+              "key": "militarist",
+              "change": 5
+            },
+            {
+              "type": "faction",
+              "key": "nationalist",
+              "change": 3
+            },
+            {
+              "type": "faction",
+              "key": "loyalist",
+              "change": 2
+            }
+          ]
+        },
+        {
+          "name": "Les états-unis sont en train de jetter de l'huile sur le feu, nous devons être près en cas de conflits. (de nouvelles usines seront ouvertes à bon prix)",
+          "effects": [
+            {
+              "type": "faction",
+              "key": "capitalist",
+              "change": 3
+            },
+            {
+              "type": "faction",
+              "key": "communist",
+              "change": 3
+            },
+            {
+              "type": "faction",
+              "key": "liberal",
+              "change": -10
+            },
+            {
+              "type": "faction",
+              "key": "militarist",
+              "change": 10
+            },
+            {
+              "type": "faction",
+              "key": "nationalist",
+              "change": 8
+            },
+            {
+              "type": "faction",
+              "key": "loyalist",
+              "change": 2
+            },
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": -500
+            },
+            {
+              "type": "resource",
+              "key": "industry",
+              "change": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "year": 1954,
+      "season": "SUMMER",
+      "description": "La première centrale nucléaire ouvre en URSS, cette nouvelle source d'énergie vas révolutionner le monde (ou le détruire).",
+      "choices": [
+        {
+          "name": "Trouvez moi des ingénieurs pour refaire le réseau électrique de l'ile (coute de l'argent)",
+          "effects": [
+            {
+              "type": "faction",
+              "key": "ecologist",
+              "change": -5
+            },
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": -600
+            },
+            {
+              "type": "supporters",
+              "key": "random",
+              "change": 4
+            }
+          ],
+          "trigger": "new_electric_grid"
+        },
+        {
+          "name": "Le nucléaire est trop dangereux pour remplacer nos générateurs à charbon, attendons d'avoir plus de recule sur le sujet (quelques factions approuvent).",
+          "effects": [
+            {
+              "type": "faction",
+              "key": "capitalist",
+              "change": 4
+            },
+            {
+              "type": "faction",
+              "key": "communist",
+              "change": 4
+            },
+            {
+              "type": "faction",
+              "key": "liberal",
+              "change": 2
+            },
+            {
+              "type": "faction",
+              "key": "loyalist",
+              "change": 2
+            }
+          ]
+        },
+        {
+          "name": "L'Unions Soviétique nous ment, El-Presidente est convaincu que cette centrale est une façade pour des armes nucléaire (les communistes n'approuvent pas)",
+          "effects": [
+            {
+              "type": "faction",
+              "key": "capitalist",
+              "change": 5
+            },
+            {
+              "type": "faction",
+              "key": "communist",
+              "change": -10
+            },
+            {
+              "type": "faction",
+              "key": "militarist",
+              "change": 5
+            },
+            {
+              "type": "faction",
+              "key": "nationalist",
+              "change": 2
+            }
+          ]
+        },
+        {
+          "name": "L'électricité est l'avenir de tous, engageons des scientifiques pour entrer dans la course technologique en trouvant d'autres sources de productions (coute de l'argent, les ecologistes appouvent)",
+          "effects": [
+            {
+              "type": "faction",
+              "key": "ecologist",
+              "change": 10
+            },
+            {
+              "type": "supporters",
+              "key": "random",
+              "change": 8
+            },
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": -1000
+            }
+          ],
+          "trigger": "create_naval_energies"
+        }
+      ]
+    },
+    {
+      "year": 1955,
+      "season": "WINTER",
+      "description": "Les USA viennent de donner la prioritée numéro 1 à leur programme de missiles inter-continentaux (ICBM)",
+      "choices": [
+        {
+          "name": "Confirmons notre position de pays neutre sur la scène internationale (des partisans en quête de paix nous rejoindrons)",
+          "effects": [
+            {
+              "type": "supporters",
+              "key": "random",
+              "change": 24
+            },
+            {
+              "type": "faction",
+              "key": "liberal",
+              "change": 10
+            }
+          ]
+        },
+        {
+          "name": "El-Presidente n'as aucune intention de rejoindre la course à l'armement mais confirme que son île resteras prête à se défendre (les militaristes approuvent)",
+          "effects": [
+            {
+              "type": "faction",
+              "key": "militarist",
+              "change": 10
+            },
+            {
+              "type": "faction",
+              "key": "nationalist",
+              "change": 7
+            },
+            {
+              "type": "faction",
+              "key": "liberal",
+              "change": -5
+            },
+            {
+              "type": "faction",
+              "key": "ecologist",
+              "change": -2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "year": 1955,
+      "season": "AUTUMN",
+      "description": "L'autriche retrouve son indépendance en tant que pays neutre",
+      "choices": [
+        {
+          "name": "Autrichiens ou Allemands quelle différence ? Hitler était bien Autrichien les forces alliers font preuves de faiblesse par cette décision (les communistes approuvent)",
+          "effects": [
+            {
+              "type": "faction",
+              "key": "communist",
+              "change": 10
+            },
+            {
+              "type": "faction",
+              "key": "capitalist",
+              "change": -10
+            },
+            {
+              "type": "faction",
+              "key": "loyalist",
+              "change": 4
+            },
+            {
+              "type": "faction",
+              "key": "liberal",
+              "change": -3
+            }
+          ]
+        },
+        {
+          "name": "Rejouissons-nous que l'Europe retrouve un peu de souverainetée (les liberals approuvent)",
+          "effects": [
+            {
+              "type": "faction",
+              "key": "liberal",
+              "change": 10
+            },
+            {
+              "type": "faction",
+              "key": "communist",
+              "change": 2
+            },
+            {
+              "type": "faction",
+              "key": "capitalist",
+              "change": 2
+            }
+          ]
+        },
+        {
+          "name": "L'Austri-quoi ? C'est pas à côté des Indes orientales néerlandaises ? Ah non je confond, c'est à côté de la Pologne ! El-Presidente n'es pas bon en géographie (les communistes et les capitalistes sont confus)",
+          "effects": [
+            {
+              "type": "supporters",
+              "key": "communist",
+              "change": -1
+            },
+            {
+              "type": "supporters",
+              "key": "capitalist",
+              "change": -1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "year": 1956,
+      "season": "WINTER",
+      "description": "Les Jeux Olympique d'hiver de 1956",
+      "choices": [
+        {
+          "name": "De bons résultats pourraient nous rapporter un peu de réputation à l'international, envoyons nos meuilleurs hommes (un budget JO est voté)",
+          "effects": [
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": -300
+            },
+            {
+              "type": "consumable",
+              "key": "food",
+              "change": -80
+            }
+          ],
+          "trigger": "victory_at_the_JO"
+        },
+        {
+          "name": "El-Presidente sera derrière son poste télévisé pour supporter les USA (les capitalistes approuvent)",
+          "effects": [
+            {
+              "type": "faction",
+              "key": "capitalist",
+              "change": 10
+            },
+            {
+              "type": "faction",
+              "key": "communist",
+              "change": -5
+            },
+            {
+              "type": "faction",
+              "key": "nationalist",
+              "change": -2
+            }
+          ]
+        },
+        {
+          "name": "El-Presidente sera derrière son poste télévisé pour supporter l'URSS (les communistes approuvent)",
+          "effects": [
+            {
+              "type": "faction",
+              "key": "capitalist",
+              "change": -5
+            },
+            {
+              "type": "faction",
+              "key": "communist",
+              "change": 10
+            },
+            {
+              "type": "faction",
+              "key": "nationalist",
+              "change": -2
+            }
+          ]
+        },
+        {
+          "name": "Les JO sont une perte de temps et d'argent, retournons travailler pour la gloire de notre île (les nationalistes approuvent)",
+          "effects": [
+            {
+              "type": "faction",
+              "key": "nationalist",
+              "change": 10
+            },
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": 100
+            },
+            {
+              "type": "consumable",
+              "key": "food",
+              "change": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "year": 1956,
+      "season": "SUMMER",
+      "description": "Soulevement du peuple dans la ville de Poznań en Pologne",
+      "choices": [
+        {
+          "name": "Les polonais sont opprossés depuis trop longtemps par le bloc soviétique, envoyons leur notre support (les communistes sont mécontent)",
+          "effects": [
+            {
+              "type": "faction",
+              "key": "communist",
+              "change": -20
+            },
+            {
+              "type": "faction",
+              "key": "liberal",
+              "change": 15
+            },
+            {
+              "type": "faction",
+              "key": "capitalist",
+              "change": 10
+            },
+            {
+              "type": "faction",
+              "key": "loyalist",
+              "change": 5
+            },
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": -200
+            }
+          ]
+        },
+        {
+          "name": "Il ne peux s'agir que d'une tentative de destabilisation de la part des USA, les fondations du communisme ne tomberont pas ! (les capitalistes sont mécontent)",
+          "effects": [
+            {
+              "type": "faction",
+              "key": "communist",
+              "change": 15
+            },
+            {
+              "type": "faction",
+              "key": "capitalist",
+              "change": 20
+            },
+            {
+              "type": "faction",
+              "key": "liberal",
+              "change": -10
+            },
+            {
+              "type": "faction",
+              "key": "loyalist",
+              "change": 5
+            }
+          ]
+        },
+        {
+          "name": "El-Presidente ne sais même pas où est la Pologne mais c'est assez loin pour pas s'en soucier (les liberals sont mécontent)",
+          "effects": [
+            {
+              "type": "faction",
+              "key": "liberal",
+              "change": -20
+            },
+            {
+              "type": "faction",
+              "key": "communist",
+              "change": 5
+            },
+            {
+              "type": "faction",
+              "key": "capitalist",
+              "change": -5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "year": 1956,
+      "season": "AUTUMN",
+      "description": "Crise de Suze ! Après la nationalisation du canal par l'Egypte, une guerre éclate entre l'Egypte et Israel.",
+      "choices": [
+        {
+          "name": "L'accès au canal est essentiel pour le commerce internationale de notre île, nous aiderons l'alliance entre Israel, la France et l'Angleterre (les capitalistes et les communistes n'approuvent pas)",
+          "effects": [
+            {
+              "type": "faction",
+              "key": "communist",
+              "change": -8
+            },
+            {
+              "type": "faction",
+              "key": "capitalist",
+              "change": -8
+            },
+            {
+              "type": "faction",
+              "key": "militarist",
+              "change": 10
+            },
+            {
+              "type": "faction",
+              "key": "nationalist",
+              "change": 10
+            },
+            {
+              "type": "faction",
+              "key": "loyalist",
+              "change": 5
+            }
+          ],
+          "trigger": "france_and_uk_support"
+        },
+        {
+          "name": "L'Egypte se retrouve rpise en étaux, nous devons leur envoyer des ressources pour les aider (les communistes et capitalistes approuvent)",
+          "effects": [
+            {
+              "type": "faction",
+              "key": "communist",
+              "change": 8
+            },
+            {
+              "type": "faction",
+              "key": "capitalist",
+              "change": 8
+            },
+            {
+              "type": "faction",
+              "key": "liberal",
+              "change": 10
+            },
+            {
+              "type": "faction",
+              "key": "militarist",
+              "change": -10
+            },
+            {
+              "type": "consumable",
+              "key": "food",
+              "change": -400
+            },
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": -600
+            }
+          ],
+          "trigger": "congratulation_from_nato"
+        },
+        {
+          "name": "Attendons d'abord de voir comment se place les géants de ce monde avant de prendre des conclusions attives (les militaristes n'approuvent pas)",
+          "effects": [
+            {
+              "type": "faction",
+              "key": "militarist",
+              "change": -20
+            },
+            {
+              "type": "faction",
+              "key": "nationalist",
+              "change": -8
+            },
+            {
+              "type": "faction",
+              "key": "capitalist",
+              "change": 3
+            },
+            {
+              "type": "faction",
+              "key": "communist",
+              "change": 3
+            },
+            {
+              "type": "faction",
+              "key": "loyalist",
+              "change": 8
+            }
+          ]
+        }
+      ]
     }
   ],
   "conditional_events": [
-	{
-	  "id": "movie_profit_from_export",
-	  "description": "Il semblerait que le reste du monde est fasciné par la beautée de notre ile, ces plages de sable fin, son eau bleu turquoise et sa faune sauvage!",
-	  "choices": [
-		{
-		  "name": "Profitons de cet engoument pour renflouer nos caisses !",
-		  "effects": [
-			{
-			  "type": "consumable",
-			  "key": "treasury",
-			  "change": 1200
-			}
-		  ]
-		},
-		{
-			"name": "Investissons immédiatement cet argent pour améliorer notre industrie",
-			"effects": [
-				{
-					"type": "resource",
-					"key": "industry",
-					"change": 5
-				}
-			]
-		},
-		{
-			"name": "Investissons immédiatement cet argent pour améliorer notre agriculture",
-			"effects": [
-				{
-					"type": "resource",
-					"key": "agriculture",
-					"change": 5
-				}
-			]
-		}
-	  ]
-	}
+    {
+      "id": "movie_profit_from_export",
+      "description": "Il semblerait que le reste du monde est fasciné par la beautée de notre ile, ces plages de sable fin, son eau bleu turquoise et sa faune sauvage!",
+      "choices": [
+        {
+          "name": "Profitons de cet engoument pour renflouer nos caisses !",
+          "effects": [
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": 1200
+            }
+          ]
+        },
+        {
+          "name": "Investissons immédiatement cet argent pour améliorer notre industrie",
+          "effects": [
+            {
+              "type": "resource",
+              "key": "industry",
+              "change": 5
+            }
+          ]
+        },
+        {
+          "name": "Investissons immédiatement cet argent pour améliorer notre agriculture",
+          "effects": [
+            {
+              "type": "resource",
+              "key": "agriculture",
+              "change": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "new_electric_grid",
+      "description": "Le nouveau réseau électrique dépasse toutes nos attentes !",
+      "choices": [
+        {
+          "name": "Le surplus d'électricité doit être redirigé vers les usines (génère du profit)",
+          "effects": [
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": 1600
+            }
+          ]
+        },
+        {
+          "name": "Le surplus d'électricité doit être utilisé pour nos champs (génère de la nourriture)",
+          "effects": [
+            {
+              "type": "consumable",
+              "key": "food",
+              "change": 1200
+            }
+          ]
+        },
+        {
+          "name": "Le surplus d'électricité doit être renvoyer vers les habitations pour un meuilleur niveau de vie (attire des supporters)",
+          "effects": [
+            {
+              "type": "supporters",
+              "key": "random",
+              "change": 20
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "create_naval_energies",
+      "description": "El-Presidente ne comprend toujours pas comment fonctionne la centrale osmotique, mais elle fonctionne !",
+      "choices": [
+        {
+          "name": "Revendre les plans à la société Norvégienne Statkraft (attention la société paye en NOK)",
+          "effects": [
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": 400
+            }
+          ]
+        },
+        {
+          "name": "Une centrale reste une centrale, construisons en sur l'île (augmente l'industrie)",
+          "effects": [
+            {
+              "type": "resource",
+              "key": "industry",
+              "change": 3
+            }
+          ]
+        },
+        {
+          "name": "Remplaçons une partie de notre production actuelle par cette nouvelle centrale (attire des écologistes, quelle veine !)",
+          "effects": [
+            {
+              "type": "faction",
+              "key": "ecologist",
+              "change": 25
+            },
+            {
+              "type": "supporters",
+              "key": "ecologist",
+              "change": 15
+            },
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": -200
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "victory_at_the_JO",
+      "description": "Les efforts de nos athlètes ont portés leur fruits ! Félicitons les d'avoir porté nos couleurs vers la victoire.",
+      "choices": [
+        {
+          "name": "Organisons une fête ! (toute les factions sont contentes)",
+          "effects": [
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": -200
+            },
+            {
+              "type": "consumable",
+              "key": "food",
+              "change": -120
+            },
+            {
+              "type": "faction",
+              "key": "capitalist",
+              "change": 4
+            },
+            {
+              "type": "faction",
+              "key": "communist",
+              "change": 4
+            },
+            {
+              "type": "faction",
+              "key": "liberal",
+              "change": 4
+            },
+            {
+              "type": "faction",
+              "key": "religious",
+              "change": 4
+            },
+            {
+              "type": "faction",
+              "key": "militarist",
+              "change": 4
+            },
+            {
+              "type": "faction",
+              "key": "ecologist",
+              "change": 4
+            },
+            {
+              "type": "faction",
+              "key": "nationalist",
+              "change": 8
+            },
+            {
+              "type": "faction",
+              "key": "loyalist",
+              "change": 4
+            }
+          ]
+        },
+        {
+          "name": "Certains pays voudront surrement engagé nos entraineurs, exportons notre savoir (gain financier léger)",
+          "effects": [
+            {
+              "type": "supporters",
+              "key": "random",
+              "change": -2
+            },
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": 120
+            }
+          ]
+        },
+        {
+          "name": "Les remerciements resterons solenelles, nous ne voulons pas que notre population se relache trop longtemps (les factions apprécient légèrement)",
+          "effects": [
+            {
+              "type": "faction",
+              "key": "capitalist",
+              "change": 1
+            },
+            {
+              "type": "faction",
+              "key": "communist",
+              "change": 1
+            },
+            {
+              "type": "faction",
+              "key": "liberal",
+              "change": 1
+            },
+            {
+              "type": "faction",
+              "key": "religious",
+              "change": 1
+            },
+            {
+              "type": "faction",
+              "key": "militarist",
+              "change": 1
+            },
+            {
+              "type": "faction",
+              "key": "ecologist",
+              "change": 1
+            },
+            {
+              "type": "faction",
+              "key": "nationalist",
+              "change": 3
+            },
+            {
+              "type": "faction",
+              "key": "loyalist",
+              "change": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "france_and_uk_support",
+      "description": "La France et le Royaume-Unis nous remercie de notre aide, ils cherchent un moyen de nous aider à leur tour.",
+      "choices": [
+        {
+          "name": "Garder votre or, je garde ma puissance, soldat passez votre chemin! (la strasbourgeoise)",
+          "effects": [
+            {
+              "type": "faction",
+              "key": "capitalist",
+              "change": 2
+            },
+            {
+              "type": "faction",
+              "key": "communist",
+              "change": 2
+            },
+            {
+              "type": "faction",
+              "key": "liberal",
+              "change": 2
+            },
+            {
+              "type": "faction",
+              "key": "religious",
+              "change": 2
+            },
+            {
+              "type": "faction",
+              "key": "militarist",
+              "change": 2
+            },
+            {
+              "type": "faction",
+              "key": "ecologist",
+              "change": 2
+            },
+            {
+              "type": "faction",
+              "key": "nationalist",
+              "change": 4
+            },
+            {
+              "type": "faction",
+              "key": "loyalist",
+              "change": 2
+            }
+          ]
+        },
+        {
+          "name": "Nous avons besoin d'argent (gain financier)",
+          "effects": [
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": 800
+            }
+          ]
+        },
+        {
+          "name": "Nous avons besoin de nourriture (gain de nourriture)",
+          "effects": [
+            {
+              "type": "consumable",
+              "key": "food",
+              "change": 200
+            }
+          ]
+        },
+        {
+          "name": "Nous avons besoin d'aide pour nous développer (augment l'industrie et l'agriculture)",
+          "effects": [
+            {
+              "type": "resource",
+              "key": "industry",
+              "change": 4
+            },
+            {
+              "type": "resource",
+              "key": "agriculture",
+              "change": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "congratulation_from_nato",
+      "description": "Notre assistance rapide envers l'Egypte nous vaut les félicitations l'Organisation du traité de l'Atlantique nord (OTAN ou NATO pour les anglais)",
+      "choices": [
+        {
+          "name": "Une chance unique pour récupérer un prix nobel de la paix et améliorer l'image d'El-Presidente (attire des liberaux)",
+          "effects": [
+            {
+              "type": "supporters",
+              "key": "liberal",
+              "change": 8
+            }
+          ]
+        },
+        {
+          "name": "Notre intervention à un prix, envoyons la facture ! (l'OTAN paieras une partie)",
+          "effects": [
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": 500
+            }
+          ]
+        },
+        {
+          "name": "Tirons les leçons militaires de cet évènement (les militaristes approuvent)",
+          "effects": [
+            {
+              "type": "faction",
+              "key": "militarist",
+              "change": 10
+            },
+            {
+              "type": "faction",
+              "key": "nationalist",
+              "change": 5
+            },
+            {
+              "type": "faction",
+              "key": "loyalist",
+              "change": 3
+            }
+          ]
+        }
+      ]
+    }
   ],
   "generic_events": [
-	{
-		"description": "El-presidente s'ennuie",
-		"choices": [
-			{
-				"name": "Une bonne après-midi au stand de tir lui changeras les idées! (les militarist approuvent)",
-				"effects": [
-					{
-						"type": "faction",
-						"key": "militarist",
-						"change": 1
-					},
-					{
-						"type": "consumable",
-						"key": "treasury",
-						"change": -50
-					}
-				]
-			},
-			{
-				"name": "Une bonne soirée au strip-club lui changeras les idées! (les religious n'approuvent pas mais El-presidente s'amuseras beaucoup)",
-				"effects": [
-					{
-						"type": "faction",
-						"key": "religious",
-						"change": -1
-					},
-					{
-						"type": "consumable",
-						"key": "treasury",
-						"change": -50
-					}
-				]
-			},
-			{
-				"name": "Une banquet avec ces conseillers lui changeras les idées! (les conseillers mangent beaucoup)",
-				"effects": [
-					{
-						"type": "consumable",
-						"key": "food",
-						"change": -20
-					},
-					{
-						"type": "consumable",
-						"key": "treasury",
-						"change": -50
-					}
-				]
-			}
-		]
-	}
+    {
+      "description": "El-presidente s'ennuie",
+      "choices": [
+        {
+          "name": "Une bonne après-midi au stand de tir lui changeras les idées! (les militarist approuvent)",
+          "effects": [
+            {
+              "type": "faction",
+              "key": "militarist",
+              "change": 1
+            },
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": -50
+            }
+          ]
+        },
+        {
+          "name": "Une bonne soirée au strip-club lui changeras les idées! (les religious n'approuvent pas mais El-presidente s'amuseras beaucoup)",
+          "effects": [
+            {
+              "type": "faction",
+              "key": "religious",
+              "change": -1
+            },
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": -50
+            }
+          ]
+        },
+        {
+          "name": "Une banquet avec ces conseillers lui changeras les idées! (les conseillers mangent beaucoup)",
+          "effects": [
+            {
+              "type": "consumable",
+              "key": "food",
+              "change": -20
+            },
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": -50
+            }
+          ]
+        }
+      ]
+    }
   ]
 }
