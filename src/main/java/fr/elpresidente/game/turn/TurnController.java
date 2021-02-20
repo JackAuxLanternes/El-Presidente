@@ -15,7 +15,7 @@ public class TurnController implements TurnBuilder {
 
     private int year;
 
-    private int count_turn = 1;
+    private int count_turn = 0;
 
     @Override
     public void setStartDate(int year, Seasons season) {
@@ -55,6 +55,7 @@ public class TurnController implements TurnBuilder {
     }
 
     public void callEndOfTheYearEventIfItsTime(GameDisplay gameDisplay){
+        System.out.println("count_turn "+ this.count_turn);
         if (this.isEndOfTheYear()) {
             gameDisplay.showGameStatus();
             EndOfYearController endOfYearController = new EndOfYearController();

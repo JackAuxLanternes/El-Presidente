@@ -67,10 +67,10 @@ public class Game {
         turnController.buildTurn();
 
         while (!isDefeated()) {
-            saveGame(scenario);
-            gameDisplay.showGameStatusWithEvent();
             turnController.callEndOfTheYearEventIfItsTime(gameDisplay);
+            gameDisplay.showGameStatusWithEvent();
             turnController.nextTurn();
+            this.saveGame(scenario);
         }
 
         gameDisplay.showGameStatusWithEvent();

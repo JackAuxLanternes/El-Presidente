@@ -23,7 +23,6 @@ public class Main {
                 ScenarioParser scenarioParser = new ScenarioParser("scenario_saved.json");
                 scenarioParser.openScenario();
                 gameLauncher.loadSavedGame(scenarioParser.getScenario());
-                System.out.println("je suis une pomme");
             }
 
         } catch (Exception e) {
