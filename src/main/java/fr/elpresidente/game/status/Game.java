@@ -1,5 +1,6 @@
 package fr.elpresidente.game.status;
 
+import fr.elpresidente.game.endofyear.EndOfYearController;
 import fr.elpresidente.game.factions.FactionController;
 import fr.elpresidente.game.resources.ConsumableController;
 import fr.elpresidente.game.resources.ResourcesController;
@@ -15,9 +16,12 @@ public class Game {
 
     private final TurnController turnController;
 
+    private final EndOfYearController endOfYearController;
+
     public Game() {
         turnController = new TurnController();
         gameDisplay = new GameDisplay(this.turnController);
+        endOfYearController = new EndOfYearController();
 
         turnController.setCurrentTurn(Seasons.WINTER);
     }
@@ -40,12 +44,14 @@ public class Game {
 
         while (!isDefeated()) {
             saveGame(scenario);
-            gameDisplay.showGameStatus();
+            gameDisplay.showGameStatusWithEvent();
+            turnController.callEndOfTheYearEventIfItsTime(gameDisplay);
             turnController.nextTurn();
         }
 
-        gameDisplay.showGameStatus();
+        gameDisplay.showGameStatusWithEvent();
     }
+
 
     private void saveGame(Scenario scenario) {
         ScenarioWriter scenarioWriter = new ScenarioWriter(scenario, turnController);

@@ -1,5 +1,6 @@
 package fr.elpresidente.game.endofyear.events;
 
+import fr.elpresidente.game.factions.Faction;
 import fr.elpresidente.game.factions.FactionController;
 import fr.elpresidente.game.resources.ConsumableController;
 
@@ -17,10 +18,11 @@ public class Bribe {
 
     public void bribeFaction(String name_faction) {
 
-        int number_supporters = factionController.getFactionFromNameFaction(name_faction).getSupporters();
+        Faction faction = factionController.getFactionFromNameFaction(name_faction);
 
-        this.payThePriceForFactionsupporters(number_supporters);
-        this.addSatisfactionPercentageToTheFaction(name_faction, number_supporters);
+        System.out.println("nombre de supporters " + faction.getSupporters());
+        this.payThePriceForFactionsupporters(faction.getSupporters());
+        this.addSatisfactionPercentageToTheFaction(faction);
     }
 
     private void payThePriceForFactionsupporters(int number_supporters) {
@@ -29,9 +31,9 @@ public class Bribe {
         this.consumableController.getTreasury().subtractAmount(price_payed_for_one_supporter * number_supporters);
     }
 
-    private void addSatisfactionPercentageToTheFaction(String name_faction, int number_supporters) {
+    private void addSatisfactionPercentageToTheFaction(Faction faction) {
         int satisfaction_percentage_add_for_one_payement = 10;
-        factionController.addSatisfactionPercentageForOneFaction(name_faction, satisfaction_percentage_add_for_one_payement);
+        faction.addSatisaction(satisfaction_percentage_add_for_one_payement);
     }
 
     public FactionController getFactionController() {

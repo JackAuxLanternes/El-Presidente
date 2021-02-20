@@ -6,6 +6,7 @@ import fr.elpresidente.game.events.EventController;
 import fr.elpresidente.game.factions.FactionController;
 import fr.elpresidente.game.resources.ConsumableController;
 import fr.elpresidente.game.resources.ResourcesController;
+import fr.elpresidente.game.status.GameDisplay;
 import org.json.simple.JSONObject;
 
 public class TurnController implements TurnBuilder {
@@ -20,6 +21,7 @@ public class TurnController implements TurnBuilder {
     public void setStartDate(int year, Seasons season) {
         this.year = year;
         this.currentTurn = season;
+        this.count_turn = 1;
     }
 
     @Override
@@ -43,7 +45,6 @@ public class TurnController implements TurnBuilder {
 
     @Override
     public void buildTurn() {
-        this.count_turn += 1;
         EventController.getInstance().findEvent(year, currentTurn);
     }
 
@@ -51,18 +52,19 @@ public class TurnController implements TurnBuilder {
     public void nextTurn(){
         setCurrentTurn(getNextTurn());
         buildTurn();
-        this.callEndOfTheYearEvent();
+        this.count_turn += 1;
     }
 
-    private void callEndOfTheYearEvent(){
+    public void callEndOfTheYearEventIfItsTime(GameDisplay gameDisplay){
         if (this.isEndOfTheYear()) {
+            gameDisplay.showGameStatus();
             EndOfYearController endOfYearController = new EndOfYearController();
             endOfYearController.callEvents();
         }
     }
 
     private boolean isEndOfTheYear() {
-        return this.count_turn % 4 == 0;
+        return this.count_turn > 0 ? this.count_turn % 4 == 0 : false;
     }
 
     @Override

@@ -1,23 +1,31 @@
 package fr.elpresidente.game.endofyear;
 
 import fr.elpresidente.game.endofyear.events.Bribe;
+import fr.elpresidente.game.endofyear.events.FoodMarket;
 
 import java.util.Scanner;
 
 public class OptionalEventMenu {
 
+
     public void choseOptionalEvent(){
-        this.printChoiceMenu();
-        int choice = getOptionnalEventChoiceFromCommandLine();
+        int choice = 0;
 
         while(choice != 3) {
+            this.printChoiceMenu();
+            choice = getOptionnalEventChoiceFromCommandLine();
             if (choice == 1) {
+
                 BribeMenu bribeMenu = new BribeMenu();
                 Bribe bribe = new Bribe();
                 bribe.bribeFaction(bribeMenu.choiceFactionForBribe());
+                bribeMenu.printGameStatusAfterBribe();
             }else if (choice == 2) {
+
                 FoodMarketMenu foodMarketMenu = new FoodMarketMenu();
-                foodMarketMenu.choiceNumberFoodToBuy();
+                FoodMarket foodMarket = new FoodMarket();
+                foodMarket.goToFoodMarket(foodMarketMenu.choiceNumberFoodToBuy());
+                foodMarketMenu.printGameStatusAfterFoodMarket();
             }
         }
     }
@@ -42,10 +50,10 @@ public class OptionalEventMenu {
         do {
             try{
                 error = false;
-                this.printErrorMenu();
                 choice = this.readOptionalEvent();
             }catch(Exception e) {
                 error = true;
+                this.printErrorMenu();
             }
         }while(error);
 

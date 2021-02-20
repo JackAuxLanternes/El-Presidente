@@ -1,5 +1,7 @@
 package fr.elpresidente.game.endofyear;
 
+import fr.elpresidente.game.status.GameDisplay;
+
 import java.util.Scanner;
 
 public class FoodMarketMenu {
@@ -45,5 +47,12 @@ public class FoodMarketMenu {
         }
 
         return choice;
+    }
+
+    public void printGameStatusAfterFoodMarket() {
+        GameDisplay gameDisplay = new GameDisplay();
+        System.out.println("Voici le status des Ressources après votre achat");
+        gameDisplay.showResourcesStatus();
+
     }
 }

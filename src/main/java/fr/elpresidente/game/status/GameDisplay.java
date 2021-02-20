@@ -17,7 +17,12 @@ public class GameDisplay {
         this.gameEventDisplayManager = new GameEventDisplayManager();
     }
 
-    public void showGameStatus() {
+    public GameDisplay() {
+        this.turnController = new TurnController();
+        this.gameEventDisplayManager = new GameEventDisplayManager();
+    }
+
+    public void showGameStatusWithEvent() {
         System.out.println("==============================");
         showTurnStatus();
         showResourcesStatus();
@@ -25,6 +30,14 @@ public class GameDisplay {
         waitForUserToContinue("Le journal vient d'arriver! Appuyez sur [ENTER] pour le lire...");
         gameEventDisplayManager.showEvent();
         System.out.println("==============================");
+        waitForUserToContinue("Fin du tour, appuyez sur [ENTER] pour continuer...");
+    }
+
+    public void showGameStatus() {
+        System.out.println("==============================");
+        showTurnStatus();
+        showResourcesStatus();
+        showFactionsStatus();
         waitForUserToContinue("Fin du tour, appuyez sur [ENTER] pour continuer...");
     }
 

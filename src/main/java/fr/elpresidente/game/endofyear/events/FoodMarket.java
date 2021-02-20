@@ -10,55 +10,22 @@ import static fr.elpresidente.game.resources.Treasury.PRICE_ONE_YIELD_AGRICULTUR
 public class FoodMarket {
 
     ConsumableController controller = ConsumableController.getInstance();
+    private final int PRICE_FOR_ONE_FOOD_UNITY = 8;
 
-    public void goToFoodMarket() {
-        askUserIfHeWantToBuyFood();
-    }
-
-    private void askUserIfHeWantToBuyFood() {
-        System.out.println("Do you want to buy some food for your Supporters ?");
-        Scanner scanner = new Scanner(System.in);
-        int choice = scanner.nextInt();
-
-        if (choice == 1) {
-            goBuyFood();
-        } else {
-            System.out.println("You're evil.");
-        }
-    }
-
-    private void goBuyFood() {
-        if (buyMaximumFoodPossible(getFoodNeeded()) != getFoodNeeded()) {
+    public void goToFoodMarket(int amount_food) {
+        if(haveEnoughMoneyToBuyAmountFood(amount_food)) {
+            this.buyAmountOfFood(amount_food);
+        }else {
             System.out.println("You have not enough money, you have used all of your money to pay equivalent food");
-        } else {
-            System.out.println("Great, your citizen didn't die this year !");
         }
     }
 
-    private int buyMaximumFoodPossible(int amount_food) {
-        int amount_to_substract = this.determineAmountForAmountFood(amount_food);
-        if (amount_to_substract < controller.getTreasury().getAmount()) {
-            controller.getTreasury().subtractAmount(amount_to_substract);
-            controller.getFood().addAmount(amount_food);
-        } else {
-            amount_to_substract = controller.getTreasury().getAmount();
-            controller.getTreasury().subtractAmount(amount_to_substract);
-            controller.getFood().addAmount(amount_to_substract);
-        }
-
-        return amount_to_substract;
+    public void buyAmountOfFood(int amount_food) {
+        controller.getTreasury().subtractAmount(amount_food * PRICE_FOR_ONE_FOOD_UNITY);
+        controller.getFood().addAmount(amount_food);
     }
 
-    public int getFoodNeeded() {
-        int food_needed = ConsumableController.getInstance().getFood().getAmount() - (FactionController.getInstance().determineTotalSupporters() * 4);
-        if (food_needed < 0) {
-            return food_needed * (-1);
-        } else {
-            return 0;
-        }
-    }
-
-    private int determineAmountForAmountFood(int amount_food) {
-        return amount_food * PRICE_ONE_YIELD_AGRICULTURE;
+    private boolean haveEnoughMoneyToBuyAmountFood(int amount_food) {
+        return this.controller.getTreasury().getAmount() >= amount_food * PRICE_FOR_ONE_FOOD_UNITY;
     }
 }
