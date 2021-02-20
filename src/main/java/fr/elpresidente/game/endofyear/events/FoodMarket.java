@@ -12,15 +12,11 @@ public class FoodMarket {
     ConsumableController controller = ConsumableController.getInstance();
 
     public void goToFoodMarket() {
-        if (getFoodNeeded() > 0) {
-            askUserIfHeWantToBuyFood();
-        } else {
-            System.out.println("You didn't need to go to the food market, you have enough food");
-        }
+        askUserIfHeWantToBuyFood();
     }
 
     private void askUserIfHeWantToBuyFood() {
-        System.out.println("You have not enough food for your citizens, did you to go to the food market for buying food ?");
+        System.out.println("Do you want to buy some food for your Supporters ?");
         Scanner scanner = new Scanner(System.in);
         int choice = scanner.nextInt();
 

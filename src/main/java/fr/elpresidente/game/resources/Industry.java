@@ -6,10 +6,10 @@ import org.json.simple.JSONObject;
 class Industry implements Resource, RessourceBuilder {
 
     private int size;
-
     private static final int PERCENTAGE_MULTIPLIER_INDUSTRY_IN_TREASURY = 10;
-
     private final String name = "industry";
+    private static final String JSON_NAME_KEY = "name";
+    private static final String JSON_SIZE_KEY = "value";
 
     @Override
     public void init() {
@@ -49,8 +49,8 @@ class Industry implements Resource, RessourceBuilder {
     @Override
     public JSONObject toJSONObject() {
         JSONObject resourcesAgriculture = new JSONObject();
-        resourcesAgriculture.put("name", this.getName());
-        resourcesAgriculture.put("value", this.size);
+        resourcesAgriculture.put(JSON_NAME_KEY, this.getName());
+        resourcesAgriculture.put(JSON_SIZE_KEY, this.size);
 
         return resourcesAgriculture;
     }

@@ -5,8 +5,9 @@ import org.json.simple.JSONObject;
 class Food implements Consumable {
 
     private int amount;
-
     private final String name = "food";
+    private static final String  JSON_NAME_KEY = "name";
+    private static final String JSON_AMOUNT_KEY = "value";
 
     public Food(int amount) {
         this.amount = amount;
@@ -40,8 +41,8 @@ class Food implements Consumable {
     @Override
     public JSONObject toJSONObject() {
         JSONObject consumablesFood = new JSONObject();
-        consumablesFood.put("name", this.getName());
-        consumablesFood.put("value", this.amount);
+        consumablesFood.put(JSON_NAME_KEY, this.getName());
+        consumablesFood.put(JSON_AMOUNT_KEY, this.amount);
 
         return consumablesFood;
     }

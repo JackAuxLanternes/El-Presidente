@@ -125,10 +125,7 @@ public class FactionController {
 
         JSONArray factionArray = new JSONArray();
         for (Faction faction : FactionController.getInstance().getFactions()) {
-            JSONObject factionJSONObject = new JSONObject();
-            factionJSONObject.put("name", faction.getName());
-            factionJSONObject.put("popularity", (int) faction.getSatisfaction());
-            factionJSONObject.put("supporters", faction.getSupporters());
+            JSONObject factionJSONObject = faction.toJSONObject();
             factionArray.add(factionJSONObject);
         }
 

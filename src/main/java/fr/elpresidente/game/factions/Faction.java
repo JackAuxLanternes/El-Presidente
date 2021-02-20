@@ -1,10 +1,15 @@
 package fr.elpresidente.game.factions;
 
+import org.json.simple.JSONObject;
+
 public class Faction {
 
     private final String name;
     private int supporters;
     private double satisfaction;
+    private static final String JSON_NAME_KEY = "name";
+    private final String JSON_SUPPORTERS_KEY = "supporters";
+    private final String JSON_POPULARITY_KEY = "popularity";
 
     public Faction(String name) {
         this.name = name;
@@ -84,5 +89,14 @@ public class Faction {
     private void normalizedSatisfactionMinValue() {
         if (!isSatisfactionSuperiorThan0())
             this.satisfaction = 0;
+    }
+
+    public JSONObject toJSONObject() {
+        JSONObject factionJSONObject = new JSONObject();
+        factionJSONObject.put(JSON_NAME_KEY, this.getName());
+        factionJSONObject.put(JSON_POPULARITY_KEY, (int) this.getSatisfaction());
+        factionJSONObject.put(JSON_SUPPORTERS_KEY, this.getSupporters());
+
+        return factionJSONObject;
     }
 }
