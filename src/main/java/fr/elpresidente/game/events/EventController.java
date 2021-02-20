@@ -26,7 +26,6 @@ public class EventController {
         }
         resetCurrentEvent();
         Event event = searchScriptedEvent(year, season);
-        System.out.println(event.getDescription());
         if (!isEventNull(event)) {
             setCurrentEvent(event);
         } else {
@@ -46,7 +45,7 @@ public class EventController {
 
     private Event fillWithGenericEvent() {
         Random random = new Random();
-        return new Event((JSONObject) genericEvents.get(random.nextInt(genericEvents.size() + 1)));
+        return new Event((JSONObject) genericEvents.get(random.nextInt(genericEvents.size())));
     }
 
     private boolean isEventNull(Event event) {
