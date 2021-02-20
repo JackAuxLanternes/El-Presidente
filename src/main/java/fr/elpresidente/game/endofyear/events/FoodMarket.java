@@ -9,7 +9,6 @@ import static fr.elpresidente.game.resources.Treasury.PRICE_ONE_YIELD_AGRICULTUR
 
 public class FoodMarket {
 
-    ConsumableController controller = ConsumableController.getInstance();
     private final int PRICE_FOR_ONE_FOOD_UNITY = 8;
 
     public void goToFoodMarket(int amount_food) {
@@ -21,11 +20,11 @@ public class FoodMarket {
     }
 
     public void buyAmountOfFood(int amount_food) {
-        controller.getTreasury().subtractAmount(amount_food * PRICE_FOR_ONE_FOOD_UNITY);
-        controller.getFood().addAmount(amount_food);
+        ConsumableController.getInstance().getTreasury().subtractAmount(amount_food * PRICE_FOR_ONE_FOOD_UNITY);
+        ConsumableController.getInstance().getFood().addAmount(amount_food);
     }
 
     private boolean haveEnoughMoneyToBuyAmountFood(int amount_food) {
-        return this.controller.getTreasury().getAmount() >= amount_food * PRICE_FOR_ONE_FOOD_UNITY;
+        return ConsumableController.getInstance().getTreasury().getAmount() >= amount_food * PRICE_FOR_ONE_FOOD_UNITY;
     }
 }
