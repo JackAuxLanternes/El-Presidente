@@ -15,13 +15,12 @@ public class TurnController implements TurnBuilder {
 
     private int year;
 
-    private int count_turn;
+    private int count_turn = 1;
 
     @Override
     public void setStartDate(int year, Seasons season) {
         this.year = year;
         this.currentTurn = season;
-        this.count_turn = 1;
     }
 
     @Override
@@ -100,7 +99,11 @@ public class TurnController implements TurnBuilder {
         this.year += 1;
     }
 
-    public int getCount_turn() {
+    public int getCountTurn() {
         return this.count_turn;
+    }
+
+    public void setCountTurn(int count_turn) {
+        this.count_turn = count_turn;
     }
 }

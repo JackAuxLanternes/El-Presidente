@@ -17,6 +17,7 @@ public class GameLauncher implements GameBuilder {
     public void loadSavedGame(Scenario scenario) {
         Game game = new Game();
         game.initFromScenario(scenario);
+        game.initTurnForLoadGame();
         game.gameLoop(scenario);
     }
 }
