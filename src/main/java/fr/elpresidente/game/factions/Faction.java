@@ -1,5 +1,6 @@
 package fr.elpresidente.game.factions;
 
+import fr.elpresidente.game.difficulty.DifficultyController;
 import org.json.simple.JSONObject;
 
 public class Faction {
@@ -75,8 +76,12 @@ public class Faction {
 
     public void removeSatisfaction(double satisfaction) {
 
-        this.satisfaction -= satisfaction;
+        this.satisfaction -= this.updateValueToSubstractWithDiffciulty(satisfaction);
         this.normalizedSatisfactionMinValue();
+    }
+
+    private int updateValueToSubstractWithDiffciulty(double value) {
+        return (int) (value * DifficultyController.getInstance().getDifficulty().getDifficultyEventMultiplier());
     }
 
     public void addSupporter(int supporters) {

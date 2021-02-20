@@ -3,7 +3,7 @@ package fr.elpresidente.game.difficulty;
 public class NormalDifficulty implements Difficulty {
 
     private final double EVENT_MULTIPLIER = 1;
-    private final int PERCENTAGE_LOOSE = 1;
+    private final int PERCENTAGE_LOOSE = 30;
 
     @Override
     public double getDifficultyEventMultiplier() {

@@ -1,6 +1,7 @@
 package fr.elpresidente.game.resources;
 
 import fr.elpresidente.game.builders.RessourceBuilder;
+import fr.elpresidente.game.difficulty.DifficultyController;
 import org.json.simple.JSONObject;
 
 public class Agriculture implements Resource, RessourceBuilder {
@@ -39,8 +40,20 @@ public class Agriculture implements Resource, RessourceBuilder {
 
 
     @Override
-    public void updateSize(int amount) {
-        this.addSize(size);
+    public void substractSize(int size) {
+        this.size -= this.updateSizeToSubstractWithDiffciulty(size);
+    }
+
+    @Override
+    public void updateSize(int size) {
+        if(this.size > 0)
+            addSize(size);
+        else
+            substractSize(size);
+    }
+
+    private int updateSizeToSubstractWithDiffciulty(int value) {
+        return (int) (value * DifficultyController.getInstance().getDifficulty().getDifficultyEventMultiplier());
     }
 
     @Override

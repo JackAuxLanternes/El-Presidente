@@ -12,7 +12,9 @@ public interface Resource {
 
     void addSize(int size);
 
-    void updateSize(int amount);
+    void substractSize(int size);
+
+    void updateSize(int size);
 
     int getAnnualYields();
 
