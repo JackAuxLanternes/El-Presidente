@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class LauncherMenu {
 
-    public LauncherGameType choseGameType() throws Exception {
+    public LauncherGameType choseGameType() {
 
         int choice = getGameTypeFromCommandLine();
 
@@ -51,25 +51,20 @@ public class LauncherMenu {
         return choice;
     }
 
-    public void choseDifficultyForTheGame() throws Exception{
+    public void choseDifficultyForTheGame(){
 
         int choice = this.getDifficultyChoiceFromCommandLine();
-        Difficulty difficulty;
         switch(choice) {
             case 1:
-                difficulty = new EasyDifficulty();
+                DifficultyController.getInstance().setDifficulty(new EasyDifficulty());
                 break;
             case 2:
-                difficulty = new NormalDifficulty();
+                DifficultyController.getInstance().setDifficulty(new NormalDifficulty());
                 break;
             case 3:
-                difficulty = new HardDifficulty();
+                DifficultyController.getInstance().setDifficulty(new HardDifficulty());
                 break;
-            default:
-                throw new Exception();
         }
-        DifficultyController.getInstance().setDifficulty(difficulty);
-
     }
 
     private int getDifficultyChoiceFromCommandLine() {

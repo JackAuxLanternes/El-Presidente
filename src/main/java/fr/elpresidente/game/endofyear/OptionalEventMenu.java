@@ -1,14 +1,26 @@
 package fr.elpresidente.game.endofyear;
 
-import fr.elpresidente.game.difficulty.EasyDifficulty;
-import fr.elpresidente.game.difficulty.HardDifficulty;
-import fr.elpresidente.game.difficulty.NormalDifficulty;
 import fr.elpresidente.game.endofyear.events.Bribe;
-import fr.elpresidente.game.launcher.LauncherGameType;
 
 import java.util.Scanner;
 
-public class OptionalEvent {
+public class OptionalEventMenu {
+
+    public void choseOptionalEvent(){
+        this.printChoiceMenu();
+        int choice = getOptionnalEventChoiceFromCommandLine();
+
+        while(choice != 3) {
+            if (choice == 1) {
+                BribeMenu bribeMenu = new BribeMenu();
+                Bribe bribe = new Bribe();
+                bribe.bribeFaction(bribeMenu.choiceFactionForBribe());
+            }else if (choice == 2) {
+                FoodMarketMenu foodMarketMenu = new FoodMarketMenu();
+                foodMarketMenu.choiceNumberFoodToBuy();
+            }
+        }
+    }
 
     private void printChoiceMenu() {
         System.out.println("==============================");
@@ -21,28 +33,6 @@ public class OptionalEvent {
         System.out.println("=== 2. Le Marché alimentaire");
         System.out.println("=== \t Vous pouvez acheter des unités de nourriture pour Compléter l'année qui s'achève, 1 unité = 8$");
         System.out.println("=== 3. Aucun de ces évènements ne m'interesse");
-    }
-
-    public void choiceOptionalEvent() throws Exception {
-        this.printChoiceMenu();
-        int choice = getOptionnalEventChoiceFromCommandLine();
-
-        switch(choice) {
-            case 1:
-                BribeMenu bribeMenu = new BribeMenu();
-                Bribe bribe = new Bribe();
-                bribe.bribeFaction(bribeMenu.choiceFactionForBribe());
-                break;
-            case 2:
-                FoodMarketMenu foodMarketMenu = new FoodMarketMenu();
-                foodMarketMenu.choiceNumberFoodToBuy();
-                break;
-            case 3:
-
-                break;
-            default:
-                throw new Exception();
-        }
     }
 
     private int getOptionnalEventChoiceFromCommandLine() {
