@@ -10,7 +10,7 @@ public class FoodMarket {
         if(haveEnoughMoneyToBuyAmountFood(amount_food)) {
             this.buyAmountOfFood(amount_food);
         }else {
-            System.out.println("You have not enough money, you have used all of your money to pay equivalent food");
+            System.out.println("You have not enough money");
         }
     }
 
