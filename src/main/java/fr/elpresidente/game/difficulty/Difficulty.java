@@ -2,7 +2,7 @@ package fr.elpresidente.game.difficulty;
 
 public interface Difficulty {
 
-    double getDifficultyLooseMultiplier();
+    double getDifficultyEventMultiplier();
 
-    int getPercentage();
+    int getPercentageLoose();
 }

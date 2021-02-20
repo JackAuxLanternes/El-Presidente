@@ -36,7 +36,7 @@ public class FactionTest extends TestCase {
         factionController.initFactions(0, 10);
         Faction faction = factionController.getFactionFromNameFaction("capitalist");
 
-        faction.subtractSupporter(2);
+        faction.removeSupporter(2);
 
 
         assertEquals(0, faction.getSupporters());
@@ -47,7 +47,7 @@ public class FactionTest extends TestCase {
         factionController.initFactions(10, 0);
         Faction faction = factionController.getFactionFromNameFaction("capitalist");
 
-        faction.addSatisfaction(2);
+        faction.updateSatisfaction(2);
 
 
         assertEquals(0, faction.getSatisfaction());
@@ -59,7 +59,7 @@ public class FactionTest extends TestCase {
         Faction faction = factionController.getFactionFromNameFaction("capitalist");
         faction.setSatisfaction(100);
 
-        faction.addSatisfaction(2);
+        faction.updateSatisfaction(2);
 
 
         assertEquals(100, faction.getSatisfaction());

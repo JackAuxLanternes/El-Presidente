@@ -73,8 +73,9 @@ public class Event {
     private void changeFactionPopularity(JSONObject jsonEffect) throws Exception {
         FactionController.getInstance()
                 .getFactionFromNameFaction(JSONTools.extractStringFromJSONObject(jsonEffect, "key"))
-                .addSatisfaction(JSONTools.extractIntFromJSONObject(jsonEffect, "change"));
+                .updateSatisfaction(JSONTools.extractIntFromJSONObject(jsonEffect, "change"));
     }
+
 
     private void changeFactionSupporters(JSONObject jsonEffect) throws Exception {
         String faction_name = JSONTools.extractStringFromJSONObject(jsonEffect, "key");
@@ -91,7 +92,7 @@ public class Event {
         if (change > 0) {
             FactionController.getInstance().addSupportersRandomly(change);
         } else {
-            FactionController.getInstance().removeSupportersRandomly(change);
+            FactionController.getInstance().removeSupportersRandomly(Math.abs(change));
         }
     }
 
@@ -99,20 +100,20 @@ public class Event {
         if (change > 0) {
             FactionController.getInstance().getFactionFromNameFaction(faction_name).addSupporter(change);
         } else {
-            FactionController.getInstance().getFactionFromNameFaction(faction_name).subtractSupporter(change);
+            FactionController.getInstance().getFactionFromNameFaction(faction_name).removeSupporter(Math.abs(change));
         }
     }
 
     private void changeResourceAmount(JSONObject jsonEffect) throws Exception {
         ResourcesController.getInstance()
                 .getResourceFromResourceName(JSONTools.extractStringFromJSONObject(jsonEffect, "key"))
-                .addSize(JSONTools.extractIntFromJSONObject(jsonEffect, "change"));
+                .updateSize(JSONTools.extractIntFromJSONObject(jsonEffect, "change"));
     }
 
     private void changeConsumableAmount(JSONObject jsonEffect) throws Exception {
         ConsumableController.getInstance()
                 .getConsumableFromConsumableName(JSONTools.extractStringFromJSONObject(jsonEffect, "key"))
-                .addAmount(JSONTools.extractIntFromJSONObject(jsonEffect, "change"));
+                .updateAmount(JSONTools.extractIntFromJSONObject(jsonEffect, "change"));
     }
 
     private boolean canTriggerEvent(int userChoice) {

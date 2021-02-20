@@ -10,6 +10,8 @@ public interface Consumable {
 
     void addAmount(int amount);
 
+    void updateAmount(int amount);
+
     void subtractAmount(int amount);
 
     String getName();

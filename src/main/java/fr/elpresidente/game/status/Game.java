@@ -49,7 +49,7 @@ public class Game {
 
     private void saveGame(Scenario scenario) {
         ScenarioWriter scenarioWriter = new ScenarioWriter(scenario, turnController);
-        scenarioWriter.writeScenario("example.json");
+        scenarioWriter.writeScenario("scenario_saved.json");
     }
 
     public boolean isDefeated() {

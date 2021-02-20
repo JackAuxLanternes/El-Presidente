@@ -1,5 +1,6 @@
 package fr.elpresidente.game.resources;
 
+import fr.elpresidente.game.difficulty.DifficultyController;
 import org.json.simple.JSONObject;
 
 public class Treasury implements Consumable {
@@ -7,8 +8,8 @@ public class Treasury implements Consumable {
     public final static int PRICE_ONE_YIELD_AGRICULTURE = 8;
     private int amount;
     private final String name = "treasury";
-    private static final String JSON_NAME_KEY = "name";
-    private static final String JSON_AMOUNT_KEY = "value";
+    public static final String JSON_NAME_KEY = "name";
+    public static final String JSON_AMOUNT_KEY = "value";
 
     public Treasury(int amount) {
         this.amount = amount;
@@ -30,8 +31,20 @@ public class Treasury implements Consumable {
     }
 
     @Override
+    public void updateAmount(int amount) {
+        if(amount > 0)
+            this.addAmount(amount);
+        else
+            this.subtractAmount(Math.abs(amount));
+    }
+
+    @Override
     public void subtractAmount(int amount) {
-        this.amount -= amount;
+        this.amount -= this.updateAmountToSubstractWithDiffciulty(amount);
+    }
+
+    private int updateAmountToSubstractWithDiffciulty(int amount) {
+        return (int) (amount * DifficultyController.getInstance().getDifficulty().getDifficultyEventMultiplier());
     }
 
     @Override

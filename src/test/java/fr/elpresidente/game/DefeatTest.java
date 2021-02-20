@@ -30,8 +30,8 @@ public class DefeatTest extends TestCase {
         DifficultyController.getInstance().setDifficulty(new HardDifficulty());
         FactionController factionController = FactionController.getInstance();
         factionController.initFactions(4, 51);
-        factionController.getFactionFromNameFaction("capitalist").subtractSatisfaction(49);
-        factionController.getFactionFromNameFaction("loyalist").subtractSatisfaction(51);
+        factionController.getFactionFromNameFaction("capitalist").removeSatisfaction(49);
+        factionController.getFactionFromNameFaction("loyalist").removeSatisfaction(51);
         assertFalse(defeat.completeConditionsToContinue());
     }
 }

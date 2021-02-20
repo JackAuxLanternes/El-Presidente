@@ -16,6 +16,6 @@ public class Defeat {
     }
 
     public boolean isSatisfactionSuperiorThanThreshold() throws Exception {
-        return this.factionController.determineGlobalSatisfaction() > DifficultyController.getInstance().getDifficulty().getPercentage();
+        return this.factionController.determineGlobalSatisfaction() > DifficultyController.getInstance().getDifficulty().getPercentageLoose();
     }
 }

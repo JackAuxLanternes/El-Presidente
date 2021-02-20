@@ -1,13 +1,14 @@
 package fr.elpresidente.game.resources;
 
+import fr.elpresidente.game.difficulty.DifficultyController;
 import org.json.simple.JSONObject;
 
-class Food implements Consumable {
+public class Food implements Consumable {
 
     private int amount;
     private final String name = "food";
-    private static final String  JSON_NAME_KEY = "name";
-    private static final String JSON_AMOUNT_KEY = "value";
+    public static final String  JSON_NAME_KEY = "name";
+    public static final String JSON_AMOUNT_KEY = "value";
 
     public Food(int amount) {
         this.amount = amount;
@@ -29,8 +30,20 @@ class Food implements Consumable {
     }
 
     @Override
+    public void updateAmount(int amount) {
+        if(amount > 0)
+            this.addAmount(amount);
+        else
+            this.subtractAmount(Math.abs(amount));
+    }
+
+    @Override
     public void subtractAmount(int amount) {
-        this.amount -= amount;
+        this.amount -= this.updateAmountToSubstractWithDiffciulty(amount);
+    }
+
+    private int updateAmountToSubstractWithDiffciulty(int amount) {
+        return (int) (amount * DifficultyController.getInstance().getDifficulty().getDifficultyEventMultiplier());
     }
 
     @Override

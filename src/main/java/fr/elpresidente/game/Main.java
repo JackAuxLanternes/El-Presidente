@@ -20,7 +20,7 @@ public class Main {
                 gameLauncher.createNewGame(scenarioParser.getScenario());
             } else if (gameType == LauncherGameType.LOAD_GAME) {
 
-                ScenarioParser scenarioParser = new ScenarioParser("example.json");
+                ScenarioParser scenarioParser = new ScenarioParser("scenario_saved.json");
                 scenarioParser.openScenario();
                 gameLauncher.loadSavedGame(scenarioParser.getScenario());
             }

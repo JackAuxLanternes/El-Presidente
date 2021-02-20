@@ -12,6 +12,8 @@ public interface Resource {
 
     void addSize(int size);
 
+    void updateSize(int amount);
+
     int getAnnualYields();
 
     String getName();

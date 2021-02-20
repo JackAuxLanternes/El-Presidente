@@ -52,7 +52,7 @@ public class FactionController {
     public void addSatisfactionPercentageForOneFaction(String name_faction, double satisfaction_percentage) {
 
         Faction faction_research = this.getFactionFromNameFaction(name_faction);
-        faction_research.addSatisfaction(faction_research.getSatisfaction() * satisfaction_percentage / 100);
+        faction_research.updateSatisfaction(faction_research.getSatisfaction() * satisfaction_percentage / 100);
     }
 
     public Faction getFactionFromNameFaction(String name_faction) {
@@ -97,7 +97,7 @@ public class FactionController {
         do {
             random_index_faction = this.determineNumberBetweenThreshold(0, this.factions.size() - 1);
         } while (this.factions.get(random_index_faction).getSupporters() <= 0);
-        this.factions.get(random_index_faction).subtractSupporter(1);
+        this.factions.get(random_index_faction).removeSupporter(1);
     }
 
     private void addSupporterRandomFaction() {
@@ -114,7 +114,7 @@ public class FactionController {
         int percentage_for_one_supporter = 2;
 
         this.factions
-                .forEach(faction -> faction.subtractSatisfaction(percentage_for_one_supporter * number_supporter));
+                .forEach(faction -> faction.removeSatisfaction(percentage_for_one_supporter * number_supporter));
     }
 
     public int determineNumberBetweenThreshold(int min, int max) {
