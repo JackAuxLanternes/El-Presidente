@@ -1,11 +1,6 @@
 package fr.elpresidente.game.endofyear.events;
 
-import fr.elpresidente.game.factions.FactionController;
 import fr.elpresidente.game.resources.ConsumableController;
-
-import java.util.Scanner;
-
-import static fr.elpresidente.game.resources.Treasury.PRICE_ONE_YIELD_AGRICULTURE;
 
 public class FoodMarket {
 

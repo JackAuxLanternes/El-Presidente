@@ -55,7 +55,6 @@ public class TurnController implements TurnBuilder {
     }
 
     public void callEndOfTheYearEventIfItsTime(GameDisplay gameDisplay){
-        System.out.println("count_turn "+ this.count_turn);
         if (this.isEndOfTheYear()) {
             gameDisplay.showGameStatus();
             EndOfYearController endOfYearController = new EndOfYearController();
