@@ -7,7 +7,7 @@ class Food implements Consumable {
 
     private int amount;
     private final String name = "food";
-    public static final String  JSON_NAME_KEY = "name";
+    public static final String JSON_NAME_KEY = "name";
     public static final String JSON_AMOUNT_KEY = "value";
 
     public Food(int amount) {
@@ -31,7 +31,7 @@ class Food implements Consumable {
 
     @Override
     public void updateAmount(int amount) {
-        if(amount > 0)
+        if (amount > 0)
             this.addAmount(amount);
         else
             this.subtractAmount(Math.abs(amount));

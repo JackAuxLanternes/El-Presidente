@@ -2,7 +2,7 @@ package fr.elpresidente.game.endofyear;
 
 public class EndOfYearController {
 
-    public void callEvents(){
+    public void callEvents() {
         this.callOptionnalEvents();
         this.callReviewEvents();
     }

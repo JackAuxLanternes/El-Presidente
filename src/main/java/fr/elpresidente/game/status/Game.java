@@ -56,7 +56,7 @@ public class Game {
 
     private int determinateCountTurnFromIntialScenarioToLoadScenario(TurnController turnController_old_json) {
         int count_turn = 0;
-        while(turnController_old_json.getYear() != this.turnController.getYear() || turnController_old_json.getCurrentTurn() != this.turnController.getCurrentTurn()) {
+        while (turnController_old_json.getYear() != this.turnController.getYear() || turnController_old_json.getCurrentTurn() != this.turnController.getCurrentTurn()) {
             count_turn += 1;
             turnController_old_json.nextTurn();
         }

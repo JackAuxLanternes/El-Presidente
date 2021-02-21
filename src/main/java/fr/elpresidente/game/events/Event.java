@@ -63,7 +63,7 @@ public class Event {
             changeFactionPopularity(jsonEffect);
         } else if (type.equals("supporters")) {
             changeFactionSupporters(jsonEffect);
-        }else if (type.equals("resource")) {
+        } else if (type.equals("resource")) {
             changeResourceAmount(jsonEffect);
         } else if (type.equals("consumable")) {
             changeConsumableAmount(jsonEffect);

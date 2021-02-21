@@ -2,7 +2,7 @@ package fr.elpresidente.game.endofyear;
 
 import fr.elpresidente.game.endofyear.events.*;
 
- class ReviewEvents {
+class ReviewEvents {
 
 
     public void applyAllReviewEvents() {

@@ -31,7 +31,7 @@ class Treasury implements Consumable {
 
     @Override
     public void updateAmount(int amount) {
-        if(amount > 0)
+        if (amount > 0)
             this.addAmount(amount);
         else
             this.subtractAmount(Math.abs(amount));

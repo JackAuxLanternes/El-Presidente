@@ -15,14 +15,14 @@ class FoodMarketMenu {
         int choice = 0;
         boolean error;
         do {
-            try{
+            try {
                 error = false;
                 this.printChoiceFoodError();
                 choice = this.readChoiceNumberFood();
-            }catch(Exception e) {
+            } catch (Exception e) {
                 error = true;
             }
-        }while(error);
+        } while (error);
 
         return choice;
     }

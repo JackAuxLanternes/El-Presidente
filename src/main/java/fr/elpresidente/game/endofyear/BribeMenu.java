@@ -16,14 +16,14 @@ class BribeMenu {
         String faction_name = "";
         boolean error;
         do {
-            try{
+            try {
                 error = false;
                 this.printChoiceMenu();
                 faction_name = this.readFactionName();
-            }catch(Exception e) {
+            } catch (Exception e) {
                 error = true;
             }
-        }while(error);
+        } while (error);
 
         return faction_name;
     }

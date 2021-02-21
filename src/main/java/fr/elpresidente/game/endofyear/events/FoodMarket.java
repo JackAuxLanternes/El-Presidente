@@ -7,9 +7,9 @@ public class FoodMarket {
     private final int PRICE_FOR_ONE_FOOD_UNITY = 8;
 
     public void goToFoodMarket(int amount_food) {
-        if(haveEnoughMoneyToBuyAmountFood(amount_food)) {
+        if (haveEnoughMoneyToBuyAmountFood(amount_food)) {
             this.buyAmountOfFood(amount_food);
-        }else {
+        } else {
             System.out.println("You have not enough money");
         }
     }

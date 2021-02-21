@@ -1,6 +1,9 @@
 package fr.elpresidente.game.launcher;
 
-import fr.elpresidente.game.difficulty.*;
+import fr.elpresidente.game.difficulty.DifficultyController;
+import fr.elpresidente.game.difficulty.EasyDifficulty;
+import fr.elpresidente.game.difficulty.HardDifficulty;
+import fr.elpresidente.game.difficulty.NormalDifficulty;
 
 import java.util.Scanner;
 
@@ -28,14 +31,14 @@ public class LauncherMenu {
         int choice = 0;
         boolean error;
         do {
-            try{
+            try {
                 error = false;
                 this.printChoiceGameType();
                 choice = this.readGameType();
-            }catch(Exception e) {
+            } catch (Exception e) {
                 error = true;
             }
-        }while(error);
+        } while (error);
 
         return choice;
     }
@@ -51,10 +54,10 @@ public class LauncherMenu {
         return choice;
     }
 
-    public void choseDifficultyForTheGame(){
+    public void choseDifficultyForTheGame() {
 
         int choice = this.getDifficultyChoiceFromCommandLine();
-        switch(choice) {
+        switch (choice) {
             case 1:
                 DifficultyController.getInstance().setDifficulty(new EasyDifficulty());
                 break;
@@ -72,14 +75,14 @@ public class LauncherMenu {
         int choice = 0;
         boolean error;
         do {
-            try{
+            try {
                 error = false;
                 this.printChoiceDiffciulty();
                 choice = this.readDifficulty();
-            }catch(Exception e) {
+            } catch (Exception e) {
                 error = true;
             }
-        }while(error);
+        } while (error);
 
         return choice;
     }

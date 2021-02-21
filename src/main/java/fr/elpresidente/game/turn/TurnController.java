@@ -48,13 +48,13 @@ public class TurnController implements TurnBuilder {
     }
 
     @Override
-    public void nextTurn(){
+    public void nextTurn() {
         setCurrentTurn(getNextTurn());
         buildTurn();
         this.count_turn += 1;
     }
 
-    public void callEndOfTheYearEventIfItsTime(GameDisplay gameDisplay){
+    public void callEndOfTheYearEventIfItsTime(GameDisplay gameDisplay) {
         if (this.isEndOfTheYear()) {
             gameDisplay.showGameStatus();
             EndOfYearController endOfYearController = new EndOfYearController();

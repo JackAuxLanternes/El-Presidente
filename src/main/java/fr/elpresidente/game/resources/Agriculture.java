@@ -46,7 +46,7 @@ class Agriculture implements Resource, RessourceBuilder {
 
     @Override
     public void updateSize(int size) {
-        if(this.size > 0)
+        if (this.size > 0)
             addSize(size);
         else
             substractSize(size);

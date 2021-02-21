@@ -8,10 +8,10 @@ import java.util.Scanner;
 class OptionalEventMenu {
 
 
-    public void choseOptionalEvent(){
+    public void choseOptionalEvent() {
         int choice = 0;
 
-        while(choice != 3) {
+        while (choice != 3) {
             this.printChoiceMenu();
             choice = getOptionnalEventChoiceFromCommandLine();
             if (choice == 1) {
@@ -20,7 +20,7 @@ class OptionalEventMenu {
                 Bribe bribe = new Bribe();
                 bribe.bribeFaction(bribeMenu.choiceFactionForBribe());
                 bribeMenu.printGameStatusAfterBribe();
-            }else if (choice == 2) {
+            } else if (choice == 2) {
 
                 FoodMarketMenu foodMarketMenu = new FoodMarketMenu();
                 FoodMarket foodMarket = new FoodMarket();
@@ -48,14 +48,14 @@ class OptionalEventMenu {
         int choice = 0;
         boolean error;
         do {
-            try{
+            try {
                 error = false;
                 choice = this.readOptionalEvent();
-            }catch(Exception e) {
+            } catch (Exception e) {
                 error = true;
                 this.printErrorMenu();
             }
-        }while(error);
+        } while (error);
 
         return choice;
     }
