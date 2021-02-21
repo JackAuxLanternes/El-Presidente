@@ -2,14 +2,14 @@ package fr.elpresidente.game.endofyear;
 
 import fr.elpresidente.game.endofyear.events.*;
 
-public class ReviewEvents {
+ class ReviewEvents {
 
 
     public void applyAllReviewEvents() {
 
         this.printReviewEvents();
         BalanceSheetEvent agricultureSurplus = new AgricultureSurplus();
-        BalanceSheetEvent foodBalancing = new Foodbalancing();
+        BalanceSheetEvent foodBalancing = new FoodBalancing();
         BalanceSheetEvent harvestFood = new HarvestFood();
         BalanceSheetEvent earnMoney = new EarnMoney();
 

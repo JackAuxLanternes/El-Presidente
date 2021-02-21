@@ -1,7 +1,7 @@
 package fr.elpresidente.game;
 
 import fr.elpresidente.game.endofyear.events.BalanceSheetEvent;
-import fr.elpresidente.game.endofyear.events.Foodbalancing;
+import fr.elpresidente.game.endofyear.events.FoodBalancing;
 import fr.elpresidente.game.factions.FactionController;
 import fr.elpresidente.game.resources.ConsumableController;
 import junit.framework.TestCase;
@@ -10,7 +10,7 @@ public class FoodBalancingTest extends TestCase {
 
     public void testIfWeDontHaveToEliminateSupporters()
     {
-        BalanceSheetEvent foodbalancing = new Foodbalancing();
+        BalanceSheetEvent foodbalancing = new FoodBalancing();
         FactionController factionController = FactionController.getInstance();
         factionController.initFactions(4, 50);
         ConsumableController consumableController = ConsumableController.getInstance();
@@ -23,7 +23,7 @@ public class FoodBalancingTest extends TestCase {
 
     public void testIfWeHaveToEliminateSupporters()
     {
-        BalanceSheetEvent foodbalancing = new Foodbalancing();
+        BalanceSheetEvent foodbalancing = new FoodBalancing();
         FactionController factionController = FactionController.getInstance();
         factionController.initFactions(4, 50);
         ConsumableController consumableController = ConsumableController.getInstance();

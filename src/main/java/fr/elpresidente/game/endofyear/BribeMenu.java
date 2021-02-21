@@ -1,12 +1,11 @@
 package fr.elpresidente.game.endofyear;
 
-import fr.elpresidente.game.factions.Faction;
 import fr.elpresidente.game.factions.FactionController;
 import fr.elpresidente.game.status.GameDisplay;
 
 import java.util.Scanner;
 
-public class BribeMenu {
+class BribeMenu {
 
     public String choiceFactionForBribe() {
         return this.getFactionChoiceFromCommandLine();

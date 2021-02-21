@@ -4,7 +4,7 @@ import fr.elpresidente.game.builders.RessourceBuilder;
 import fr.elpresidente.game.difficulty.DifficultyController;
 import org.json.simple.JSONObject;
 
-public class Agriculture implements Resource, RessourceBuilder {
+class Agriculture implements Resource, RessourceBuilder {
 
     private int size;
     private static final int PERCENTAGE_MULTIPLIER_AGRICULUTRE_IN_FOOD = 40;

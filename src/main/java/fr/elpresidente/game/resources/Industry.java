@@ -4,7 +4,7 @@ import fr.elpresidente.game.builders.RessourceBuilder;
 import fr.elpresidente.game.difficulty.DifficultyController;
 import org.json.simple.JSONObject;
 
-public class Industry implements Resource, RessourceBuilder {
+class Industry implements Resource, RessourceBuilder {
 
     private int size;
     private static final int PERCENTAGE_MULTIPLIER_INDUSTRY_IN_TREASURY = 10;

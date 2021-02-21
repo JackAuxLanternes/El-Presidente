@@ -4,7 +4,7 @@ import fr.elpresidente.game.status.GameDisplay;
 
 import java.util.Scanner;
 
-public class FoodMarketMenu {
+class FoodMarketMenu {
 
     public int choiceNumberFoodToBuy() {
         return this.getNumberFoodFromCommandLine();

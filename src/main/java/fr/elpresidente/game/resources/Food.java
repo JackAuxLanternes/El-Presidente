@@ -3,7 +3,7 @@ package fr.elpresidente.game.resources;
 import fr.elpresidente.game.difficulty.DifficultyController;
 import org.json.simple.JSONObject;
 
-public class Food implements Consumable {
+class Food implements Consumable {
 
     private int amount;
     private final String name = "food";

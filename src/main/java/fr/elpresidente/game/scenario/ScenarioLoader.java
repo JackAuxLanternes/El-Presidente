@@ -2,7 +2,6 @@ package fr.elpresidente.game.scenario;
 
 import fr.elpresidente.game.events.EventController;
 import fr.elpresidente.game.factions.Faction;
-import fr.elpresidente.game.resources.Treasury;
 import fr.elpresidente.game.factions.FactionController;
 import fr.elpresidente.game.resources.ConsumableController;
 import fr.elpresidente.game.resources.ResourcesController;

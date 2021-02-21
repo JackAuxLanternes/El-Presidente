@@ -3,9 +3,8 @@ package fr.elpresidente.game.resources;
 import fr.elpresidente.game.difficulty.DifficultyController;
 import org.json.simple.JSONObject;
 
-public class Treasury implements Consumable {
+class Treasury implements Consumable {
 
-    public final static int PRICE_ONE_YIELD_AGRICULTURE = 8;
     private int amount;
     private final String name = "treasury";
     public static final String JSON_NAME_KEY = "name";

@@ -5,13 +5,13 @@ import fr.elpresidente.game.resources.ConsumableController;
 
 import java.util.NoSuchElementException;
 
-public class Foodbalancing implements BalanceSheetEvent {
+public class FoodBalancing implements BalanceSheetEvent {
 
     private FactionController factionController;
     private ConsumableController consumableController;
     private final int FOOD_NEEDED_BY_SUPPORTER = 4;
 
-    public Foodbalancing() {
+    public FoodBalancing() {
         this.factionController = FactionController.getInstance();
         this.consumableController = ConsumableController.getInstance();
     }

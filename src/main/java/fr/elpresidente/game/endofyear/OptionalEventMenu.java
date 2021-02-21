@@ -5,7 +5,7 @@ import fr.elpresidente.game.endofyear.events.FoodMarket;
 
 import java.util.Scanner;
 
-public class OptionalEventMenu {
+class OptionalEventMenu {
 
 
     public void choseOptionalEvent(){
