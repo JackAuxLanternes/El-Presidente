@@ -9,6 +9,7 @@ import fr.elpresidente.game.scenario.ScenarioLoader;
 import fr.elpresidente.game.scenario.ScenarioParser;
 import fr.elpresidente.game.scenario.ScenarioWriter;
 import fr.elpresidente.game.tools.JSONTools;
+import fr.elpresidente.game.turn.Defeat;
 import fr.elpresidente.game.turn.Seasons;
 import fr.elpresidente.game.turn.TurnController;
 
@@ -83,6 +84,7 @@ public class Game {
     }
 
     public boolean isDefeated() {
-        return turnController.getYear() > 1955;
+        Defeat defeat = new Defeat();
+        return !defeat.completeConditionsToContinue();
     }
 }
