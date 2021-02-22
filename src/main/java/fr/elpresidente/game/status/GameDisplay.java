@@ -73,7 +73,7 @@ public class GameDisplay {
 
     public void showFactionsStatus() {
         System.out.println("=== Factions ===");
-        System.out.println("Satisfactions globale: " + FactionController.getInstance().determineGlobalSatisfaction());
+        System.out.println("Satisfactions globale: " + String.format("%.2f", FactionController.getInstance().determineGlobalSatisfaction()));
         displayGraphicChart(FactionController.getInstance().determineGlobalSatisfaction());
         for (Faction faction : FactionController.getInstance().getFactions()) {
             displayShortChart(faction.getSatisfaction());

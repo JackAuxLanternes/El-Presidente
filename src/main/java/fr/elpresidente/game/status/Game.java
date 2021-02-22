@@ -2,6 +2,8 @@ package fr.elpresidente.game.status;
 
 import fr.elpresidente.game.endofyear.EndOfYearController;
 import fr.elpresidente.game.factions.FactionController;
+import fr.elpresidente.game.mode.GameModeController;
+import fr.elpresidente.game.mode.ScenarioMode;
 import fr.elpresidente.game.resources.ConsumableController;
 import fr.elpresidente.game.resources.ResourcesController;
 import fr.elpresidente.game.scenario.Scenario;
@@ -27,6 +29,8 @@ public class Game {
         endOfYearController = new EndOfYearController();
 
         turnController.setCurrentTurn(Seasons.WINTER);
+
+        GameModeController.getInstance().setGameMode(new ScenarioMode());
     }
 
     public void initGame() {

@@ -1,5 +1,7 @@
 package fr.elpresidente.game.events;
 
+import fr.elpresidente.game.mode.GameModeController;
+import fr.elpresidente.game.mode.ScenarioMode;
 import fr.elpresidente.game.tools.JSONTools;
 import fr.elpresidente.game.turn.Seasons;
 import org.json.simple.JSONArray;
@@ -32,14 +34,18 @@ public class EventController {
     }
 
     public void findEvent(int year, Seasons season) {
-        if (currentEvent != null && currentEvent.getTriggerEvent() != null) {
-            setCurrentEvent(new Event(JSONTools.findJSONObjectInJSONArrayWithKeyValue(conditionalEvents, "id", currentEvent.getTriggerEvent())));
-            return;
-        }
-        resetCurrentEvent();
-        Event event = searchScriptedEvent(year, season);
-        if (!isEventNull(event)) {
-            setCurrentEvent(event);
+        if (GameModeController.getInstance().getGameMode() instanceof ScenarioMode) {
+            if (currentEvent != null && currentEvent.getTriggerEvent() != null) {
+                setCurrentEvent(new Event(JSONTools.findJSONObjectInJSONArrayWithKeyValue(conditionalEvents, "id", currentEvent.getTriggerEvent())));
+                return;
+            }
+            resetCurrentEvent();
+            Event event = searchScriptedEvent(year, season);
+            if (!isEventNull(event)) {
+                setCurrentEvent(event);
+            } else {
+                setCurrentEvent(fillWithGenericEvent());
+            }
         } else {
             setCurrentEvent(fillWithGenericEvent());
         }
