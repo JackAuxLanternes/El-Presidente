@@ -22,7 +22,6 @@ public class FoodBalancing implements BalanceSheetEvent {
         if (!this.IsEnoughFoodForSupporters()) {
             this.removeSupportersRandomlyToEquilibrateFood();
         }
-        System.out.println("We have enough food for supporters, we are going to feed them");
         this.feedSupporters();
     }
 

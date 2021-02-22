@@ -27,7 +27,6 @@ public class LauncherMenu {
     }
 
     private int getGameTypeFromCommandLine() {
-
         int choice = 0;
         boolean error;
         do {
@@ -77,7 +76,7 @@ public class LauncherMenu {
         do {
             try {
                 error = false;
-                this.printChoiceDiffciulty();
+                this.printChoiceDifficulty();
                 choice = this.readDifficulty();
             } catch (Exception e) {
                 error = true;
@@ -87,7 +86,7 @@ public class LauncherMenu {
         return choice;
     }
 
-    private void printChoiceDiffciulty() {
+    private void printChoiceDifficulty() {
         System.out.println("==============================");
         System.out.println("=== Choisissez une difficulté pour le jeu:");
         System.out.println("=== 1. Facile");
