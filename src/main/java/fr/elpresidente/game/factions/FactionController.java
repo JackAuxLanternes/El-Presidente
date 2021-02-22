@@ -14,7 +14,7 @@ public class FactionController {
     private final List<Faction> factions;
 
     private FactionController() {
-        factions = new ArrayList<Faction>();
+        factions = new ArrayList<>();
         factions.add(new Faction("capitalist"));
         factions.add(new Faction("communist"));
         factions.add(new Faction("ecologist"));
@@ -58,7 +58,7 @@ public class FactionController {
     public Faction getFactionFromNameFaction(String name_faction) {
         return this.factions
                 .stream().filter(faction -> faction.getName().equals(name_faction)).findFirst()
-                .orElseThrow(() -> new NoSuchElementException("the faction " + name_faction + " doesn\'t exist"));
+                .orElseThrow(() -> new NoSuchElementException("the faction " + name_faction + " doesn't exist"));
     }
 
     private boolean isTotalSupportSuperiorThanNumberSupporter(int number_supporter) {

@@ -63,7 +63,7 @@ public class TurnController implements TurnBuilder {
     }
 
     private boolean isEndOfTheYear() {
-        return this.count_turn > 0 ? this.count_turn % 4 == 0 : false;
+        return this.count_turn > 0 && this.count_turn % 4 == 0;
     }
 
     @Override

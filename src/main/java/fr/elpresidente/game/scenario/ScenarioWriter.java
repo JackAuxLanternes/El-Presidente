@@ -12,9 +12,9 @@ import java.io.IOException;
 
 public class ScenarioWriter {
 
-    private Scenario scenario;
+    private final Scenario scenario;
 
-    private TurnController turnController;
+    private final TurnController turnController;
 
     public ScenarioWriter(Scenario scenario, TurnController turnController) {
         this.scenario = scenario;

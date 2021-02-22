@@ -7,9 +7,9 @@ import java.util.NoSuchElementException;
 
 public class FoodBalancing implements BalanceSheetEvent {
 
-    private FactionController factionController;
-    private ConsumableController consumableController;
     private final int FOOD_NEEDED_BY_SUPPORTER = 4;
+    private final FactionController factionController;
+    private final ConsumableController consumableController;
 
     public FoodBalancing() {
         this.factionController = FactionController.getInstance();
@@ -39,7 +39,7 @@ public class FoodBalancing implements BalanceSheetEvent {
 
     private double determineMaximumSupportersThatWeCanKeep() {
 
-        return Math.floor(this.consumableController.getFood().getAmount() / this.FOOD_NEEDED_BY_SUPPORTER);
+        return Math.floor((float) this.consumableController.getFood().getAmount() / this.FOOD_NEEDED_BY_SUPPORTER);
     }
 
     private void removeSupportersAndSatisfactionAccordingly(double maximum_supporter) {

@@ -19,6 +19,18 @@ public class EventController {
 
     private Event currentEvent;
 
+    private static boolean isInstanceNotInitialized() {
+        return instance == null;
+    }
+
+    public static EventController getInstance() {
+        if (isInstanceNotInitialized()) {
+            instance = new EventController();
+        }
+
+        return instance;
+    }
+
     public void findEvent(int year, Seasons season) {
         if (currentEvent != null && currentEvent.getTriggerEvent() != null) {
             setCurrentEvent(new Event(JSONTools.findJSONObjectInJSONArrayWithKeyValue(conditionalEvents, "id", currentEvent.getTriggerEvent())));
@@ -52,18 +64,6 @@ public class EventController {
         return event == null;
     }
 
-    private static boolean isInstanceNotInitialized() {
-        return instance == null;
-    }
-
-    public static EventController getInstance() {
-        if (isInstanceNotInitialized()) {
-            instance = new EventController();
-        }
-
-        return instance;
-    }
-
     public void setScriptedEvents(JSONArray scriptedEvents) {
         this.scriptedEvents = scriptedEvents;
     }
@@ -76,15 +76,15 @@ public class EventController {
         this.genericEvents = genericEvents;
     }
 
-    private void setCurrentEvent(Event currentEvent) {
-        this.currentEvent = currentEvent;
-    }
-
     private void resetCurrentEvent() {
         this.currentEvent = null;
     }
 
     public Event getCurrentEvent() {
         return currentEvent;
+    }
+
+    private void setCurrentEvent(Event currentEvent) {
+        this.currentEvent = currentEvent;
     }
 }

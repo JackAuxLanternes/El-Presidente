@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class Event {
 
-    private JSONObject event;
+    private final JSONObject event;
 
     private String description;
 
@@ -70,14 +70,14 @@ public class Event {
         }
     }
 
-    private void changeFactionPopularity(JSONObject jsonEffect) throws Exception {
+    private void changeFactionPopularity(JSONObject jsonEffect) {
         FactionController.getInstance()
                 .getFactionFromNameFaction(JSONTools.extractStringFromJSONObject(jsonEffect, "key"))
                 .updateSatisfaction(JSONTools.extractIntFromJSONObject(jsonEffect, "change"));
     }
 
 
-    private void changeFactionSupporters(JSONObject jsonEffect) throws Exception {
+    private void changeFactionSupporters(JSONObject jsonEffect) {
         String faction_name = JSONTools.extractStringFromJSONObject(jsonEffect, "key");
         int change = JSONTools.extractIntFromJSONObject(jsonEffect, "change");
 

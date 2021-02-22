@@ -48,10 +48,10 @@ public class ResourcesController {
         return this.industry;
     }
 
-    public Resource getResourceFromResourceName(String resourceName) throws Exception {
+    public Resource getResourceFromResourceName(String resourceName) {
         return toArrayList()
                 .stream().filter(resource -> resource.getName().equals(resourceName)).findFirst()
-                .orElseThrow(() -> new NoSuchElementException("the resource " + resourceName + " doesn\'t exist"));
+                .orElseThrow(() -> new NoSuchElementException("the resource " + resourceName + " doesn't exist"));
     }
 
     public void addIndustrySize(int value) {

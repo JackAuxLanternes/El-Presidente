@@ -42,10 +42,10 @@ public class ConsumableController {
         return instance == null;
     }
 
-    public Consumable getConsumableFromConsumableName(String consumableName) throws Exception {
+    public Consumable getConsumableFromConsumableName(String consumableName) {
         return toArrayList()
                 .stream().filter(resource -> resource.getName().equals(consumableName)).findFirst()
-                .orElseThrow(() -> new NoSuchElementException("the resource " + consumableName + " doesn\'t exist"));
+                .orElseThrow(() -> new NoSuchElementException("the resource " + consumableName + " doesn't exist"));
     }
 
     public JSONArray toJSONArray() {

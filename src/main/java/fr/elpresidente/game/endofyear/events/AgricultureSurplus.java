@@ -5,9 +5,9 @@ import fr.elpresidente.game.resources.ResourcesController;
 
 public class AgricultureSurplus implements BalanceSheetEvent {
 
-    private FactionController factionController;
-    private ResourcesController resourcesController;
     private final int FOOD_NEEDED_BY_SUPPORTER = 4;
+    private final FactionController factionController;
+    private final ResourcesController resourcesController;
 
     public AgricultureSurplus() {
         this.factionController = FactionController.getInstance();

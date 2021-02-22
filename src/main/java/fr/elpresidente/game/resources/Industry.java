@@ -6,11 +6,11 @@ import org.json.simple.JSONObject;
 
 class Industry implements Resource, RessourceBuilder {
 
-    private int size;
-    private static final int PERCENTAGE_MULTIPLIER_INDUSTRY_IN_TREASURY = 10;
-    private final String name = "industry";
     public static final String JSON_NAME_KEY = "name";
     public static final String JSON_SIZE_KEY = "value";
+    private static final int PERCENTAGE_MULTIPLIER_INDUSTRY_IN_TREASURY = 10;
+    private final String name = "industry";
+    private int size;
 
     @Override
     public void init() {

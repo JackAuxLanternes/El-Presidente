@@ -7,9 +7,9 @@ import fr.elpresidente.game.resources.ConsumableController;
 public class Bribe {
 
 
-    private FactionController factionController;
+    private final FactionController factionController;
 
-    private ConsumableController consumableController;
+    private final ConsumableController consumableController;
 
     public Bribe() {
         this.factionController = FactionController.getInstance();

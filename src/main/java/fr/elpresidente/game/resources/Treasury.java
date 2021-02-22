@@ -5,10 +5,10 @@ import org.json.simple.JSONObject;
 
 class Treasury implements Consumable {
 
-    private int amount;
-    private final String name = "treasury";
     public static final String JSON_NAME_KEY = "name";
     public static final String JSON_AMOUNT_KEY = "value";
+    private final String name = "treasury";
+    private int amount;
 
     public Treasury(int amount) {
         this.amount = amount;

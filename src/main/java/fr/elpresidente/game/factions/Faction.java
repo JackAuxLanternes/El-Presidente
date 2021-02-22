@@ -5,12 +5,12 @@ import org.json.simple.JSONObject;
 
 public class Faction {
 
-    private final String name;
-    private int supporters;
-    private double satisfaction;
     private static final String JSON_NAME_KEY = "name";
+    private final String name;
     private final String JSON_SUPPORTERS_KEY = "supporters";
     private final String JSON_POPULARITY_KEY = "popularity";
+    private int supporters;
+    private double satisfaction;
 
     public Faction(String name) {
         this.name = name;

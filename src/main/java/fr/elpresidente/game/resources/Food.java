@@ -5,10 +5,10 @@ import org.json.simple.JSONObject;
 
 class Food implements Consumable {
 
-    private int amount;
-    private final String name = "food";
     public static final String JSON_NAME_KEY = "name";
     public static final String JSON_AMOUNT_KEY = "value";
+    private final String name = "food";
+    private int amount;
 
     public Food(int amount) {
         this.amount = amount;

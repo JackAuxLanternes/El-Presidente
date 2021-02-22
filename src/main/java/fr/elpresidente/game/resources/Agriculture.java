@@ -6,12 +6,11 @@ import org.json.simple.JSONObject;
 
 class Agriculture implements Resource, RessourceBuilder {
 
-    private int size;
-    private static final int PERCENTAGE_MULTIPLIER_AGRICULUTRE_IN_FOOD = 40;
     public static final String JSON_NAME_KEY = "name";
     public static final String JSON_SIZE_KEY = "value";
-
+    private static final int PERCENTAGE_MULTIPLIER_AGRICULUTRE_IN_FOOD = 40;
     private final String name = "agriculture";
+    private int size;
 
     @Override
     public void init() {
