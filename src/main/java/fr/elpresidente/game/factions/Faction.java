@@ -5,10 +5,14 @@ import org.json.simple.JSONObject;
 
 public class Faction {
 
-    private static final String JSON_NAME_KEY = "name";
+    private final String JSON_NAME_KEY = "name";
     private final String name;
     private final String JSON_SUPPORTERS_KEY = "supporters";
     private final String JSON_POPULARITY_KEY = "popularity";
+    private final double MAXIMUM_SATISFACTION = 100.0;
+    private final double MINIMUM_SATISFACTION = 0.0;
+    private final int MINIMUM_SUPPORTER = 0;
+
     private int supporters;
     private double satisfaction;
 
@@ -42,7 +46,7 @@ public class Faction {
     }
 
     public void updateSupporters(double supporters) {
-        if (isSupportersSuperiorThan0())
+        if (isSupportersSuperiorThanMinimum())
             this.supporters += supporters;
         this.normalizedSupportersMinValue();
     }
@@ -58,20 +62,19 @@ public class Faction {
     public void addSatisaction(double satisfaction) {
         if (isSatisfactionSuperiorThan0())
             this.satisfaction += satisfaction;
-        System.out.println("la satisfaction est de 2 -> " + this.satisfaction);
         this.normalizedSatisfactionMaxValue();
     }
 
     private boolean isSatisfactionSuperiorThan0() {
-        return this.satisfaction > 0;
+        return this.satisfaction > MINIMUM_SATISFACTION;
     }
 
-    private boolean isSupportersSuperiorThan0() {
-        return this.supporters > 0;
+    private boolean isSupportersSuperiorThanMinimum() {
+        return this.supporters > MINIMUM_SUPPORTER;
     }
 
-    private boolean isSatisfactionSuperiorThan100() {
-        return this.satisfaction > 100;
+    private boolean isSatisfactionSuperiorThanMaximum() {
+        return this.satisfaction > MAXIMUM_SATISFACTION;
     }
 
     public void removeSatisfaction(double satisfaction) {
@@ -85,7 +88,7 @@ public class Faction {
     }
 
     public void addSupporter(int supporters) {
-        if (isSupportersSuperiorThan0())
+        if (isSupportersSuperiorThanMinimum())
             this.supporters += supporters;
     }
 
@@ -96,18 +99,18 @@ public class Faction {
     }
 
     private void normalizedSupportersMinValue() {
-        if (!isSupportersSuperiorThan0())
-            this.supporters = 0;
+        if (!isSupportersSuperiorThanMinimum())
+            this.supporters = MINIMUM_SUPPORTER;
     }
 
     private void normalizedSatisfactionMaxValue() {
-        if (isSatisfactionSuperiorThan100())
-            this.satisfaction = 100;
+        if (isSatisfactionSuperiorThanMaximum())
+            this.satisfaction = MAXIMUM_SATISFACTION;
     }
 
     private void normalizedSatisfactionMinValue() {
         if (!isSatisfactionSuperiorThan0())
-            this.satisfaction = 0;
+            this.satisfaction = MINIMUM_SATISFACTION;
     }
 
     public JSONObject toJSONObject() {
@@ -117,5 +120,13 @@ public class Faction {
         factionJSONObject.put(JSON_SUPPORTERS_KEY, this.getSupporters());
 
         return factionJSONObject;
+    }
+
+    public double getMAXIMUM_SATISFACTION() {
+        return MAXIMUM_SATISFACTION;
+    }
+
+    public double getMINIMUM_SATISFACTION() {
+        return MINIMUM_SATISFACTION;
     }
 }
