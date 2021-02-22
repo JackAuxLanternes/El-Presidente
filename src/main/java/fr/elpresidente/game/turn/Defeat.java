@@ -11,11 +11,11 @@ public class Defeat {
         this.factionController = FactionController.getInstance();
     }
 
-    public boolean completeConditionsToContinue(){
+    public boolean completeConditionsToContinue() {
         return this.isSatisfactionSuperiorThanThreshold();
     }
 
-    public boolean isSatisfactionSuperiorThanThreshold(){
+    public boolean isSatisfactionSuperiorThanThreshold() {
         return this.factionController.determineGlobalSatisfaction() > DifficultyController.getInstance().getDifficulty().getPercentageLoose();
     }
 }
