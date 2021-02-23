@@ -57,7 +57,7 @@ class Agriculture implements Resource {
     public JSONObject toJSONObject() {
         JSONObject resourcesAgriculture = new JSONObject();
         resourcesAgriculture.put(JSONKeys.RESOURCE_KEY_NAME, this.getName());
-        resourcesAgriculture.put(JSONKeys.RESOURCE_KEY_NAME, this.size);
+        resourcesAgriculture.put(JSONKeys.RESOURCE_KEY_VALUE, this.size);
 
         return resourcesAgriculture;
     }

@@ -77,6 +77,7 @@ public class TurnController implements TurnBuilder {
 
     public JSONObject toJSONObject() {
         JSONObject date = new JSONObject();
+        date.put("turn", this.getCountTurn());
         date.put("year", this.getYear());
         date.put("season", this.getCurrentTurn().toString());
 

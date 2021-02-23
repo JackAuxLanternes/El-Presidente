@@ -1,5 +1,8 @@
 package fr.elpresidente.game.difficulty;
 
+import fr.elpresidente.game.tools.JSONKeys;
+import org.json.simple.JSONObject;
+
 public class HardDifficulty implements Difficulty {
 
     private final double EVENT_MULTIPLIER = 2;
@@ -13,5 +16,18 @@ public class HardDifficulty implements Difficulty {
     @Override
     public int getPercentageLoose() {
         return PERCENTAGE_LOOSE;
+    }
+
+    @Override
+    public JSONObject toJSONObject() {
+        JSONObject difficulty = new JSONObject();
+        difficulty.put(JSONKeys.CONSUMABLE_KEY_VALUE, "hard");
+
+        return difficulty;
+    }
+
+    @Override
+    public String toString() {
+        return "hard";
     }
 }

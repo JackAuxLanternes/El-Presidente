@@ -1,11 +1,19 @@
 package fr.elpresidente.game.mode;
 
-public class SandboxMode implements GameMode {
+import fr.elpresidente.game.tools.JSONKeys;
+import org.json.simple.JSONObject;
 
-    private final String NAME = "Scenario";
+public class SandboxMode implements GameMode {
+    @Override
+    public JSONObject toJSONObject() {
+        JSONObject gamemode = new JSONObject();
+        gamemode.put(JSONKeys.CONSUMABLE_KEY_VALUE, "sandbox");
+
+        return gamemode;
+    }
 
     @Override
-    public String getName() {
-        return this.NAME;
+    public String toString() {
+        return "sandbox";
     }
 }
