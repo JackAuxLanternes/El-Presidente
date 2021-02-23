@@ -1,12 +1,11 @@
 package fr.elpresidente.game.resources;
 
 import fr.elpresidente.game.difficulty.DifficultyController;
+import fr.elpresidente.game.tools.JSONKeys;
 import org.json.simple.JSONObject;
 
 class Industry implements Resource {
 
-    public static final String JSON_NAME_KEY = "name";
-    public static final String JSON_SIZE_KEY = "value";
     private static final int PERCENTAGE_MULTIPLIER_INDUSTRY_IN_TREASURY = 10;
     private final String name = "industry";
     private int size;
@@ -57,8 +56,8 @@ class Industry implements Resource {
     @Override
     public JSONObject toJSONObject() {
         JSONObject resourcesAgriculture = new JSONObject();
-        resourcesAgriculture.put(JSON_NAME_KEY, this.getName());
-        resourcesAgriculture.put(JSON_SIZE_KEY, this.size);
+        resourcesAgriculture.put(JSONKeys.RESOURCE_KEY_NAME, this.getName());
+        resourcesAgriculture.put(JSONKeys.RESOURCE_KEY_VALUE, this.size);
 
         return resourcesAgriculture;
     }

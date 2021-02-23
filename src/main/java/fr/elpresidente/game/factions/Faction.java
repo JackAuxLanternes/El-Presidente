@@ -1,14 +1,12 @@
 package fr.elpresidente.game.factions;
 
 import fr.elpresidente.game.difficulty.DifficultyController;
+import fr.elpresidente.game.tools.JSONKeys;
 import org.json.simple.JSONObject;
 
 public class Faction {
 
-    private static final String JSON_NAME_KEY = "name";
     private final String name;
-    private final String JSON_SUPPORTERS_KEY = "supporters";
-    private final String JSON_POPULARITY_KEY = "popularity";
     private int supporters;
     private double satisfaction;
 
@@ -112,9 +110,9 @@ public class Faction {
 
     public JSONObject toJSONObject() {
         JSONObject factionJSONObject = new JSONObject();
-        factionJSONObject.put(JSON_NAME_KEY, this.getName());
-        factionJSONObject.put(JSON_POPULARITY_KEY, (int) this.getSatisfaction());
-        factionJSONObject.put(JSON_SUPPORTERS_KEY, this.getSupporters());
+        factionJSONObject.put(JSONKeys.FACTION_KEY_NAME, this.getName());
+        factionJSONObject.put(JSONKeys.FACTION_POPULARITY_KEY, (int) this.getSatisfaction());
+        factionJSONObject.put(JSONKeys.FACTION_SUPPORTERS_KEY, this.getSupporters());
 
         return factionJSONObject;
     }
