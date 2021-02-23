@@ -11,10 +11,10 @@ public class GameEventDisplayManager {
     private int choicesSize;
 
     public void showEvent() {
-        setEventInfo();
-        printHeadline();
-        printEventChoices();
-        applySelectedEvent();
+        this.setEventInfo();
+        this.printHeadline();
+        this.printEventChoices();
+        this.applySelectedEvent();
     }
 
     private void printHeadline() {
