@@ -2,8 +2,6 @@ package fr.elpresidente.game.status;
 
 import fr.elpresidente.game.endofyear.EndOfYearController;
 import fr.elpresidente.game.factions.FactionController;
-import fr.elpresidente.game.mode.GameModeController;
-import fr.elpresidente.game.mode.ScenarioMode;
 import fr.elpresidente.game.resources.ConsumableController;
 import fr.elpresidente.game.resources.ResourcesController;
 import fr.elpresidente.game.scenario.Scenario;
@@ -29,8 +27,6 @@ public class Game {
         endOfYearController = new EndOfYearController();
 
         turnController.setCurrentTurn(Seasons.WINTER);
-
-        GameModeController.getInstance().setGameMode(new ScenarioMode());
     }
 
     public void initGame() {
@@ -52,14 +48,14 @@ public class Game {
         TurnController turnController_old_json = new TurnController();
         turnController_old_json.setStartDate(JSONTools.extractIntFromJSONObject(scenarioParser.getScenario().getDate(), "year"), JSONTools.extractSeasonFromJSONObject(scenarioParser.getScenario().getDate()));
 
-        this.initCountTurnFromIntialScenarioToLoadScenario(turnController_old_json);
+        this.initCountTurnFromInitialScenarioToLoadScenario(turnController_old_json);
     }
 
-    private void initCountTurnFromIntialScenarioToLoadScenario(TurnController turnController_old_json) {
-        this.turnController.setCountTurn(this.determinateCountTurnFromIntialScenarioToLoadScenario(turnController_old_json));
+    private void initCountTurnFromInitialScenarioToLoadScenario(TurnController turnController_old_json) {
+        this.turnController.setCountTurn(this.determinateCountTurnFromInitialScenarioToLoadScenario(turnController_old_json));
     }
 
-    private int determinateCountTurnFromIntialScenarioToLoadScenario(TurnController turnController_old_json) {
+    private int determinateCountTurnFromInitialScenarioToLoadScenario(TurnController turnController_old_json) {
         int count_turn = 0;
         while (turnController_old_json.getYear() != this.turnController.getYear() || turnController_old_json.getCurrentTurn() != this.turnController.getCurrentTurn()) {
             count_turn += 1;

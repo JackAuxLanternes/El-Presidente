@@ -4,7 +4,6 @@ import fr.elpresidente.game.endofyear.events.Bribe;
 import fr.elpresidente.game.factions.FactionController;
 import fr.elpresidente.game.status.GameDisplay;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 class BribeMenu {
@@ -45,7 +44,7 @@ class BribeMenu {
     private void printFactionPossibility() {
         FactionController.getInstance().getFactions().forEach((faction) -> {
             boolean faction_doesnt_like_bribe = false;
-            for(String faction_name: this.bribe.getFACTION_THAT_DOESNT_LIKE_BRIBE()) {
+            for(String faction_name: this.bribe.getFACTION_THAT_DOES_NOT_LIKE_BRIBE()) {
                 if(faction_name == faction.getName()) {
                     faction_doesnt_like_bribe = true;
                 }
@@ -55,7 +54,7 @@ class BribeMenu {
         });
     }
 
-    private String readFactionName() throws Exception {
+    private String readFactionName() {
         Scanner scanner = new Scanner(System.in);
         String faction_name = scanner.next();
         FactionController.getInstance().getFactionFromNameFaction(faction_name);

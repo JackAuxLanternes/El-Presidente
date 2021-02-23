@@ -1,26 +1,15 @@
 package fr.elpresidente.game.resources;
 
-import fr.elpresidente.game.builders.RessourceBuilder;
 import fr.elpresidente.game.difficulty.DifficultyController;
 import org.json.simple.JSONObject;
 
-class Agriculture implements Resource, RessourceBuilder {
+class Agriculture implements Resource {
 
     public static final String JSON_NAME_KEY = "name";
     public static final String JSON_SIZE_KEY = "value";
-    private static final int PERCENTAGE_MULTIPLIER_AGRICULUTRE_IN_FOOD = 40;
+    private static final int PERCENTAGE_MULTIPLIER_AGRICULTURE_IN_FOOD = 40;
     private final String name = "agriculture";
     private int size;
-
-    @Override
-    public void init() {
-
-    }
-
-    @Override
-    public void loadFromSave() {
-
-    }
 
     @Override
     public int getSize() {
@@ -39,8 +28,8 @@ class Agriculture implements Resource, RessourceBuilder {
 
 
     @Override
-    public void substractSize(int size) {
-        this.size -= this.updateSizeToSubstractWithDiffciulty(size);
+    public void subtractSize(int size) {
+        this.size -= this.updateSizeToSubtractWithDifficulty(size);
     }
 
     @Override
@@ -48,16 +37,16 @@ class Agriculture implements Resource, RessourceBuilder {
         if (this.size > 0)
             addSize(size);
         else
-            substractSize(size);
+            subtractSize(size);
     }
 
-    private int updateSizeToSubstractWithDiffciulty(int value) {
+    private int updateSizeToSubtractWithDifficulty(int value) {
         return (int) (value * DifficultyController.getInstance().getDifficulty().getDifficultyEventMultiplier());
     }
 
     @Override
     public int getAnnualYields() {
-        return this.size * PERCENTAGE_MULTIPLIER_AGRICULUTRE_IN_FOOD;
+        return this.size * PERCENTAGE_MULTIPLIER_AGRICULTURE_IN_FOOD;
     }
 
     @Override

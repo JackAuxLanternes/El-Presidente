@@ -2,8 +2,7 @@ package fr.elpresidente.game.status;
 
 import fr.elpresidente.game.events.Event;
 import fr.elpresidente.game.events.EventController;
-
-import java.util.Scanner;
+import fr.elpresidente.game.tools.UserInputReader;
 
 public class GameEventDisplayManager {
 
@@ -12,10 +11,10 @@ public class GameEventDisplayManager {
     private int choicesSize;
 
     public void showEvent() {
-        setEventInfo();
-        printHeadline();
-        printEventChoices();
-        readUserChoice();
+        this.setEventInfo();
+        this.printHeadline();
+        this.printEventChoices();
+        this.applySelectedEvent();
     }
 
     private void printHeadline() {
@@ -30,22 +29,12 @@ public class GameEventDisplayManager {
         }
     }
 
-    private void readUserChoice() {
-        int userChoice;
-        do {
-            System.out.println("Quel est votre choix ? (Entrez un numéro valide de décision)");
-            Scanner scanner = new Scanner(System.in);
-            userChoice = scanner.nextInt() - 1;
-        } while (!isUserChoiceNotInRangeOfEventChoices(userChoice));
-        event.processEffectForChoice(userChoice);
+    private void applySelectedEvent() {
+        event.processEffectForChoice(UserInputReader.readUserChoice(1, this.event.getChoicesName().size()) - 1);
     }
 
     private void setEventInfo() {
         this.event = EventController.getInstance().getCurrentEvent();
         this.choicesSize = this.event.getChoicesName().size();
-    }
-
-    private boolean isUserChoiceNotInRangeOfEventChoices(int userChoice) {
-        return userChoice >= 0 && userChoice < choicesSize;
     }
 }

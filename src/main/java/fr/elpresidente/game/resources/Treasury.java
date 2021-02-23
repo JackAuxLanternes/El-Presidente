@@ -39,10 +39,10 @@ class Treasury implements Consumable {
 
     @Override
     public void subtractAmount(int amount) {
-        this.amount -= this.updateAmountToSubstractWithDiffciulty(amount);
+        this.amount -= this.updateAmountToSubtractWithDifficulty(amount);
     }
 
-    private int updateAmountToSubstractWithDiffciulty(int amount) {
+    private int updateAmountToSubtractWithDifficulty(int amount) {
         return (int) (amount * DifficultyController.getInstance().getDifficulty().getDifficultyEventMultiplier());
     }
 

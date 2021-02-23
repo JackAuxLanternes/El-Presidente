@@ -35,7 +35,7 @@ class FoodMarketMenu {
 
     private void printChoiceFoodError() {
         System.out.println("==============================");
-        System.out.println("=== Le montant de nourriture ne peut pas être inferieur à zéro");
+        System.out.println("=== Le montant de nourriture ne peut pas être inférieur à zéro");
     }
 
     private int readChoiceNumberFood() throws Exception {

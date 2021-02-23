@@ -2,6 +2,7 @@ package fr.elpresidente.game.turn;
 
 import fr.elpresidente.game.builders.TurnBuilder;
 import fr.elpresidente.game.endofyear.EndOfYearController;
+import fr.elpresidente.game.endofyear.events.AgricultureSurplus;
 import fr.elpresidente.game.events.EventController;
 import fr.elpresidente.game.factions.FactionController;
 import fr.elpresidente.game.resources.ConsumableController;
@@ -71,8 +72,7 @@ public class TurnController implements TurnBuilder {
         incrementYear();
         ConsumableController.getInstance().getFood().addAmount(ResourcesController.getInstance().getAgriculture().getAnnualYields());
         ConsumableController.getInstance().getTreasury().addAmount(ResourcesController.getInstance().getIndustry().getAnnualYields());
-        //TODO replace with constante or getter to avoid using * 4
-        ConsumableController.getInstance().getFood().subtractAmount(FactionController.getInstance().determineTotalSupporters() * 4);
+        ConsumableController.getInstance().getFood().subtractAmount(FactionController.getInstance().determineTotalSupporters() * AgricultureSurplus.FOOD_NEEDED_BY_SUPPORTER);
     }
 
     public JSONObject toJSONObject() {

@@ -4,14 +4,16 @@ import fr.elpresidente.game.difficulty.DifficultyController;
 import fr.elpresidente.game.difficulty.EasyDifficulty;
 import fr.elpresidente.game.difficulty.HardDifficulty;
 import fr.elpresidente.game.difficulty.NormalDifficulty;
-
-import java.util.Scanner;
+import fr.elpresidente.game.mode.GameModeController;
+import fr.elpresidente.game.mode.SandboxMode;
+import fr.elpresidente.game.mode.ScenarioMode;
+import fr.elpresidente.game.tools.UserInputReader;
 
 public class LauncherMenu {
 
     public LauncherGameType choseGameType() {
-
-        int choice = getGameTypeFromCommandLine();
+        this.printChoiceGameType();
+        int choice = UserInputReader.readUserChoice(1, 2);
 
         if (choice == 1) {
             return LauncherGameType.NEW_GAME;
@@ -21,41 +23,14 @@ public class LauncherMenu {
 
     private void printChoiceGameType() {
         System.out.println("==============================");
-        System.out.println("=== Please choose game type:");
-        System.out.println("=== 1. New game");
-        System.out.println("=== 2. Load previous game");
-    }
-
-    private int getGameTypeFromCommandLine() {
-        int choice = 0;
-        boolean error;
-        do {
-            try {
-                error = false;
-                this.printChoiceGameType();
-                choice = this.readGameType();
-            } catch (Exception e) {
-                error = true;
-            }
-        } while (error);
-
-        return choice;
-    }
-
-    private int readGameType() throws Exception {
-        Scanner scanner = new Scanner(System.in);
-        int choice = scanner.nextInt();
-
-        if (choice < 1 || choice > 2) {
-            throw new Exception();
-        }
-
-        return choice;
+        System.out.println("=== Choisissez ce que vous voulez faire:");
+        System.out.println("=== 1. Nouvelle partie");
+        System.out.println("=== 2. Charger la partie précédente");
     }
 
     public void choseDifficultyForTheGame() {
-
-        int choice = this.getDifficultyChoiceFromCommandLine();
+        this.printChoiceDifficulty();
+        int choice = UserInputReader.readUserChoice(1, 3);
         switch (choice) {
             case 1:
                 DifficultyController.getInstance().setDifficulty(new EasyDifficulty());
@@ -69,23 +44,6 @@ public class LauncherMenu {
         }
     }
 
-    private int getDifficultyChoiceFromCommandLine() {
-
-        int choice = 0;
-        boolean error;
-        do {
-            try {
-                error = false;
-                this.printChoiceDifficulty();
-                choice = this.readDifficulty();
-            } catch (Exception e) {
-                error = true;
-            }
-        } while (error);
-
-        return choice;
-    }
-
     private void printChoiceDifficulty() {
         System.out.println("==============================");
         System.out.println("=== Choisissez une difficulté pour le jeu:");
@@ -94,14 +52,21 @@ public class LauncherMenu {
         System.out.println("=== 3. Difficile");
     }
 
-    private int readDifficulty() throws Exception {
-        Scanner scanner = new Scanner(System.in);
-        int choice = scanner.nextInt();
+    public void choseGameMode() {
+        this.printChoiceGameMode();
+        int choice = UserInputReader.readUserChoice(1, 2);
 
-        if (choice < 1 || choice > 3) {
-            throw new Exception();
+        if (choice == 1) {
+            GameModeController.getInstance().setGameMode(new ScenarioMode());
+        } else if (choice == 2) {
+            GameModeController.getInstance().setGameMode(new SandboxMode());
         }
+    }
 
-        return choice;
+    private void printChoiceGameMode() {
+        System.out.println("==============================");
+        System.out.println("=== Choisissez un mode de jeu:");
+        System.out.println("=== 1. Scénario");
+        System.out.println("=== 2. Bac à sable");
     }
 }

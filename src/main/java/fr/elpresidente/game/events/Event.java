@@ -56,7 +56,7 @@ public class Event {
         }
     }
 
-    private void applyEffect(JSONObject jsonEffect) throws Exception {
+    private void applyEffect(JSONObject jsonEffect) {
         String type = JSONTools.extractStringFromJSONObject(jsonEffect, "type");
 
         if (type.equals("faction")) {
@@ -104,13 +104,13 @@ public class Event {
         }
     }
 
-    private void changeResourceAmount(JSONObject jsonEffect) throws Exception {
+    private void changeResourceAmount(JSONObject jsonEffect) {
         ResourcesController.getInstance()
                 .getResourceFromResourceName(JSONTools.extractStringFromJSONObject(jsonEffect, "key"))
                 .updateSize(JSONTools.extractIntFromJSONObject(jsonEffect, "change"));
     }
 
-    private void changeConsumableAmount(JSONObject jsonEffect) throws Exception {
+    private void changeConsumableAmount(JSONObject jsonEffect) {
         ConsumableController.getInstance()
                 .getConsumableFromConsumableName(JSONTools.extractStringFromJSONObject(jsonEffect, "key"))
                 .updateAmount(JSONTools.extractIntFromJSONObject(jsonEffect, "change"));

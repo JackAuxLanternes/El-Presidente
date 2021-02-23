@@ -110,7 +110,7 @@ public class FactionController {
         this.factions.get(random_index_faction).addSupporter(1);
     }
 
-    public void substractSatisfactionAccordingToNumberSupporters(int number_supporter) {
+    public void subtractSatisfactionAccordingToNumberSupporters(int number_supporter) {
         int percentage_for_one_supporter = 2;
 
         this.factions

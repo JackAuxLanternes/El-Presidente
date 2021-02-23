@@ -1,26 +1,15 @@
 package fr.elpresidente.game.resources;
 
-import fr.elpresidente.game.builders.RessourceBuilder;
 import fr.elpresidente.game.difficulty.DifficultyController;
 import org.json.simple.JSONObject;
 
-class Industry implements Resource, RessourceBuilder {
+class Industry implements Resource {
 
     public static final String JSON_NAME_KEY = "name";
     public static final String JSON_SIZE_KEY = "value";
     private static final int PERCENTAGE_MULTIPLIER_INDUSTRY_IN_TREASURY = 10;
     private final String name = "industry";
     private int size;
-
-    @Override
-    public void init() {
-
-    }
-
-    @Override
-    public void loadFromSave() {
-
-    }
 
     @Override
     public int getSize() {
@@ -38,9 +27,9 @@ class Industry implements Resource, RessourceBuilder {
     }
 
     @Override
-    public void substractSize(int size) {
+    public void subtractSize(int size) {
 
-        this.size -= this.updateSizeToSubstractWithDiffciulty(size);
+        this.size -= this.updateSizeToSubtractWithDifficulty(size);
     }
 
     @Override
@@ -48,10 +37,10 @@ class Industry implements Resource, RessourceBuilder {
         if (this.size > 0)
             addSize(size);
         else
-            substractSize(size);
+            subtractSize(size);
     }
 
-    private int updateSizeToSubstractWithDiffciulty(int value) {
+    private int updateSizeToSubtractWithDifficulty(int value) {
         return (int) (value * DifficultyController.getInstance().getDifficulty().getDifficultyEventMultiplier());
     }
 

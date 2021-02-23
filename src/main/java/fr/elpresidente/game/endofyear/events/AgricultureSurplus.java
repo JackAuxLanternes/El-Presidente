@@ -5,7 +5,7 @@ import fr.elpresidente.game.resources.ResourcesController;
 
 public class AgricultureSurplus implements BalanceSheetEvent {
 
-    private final int FOOD_NEEDED_BY_SUPPORTER = 4;
+    public static final int FOOD_NEEDED_BY_SUPPORTER = 4;
     private final FactionController factionController;
     private final ResourcesController resourcesController;
 

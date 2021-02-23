@@ -4,9 +4,6 @@ import fr.elpresidente.game.factions.Faction;
 import fr.elpresidente.game.factions.FactionController;
 import fr.elpresidente.game.resources.ConsumableController;
 
-import java.util.Arrays;
-import java.util.List;
-
 public class Bribe {
 
 
@@ -15,7 +12,7 @@ public class Bribe {
     private final ConsumableController consumableController;
 
 
-    private final String[] FACTION_THAT_DOESNT_LIKE_BRIBE = {"loyalist"};
+    private final String[] FACTION_THAT_DOES_NOT_LIKE_BRIBE = {"loyalist"};
 
     public Bribe() {
         this.factionController = FactionController.getInstance();
@@ -27,27 +24,27 @@ public class Bribe {
         Faction faction = factionController.getFactionFromNameFaction(name_faction);
         int amount_payed_for_numbers_supporters = this.getThePriceForNumberSupporters(faction.getSupporters());
         if(weCanBribeThisFaction(faction, amount_payed_for_numbers_supporters)) {
-            this.payThePriceForFactionsupporters(amount_payed_for_numbers_supporters);
+            this.payThePriceForFactionSupporters(amount_payed_for_numbers_supporters);
             this.addSatisfactionPercentageToTheFaction(faction);
-            this.reduceSatisfactionForFactionThatDoesntLikeBribe(amount_payed_for_numbers_supporters);
+            this.reduceSatisfactionForFactionThatDoesNotLikeBribe(amount_payed_for_numbers_supporters);
         }else {
             this.printRulesToBribeFaction();
-            this.printFactionsThatDoesntLikeBribe();
+            this.printFactionsThatDoesNotLikeBribe();
             this.printMoneyAndSatisfactionStatus(faction);
         }
     }
 
-    private void payThePriceForFactionsupporters(int amount_payed_for_numbers_supporters) {
+    private void payThePriceForFactionSupporters(int amount_payed_for_numbers_supporters) {
             this.consumableController.getTreasury().subtractAmount(amount_payed_for_numbers_supporters);
     }
 
     private boolean weCanBribeThisFaction(Faction faction, int amount_payed_for_numbers_supporters) {
-        return this.factionToBribeDoesntHaveMaximumSatisfaction(faction)
+        return this.factionToBribeDoesNotHaveMaximumSatisfaction(faction)
                 && this.weHaveEnoughMoneyToBribeThisFaction(amount_payed_for_numbers_supporters)
                 && this.factionDoesLikeBribe(faction);
     }
 
-    private boolean factionToBribeDoesntHaveMaximumSatisfaction(Faction faction) {
+    private boolean factionToBribeDoesNotHaveMaximumSatisfaction(Faction faction) {
 
         return faction.getSatisfaction() < faction.getMAXIMUM_SATISFACTION();
     }
@@ -63,26 +60,26 @@ public class Bribe {
 
     private void addSatisfactionPercentageToTheFaction(Faction faction) {
         int satisfaction_percentage_add_for_one_payement = 10;
-        faction.addSatisaction(satisfaction_percentage_add_for_one_payement);
+        faction.addSatisfaction(satisfaction_percentage_add_for_one_payement);
     }
 
-    private void reduceSatisfactionForFactionThatDoesntLikeBribe(int amount_payed_for_numbers_supporters) {
+    private void reduceSatisfactionForFactionThatDoesNotLikeBribe(int amount_payed_for_numbers_supporters) {
         int amount_divided_for_price_to_calculate_satisfaction = 10;
-        for(String name_faction: this.FACTION_THAT_DOESNT_LIKE_BRIBE) {
+        for(String name_faction: this.FACTION_THAT_DOES_NOT_LIKE_BRIBE) {
             this.factionController.getFactionFromNameFaction(name_faction).removeSatisfaction(amount_payed_for_numbers_supporters / amount_divided_for_price_to_calculate_satisfaction);
         }
     }
 
     private boolean factionDoesLikeBribe(Faction faction) {
-        for(String faction_name_doesnt_like_bribe: this.FACTION_THAT_DOESNT_LIKE_BRIBE) {
+        for(String faction_name_doesnt_like_bribe: this.FACTION_THAT_DOES_NOT_LIKE_BRIBE) {
             if (faction_name_doesnt_like_bribe == faction.getName())
                 return false;
         }
         return true;
     }
 
-    private void printFactionsThatDoesntLikeBribe() {
-        for(String faction_name: this.FACTION_THAT_DOESNT_LIKE_BRIBE) {
+    private void printFactionsThatDoesNotLikeBribe() {
+        for(String faction_name: this.FACTION_THAT_DOES_NOT_LIKE_BRIBE) {
             System.out.println(faction_name + " ");
         }
     }
@@ -106,7 +103,7 @@ public class Bribe {
         return consumableController;
     }
 
-    public String[] getFACTION_THAT_DOESNT_LIKE_BRIBE() {
-        return FACTION_THAT_DOESNT_LIKE_BRIBE;
+    public String[] getFACTION_THAT_DOES_NOT_LIKE_BRIBE() {
+        return FACTION_THAT_DOES_NOT_LIKE_BRIBE;
     }
 }

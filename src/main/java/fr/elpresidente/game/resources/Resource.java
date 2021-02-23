@@ -4,15 +4,13 @@ import org.json.simple.JSONObject;
 
 public interface Resource {
 
-    int size = 0;
-
     int getSize();
 
     void setSize(int size);
 
     void addSize(int size);
 
-    void substractSize(int size);
+    void subtractSize(int size);
 
     void updateSize(int size);
 
