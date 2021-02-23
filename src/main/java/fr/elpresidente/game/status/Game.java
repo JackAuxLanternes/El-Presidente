@@ -62,8 +62,7 @@ public class Game {
             turnController.nextTurn();
             this.saveGame(scenario);
         }
-
-        gameDisplay.showGameStatusWithEvent();
+        gameDisplay.showGameStatusOnDefeat();
     }
 
 

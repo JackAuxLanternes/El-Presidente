@@ -87,6 +87,16 @@ public class GameDisplay {
         }
     }
 
+    public void showGameStatusOnDefeat() {
+        System.out.println("==============================");
+        System.out.println("=== Vous avez perdu ");
+        System.out.println("==============================");
+        this.showTurnStatus();
+        this.showResourcesStatus();
+        this.showFactionsStatus();
+        waitForUserToContinue("Fin de la partie, appuyez sur [ENTER] pour quitter...");
+    }
+
     public void displayGraphicChart(double value) {
         displayGraphicChart((int) Math.round(value));
     }
