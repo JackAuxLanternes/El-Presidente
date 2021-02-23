@@ -11,10 +11,10 @@ public class Main {
         LauncherMenu launcherMenu = new LauncherMenu();
 
         try {
+            launcherMenu.choseDifficultyForTheGame();
             LauncherGameType gameType = launcherMenu.choseGameType();
             if (gameType == LauncherGameType.NEW_GAME) {
                 launcherMenu.choseGameMode();
-                launcherMenu.choseDifficultyForTheGame();
                 ScenarioParser scenarioParser = new ScenarioParser("scenario.json");
                 scenarioParser.openScenario();
                 gameLauncher.createNewGame(scenarioParser.getScenario());

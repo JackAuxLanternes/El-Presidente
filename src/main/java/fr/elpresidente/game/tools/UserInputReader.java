@@ -15,6 +15,6 @@ public class UserInputReader {
     }
 
     private static boolean isUserChoiceNotInRangeOfChoices(int userChoice, int minimumChoiceValue, int maximumChoiceValue) {
-        return userChoice >= minimumChoiceValue && userChoice < maximumChoiceValue;
+        return userChoice >= minimumChoiceValue && userChoice <= maximumChoiceValue;
     }
 }
