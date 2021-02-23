@@ -46,7 +46,7 @@ public class FoodBalancing implements BalanceSheetEvent {
         if (maximum_supporter > 0) {
             int number_supporter_that_have_to_be_removed = this.determineNumberSupporterThatHaveToBeRemoved(maximum_supporter);
             this.factionController.removeSupportersRandomly(number_supporter_that_have_to_be_removed);
-            this.factionController.substractSatisfactionAccordingToNumberSupporters(number_supporter_that_have_to_be_removed);
+            this.factionController.subtractSatisfactionAccordingToNumberSupporters(number_supporter_that_have_to_be_removed);
         } else {
             throw new NoSuchElementException("You can't delete all your Supporters, you don't have enough food");
         }

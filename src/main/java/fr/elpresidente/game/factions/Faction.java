@@ -55,7 +55,7 @@ public class Faction {
         this.normalizedSatisfactionMinValue();
     }
 
-    public void addSatisaction(double satisfaction) {
+    public void addSatisfaction(double satisfaction) {
         if (isSatisfactionSuperiorThan0())
             this.satisfaction += satisfaction;
         System.out.println("la satisfaction est de 2 -> " + this.satisfaction);
@@ -76,11 +76,11 @@ public class Faction {
 
     public void removeSatisfaction(double satisfaction) {
 
-        this.satisfaction -= this.updateValueToSubstractWithDiffciulty(satisfaction);
+        this.satisfaction -= this.updateValueToSubtractWithDifficulty(satisfaction);
         this.normalizedSatisfactionMinValue();
     }
 
-    private int updateValueToSubstractWithDiffciulty(double value) {
+    private int updateValueToSubtractWithDifficulty(double value) {
         return (int) (value * DifficultyController.getInstance().getDifficulty().getDifficultyEventMultiplier());
     }
 

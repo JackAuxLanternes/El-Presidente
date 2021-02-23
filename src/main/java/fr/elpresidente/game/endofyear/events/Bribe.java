@@ -21,11 +21,11 @@ public class Bribe {
         Faction faction = factionController.getFactionFromNameFaction(name_faction);
 
         System.out.println("nombre de supporters " + faction.getSupporters());
-        this.payThePriceForFactionsupporters(faction.getSupporters());
+        this.payThePriceForFactionSupporters(faction.getSupporters());
         this.addSatisfactionPercentageToTheFaction(faction);
     }
 
-    private void payThePriceForFactionsupporters(int number_supporters) {
+    private void payThePriceForFactionSupporters(int number_supporters) {
 
         int price_payed_for_one_supporter = 15;
         this.consumableController.getTreasury().subtractAmount(price_payed_for_one_supporter * number_supporters);
@@ -33,7 +33,7 @@ public class Bribe {
 
     private void addSatisfactionPercentageToTheFaction(Faction faction) {
         int satisfaction_percentage_add_for_one_payement = 10;
-        faction.addSatisaction(satisfaction_percentage_add_for_one_payement);
+        faction.addSatisfaction(satisfaction_percentage_add_for_one_payement);
     }
 
     public FactionController getFactionController() {

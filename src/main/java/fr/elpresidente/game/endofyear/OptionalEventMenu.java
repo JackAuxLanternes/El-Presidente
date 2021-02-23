@@ -13,7 +13,7 @@ class OptionalEventMenu {
 
         while (choice != 3) {
             this.printChoiceMenu();
-            choice = getOptionnalEventChoiceFromCommandLine();
+            choice = getOptionalEventChoiceFromCommandLine();
             if (choice == 1) {
 
                 BribeMenu bribeMenu = new BribeMenu();
@@ -34,16 +34,16 @@ class OptionalEventMenu {
         System.out.println("==============================");
         System.out.println("=== Bienvenue aux actions de fin d'année");
         System.out.println("=== Ces actions ont pour but de sauver la république d'El Presidente");
-        System.out.println("=== Chosissez l'une des option si vous le voulez:");
+        System.out.println("=== Choisissez l'une des option si vous le voulez:");
         System.out.println("=== 1. Pot de vin");
         System.out.println("=== \t Cela vous coutera 15$ par partisan d'une faction et vous permettra d'augmenter la satisfaction de cette faction de 10%");
         System.out.println("=== \t Cela aura en revanche un effet négatif sur vos loyalistes");
         System.out.println("=== 2. Le Marché alimentaire");
         System.out.println("=== \t Vous pouvez acheter des unités de nourriture pour Compléter l'année qui s'achève, 1 unité = 8$");
-        System.out.println("=== 3. Aucun de ces évènements ne m'interesse");
+        System.out.println("=== 3. Aucun de ces évènements ne m'intéresse");
     }
 
-    private int getOptionnalEventChoiceFromCommandLine() {
+    private int getOptionalEventChoiceFromCommandLine() {
 
         int choice = 0;
         boolean error;

@@ -39,7 +39,7 @@ class BribeMenu {
         FactionController.getInstance().getFactions().forEach((faction) -> System.out.println(faction.getName()));
     }
 
-    private String readFactionName() throws Exception {
+    private String readFactionName() {
         Scanner scanner = new Scanner(System.in);
         String faction_name = scanner.next();
         FactionController.getInstance().getFactionFromNameFaction(faction_name);

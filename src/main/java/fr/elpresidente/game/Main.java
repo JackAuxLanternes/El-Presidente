@@ -7,19 +7,18 @@ import fr.elpresidente.game.scenario.ScenarioParser;
 
 public class Main {
     public static void main(String[] args) {
-        //Launch program (I have no idea what I'm doing for this class and trust me "no idea" is an understatement)
         GameLauncher gameLauncher = new GameLauncher();
         LauncherMenu launcherMenu = new LauncherMenu();
 
         try {
-            launcherMenu.choseDifficultyForTheGame();
             LauncherGameType gameType = launcherMenu.choseGameType();
             if (gameType == LauncherGameType.NEW_GAME) {
+                launcherMenu.choseGameMode();
+                launcherMenu.choseDifficultyForTheGame();
                 ScenarioParser scenarioParser = new ScenarioParser("scenario.json");
                 scenarioParser.openScenario();
                 gameLauncher.createNewGame(scenarioParser.getScenario());
             } else if (gameType == LauncherGameType.LOAD_GAME) {
-
                 ScenarioParser scenarioParser = new ScenarioParser("scenario_saved.json");
                 scenarioParser.openScenario();
                 gameLauncher.loadSavedGame(scenarioParser.getScenario());

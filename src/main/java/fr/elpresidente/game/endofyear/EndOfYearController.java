@@ -3,11 +3,11 @@ package fr.elpresidente.game.endofyear;
 public class EndOfYearController {
 
     public void callEvents() {
-        this.callOptionnalEvents();
+        this.callOptionalEvents();
         this.callReviewEvents();
     }
 
-    public void callOptionnalEvents() {
+    public void callOptionalEvents() {
         OptionalEventMenu optionalEventMenu = new OptionalEventMenu();
         optionalEventMenu.choseOptionalEvent();
     }
