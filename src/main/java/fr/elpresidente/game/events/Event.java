@@ -1,6 +1,8 @@
 package fr.elpresidente.game.events;
 
 import fr.elpresidente.game.factions.FactionController;
+import fr.elpresidente.game.factions.supporters.RandomSupportersDistribution;
+import fr.elpresidente.game.factions.supporters.SupportersDistribution;
 import fr.elpresidente.game.resources.ConsumableController;
 import fr.elpresidente.game.resources.ResourcesController;
 import fr.elpresidente.game.tools.JSONKeys;
@@ -91,7 +93,8 @@ public class Event {
 
     private void changeFactionSupportersRandomly(int change) {
         if (change > 0) {
-            FactionController.getInstance().addSupportersRandomly(change);
+            SupportersDistribution supportersDistribution = new RandomSupportersDistribution();
+            supportersDistribution.addSupporters(change);
         } else {
             FactionController.getInstance().removeSupportersRandomly(Math.abs(change));
         }

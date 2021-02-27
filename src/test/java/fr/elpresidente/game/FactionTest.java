@@ -12,7 +12,7 @@ public class FactionTest extends TestCase {
         Faction faction = factionController.getFactionFromNameFaction("capitalist");
         faction.setSupporters(10);
 
-        factionController.addSupportersRandomly(2);
+        //factionController.addSupportersRandomly(2);
 
 
         assertEquals(12, faction.getSupporters());

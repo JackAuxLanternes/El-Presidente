@@ -6,8 +6,8 @@ import fr.elpresidente.game.factions.FactionController;
 public class RandomSupportersDistribution implements SupportersDistribution{
 
     @Override
-    public void addSupporters(int number_supporters) {
-        for (int i = 0; i < number_supporters; i++) {
+    public void addSupporters(int total_new_supporters) {
+        for (int i = 0; i < total_new_supporters; i++) {
             this.addSupporterRandomFaction();
         }
     }
