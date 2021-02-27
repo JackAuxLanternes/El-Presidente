@@ -1,5 +1,7 @@
 package fr.elpresidente.game.mode;
 
+import fr.elpresidente.game.difficulty.EasyDifficulty;
+
 public class GameModeController {
 
     private static GameModeController instance;
@@ -20,5 +22,18 @@ public class GameModeController {
 
     public void setGameMode(GameMode gameMode) {
         this.gameMode = gameMode;
+    }
+
+    public void setGameModeFromName(String name)
+    {
+        switch (name)
+        {
+            case "scenario":
+                gameMode = new ScenarioMode();
+                break;
+
+            case "sandbox":
+                gameMode = new SandboxMode();
+        }
     }
 }

@@ -3,6 +3,9 @@ package fr.elpresidente.game;
 import fr.elpresidente.game.launcher.GameLauncher;
 import fr.elpresidente.game.launcher.LauncherGameType;
 import fr.elpresidente.game.launcher.LauncherMenu;
+import fr.elpresidente.game.save.Save;
+import fr.elpresidente.game.save.SaveLoader;
+import fr.elpresidente.game.save.SaveParser;
 import fr.elpresidente.game.scenario.ScenarioParser;
 
 public class Main {
@@ -11,15 +14,14 @@ public class Main {
         LauncherMenu launcherMenu = new LauncherMenu();
 
         try {
-            launcherMenu.choseDifficultyForTheGame();
+            ScenarioParser scenarioParser = new ScenarioParser("src/main/resources/scenario.json");
             LauncherGameType gameType = launcherMenu.choseGameType();
             if (gameType == LauncherGameType.NEW_GAME) {
                 launcherMenu.choseGameMode();
-                ScenarioParser scenarioParser = new ScenarioParser("scenario.json");
+                launcherMenu.choseDifficultyForTheGame();
                 scenarioParser.openScenario();
                 gameLauncher.createNewGame(scenarioParser.getScenario());
             } else if (gameType == LauncherGameType.LOAD_GAME) {
-                ScenarioParser scenarioParser = new ScenarioParser("scenario_saved.json");
                 scenarioParser.openScenario();
                 gameLauncher.loadSavedGame(scenarioParser.getScenario());
             }

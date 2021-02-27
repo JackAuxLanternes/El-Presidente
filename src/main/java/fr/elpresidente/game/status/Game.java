@@ -1,10 +1,20 @@
 package fr.elpresidente.game.status;
 
+import fr.elpresidente.game.difficulty.DifficultyController;
+import fr.elpresidente.game.difficulty.EasyDifficulty;
+import fr.elpresidente.game.difficulty.HardDifficulty;
+import fr.elpresidente.game.difficulty.NormalDifficulty;
 import fr.elpresidente.game.endofyear.EndOfYearController;
+import fr.elpresidente.game.mode.GameModeController;
+import fr.elpresidente.game.mode.SandboxMode;
+import fr.elpresidente.game.mode.ScenarioMode;
+import fr.elpresidente.game.save.Save;
+import fr.elpresidente.game.save.SaveLoader;
+import fr.elpresidente.game.save.SaveParser;
 import fr.elpresidente.game.scenario.Scenario;
 import fr.elpresidente.game.scenario.ScenarioLoader;
 import fr.elpresidente.game.scenario.ScenarioParser;
-import fr.elpresidente.game.scenario.ScenarioWriter;
+import fr.elpresidente.game.save.SaveWriter;
 import fr.elpresidente.game.tools.JSONTools;
 import fr.elpresidente.game.turn.Defeat;
 import fr.elpresidente.game.turn.Seasons;
@@ -32,16 +42,16 @@ public class Game {
     }
 
     public void initTurnForLoadGame() {
-        ScenarioParser scenarioParser = new ScenarioParser("scenario.json");
-        scenarioParser.openScenario();
-        TurnController turnController_old_json = new TurnController();
-        turnController_old_json.setStartDate(JSONTools.extractIntFromJSONObject(scenarioParser.getScenario().getDate(), "year"), JSONTools.extractSeasonFromJSONObject(scenarioParser.getScenario().getDate()));
+        SaveParser saveParser = new SaveParser("src/main/resources/save.json");
+        saveParser.openSave();
+        SaveLoader saveLoader = new SaveLoader(saveParser.getSave(), turnController);
 
-        this.initCountTurnFromInitialScenarioToLoadScenario(turnController_old_json);
+        saveLoader.tryToLoadSave();
+        this.initCountTurnFromInitialScenarioToLoadScenario(turnController);
     }
 
-    private void initCountTurnFromInitialScenarioToLoadScenario(TurnController turnController_old_json) {
-        this.turnController.setCountTurn(this.determinateCountTurnFromInitialScenarioToLoadScenario(turnController_old_json));
+    private void initCountTurnFromInitialScenarioToLoadScenario(TurnController turnController) {
+        this.turnController.setCountTurn(this.determinateCountTurnFromInitialScenarioToLoadScenario(turnController));
     }
 
     private int determinateCountTurnFromInitialScenarioToLoadScenario(TurnController turnController_old_json) {
@@ -53,22 +63,22 @@ public class Game {
         return count_turn;
     }
 
-    public void gameLoop(Scenario scenario) {
+    public void gameLoop() {
         turnController.buildTurn();
 
         while (!isDefeated()) {
             turnController.callEndOfTheYearEventIfItsTime(gameDisplay);
             gameDisplay.showGameStatusWithEvent();
             turnController.nextTurn();
-            this.saveGame(scenario);
+            this.saveGame();
         }
         gameDisplay.showGameStatusOnDefeat();
     }
 
 
-    private void saveGame(Scenario scenario) {
-        ScenarioWriter scenarioWriter = new ScenarioWriter(scenario, turnController);
-        scenarioWriter.writeScenario("scenario_saved.json");
+    private void saveGame() {
+        SaveWriter saveWriter = new SaveWriter(turnController);
+        saveWriter.writeSave("src/main/resources/save.json");
     }
 
     public boolean isDefeated() {

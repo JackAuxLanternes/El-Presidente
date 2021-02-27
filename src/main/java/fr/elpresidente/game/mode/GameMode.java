@@ -1,7 +1,10 @@
 package fr.elpresidente.game.mode;
 
-public interface GameMode {
+import org.json.simple.JSONObject;
 
-    String getName();
+public interface GameMode
+{
+    JSONObject toJSONObject();
 
+    String toString();
 }

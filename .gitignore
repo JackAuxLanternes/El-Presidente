@@ -1,6 +1,6 @@
 /target
 /.idea
 scenario.json
-scenario_saved.json
+/src/main/resources/save.json
 example.json
 Evenements.xlsx

@@ -54,10 +54,8 @@ class Treasury implements Consumable {
     public JSONObject toJSONObject() {
         JSONObject consumablesTreasury = new JSONObject();
         consumablesTreasury.put(JSONKeys.CONSUMABLE_KEY_NAME, this.getName());
-        consumablesTreasury.put(JSONKeys.CONSUMABLE_KEY_NAME, this.amount);
+        consumablesTreasury.put(JSONKeys.CONSUMABLE_KEY_VALUE, this.amount);
 
         return consumablesTreasury;
     }
-
-
 }
