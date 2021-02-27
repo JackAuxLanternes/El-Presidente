@@ -2,32 +2,31 @@ package fr.elpresidente.game.endofyear.events;
 
 import fr.elpresidente.game.factions.Faction;
 import fr.elpresidente.game.factions.FactionController;
+import fr.elpresidente.game.resources.Consumable;
 import fr.elpresidente.game.resources.ConsumableController;
 
 public class Bribe {
 
 
-    private final FactionController factionController;
 
-    private final ConsumableController consumableController;
 
 
     private final String[] FACTION_THAT_DOES_NOT_LIKE_BRIBE = {"loyalist"};
 
-    public Bribe() {
-        this.factionController = FactionController.getInstance();
-        this.consumableController = ConsumableController.getInstance();
-    }
 
     public void bribeFaction(String name_faction) {
 
-        Faction faction = factionController.getFactionFromNameFaction(name_faction);
+        Faction faction = FactionController.getInstance().getFactionFromNameFaction(name_faction);
         int amount_payed_for_numbers_supporters = this.getThePriceForNumberSupporters(faction.getSupporters());
         if(weCanBribeThisFaction(faction, amount_payed_for_numbers_supporters)) {
             this.payThePriceForFactionSupporters(amount_payed_for_numbers_supporters);
             this.addSatisfactionPercentageToTheFaction(faction);
             this.reduceSatisfactionForFactionThatDoesNotLikeBribe(amount_payed_for_numbers_supporters);
         }else {
+            System.out.println(this.factionToBribeDoesNotHaveMaximumSatisfaction(faction));
+            System.out.println(this.weHaveEnoughMoneyToBribeThisFaction(amount_payed_for_numbers_supporters));
+            System.out.println(this.factionDoesLikeBribe(faction));
+            System.out.println(ConsumableController.getInstance().getTreasury().getAmount());
             this.printRulesToBribeFaction();
             this.printFactionsThatDoesNotLikeBribe();
             this.printMoneyAndSatisfactionStatus(faction);
@@ -35,7 +34,7 @@ public class Bribe {
     }
 
     private void payThePriceForFactionSupporters(int amount_payed_for_numbers_supporters) {
-            this.consumableController.getTreasury().subtractAmount(amount_payed_for_numbers_supporters);
+        ConsumableController.getInstance().getTreasury().subtractAmount(amount_payed_for_numbers_supporters);
     }
 
     private boolean weCanBribeThisFaction(Faction faction, int amount_payed_for_numbers_supporters) {
@@ -50,7 +49,7 @@ public class Bribe {
     }
 
     private boolean weHaveEnoughMoneyToBribeThisFaction(int amount_payed_for_numbers_supporters) {
-        return this.consumableController.getTreasury().getAmount() > amount_payed_for_numbers_supporters;
+        return ConsumableController.getInstance().getTreasury().getAmount() > amount_payed_for_numbers_supporters;
     }
 
     private int getThePriceForNumberSupporters(int number_supporters) {
@@ -66,7 +65,7 @@ public class Bribe {
     private void reduceSatisfactionForFactionThatDoesNotLikeBribe(int amount_payed_for_numbers_supporters) {
         int amount_divided_for_price_to_calculate_satisfaction = 10;
         for(String name_faction: this.FACTION_THAT_DOES_NOT_LIKE_BRIBE) {
-            this.factionController.getFactionFromNameFaction(name_faction).removeSatisfaction(amount_payed_for_numbers_supporters / amount_divided_for_price_to_calculate_satisfaction);
+            FactionController.getInstance().getFactionFromNameFaction(name_faction).removeSatisfaction(amount_payed_for_numbers_supporters / amount_divided_for_price_to_calculate_satisfaction);
         }
     }
 
@@ -91,16 +90,8 @@ public class Bribe {
     }
 
     private void printMoneyAndSatisfactionStatus(Faction faction) {
-        System.out.println("Vous avez exactement " + this.consumableController.getTreasury().getAmount() + "€ et "
+        System.out.println("Vous avez exactement " + ConsumableController.getInstance().getTreasury().getAmount() + "€ et "
                 + faction.getSatisfaction() + "% de satisfaction pour cette faction");
-    }
-
-    public FactionController getFactionController() {
-        return factionController;
-    }
-
-    public ConsumableController getConsumableController() {
-        return consumableController;
     }
 
     public String[] getFACTION_THAT_DOES_NOT_LIKE_BRIBE() {

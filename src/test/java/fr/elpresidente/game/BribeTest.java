@@ -1,23 +1,29 @@
 package fr.elpresidente.game;
 
+import fr.elpresidente.game.difficulty.DifficultyController;
+import fr.elpresidente.game.difficulty.NormalDifficulty;
 import fr.elpresidente.game.endofyear.events.Bribe;
+import fr.elpresidente.game.factions.FactionController;
+import fr.elpresidente.game.resources.ConsumableController;
 import junit.framework.TestCase;
 
 import java.util.NoSuchElementException;
 
 public class BribeTest extends TestCase{
 
-
-    
+    ConsumableController consumableController  = ConsumableController.getInstance();
 
     public void testSatisfactionOfAFactionAfterBribeThisFaction()
     {
         Bribe bribe = new Bribe();
-        bribe.getFactionController().getFactionFromNameFaction("capitalist").setSatisfaction(50);
-        assertEquals(50.0, bribe.getFactionController().getFactionFromNameFaction("capitalist").getSatisfaction());
+        this.consumableController.getTreasury().setAmount(2000);
+        FactionController.getInstance().getFactionFromNameFaction("capitalist").setSatisfaction(50);
+        FactionController.getInstance().getFactionFromNameFaction("capitalist").setSupporters(10);
+        DifficultyController.getInstance().setDifficulty(new NormalDifficulty());
+        assertEquals(50.0, FactionController.getInstance().getFactionFromNameFaction("capitalist").getSatisfaction());
 
         bribe.bribeFaction("capitalist");
-        assertEquals(55.0, bribe.getFactionController().getFactionFromNameFaction("capitalist").getSatisfaction());
+        assertEquals(60.0, FactionController.getInstance().getFactionFromNameFaction("capitalist").getSatisfaction());
 
     }
 
@@ -25,11 +31,13 @@ public class BribeTest extends TestCase{
     {
         try {
             Bribe bribe = new Bribe();
-            bribe.getFactionController().getFactionFromNameFaction("pomme").setSatisfaction(50);
-            assertEquals(50.0, bribe.getFactionController().getFactionFromNameFaction("capitalist").getSatisfaction());
+            FactionController.getInstance().getFactionFromNameFaction("pomme").setSatisfaction(50);
+            this.consumableController.getTreasury().setAmount(2000);
+            DifficultyController.getInstance().setDifficulty(new NormalDifficulty());
+            assertEquals(50.0, FactionController.getInstance().getFactionFromNameFaction("capitalist").getSatisfaction());
 
             bribe.bribeFaction("capitalist");
-            assertEquals(55.0, bribe.getFactionController().getFactionFromNameFaction("capitalist").getSatisfaction());
+            assertEquals(55.0, FactionController.getInstance().getFactionFromNameFaction("capitalist").getSatisfaction());
         }catch(NoSuchElementException exception) {
             assertEquals("the faction pomme doesn\'t exist", exception.getMessage());
         }
@@ -39,10 +47,12 @@ public class BribeTest extends TestCase{
     public void testTreasuryAfterBribeAFaction()
     {
         Bribe bribe = new Bribe();
-        bribe.getConsumableController().getTreasury().setAmount(250);
-        bribe.getFactionController().getFactionFromNameFaction("capitalist").setSupporters(10);
+        FactionController.getInstance().getFactionFromNameFaction("capitalist").setSupporters(10);
+        FactionController.getInstance().getFactionFromNameFaction("capitalist").setSatisfaction(80);
+        this.consumableController.getTreasury().setAmount(250);
+        DifficultyController.getInstance().setDifficulty(new NormalDifficulty());
 
         bribe.bribeFaction("capitalist");
-        assertEquals(100, bribe.getConsumableController().getTreasury().getAmount());
+        assertEquals(100, this.consumableController.getTreasury().getAmount());
     }
 }

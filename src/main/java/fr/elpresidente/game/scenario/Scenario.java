@@ -1,5 +1,6 @@
 package fr.elpresidente.game.scenario;
 
+import fr.elpresidente.game.factions.supporters.SupportersDistribution;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
@@ -22,6 +23,8 @@ public class Scenario {
 
     private JSONArray genericEvents;
 
+    private JSONObject supportersDistribution;
+
     public Scenario(String jsonFileContent) {
         setJsonObject((JSONObject) JSONValue.parse(jsonFileContent));
         setDate((JSONObject) getJsonObject().get("date"));
@@ -31,6 +34,7 @@ public class Scenario {
         setScriptedEvents((JSONArray) getJsonObject().get("events"));
         setConditionalEvents((JSONArray) getJsonObject().get("conditional_events"));
         setGenericEvents((JSONArray) getJsonObject().get("generic_events"));
+        setSupportersDistribution((JSONObject) getJsonObject().get("supporters_distribution"));
     }
 
     public JSONObject getJsonObject() {
@@ -47,6 +51,14 @@ public class Scenario {
 
     public void setDate(JSONObject date) {
         this.date = date;
+    }
+
+    public JSONObject getSupportersDistribution() {
+        return supportersDistribution;
+    }
+
+    public void setSupportersDistribution(JSONObject supportersDistribution) {
+        this.supportersDistribution = supportersDistribution;
     }
 
     public JSONArray getResources() {

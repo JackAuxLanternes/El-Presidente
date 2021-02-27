@@ -15,6 +15,7 @@ public class EquilibrateSupportersDistribution implements SupportersDistribution
 
     @Override
     public void addSupporters(int total_new_supporters) {
+        System.out.println("total new supporters" + total_new_supporters);
         this.setAlgorithmsParameters(total_new_supporters);
 
         this.valid_factions.forEach(faction -> {

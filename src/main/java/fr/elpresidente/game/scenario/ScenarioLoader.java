@@ -3,6 +3,7 @@ package fr.elpresidente.game.scenario;
 import fr.elpresidente.game.events.EventController;
 import fr.elpresidente.game.factions.Faction;
 import fr.elpresidente.game.factions.FactionController;
+import fr.elpresidente.game.factions.supporters.SupportersDistributionController;
 import fr.elpresidente.game.resources.ConsumableController;
 import fr.elpresidente.game.resources.ResourcesController;
 import fr.elpresidente.game.tools.JSONTools;
@@ -28,6 +29,7 @@ public class ScenarioLoader {
             this.loadConsumableScenario();
             this.loadFactionsScenario();
             this.loadEventsFromScenario();
+            this.loadSupportersDistribution();
         } catch (NullPointerException nullPointerException) {
             throw new NullPointerException("Couldn't load scenario completely, check file is in the right folder and not corrupted.\n" + nullPointerException);
         }
@@ -67,6 +69,11 @@ public class ScenarioLoader {
         EventController.getInstance().setScriptedEvents(scenario.getScriptedEvents());
         EventController.getInstance().setConditionalEvents(scenario.getConditionalEvents());
         EventController.getInstance().setGenericEvents(scenario.getGenericEvents());
+    }
+
+    public void loadSupportersDistribution() {
+
+        SupportersDistributionController.getInstance().setSupportersDistributionFromJSONName(JSONTools.extractStringFromJSONObject(scenario.getSupportersDistribution(), "name"));
     }
 
     private void setScenario(Scenario scenario) {

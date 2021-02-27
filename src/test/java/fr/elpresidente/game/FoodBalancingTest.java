@@ -1,5 +1,9 @@
 package fr.elpresidente.game;
 
+import fr.elpresidente.game.difficulty.DifficultyController;
+import fr.elpresidente.game.difficulty.EasyDifficulty;
+import fr.elpresidente.game.difficulty.HardDifficulty;
+import fr.elpresidente.game.difficulty.NormalDifficulty;
 import fr.elpresidente.game.endofyear.events.BalanceSheetEvent;
 import fr.elpresidente.game.endofyear.events.FoodBalancing;
 import fr.elpresidente.game.factions.FactionController;
@@ -15,6 +19,7 @@ public class FoodBalancingTest extends TestCase {
         factionController.initFactions(4, 50);
         ConsumableController consumableController = ConsumableController.getInstance();
         consumableController.getFood().setAmount(200);
+        DifficultyController.getInstance().setDifficulty(new NormalDifficulty());
 
         foodbalancing.callEvent();
 
@@ -30,6 +35,7 @@ public class FoodBalancingTest extends TestCase {
         consumableController.getFood().setAmount(50);
         assertEquals(50.0, factionController.determineGlobalSatisfaction());
         foodbalancing.callEvent();
+        DifficultyController.getInstance().setDifficulty(new NormalDifficulty());
 
         factionController.getFactions().forEach(faction -> System.out.println(faction.getSatisfaction()));
 
