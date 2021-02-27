@@ -2,14 +2,9 @@ package fr.elpresidente.game.endofyear.events;
 
 import fr.elpresidente.game.factions.Faction;
 import fr.elpresidente.game.factions.FactionController;
-import fr.elpresidente.game.resources.Consumable;
 import fr.elpresidente.game.resources.ConsumableController;
 
 public class Bribe {
-
-
-
-
 
     private final String[] FACTION_THAT_DOES_NOT_LIKE_BRIBE = {"loyalist"};
 
@@ -34,6 +29,7 @@ public class Bribe {
     }
 
     private void payThePriceForFactionSupporters(int amount_payed_for_numbers_supporters) {
+        System.out.println(amount_payed_for_numbers_supporters);
         ConsumableController.getInstance().getTreasury().subtractAmount(amount_payed_for_numbers_supporters);
     }
 

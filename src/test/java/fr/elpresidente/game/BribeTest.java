@@ -16,7 +16,7 @@ public class BribeTest extends TestCase{
     public void testSatisfactionOfAFactionAfterBribeThisFaction()
     {
         Bribe bribe = new Bribe();
-        this.consumableController.getTreasury().setAmount(2000);
+        ConsumableController.getInstance().getTreasury().setAmount(2000);
         FactionController.getInstance().getFactionFromNameFaction("capitalist").setSatisfaction(50);
         FactionController.getInstance().getFactionFromNameFaction("capitalist").setSupporters(10);
         DifficultyController.getInstance().setDifficulty(new NormalDifficulty());
@@ -49,10 +49,10 @@ public class BribeTest extends TestCase{
         Bribe bribe = new Bribe();
         FactionController.getInstance().getFactionFromNameFaction("capitalist").setSupporters(10);
         FactionController.getInstance().getFactionFromNameFaction("capitalist").setSatisfaction(80);
-        this.consumableController.getTreasury().setAmount(250);
+        ConsumableController.getInstance().getTreasury().setAmount(250);
         DifficultyController.getInstance().setDifficulty(new NormalDifficulty());
 
         bribe.bribeFaction("capitalist");
-        assertEquals(100, this.consumableController.getTreasury().getAmount());
+        assertEquals(100, ConsumableController.getInstance().getTreasury().getAmount());
     }
 }
