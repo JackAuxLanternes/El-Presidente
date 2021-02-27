@@ -1,6 +1,8 @@
 package fr.elpresidente.game.endofyear.events;
 
 import fr.elpresidente.game.factions.FactionController;
+import fr.elpresidente.game.factions.supporters.RandomSupportersDistribution;
+import fr.elpresidente.game.factions.supporters.SupportersDistribution;
 import fr.elpresidente.game.resources.ResourcesController;
 
 public class AgricultureSurplus implements BalanceSheetEvent {
@@ -8,10 +10,12 @@ public class AgricultureSurplus implements BalanceSheetEvent {
     public static final int FOOD_NEEDED_BY_SUPPORTER = 4;
     private final FactionController factionController;
     private final ResourcesController resourcesController;
+    private SupportersDistribution supportersDistribution;
 
     public AgricultureSurplus() {
         this.factionController = FactionController.getInstance();
         this.resourcesController = ResourcesController.getInstance();
+        this.supportersDistribution = new RandomSupportersDistribution();
     }
 
     public void callEvent() {
@@ -21,7 +25,7 @@ public class AgricultureSurplus implements BalanceSheetEvent {
     }
 
     public void addNewSupportersThanksToAgricultureSurplus() {
-        this.factionController.addSupportersRandomly(this.determineNumberSupportersRandomly());
+        supportersDistribution.addSupporters(this.determineNumberSupportersRandomly());
     }
 
     private boolean isAgricultureAloneIsSurplus() {
