@@ -107,7 +107,7 @@
           ]
         },
         {
-          "name": "Staline disait: \"La mort d'un homme est une tragédie. La mort d'un million d'hommes est une statistique.\", El-presidente dit: \"Faisons de sa mort une statistique\". (les gauchistes s'énerveront)",
+          "name": "Staline disait: \"La mort d'un homme est une tragédie. La mort d'un million d'hommes est une statistique.\", El-presidente dit: \"Faisons de sa mort une statistique\". (les gauchistes s'enerveront)",
           "effects": [
             {
               "type": "faction",
@@ -132,7 +132,7 @@
           ]
         },
         {
-          "name": "Espéront que le peuple Soviétique retrouveras un peu de liberté, ouvrons les communications avec Moskwa (Les liberal approuvent)",
+          "name": "Esperont que le peuple Sovietique retrouveras un peu de liberté, ouvrons les communications avec Moskwa (Les liberal approuvent)",
           "effects": [
             {
               "type": "faction",
@@ -162,6 +162,7 @@
           ]
         },
         {
+          "name": "El-presidente n'as pas d'amis, seul des alliers de circonstance! En cas de conflit nous seront pret à prendre les armes (les militarist approuvent)",
           "effects": [
             {
               "type": "faction",
@@ -208,8 +209,7 @@
               "key": "industry",
               "change": 3
             }
-          ],
-          "name": "El-presidente n'as pas d'amis, seul des alliers de circonstance! En cas de conflit nous seront pret à prendre les armes (les militarist approuvent)"
+          ]
         }
       ]
     },
