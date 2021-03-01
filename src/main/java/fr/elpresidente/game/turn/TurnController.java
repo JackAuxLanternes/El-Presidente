@@ -9,6 +9,7 @@ import fr.elpresidente.game.factions.FactionController;
 import fr.elpresidente.game.resources.ConsumableController;
 import fr.elpresidente.game.resources.ResourcesController;
 import fr.elpresidente.game.status.GameDisplay;
+import fr.elpresidente.game.tools.JSONKeys;
 import fr.elpresidente.game.tools.JSONTools;
 import org.json.simple.JSONObject;
 
@@ -111,7 +112,7 @@ public class TurnController implements TurnBuilder, LoadFromSaveBuilder {
 
     @Override
     public void loadFromJSON(JSONObject jsonObject) {
-        this.year = JSONTools.extractIntFromJSONObject(jsonObject, "years");
+        this.year = JSONTools.extractIntFromJSONObject(jsonObject, JSONKeys.DATE_YEAR_KEY);
         this.currentTurn = JSONTools.extractSeasonFromJSONObject(jsonObject);
     }
 }

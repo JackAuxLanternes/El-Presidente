@@ -5,6 +5,7 @@ import fr.elpresidente.game.scenario.Scenario;
 import fr.elpresidente.game.scenario.ScenarioLoader;
 import fr.elpresidente.game.scenario.ScenarioParser;
 import fr.elpresidente.game.scenario.ScenarioWriter;
+import fr.elpresidente.game.tools.JSONKeys;
 import fr.elpresidente.game.tools.JSONTools;
 import fr.elpresidente.game.turn.Defeat;
 import fr.elpresidente.game.turn.Seasons;
@@ -35,7 +36,7 @@ public class Game {
         ScenarioParser scenarioParser = new ScenarioParser("scenario.json");
         scenarioParser.openScenario();
         TurnController turnController_old_json = new TurnController();
-        turnController_old_json.setStartDate(JSONTools.extractIntFromJSONObject(scenarioParser.getScenario().getDate(), "year"), JSONTools.extractSeasonFromJSONObject(scenarioParser.getScenario().getDate()));
+        turnController_old_json.setStartDate(JSONTools.extractIntFromJSONObject(scenarioParser.getScenario().getDate(), JSONKeys.DATE_YEAR_KEY), JSONTools.extractSeasonFromJSONObject(scenarioParser.getScenario().getDate()));
 
         this.initCountTurnFromInitialScenarioToLoadScenario(turnController_old_json);
     }

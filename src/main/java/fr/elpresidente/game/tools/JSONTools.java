@@ -21,7 +21,7 @@ public class JSONTools {
     }
 
     public static Seasons extractSeasonFromJSONObject(JSONObject jsonObject) {
-        String season = (String) jsonObject.get("season");
+        String season = (String) jsonObject.get(JSONKeys.DATE_SEASON_KEY);
 
         switch (season) {
             case "WINTER":
@@ -74,7 +74,7 @@ public class JSONTools {
     }
 
     public static boolean doesJSONObjectDateMatch(JSONObject eventObject, int year, Seasons season) {
-        return extractIntFromJSONObject(eventObject, "year") == year && extractSeasonFromJSONObject(eventObject) == season;
+        return extractIntFromJSONObject(eventObject, JSONKeys.DATE_YEAR_KEY) == year && extractSeasonFromJSONObject(eventObject) == season;
     }
 
     public static boolean isJSONObjectNull(JSONObject jsonObject) {
