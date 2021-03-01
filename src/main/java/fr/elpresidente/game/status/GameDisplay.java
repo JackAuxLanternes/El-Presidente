@@ -91,6 +91,7 @@ public class GameDisplay {
         System.out.println("==============================");
         System.out.println("=== Vous avez perdu ");
         System.out.println("==============================");
+        waitForUserToContinue("Appuyez sur [ENTER] pour voir le status du jeu au moment de la défaite...");
         this.showTurnStatus();
         this.showResourcesStatus();
         this.showFactionsStatus();
