@@ -12,6 +12,10 @@ public class JSONTools {
         return Math.toIntExact((long) jsonObject.get(key));
     }
 
+    public static double extractDoubleFromJSONObject(JSONObject jsonObject, String key) {
+        return (double) jsonObject.get(key);
+    }
+
     public static String extractStringFromJSONObject(JSONObject jsonObject, String key) {
         return jsonObject.get(key).toString();
     }

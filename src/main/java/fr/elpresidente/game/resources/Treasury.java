@@ -2,6 +2,7 @@ package fr.elpresidente.game.resources;
 
 import fr.elpresidente.game.difficulty.DifficultyController;
 import fr.elpresidente.game.tools.JSONKeys;
+import fr.elpresidente.game.tools.JSONTools;
 import org.json.simple.JSONObject;
 
 class Treasury implements Consumable {
@@ -59,5 +60,8 @@ class Treasury implements Consumable {
         return consumablesTreasury;
     }
 
-
+    @Override
+    public void loadFromJSON(JSONObject jsonObject) {
+        this.amount = JSONTools.extractIntFromJSONObject(jsonObject, JSONKeys.CONSUMABLE_KEY_VALUE);
+    }
 }

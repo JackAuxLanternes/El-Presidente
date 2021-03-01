@@ -1,8 +1,9 @@
 package fr.elpresidente.game.resources;
 
+import fr.elpresidente.game.builders.LoadFromSaveBuilder;
 import org.json.simple.JSONObject;
 
-public interface Resource {
+public interface Resource extends LoadFromSaveBuilder {
 
     int getSize();
 
