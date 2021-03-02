@@ -1,6 +1,5 @@
 package fr.elpresidente.game.scenario;
 
-import fr.elpresidente.game.factions.supporters.SupportersDistribution;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;

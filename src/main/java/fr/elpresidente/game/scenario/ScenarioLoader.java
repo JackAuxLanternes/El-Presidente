@@ -6,6 +6,7 @@ import fr.elpresidente.game.factions.FactionController;
 import fr.elpresidente.game.factions.supporters.SupportersDistributionController;
 import fr.elpresidente.game.resources.ConsumableController;
 import fr.elpresidente.game.resources.ResourcesController;
+import fr.elpresidente.game.tools.JSONKeys;
 import fr.elpresidente.game.tools.JSONTools;
 import fr.elpresidente.game.turn.TurnController;
 import org.json.simple.JSONArray;
@@ -36,32 +37,31 @@ public class ScenarioLoader {
     }
 
     public void loadDateScenario() {
-        turnController.setStartDate(JSONTools.extractIntFromJSONObject(scenario.getDate(), "year"), JSONTools.extractSeasonFromJSONObject(scenario.getDate()));
+        turnController.loadFromJSON(scenario.getDate());
     }
 
     public void loadResourceScenario() {
-        JSONObject agricultureScenario = JSONTools.findJSONObjectInJSONArrayWithKeyValue(scenario.getResources(), "name", "agriculture");
-        JSONObject industryScenario = JSONTools.findJSONObjectInJSONArrayWithKeyValue(scenario.getResources(), "name", "industry");
+        JSONObject agricultureScenario = JSONTools.findJSONObjectInJSONArrayWithKeyValue(scenario.getResources(), JSONKeys.RESOURCE_KEY_NAME, ResourcesController.getInstance().getAgriculture().getName());
+        JSONObject industryScenario = JSONTools.findJSONObjectInJSONArrayWithKeyValue(scenario.getResources(), JSONKeys.RESOURCE_KEY_NAME, ResourcesController.getInstance().getIndustry().getName());
 
-        ResourcesController.getInstance().getAgriculture().setSize(JSONTools.extractIntFromJSONObject(agricultureScenario, "value"));
-        ResourcesController.getInstance().getIndustry().setSize(JSONTools.extractIntFromJSONObject(industryScenario, "value"));
+        ResourcesController.getInstance().getAgriculture().loadFromJSON(agricultureScenario);
+        ResourcesController.getInstance().getIndustry().loadFromJSON(industryScenario);
     }
 
     public void loadConsumableScenario() {
-        JSONObject foodScenario = JSONTools.findJSONObjectInJSONArrayWithKeyValue(scenario.getConsumable(), "name", "food");
-        JSONObject treasuryScenario = JSONTools.findJSONObjectInJSONArrayWithKeyValue(scenario.getConsumable(), "name", "treasury");
+        JSONObject foodScenario = JSONTools.findJSONObjectInJSONArrayWithKeyValue(scenario.getConsumable(), JSONKeys.CONSUMABLE_KEY_NAME, ConsumableController.getInstance().getFood().getName());
+        JSONObject treasuryScenario = JSONTools.findJSONObjectInJSONArrayWithKeyValue(scenario.getConsumable(), JSONKeys.CONSUMABLE_KEY_NAME, ConsumableController.getInstance().getTreasury().getName());
 
-        ConsumableController.getInstance().getFood().setAmount(JSONTools.extractIntFromJSONObject(foodScenario, "value"));
-        ConsumableController.getInstance().getTreasury().setAmount(JSONTools.extractIntFromJSONObject(treasuryScenario, "value"));
+        ConsumableController.getInstance().getFood().loadFromJSON(foodScenario);
+        ConsumableController.getInstance().getTreasury().loadFromJSON(treasuryScenario);
     }
 
     public void loadFactionsScenario() {
         JSONArray factionsScenario = scenario.getFactions();
 
         for (Faction faction : FactionController.getInstance().getFactions()) {
-            JSONObject scenarioFaction = JSONTools.findJSONObjectInJSONArrayWithKeyValue(factionsScenario, "name", faction.getName());
-            faction.setSatisfaction(JSONTools.extractIntFromJSONObject(scenarioFaction, "popularity"));
-            faction.setSupporters(JSONTools.extractIntFromJSONObject(scenarioFaction, "supporters"));
+            JSONObject scenarioFaction = JSONTools.findJSONObjectInJSONArrayWithKeyValue(factionsScenario, JSONKeys.FACTION_KEY_NAME, faction.getName());
+            faction.loadFromJSON(scenarioFaction);
         }
     }
 

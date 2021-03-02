@@ -1,5 +1,6 @@
 package fr.elpresidente.game.turn;
 
+import fr.elpresidente.game.builders.LoadFromSaveBuilder;
 import fr.elpresidente.game.builders.TurnBuilder;
 import fr.elpresidente.game.endofyear.EndOfYearController;
 import fr.elpresidente.game.endofyear.events.AgricultureSurplus;
@@ -8,9 +9,11 @@ import fr.elpresidente.game.factions.FactionController;
 import fr.elpresidente.game.resources.ConsumableController;
 import fr.elpresidente.game.resources.ResourcesController;
 import fr.elpresidente.game.status.GameDisplay;
+import fr.elpresidente.game.tools.JSONKeys;
+import fr.elpresidente.game.tools.JSONTools;
 import org.json.simple.JSONObject;
 
-public class TurnController implements TurnBuilder {
+public class TurnController implements TurnBuilder, LoadFromSaveBuilder {
 
     private Seasons currentTurn;
 
@@ -106,5 +109,11 @@ public class TurnController implements TurnBuilder {
 
     public void setCountTurn(int count_turn) {
         this.count_turn = count_turn;
+    }
+
+    @Override
+    public void loadFromJSON(JSONObject jsonObject) {
+        this.year = JSONTools.extractIntFromJSONObject(jsonObject, JSONKeys.DATE_YEAR_KEY);
+        this.currentTurn = JSONTools.extractSeasonFromJSONObject(jsonObject);
     }
 }

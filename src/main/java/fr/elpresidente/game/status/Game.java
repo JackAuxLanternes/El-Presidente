@@ -1,21 +1,11 @@
 package fr.elpresidente.game.status;
 
-import fr.elpresidente.game.difficulty.DifficultyController;
-import fr.elpresidente.game.difficulty.EasyDifficulty;
-import fr.elpresidente.game.difficulty.HardDifficulty;
-import fr.elpresidente.game.difficulty.NormalDifficulty;
 import fr.elpresidente.game.endofyear.EndOfYearController;
-import fr.elpresidente.game.mode.GameModeController;
-import fr.elpresidente.game.mode.SandboxMode;
-import fr.elpresidente.game.mode.ScenarioMode;
-import fr.elpresidente.game.save.Save;
 import fr.elpresidente.game.save.SaveLoader;
 import fr.elpresidente.game.save.SaveParser;
 import fr.elpresidente.game.scenario.Scenario;
 import fr.elpresidente.game.scenario.ScenarioLoader;
-import fr.elpresidente.game.scenario.ScenarioParser;
 import fr.elpresidente.game.save.SaveWriter;
-import fr.elpresidente.game.tools.JSONTools;
 import fr.elpresidente.game.turn.Defeat;
 import fr.elpresidente.game.turn.Seasons;
 import fr.elpresidente.game.turn.TurnController;

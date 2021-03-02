@@ -2,6 +2,7 @@ package fr.elpresidente.game.resources;
 
 import fr.elpresidente.game.difficulty.DifficultyController;
 import fr.elpresidente.game.tools.JSONKeys;
+import fr.elpresidente.game.tools.JSONTools;
 import org.json.simple.JSONObject;
 
 class Agriculture implements Resource {
@@ -62,5 +63,8 @@ class Agriculture implements Resource {
         return resourcesAgriculture;
     }
 
-
+    @Override
+    public void loadFromJSON(JSONObject jsonObject) {
+        this.size = JSONTools.extractIntFromJSONObject(jsonObject, JSONKeys.RESOURCE_KEY_VALUE);
+    }
 }

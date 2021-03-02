@@ -1,6 +1,8 @@
 package fr.elpresidente.game.tools;
 
 public class JSONKeys {
+    public static final String DATE_YEAR_KEY = "year";
+    public static final String DATE_SEASON_KEY = "season";
 
     public static final String CONSUMABLE_KEY_NAME = "name";
     public static final String CONSUMABLE_KEY_VALUE = "value";
@@ -17,6 +19,7 @@ public class JSONKeys {
     public static final String EVENT_CHOICE_NAME_KEY = "name";
     public static final String EVENT_CHOICE_EFFECT_KEY = "effects";
     public static final String EVENT_TRIGGER_KEY = "trigger";
+    public static final String EVENT_TRIGGER_ID_KEY = "id";
     public static final String EVENT_EFFECT_TYPE_KEY = "type";
     public static final String EVENT_EFFECT_FACTION_NAME_KEY = "faction";
     public static final String EVENT_EFFECT_SUPPORTERS_KEY = "supporters";

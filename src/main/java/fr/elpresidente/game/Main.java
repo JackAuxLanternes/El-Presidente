@@ -14,7 +14,7 @@ public class Main {
         LauncherMenu launcherMenu = new LauncherMenu();
 
         try {
-            ScenarioParser scenarioParser = new ScenarioParser("src/main/resources/scenario.json");
+            ScenarioParser scenarioParser = new ScenarioParser("scenario.json");
             LauncherGameType gameType = launcherMenu.choseGameType();
             if (gameType == LauncherGameType.NEW_GAME) {
                 launcherMenu.choseGameMode();
