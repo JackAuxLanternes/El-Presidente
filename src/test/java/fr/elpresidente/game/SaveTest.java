@@ -1,7 +1,6 @@
 package fr.elpresidente.game;
 
 import fr.elpresidente.game.difficulty.DifficultyController;
-import fr.elpresidente.game.mode.GameModeController;
 import fr.elpresidente.game.save.SaveLoader;
 import fr.elpresidente.game.save.SaveParser;
 import fr.elpresidente.game.tools.JSONTools;
@@ -12,16 +11,13 @@ public class SaveTest extends TestCase {
 
     public void testIfSaveWorkCanBeOpened()
     {
-        TurnController turnController = new TurnController();
-        SaveParser saveParser = new SaveParser("src/main/resources/save.json");
-        saveParser.openSave();
+        SaveParser saveParser = new SaveParser("src/test/resources/testSave.json");
         saveParser.openSave();
     }
 
     public void testIfWeCanGetAnAttributOfSave()
     {
-        TurnController turnController = new TurnController();
-        SaveParser saveParser = new SaveParser("src/main/resources/save.json");
+        SaveParser saveParser = new SaveParser("src/test/resources/testSave.json");
         saveParser.openSave();
         JSONTools.extractStringFromJSONObject(saveParser.getSave().getGameMode(), "value");
 
@@ -31,11 +27,11 @@ public class SaveTest extends TestCase {
     public void testIfWeCanLoadDifficultyWork()
     {
         TurnController turnController = new TurnController();
-        SaveParser saveParser = new SaveParser("src/main/resources/save.json");
+        SaveParser saveParser = new SaveParser("src/test/resources/testSave.json");
         saveParser.openSave();
         SaveLoader saveLoader = new SaveLoader(saveParser.getSave(), turnController);
         saveLoader.loadDifficulty();
 
-        assertEquals("normal", DifficultyController.getInstance().getDifficulty().toString());
+        assertEquals("easy", DifficultyController.getInstance().getDifficulty().toString());
     }
 }
