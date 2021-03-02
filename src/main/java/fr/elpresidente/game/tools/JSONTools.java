@@ -14,7 +14,7 @@ public class JSONTools {
 
     public static double extractDoubleFromJSONObject(JSONObject jsonObject, String key) {
         return Long.valueOf((long) jsonObject.get(key)).doubleValue();
-
+        // TODO: Ne fonctionne pas chez moi (QuentinR)
     }
 
     public static String extractStringFromJSONObject(JSONObject jsonObject, String key) {
