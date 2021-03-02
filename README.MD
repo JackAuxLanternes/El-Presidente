@@ -22,6 +22,8 @@ Cette note a pour but de détailler notre architecture, nos choix d’implément
 
 Pour ce projet nous avons adopté l'architecture suivante pour nos packages JAVA:
 
+![arborescence](doc_files/arborescence.png "arborescence")
+
 Nous avons donc décidé de regrouper nos classes dans différents packages, ce qui nous pemet de rendre certaine classes visible dans le package uniquement et d'autres publiques pour réduire les dépendances chaotique.
 
 ## Classes
@@ -61,3 +63,10 @@ En couplant certains controller au design pattern Singleton, nous nous assurons 
 Nous avons aussi profité de ce design pattern pour réduire la visibilité de certaines classes en ne les rendant visibles que par le controller, les protegeant ainsi de toute modification externe au package sans appel du controller.
 
 ## Builder
+
+
+
+## Répartition des partisans
+
+Pour le bonus la répartition des partisans on a décidé d'utiliser un Singleton pour créer un Controller et ainsi pouvoir appelé la classe sans l'instancier au début du jeu et ainsi pouvoir tout au long du jeu avoir le même algorithme. En effet graçe à l'interface SupportersDistribution on peut rajouter des algorithmes de répartition très facilement e, créant une classe implémentant SupportersDistribution puis en ajoutant dans SupportersDistributionController l'instanciation de notre nouvel sorte d'algorithme en fonction de la valeur dans le json de supporters_distribution.
+Pour l'algorithme equilibrate on va distribuer les partisans en fonction du pourcentage de satisfaction de chaque factions et de son rapport avec le pourcentage de satisfaction global. une faction ne contenant que 10 Partisans ne pourra avoir plus de 5 nouveau partisan à la fin de l'année, une faction ayant 0% de satisfaction ne pourra avoir de nouveaux partisans. Les factions ayant le plus de satisfaction seront les premières factions ayant de nouveaux partisans car plus heureuses.
