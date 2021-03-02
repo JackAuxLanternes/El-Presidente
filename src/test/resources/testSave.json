@@ -1,0 +1,75 @@
+{
+  "difficulty": {
+    "value": "easy"
+  },
+  "date": {
+    "year": 1953,
+    "season": "SUMMER",
+    "turn": 2
+  },
+  "consumable": [
+    {
+      "name": "food",
+      "value": 11984
+    },
+    {
+      "name": "treasury",
+      "value": 3000
+    }
+  ],
+  "resources": [
+    {
+      "name": "agriculture",
+      "value": 20
+    },
+    {
+      "name": "industry",
+      "value": 20
+    }
+  ],
+  "gamemode": {
+    "value": "scenario"
+  },
+  "factions": [
+    {
+      "popularity": 75,
+      "name": "capitalist",
+      "supporters": 12
+    },
+    {
+      "popularity": 30,
+      "name": "communist",
+      "supporters": 11
+    },
+    {
+      "popularity": 35,
+      "name": "ecologist",
+      "supporters": 12
+    },
+    {
+      "popularity": 45,
+      "name": "liberal",
+      "supporters": 10
+    },
+    {
+      "popularity": 70,
+      "name": "loyalist",
+      "supporters": 10
+    },
+    {
+      "popularity": 60,
+      "name": "militarist",
+      "supporters": 11
+    },
+    {
+      "popularity": 55,
+      "name": "nationalist",
+      "supporters": 10
+    },
+    {
+      "popularity": 45,
+      "name": "religious",
+      "supporters": 12
+    }
+  ]
+}
