@@ -32,14 +32,13 @@ public class EquilibrateSupportersDistribution implements SupportersDistribution
     }
 
     private void setFactions_add_supporters_number(int total_new_supporters) {
-        this.factions_add_supporters_number = new HashMap<Faction, Integer>();
-        this.valid_factions.forEach(faction -> {
-            this.factions_add_supporters_number.put(faction, this.getNumberOfNewSupportersForThisFaction(faction, total_new_supporters));
-        });
+        this.factions_add_supporters_number = new HashMap<>();
+        this.valid_factions.forEach(faction ->
+            this.factions_add_supporters_number.put(faction, this.getNumberOfNewSupportersForThisFaction(faction, total_new_supporters))
+        );
     }
 
     private void equilibrateNewSupportersNumberByFaction(int total_new_supporters) {
-
         int count_new_supporter_to_add = 0;
         for (Faction faction : this.valid_factions) {
             if (this.getMaxNewSupportersForThisFaction(faction) < this.factions_add_supporters_number.get(faction)) {
@@ -97,26 +96,24 @@ public class EquilibrateSupportersDistribution implements SupportersDistribution
 
 
     private int getNumberOfNewSupportersForThisFaction(Faction faction, int total_new_supporters) {
-
         int number_percent_of_new_supporter = (int) Math.ceil(faction.getSatisfaction() / this.getOnePercentOfTheValidFactionsSatisfaction());
-        int number_new_supporter_for_this_faction = (int) Math.ceil(this.getOnePercentOfTheNewSupporters(total_new_supporters) * number_percent_of_new_supporter);
-
-        return number_new_supporter_for_this_faction;
+        return (int) Math.ceil(this.getOnePercentOfTheNewSupporters(total_new_supporters) * number_percent_of_new_supporter);
     }
 
     private int getMaxNewSupportersForThisFaction(Faction faction) {
-        return (int) Math.ceil(faction.getSupporters() / 2);
+        return (int) Math.ceil((float) faction.getSupporters() / 2);
     }
 
     private int getNumberNewSupporterForAFactionAccordingAverageSatisfaction(int total_new_supporters) {
-        return total_new_supporters > this.valid_factions.size()
-                ? (int) Math.ceil(total_new_supporters / this.valid_factions.size())
+        return
+                total_new_supporters > this.valid_factions.size()
+                ? (int) Math.ceil((float) total_new_supporters / this.valid_factions.size())
                 : 1;
     }
 
     private double getOnePercentOfTheValidFactionsSatisfaction() {
         return this.valid_factions.stream()
-                .mapToDouble(faction -> faction.getSatisfaction())
+                .mapToDouble(Faction::getSatisfaction)
                 .sum() / 100;
 
     }

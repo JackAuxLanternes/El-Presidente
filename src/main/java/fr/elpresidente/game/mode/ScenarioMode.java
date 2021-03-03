@@ -6,10 +6,10 @@ import org.json.simple.JSONObject;
 public class ScenarioMode implements GameMode {
     @Override
     public JSONObject toJSONObject() {
-        JSONObject gamemode = new JSONObject();
-        gamemode.put(JSONKeys.CONSUMABLE_KEY_VALUE, "scenario");
+        JSONObject game_mode = new JSONObject();
+        game_mode.put(JSONKeys.CONSUMABLE_KEY_VALUE, "scenario");
 
-        return gamemode;
+        return game_mode;
     }
 
     @Override

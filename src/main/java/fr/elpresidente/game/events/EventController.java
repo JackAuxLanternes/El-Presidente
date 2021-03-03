@@ -35,8 +35,8 @@ public class EventController {
     }
 
     public void findEvent(int year, Seasons season) {
-        if (GameModeController.getInstance().getGameMode() instanceof ScenarioMode) {
-            if (currentEvent != null && currentEvent.getTriggerEvent() != null) {
+        if (isGameInScenarioMode()) {
+            if (!isCurrentEventAndTriggerNull()) {
                 setCurrentEvent(new Event(JSONTools.findJSONObjectInJSONArrayWithKeyValue(conditionalEvents, JSONKeys.EVENT_TRIGGER_ID_KEY, currentEvent.getTriggerEvent())));
                 return;
             }
@@ -65,6 +65,14 @@ public class EventController {
     private Event fillWithGenericEvent() {
         Random random = new Random();
         return new Event((JSONObject) genericEvents.get(random.nextInt(genericEvents.size())));
+    }
+
+    private boolean isGameInScenarioMode() {
+        return GameModeController.getInstance().getGameMode() instanceof ScenarioMode;
+    }
+
+    private boolean isCurrentEventAndTriggerNull() {
+        return currentEvent == null && currentEvent.getTriggerEvent() == null;
     }
 
     private boolean isEventNull(Event event) {

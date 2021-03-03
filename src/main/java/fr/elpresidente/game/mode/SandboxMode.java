@@ -6,10 +6,10 @@ import org.json.simple.JSONObject;
 public class SandboxMode implements GameMode {
     @Override
     public JSONObject toJSONObject() {
-        JSONObject gamemode = new JSONObject();
-        gamemode.put(JSONKeys.CONSUMABLE_KEY_VALUE, "sandbox");
+        JSONObject game_mode = new JSONObject();
+        game_mode.put(JSONKeys.CONSUMABLE_KEY_VALUE, "sandbox");
 
-        return gamemode;
+        return game_mode;
     }
 
     @Override

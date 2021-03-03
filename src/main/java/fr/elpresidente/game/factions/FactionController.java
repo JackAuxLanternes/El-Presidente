@@ -71,12 +71,12 @@ public class FactionController {
 
     private double determineSatisfactionMultipliedBySupporters() {
         return this.factions
-                .stream().mapToDouble(faction -> faction.getSatisfactionMultiplySupporter()).sum();
+                .stream().mapToDouble(Faction::getSatisfactionMultiplySupporter).sum();
     }
 
     public int determineTotalSupporters() {
         return this.factions
-                .stream().mapToInt(faction -> faction.getSupporters()).sum();
+                .stream().mapToInt(Faction::getSupporters).sum();
     }
 
     public void removeSupportersRandomly(int number_supporter) {
