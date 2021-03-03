@@ -25,7 +25,7 @@ class OptionalEventMenu {
                 FoodMarketMenu foodMarketMenu = new FoodMarketMenu();
                 FoodMarket foodMarket = new FoodMarket();
                 foodMarket.goToFoodMarket(foodMarketMenu.choiceNumberFoodToBuy());
-                foodMarketMenu.printGameStatusAfterFoodMarket();
+                foodMarketMenu.printGameStatusAfterAction();
             }
         }
     }
