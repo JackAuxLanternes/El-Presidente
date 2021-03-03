@@ -7,13 +7,13 @@ import fr.elpresidente.game.difficulty.NormalDifficulty;
 import fr.elpresidente.game.mode.GameModeController;
 import fr.elpresidente.game.mode.SandboxMode;
 import fr.elpresidente.game.mode.ScenarioMode;
-import fr.elpresidente.game.tools.UserInputReader;
+import fr.elpresidente.game.tools.UserIOTools;
 
 public class LauncherMenu {
 
     public LauncherGameType choseGameType() {
         this.printChoiceGameType();
-        int choice = UserInputReader.readUserChoice(1, 2);
+        int choice = UserIOTools.readUserChoice(1, 2);
 
         if (choice == 1) {
             return LauncherGameType.NEW_GAME;
@@ -30,7 +30,7 @@ public class LauncherMenu {
 
     public void choseDifficultyForTheGame() {
         this.printChoiceDifficulty();
-        int choice = UserInputReader.readUserChoice(1, 3);
+        int choice = UserIOTools.readUserChoice(1, 3);
         switch (choice) {
             case 1:
                 DifficultyController.getInstance().setDifficulty(new EasyDifficulty());
@@ -54,7 +54,7 @@ public class LauncherMenu {
 
     public void choseGameMode() {
         this.printChoiceGameMode();
-        int choice = UserInputReader.readUserChoice(1, 2);
+        int choice = UserIOTools.readUserChoice(1, 2);
 
         if (choice == 1) {
             GameModeController.getInstance().setGameMode(new ScenarioMode());

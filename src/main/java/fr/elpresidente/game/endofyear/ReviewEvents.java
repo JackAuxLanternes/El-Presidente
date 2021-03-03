@@ -1,6 +1,7 @@
 package fr.elpresidente.game.endofyear;
 
 import fr.elpresidente.game.endofyear.events.*;
+import fr.elpresidente.game.tools.UserIOTools;
 
 class ReviewEvents {
 
@@ -27,13 +28,7 @@ class ReviewEvents {
         System.out.println("=== Distribué de la nourriture à la population");
         System.out.println("=== Supprimer des Partisans si on a pas assez de nourriture");
         System.out.println("=== Rajouter des Partisans si en revanche on est en excès de nourriture");
-        System.out.println("Fin du tour, appuyez sur [ENTER] pour continuer...");
-        try {
-            System.in.read();
-            System.in.skip(System.in.available());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        UserIOTools.waitForUserToContinue("Fin du tour, appuyez sur [ENTER] pour continuer...");
     }
 
 

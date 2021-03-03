@@ -1,55 +1,49 @@
 package fr.elpresidente.game.endofyear;
 
 import fr.elpresidente.game.status.GameDisplay;
+import fr.elpresidente.game.tools.UserIOTools;
 
-import java.util.Scanner;
-
-class FoodMarketMenu {
+class FoodMarketMenu implements EndOfYearActionMenu {
 
     public int choiceNumberFoodToBuy() {
-        return this.getNumberFoodFromCommandLine();
+        return this.readActionValue();
     }
 
-    private int getNumberFoodFromCommandLine() {
-        this.printChoiceMenu();
-        int choice = 0;
-        boolean error;
+    @Override
+    public Integer readActionValue() {
+        int amount_of_food_wanted;
+        boolean isAmountOfFoodValid;
+
         do {
-            try {
-                error = false;
-                this.printChoiceFoodError();
-                choice = this.readChoiceNumberFood();
-            } catch (Exception e) {
-                error = true;
+            this.printChoiceMenu();
+            amount_of_food_wanted = UserIOTools.readIntFromUserInput();
+            if (amount_of_food_wanted < 0) {
+                isAmountOfFoodValid = false;
+                this.printInvalideChoice(amount_of_food_wanted);
+            } else {
+                isAmountOfFoodValid = true;
             }
-        } while (error);
+        } while (!isAmountOfFoodValid);
 
-        return choice;
+        return amount_of_food_wanted;
     }
 
-    private void printChoiceMenu() {
+    @Override
+    public void printChoiceMenu() {
         System.out.println("==============================");
         System.out.println("=== Combien voulez-vous d'unité de nourriture ?");
         System.out.println("=== Indiquez seulement le nombre");
     }
 
-    private void printChoiceFoodError() {
+    @Override
+    public void printInvalideChoice(Object food_amount) {
         System.out.println("==============================");
-        System.out.println("=== Le montant de nourriture ne peut pas être inférieur à zéro");
+        System.out.println("=== Le montant de nourriture ne peut pas être inférieur à zéro, votre choix: "
+                + (int) food_amount);
     }
 
-    private int readChoiceNumberFood() throws Exception {
-        Scanner scanner = new Scanner(System.in);
-        int choice = scanner.nextInt();
-
-        if (choice < 0) {
-            throw new Exception();
-        }
-
-        return choice;
-    }
-
-    public void printGameStatusAfterFoodMarket() {
+    @Override
+    public void printGameStatusAfterAction() {
         GameDisplay gameDisplay = new GameDisplay();
         System.out.println("Voici le status des Ressources après votre achat");
         gameDisplay.showResourcesStatus();

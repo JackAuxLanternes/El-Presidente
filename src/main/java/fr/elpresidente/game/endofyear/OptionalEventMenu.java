@@ -18,8 +18,8 @@ class OptionalEventMenu {
 
                 BribeMenu bribeMenu = new BribeMenu();
                 Bribe bribe = new Bribe();
-                bribe.bribeFaction(bribeMenu.choiceFactionForBribe());
-                bribeMenu.printGameStatusAfterBribe();
+                bribe.bribeFaction(bribeMenu.choseFactionNameForBribe());
+                bribeMenu.printGameStatusAfterAction();
             } else if (choice == 2) {
 
                 FoodMarketMenu foodMarketMenu = new FoodMarketMenu();

@@ -4,8 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class SaveParser
-{
+public class SaveParser {
     private Save save;
 
     private File jsonFile;

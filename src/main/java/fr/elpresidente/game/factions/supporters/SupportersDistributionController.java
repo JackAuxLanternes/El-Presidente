@@ -1,9 +1,5 @@
 package fr.elpresidente.game.factions.supporters;
 
-import fr.elpresidente.game.difficulty.Difficulty;
-import fr.elpresidente.game.factions.FactionController;
-import fr.elpresidente.game.resources.ConsumableController;
-
 public class SupportersDistributionController {
 
     private static SupportersDistributionController instance;
@@ -30,9 +26,9 @@ public class SupportersDistributionController {
     }
 
     public void setSupportersDistributionFromJSONName(String name_distribution) {
-        if(name_distribution.equals("equilibrate")) {
+        if (name_distribution.equals("equilibrate")) {
             this.setSupportersDistribution(new EquilibrateSupportersDistribution());
-        }else {
+        } else {
             this.setSupportersDistribution(new RandomSupportersDistribution());
         }
     }

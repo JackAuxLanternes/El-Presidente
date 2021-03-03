@@ -22,10 +22,8 @@ public class DifficultyController {
         this.difficulty = difficulty;
     }
 
-    public void setDifficultyFromName(String name)
-    {
-        switch (name)
-        {
+    public void setDifficultyFromName(String name) {
+        switch (name) {
             case "easy":
                 difficulty = new EasyDifficulty();
                 break;

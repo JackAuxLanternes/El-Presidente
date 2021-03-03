@@ -2,7 +2,7 @@ package fr.elpresidente.game.status;
 
 import fr.elpresidente.game.events.Event;
 import fr.elpresidente.game.events.EventController;
-import fr.elpresidente.game.tools.UserInputReader;
+import fr.elpresidente.game.tools.UserIOTools;
 
 public class GameEventDisplayManager {
 
@@ -30,7 +30,7 @@ public class GameEventDisplayManager {
     }
 
     private void applySelectedEvent() {
-        event.processEffectForChoice(UserInputReader.readUserChoice(1, this.event.getChoicesName().size()) - 1);
+        event.processEffectForChoice(UserIOTools.readUserChoice(1, this.event.getChoicesName().size()) - 1);
     }
 
     private void setEventInfo() {

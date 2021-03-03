@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class EquilibrateSupportersDistribution implements SupportersDistribution{
+public class EquilibrateSupportersDistribution implements SupportersDistribution {
 
     private List<Faction> valid_factions;
     private Map<Faction, Integer> factions_add_supporters_number;
@@ -19,7 +19,7 @@ public class EquilibrateSupportersDistribution implements SupportersDistribution
         this.setAlgorithmsParameters(total_new_supporters);
 
         this.valid_factions.forEach(faction -> {
-            if(this.factions_add_supporters_number.get(faction) > 0)
+            if (this.factions_add_supporters_number.get(faction) > 0)
                 faction.addSupporter(this.factions_add_supporters_number.get(faction));
         });
     }
@@ -41,24 +41,24 @@ public class EquilibrateSupportersDistribution implements SupportersDistribution
     private void equilibrateNewSupportersNumberByFaction(int total_new_supporters) {
 
         int count_new_supporter_to_add = 0;
-        for(Faction faction: this.valid_factions) {
-            if(this.getMaxNewSupportersForThisFaction(faction) < this.factions_add_supporters_number.get(faction)) {
+        for (Faction faction : this.valid_factions) {
+            if (this.getMaxNewSupportersForThisFaction(faction) < this.factions_add_supporters_number.get(faction)) {
                 count_new_supporter_to_add += this.factions_add_supporters_number.get(faction) - this.getNumberNewSupporterForAFactionAccordingAverageSatisfaction(faction.getSupporters());
                 this.factions_add_supporters_number.replace(faction, this.getMaxNewSupportersForThisFaction(faction));
             }
 
-            if(this.getMaxNewSupportersForThisFaction(faction) > this.factions_add_supporters_number.get(faction) && count_new_supporter_to_add > 0) {
+            if (this.getMaxNewSupportersForThisFaction(faction) > this.factions_add_supporters_number.get(faction) && count_new_supporter_to_add > 0) {
 
                 int new_supporters_that_we_can_add = this.getNumberNewSupporterForAFactionAccordingAverageSatisfaction(faction.getSupporters()) - this.factions_add_supporters_number.get(faction);
-                if(count_new_supporter_to_add > new_supporters_that_we_can_add) {
+                if (count_new_supporter_to_add > new_supporters_that_we_can_add) {
                     this.factions_add_supporters_number.replace(faction, this.factions_add_supporters_number.get(faction) + new_supporters_that_we_can_add);
-                }else {
+                } else {
                     this.factions_add_supporters_number.replace(faction, this.factions_add_supporters_number.get(faction) + count_new_supporter_to_add);
                 }
             }
 
             /*TODO faire cette merde*/
-            if(total_new_supporters < this.factions_add_supporters_number.get(faction)) {
+            if (total_new_supporters < this.factions_add_supporters_number.get(faction)) {
 
                 this.factions_add_supporters_number.replace(faction, total_new_supporters);
             }
@@ -84,10 +84,10 @@ public class EquilibrateSupportersDistribution implements SupportersDistribution
         boolean flag = true;
         while (flag) {
             flag = false;
-            for(int i = 0; i < this.valid_factions.size() - 1 ; i++) {
-                if(this.valid_factions.get(i).getSatisfaction() < this.valid_factions.get(i+1).getSatisfaction()) {
-                    Faction faction_tmp = this.valid_factions.get(i+1);
-                    this.valid_factions.set(i+1, this.valid_factions.get(i));
+            for (int i = 0; i < this.valid_factions.size() - 1; i++) {
+                if (this.valid_factions.get(i).getSatisfaction() < this.valid_factions.get(i + 1).getSatisfaction()) {
+                    Faction faction_tmp = this.valid_factions.get(i + 1);
+                    this.valid_factions.set(i + 1, this.valid_factions.get(i));
                     this.valid_factions.set(i, faction_tmp);
                     flag = true;
                 }

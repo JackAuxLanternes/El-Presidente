@@ -3,9 +3,6 @@ package fr.elpresidente.game;
 import fr.elpresidente.game.launcher.GameLauncher;
 import fr.elpresidente.game.launcher.LauncherGameType;
 import fr.elpresidente.game.launcher.LauncherMenu;
-import fr.elpresidente.game.save.Save;
-import fr.elpresidente.game.save.SaveLoader;
-import fr.elpresidente.game.save.SaveParser;
 import fr.elpresidente.game.scenario.ScenarioParser;
 
 public class Main {

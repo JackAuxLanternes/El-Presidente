@@ -65,13 +65,12 @@ public class SaveLoader {
         }
     }
 
-    public void loadGameMode()
-    {
+    public void loadGameMode() {
         String gameModeSaved = JSONTools.extractStringFromJSONObject(save.getGameMode(), "value");
         GameModeController.getInstance().setGameModeFromName(gameModeSaved);
     }
-    public void loadDifficulty()
-    {
+
+    public void loadDifficulty() {
         String difficultySaved = JSONTools.extractStringFromJSONObject(save.getDifficulty(), "value");
         DifficultyController.getInstance().setDifficultyFromName(difficultySaved);
     }

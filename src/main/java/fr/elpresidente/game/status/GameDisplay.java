@@ -4,6 +4,7 @@ import fr.elpresidente.game.factions.Faction;
 import fr.elpresidente.game.factions.FactionController;
 import fr.elpresidente.game.resources.ConsumableController;
 import fr.elpresidente.game.resources.ResourcesController;
+import fr.elpresidente.game.tools.UserIOTools;
 import fr.elpresidente.game.turn.TurnController;
 
 public class GameDisplay {
@@ -27,10 +28,10 @@ public class GameDisplay {
         showTurnStatus();
         showResourcesStatus();
         showFactionsStatus();
-        waitForUserToContinue("Le journal vient d'arriver! Appuyez sur [ENTER] pour le lire...");
+        UserIOTools.waitForUserToContinue("Le journal vient d'arriver! Appuyez sur [ENTER] pour le lire...");
         gameEventDisplayManager.showEvent();
         System.out.println("==============================");
-        waitForUserToContinue("Fin du tour, appuyez sur [ENTER] pour continuer...");
+        UserIOTools.waitForUserToContinue("Fin du tour, appuyez sur [ENTER] pour continuer...");
     }
 
     public void showGameStatus() {
@@ -38,17 +39,7 @@ public class GameDisplay {
         showTurnStatus();
         showResourcesStatus();
         showFactionsStatus();
-        waitForUserToContinue("Fin du tour, appuyez sur [ENTER] pour continuer...");
-    }
-
-    public void waitForUserToContinue(String message) {
-        System.out.println(message);
-        try {
-            System.in.read();
-            System.in.skip(System.in.available());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        UserIOTools.waitForUserToContinue("Fin du tour, appuyez sur [ENTER] pour continuer...");
     }
 
     public void showTurnStatus() {
@@ -94,7 +85,7 @@ public class GameDisplay {
         this.showTurnStatus();
         this.showResourcesStatus();
         this.showFactionsStatus();
-        waitForUserToContinue("Fin de la partie, appuyez sur [ENTER] pour quitter...");
+        UserIOTools.waitForUserToContinue("Fin de la partie, appuyez sur [ENTER] pour quitter...");
     }
 
     public void displayGraphicChart(double value) {

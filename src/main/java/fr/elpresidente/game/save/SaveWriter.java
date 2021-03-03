@@ -22,8 +22,7 @@ public class SaveWriter {
 
     public void writeSave(String file_name) {
         //Write JSON file
-        try (FileWriter file = new FileWriter(file_name))
-        {
+        try (FileWriter file = new FileWriter(file_name)) {
             file.write(createSave().toJSONString());
             file.flush();
 

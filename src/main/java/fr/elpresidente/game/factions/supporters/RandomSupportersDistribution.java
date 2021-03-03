@@ -3,7 +3,7 @@ package fr.elpresidente.game.factions.supporters;
 import fr.elpresidente.game.factions.Faction;
 import fr.elpresidente.game.factions.FactionController;
 
-public class RandomSupportersDistribution implements SupportersDistribution{
+public class RandomSupportersDistribution implements SupportersDistribution {
 
     @Override
     public void addSupporters(int total_new_supporters) {
