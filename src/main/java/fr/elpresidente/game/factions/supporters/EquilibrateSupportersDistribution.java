@@ -101,12 +101,6 @@ public class EquilibrateSupportersDistribution implements SupportersDistribution
         return (int) Math.ceil((float) faction.getSupporters() / 2);
     }
 
-    private int getNumberNewSupporterForAFactionAccordingAverageSatisfaction(int total_new_supporters) {
-        return total_new_supporters > this.valid_factions.size()
-                ? (int) Math.ceil((float) total_new_supporters / this.valid_factions.size())
-                : 1;
-    }
-
     private double getOnePercentOfTheValidFactionsSatisfaction() {
         return this.valid_factions.stream()
                 .mapToDouble(Faction::getSatisfaction)
