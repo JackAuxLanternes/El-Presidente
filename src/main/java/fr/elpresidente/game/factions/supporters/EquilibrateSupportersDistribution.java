@@ -39,32 +39,29 @@ public class EquilibrateSupportersDistribution implements SupportersDistribution
     }
 
     private void equilibrateNewSupportersNumberByFaction(int total_new_supporters) {
-        int count_new_supporter_to_add = 0;
         for (Faction faction : this.valid_factions) {
-            if (this.getMaxNewSupportersForThisFaction(faction) < this.factions_add_supporters_number.get(faction)) {
-                count_new_supporter_to_add += this.factions_add_supporters_number.get(faction) - this.getNumberNewSupporterForAFactionAccordingAverageSatisfaction(faction.getSupporters());
+            if (!this.newSupportersForThisFactionInferiorMaximumAuthorized(faction)) {
+
                 this.factions_add_supporters_number.replace(faction, this.getMaxNewSupportersForThisFaction(faction));
             }
 
-            if (this.getMaxNewSupportersForThisFaction(faction) > this.factions_add_supporters_number.get(faction) && count_new_supporter_to_add > 0) {
-
-                int new_supporters_that_we_can_add = this.getNumberNewSupporterForAFactionAccordingAverageSatisfaction(faction.getSupporters()) - this.factions_add_supporters_number.get(faction);
-                if (count_new_supporter_to_add > new_supporters_that_we_can_add) {
-                    this.factions_add_supporters_number.replace(faction, this.factions_add_supporters_number.get(faction) + new_supporters_that_we_can_add);
-                } else {
-                    this.factions_add_supporters_number.replace(faction, this.factions_add_supporters_number.get(faction) + count_new_supporter_to_add);
-                }
-            }
-
-            /*TODO faire cette merde*/
-            if (total_new_supporters < this.factions_add_supporters_number.get(faction)) {
-
-                this.factions_add_supporters_number.replace(faction, total_new_supporters);
-            }
-            total_new_supporters -= this.factions_add_supporters_number.get(faction);
+            total_new_supporters = this.modifyTotalNeWSupportersForAFactionAccordingSupportersUsed(total_new_supporters, faction);
         }
-
     }
+
+    private int modifyTotalNeWSupportersForAFactionAccordingSupportersUsed(int total_new_supporters, Faction faction) {
+
+        if (total_new_supporters < this.factions_add_supporters_number.get(faction)) {
+
+            this.factions_add_supporters_number.replace(faction, total_new_supporters);
+        }
+        return total_new_supporters - this.factions_add_supporters_number.get(faction);
+    }
+
+    private boolean newSupportersForThisFactionInferiorMaximumAuthorized(Faction faction) {
+        return this.getMaxNewSupportersForThisFaction(faction) > this.factions_add_supporters_number.get(faction);
+    }
+
 
 
     private List<Faction> getAllFactionsWithMoreThanMinSupportersMinSatisfaction() {
@@ -105,8 +102,7 @@ public class EquilibrateSupportersDistribution implements SupportersDistribution
     }
 
     private int getNumberNewSupporterForAFactionAccordingAverageSatisfaction(int total_new_supporters) {
-        return
-                total_new_supporters > this.valid_factions.size()
+        return total_new_supporters > this.valid_factions.size()
                 ? (int) Math.ceil((float) total_new_supporters / this.valid_factions.size())
                 : 1;
     }

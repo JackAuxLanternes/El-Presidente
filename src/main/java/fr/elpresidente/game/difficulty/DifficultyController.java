@@ -27,13 +27,12 @@ public class DifficultyController {
             case "easy":
                 difficulty = new EasyDifficulty();
                 break;
-
-            case "normal":
-                difficulty = new NormalDifficulty();
-                break;
-
             case "hard":
                 difficulty = new HardDifficulty();
+                break;
+            default:
+                difficulty = new NormalDifficulty();
+                break;
         }
     }
 }
