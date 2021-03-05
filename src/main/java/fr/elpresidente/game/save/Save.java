@@ -1,10 +1,11 @@
 package fr.elpresidente.game.save;
 
+import fr.elpresidente.game.tools.JSONContent;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 
-public class Save {
+public class Save implements JSONContent {
 
     private JSONObject jsonObject;
 
@@ -21,29 +22,63 @@ public class Save {
     private JSONArray factions;
 
     public Save(String jsonFileContent) {
-        setJsonObject((JSONObject) JSONValue.parse(jsonFileContent));
-        setDate((JSONObject) getJsonObject().get("date"));
-        setDifficulty((JSONObject) getJsonObject().get("difficulty"));
-        setGameMode((JSONObject) getJsonObject().get("gamemode"));
-        setResources((JSONArray) getJsonObject().get("resources"));
-        setConsumable((JSONArray) getJsonObject().get("consumable"));
-        setFactions((JSONArray) getJsonObject().get("factions"));
+        setJSONObject((JSONObject) JSONValue.parse(jsonFileContent));
+        setDate((JSONObject) getJSONObject().get("date"));
+        setDifficulty((JSONObject) getJSONObject().get("difficulty"));
+        setGameMode((JSONObject) getJSONObject().get("gamemode"));
+        setResources((JSONArray) getJSONObject().get("resources"));
+        setConsumable((JSONArray) getJSONObject().get("consumable"));
+        setFactions((JSONArray) getJSONObject().get("factions"));
     }
 
-    public JSONObject getJsonObject() {
+    @Override
+    public JSONObject getJSONObject() {
         return jsonObject;
     }
 
-    public void setJsonObject(JSONObject jsonObject) {
+    @Override
+    public void setJSONObject(JSONObject jsonObject) {
         this.jsonObject = jsonObject;
     }
 
+    @Override
     public JSONObject getDate() {
         return date;
     }
 
+    @Override
     public void setDate(JSONObject date) {
         this.date = date;
+    }
+
+    @Override
+    public JSONArray getResources() {
+        return resources;
+    }
+
+    @Override
+    public void setResources(JSONArray resources) {
+        this.resources = resources;
+    }
+
+    @Override
+    public JSONArray getConsumable() {
+        return consumable;
+    }
+
+    @Override
+    public void setConsumable(JSONArray consumable) {
+        this.consumable = consumable;
+    }
+
+    @Override
+    public JSONArray getFactions() {
+        return factions;
+    }
+
+    @Override
+    public void setFactions(JSONArray factions) {
+        this.factions = factions;
     }
 
     public JSONObject getGameMode() {
@@ -62,27 +97,5 @@ public class Save {
         this.difficulty = difficulty;
     }
 
-    public JSONArray getResources() {
-        return resources;
-    }
 
-    public void setResources(JSONArray resources) {
-        this.resources = resources;
-    }
-
-    public JSONArray getConsumable() {
-        return consumable;
-    }
-
-    public void setConsumable(JSONArray consumable) {
-        this.consumable = consumable;
-    }
-
-    public JSONArray getFactions() {
-        return factions;
-    }
-
-    public void setFactions(JSONArray factions) {
-        this.factions = factions;
-    }
 }

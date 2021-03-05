@@ -1,10 +1,11 @@
 package fr.elpresidente.game.scenario;
 
+import fr.elpresidente.game.tools.JSONContent;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 
-public class Scenario {
+public class Scenario implements JSONContent {
 
     private JSONObject jsonObject;
 
@@ -25,31 +26,65 @@ public class Scenario {
     private JSONObject supportersDistribution;
 
     public Scenario(String jsonFileContent) {
-        setJsonObject((JSONObject) JSONValue.parse(jsonFileContent));
-        setDate((JSONObject) getJsonObject().get("date"));
-        setResources((JSONArray) getJsonObject().get("resources"));
-        setConsumable((JSONArray) getJsonObject().get("consumable"));
-        setFactions((JSONArray) getJsonObject().get("factions"));
-        setScriptedEvents((JSONArray) getJsonObject().get("events"));
-        setConditionalEvents((JSONArray) getJsonObject().get("conditional_events"));
-        setGenericEvents((JSONArray) getJsonObject().get("generic_events"));
-        setSupportersDistribution((JSONObject) getJsonObject().get("supporters_distribution"));
+        setJSONObject((JSONObject) JSONValue.parse(jsonFileContent));
+        setDate((JSONObject) getJSONObject().get("date"));
+        setResources((JSONArray) getJSONObject().get("resources"));
+        setConsumable((JSONArray) getJSONObject().get("consumable"));
+        setFactions((JSONArray) getJSONObject().get("factions"));
+        setScriptedEvents((JSONArray) getJSONObject().get("events"));
+        setConditionalEvents((JSONArray) getJSONObject().get("conditional_events"));
+        setGenericEvents((JSONArray) getJSONObject().get("generic_events"));
+        setSupportersDistribution((JSONObject) getJSONObject().get("supporters_distribution"));
     }
 
-    public JSONObject getJsonObject() {
+    @Override
+    public JSONObject getJSONObject() {
         return jsonObject;
     }
 
-    public void setJsonObject(JSONObject jsonObject) {
+    @Override
+    public void setJSONObject(JSONObject jsonObject) {
         this.jsonObject = jsonObject;
     }
 
+    @Override
     public JSONObject getDate() {
         return date;
     }
 
+    @Override
     public void setDate(JSONObject date) {
         this.date = date;
+    }
+
+    @Override
+    public JSONArray getResources() {
+        return resources;
+    }
+
+    @Override
+    public void setResources(JSONArray resources) {
+        this.resources = resources;
+    }
+
+    @Override
+    public JSONArray getConsumable() {
+        return consumable;
+    }
+
+    @Override
+    public void setConsumable(JSONArray consumable) {
+        this.consumable = consumable;
+    }
+
+    @Override
+    public JSONArray getFactions() {
+        return factions;
+    }
+
+    @Override
+    public void setFactions(JSONArray factions) {
+        this.factions = factions;
     }
 
     public JSONObject getSupportersDistribution() {
@@ -58,30 +93,6 @@ public class Scenario {
 
     public void setSupportersDistribution(JSONObject supportersDistribution) {
         this.supportersDistribution = supportersDistribution;
-    }
-
-    public JSONArray getResources() {
-        return resources;
-    }
-
-    public void setResources(JSONArray resources) {
-        this.resources = resources;
-    }
-
-    public JSONArray getConsumable() {
-        return consumable;
-    }
-
-    public void setConsumable(JSONArray consumable) {
-        this.consumable = consumable;
-    }
-
-    public JSONArray getFactions() {
-        return factions;
-    }
-
-    public void setFactions(JSONArray factions) {
-        this.factions = factions;
     }
 
     public JSONArray getScriptedEvents() {

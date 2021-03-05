@@ -1,11 +1,12 @@
 package fr.elpresidente.game.status;
 
 import fr.elpresidente.game.endofyear.EndOfYearController;
+import fr.elpresidente.game.save.Save;
 import fr.elpresidente.game.save.SaveLoader;
-import fr.elpresidente.game.save.SaveParser;
 import fr.elpresidente.game.save.SaveWriter;
 import fr.elpresidente.game.scenario.Scenario;
 import fr.elpresidente.game.scenario.ScenarioLoader;
+import fr.elpresidente.game.tools.JSONParser;
 import fr.elpresidente.game.turn.Defeat;
 import fr.elpresidente.game.turn.Seasons;
 import fr.elpresidente.game.turn.TurnController;
@@ -32,9 +33,9 @@ public class Game {
     }
 
     public void initTurnForLoadGame() {
-        SaveParser saveParser = new SaveParser("src/main/resources/save.json");
-        saveParser.openSave();
-        SaveLoader saveLoader = new SaveLoader(saveParser.getSave(), turnController);
+        JSONParser saveParser = new JSONParser("src/main/resources/save.json");
+        saveParser.openAsSave();
+        SaveLoader saveLoader = new SaveLoader((Save) saveParser.getContent(), turnController);
 
         saveLoader.tryToLoadSave();
         this.initCountTurnFromInitialScenarioToLoadScenario(turnController);

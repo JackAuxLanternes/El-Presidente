@@ -1,23 +1,26 @@
 package fr.elpresidente.game;
 
-import fr.elpresidente.game.scenario.ScenarioParser;
+import fr.elpresidente.game.scenario.Scenario;
+import fr.elpresidente.game.tools.JSONParser;
 import junit.framework.TestCase;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.File;
 
-public class ScenarioTest extends TestCase {
+public class ScenarioTest {
 
     @Test
     public void testScenarioCanBeParsed() {
-        ScenarioParser scenarioParser = new ScenarioParser("."
+        JSONParser scenarioParser = new JSONParser("."
                 + File.separator + "src"
                 + File.separator + "test"
                 + File.separator + "resources"
                 + File.separator + "testScenario.json");
-        scenarioParser.openScenario();
+        scenarioParser.openAsScenario();
+        Scenario scenario = (Scenario) scenarioParser.getContent();
 
-        assertEquals(scenarioParser.getScenario().getDate().toString(), "{\"year\":1953,\"season\":\"WINTER\"}");
+        Assert.assertEquals(scenario.getDate().toString(), "{\"year\":1953,\"season\":\"WINTER\"}");
     }
 
 }
