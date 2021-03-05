@@ -69,7 +69,7 @@ Nous avons aussi profité de ce design pattern pour réduire la visibilité de c
 Pour le bonus la répartition des partisans on a décidé d'utiliser un Singleton pour créer un Controller et ainsi pouvoir appelé la classe sans l'instancier au début du jeu et ainsi pouvoir tout au long du jeu avoir le même algorithme. En effet graçe à l'interface SupportersDistribution on peut rajouter des algorithmes de répartition très facilement e, créant une classe implémentant SupportersDistribution puis en ajoutant dans SupportersDistributionController l'instanciation de notre nouvel sorte d'algorithme en fonction de la valeur dans le json de supporters_distribution.
 Pour l'algorithme equilibrate on va distribuer les partisans en fonction du pourcentage de satisfaction de chaque factions et de son rapport avec le pourcentage de satisfaction global. une faction ne contenant que 10 Partisans ne pourra avoir plus de 5 nouveau partisan à la fin de l'année, une faction ayant 0% de satisfaction ne pourra avoir de nouveaux partisans. Les factions ayant le plus de satisfaction seront les premières factions ayant de nouveaux partisans car plus heureuses.
 
-## Pour tester la défaite
+# Pour tester la défaite
 
 Vous pouvez tout simplement lors de l'événement ci-dessous
 - "Mort de Staline. La population se demande comment se place El-presidente face à ce (tragique ?) évènement.",
@@ -78,3 +78,6 @@ Vous pouvez tout simplement lors de l'événement ci-dessous
 choisir l'option ci-dessous qui appliquera assez de malus pour faire perdre el-presidente à la fin du tour.
 - "El-presidente n'est pas fait pour ce job, le suicide est la seule option (Vous perdez la partie voir le README)",
 
+# Liens utiles
+
+[le github du projet](https://github.com/JackAuxLanternes/El-Presidente/tree/master)
