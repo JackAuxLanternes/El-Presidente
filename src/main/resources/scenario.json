@@ -3,6 +3,9 @@
     "year": 1953,
     "season": "WINTER"
   },
+  "supporters_distribution": {
+    "name": "equilibrate"
+  },
   "resources": [
     {
       "name": "industry",
