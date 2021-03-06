@@ -45,12 +45,6 @@ public class Faction implements LoadFromSaveBuilder {
         this.satisfaction = satisfaction;
     }
 
-    public void updateSupporters(double supporters) {
-        if (isSupportersSuperiorThanMinimum())
-            this.supporters += supporters;
-        this.normalizedSupportersMinValue();
-    }
-
     public void updateSatisfaction(double satisfaction) {
 
         if (isSatisfactionSuperiorThan0())

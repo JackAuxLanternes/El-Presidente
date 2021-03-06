@@ -49,20 +49,10 @@ public class FactionController {
     }
 
 
-    public void addSatisfactionPercentageForOneFaction(String name_faction, double satisfaction_percentage) {
-
-        Faction faction_research = this.getFactionFromNameFaction(name_faction);
-        faction_research.updateSatisfaction(faction_research.getSatisfaction() * satisfaction_percentage / 100);
-    }
-
     public Faction getFactionFromNameFaction(String name_faction) {
         return this.factions
                 .stream().filter(faction -> faction.getName().equals(name_faction)).findFirst()
                 .orElseThrow(() -> new NoSuchElementException("the faction " + name_faction + " doesn't exist"));
-    }
-
-    private boolean isTotalSupportSuperiorThanNumberSupporter(int number_supporter) {
-        return this.determineTotalSupporters() > number_supporter;
     }
 
     public double determineGlobalSatisfaction() {

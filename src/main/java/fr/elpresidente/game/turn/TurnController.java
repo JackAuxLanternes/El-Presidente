@@ -22,12 +22,6 @@ public class TurnController implements TurnBuilder, LoadFromSaveBuilder {
     private int count_turn;
 
     @Override
-    public void setStartDate(int year, Seasons season) {
-        this.year = year;
-        this.currentTurn = season;
-    }
-
-    @Override
     public Seasons getNextTurn() {
         switch (currentTurn) {
             case WINTER:
