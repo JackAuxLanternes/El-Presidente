@@ -1,6 +1,7 @@
 package fr.elpresidente.game.JSON.save;
 
 import fr.elpresidente.game.JSON.JSONContent;
+import fr.elpresidente.game.tools.JSONKeys;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
@@ -25,13 +26,13 @@ public class Save implements JSONContent {
 
     public Save(String jsonFileContent) {
         setJSONObject((JSONObject) JSONValue.parse(jsonFileContent));
-        setDate((JSONObject) getJSONObject().get("date"));
-        setDifficulty((JSONObject) getJSONObject().get("difficulty"));
-        setLastEvent((JSONObject) getJSONObject().get("last_event"));
-        setGameMode((JSONObject) getJSONObject().get("gamemode"));
-        setResources((JSONArray) getJSONObject().get("resources"));
-        setConsumable((JSONArray) getJSONObject().get("consumable"));
-        setFactions((JSONArray) getJSONObject().get("factions"));
+        setDate((JSONObject) getJSONObject().get(JSONKeys.SAVE_DATE_KEY));
+        setDifficulty((JSONObject) getJSONObject().get(JSONKeys.SAVE_DIFFICULTY_KEY));
+        setLastEvent((JSONObject) getJSONObject().get(JSONKeys.SAVE_LAST_EVENT_KEY));
+        setGameMode((JSONObject) getJSONObject().get(JSONKeys.SAVE_GAMEMODE_KEY));
+        setResources((JSONArray) getJSONObject().get(JSONKeys.SAVE_RESOURCES_KEY));
+        setConsumable((JSONArray) getJSONObject().get(JSONKeys.SAVE_CONSUMABLE_KEY));
+        setFactions((JSONArray) getJSONObject().get(JSONKeys.SAVE_FACTION_KEY));
     }
 
     @Override

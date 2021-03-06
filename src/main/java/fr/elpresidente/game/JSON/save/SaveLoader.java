@@ -5,6 +5,7 @@ import fr.elpresidente.game.difficulty.DifficultyController;
 import fr.elpresidente.game.events.Event;
 import fr.elpresidente.game.events.EventController;
 import fr.elpresidente.game.mode.GameModeController;
+import fr.elpresidente.game.tools.JSONKeys;
 import fr.elpresidente.game.tools.JSONTools;
 import fr.elpresidente.game.turn.TurnController;
 
@@ -31,21 +32,21 @@ public class SaveLoader {
     }
 
     public void loadGameMode() {
-        String gameModeSaved = JSONTools.extractStringFromJSONObject(save.getGameMode(), "value");
+        String gameModeSaved = JSONTools.extractStringFromJSONObject(save.getGameMode(), JSONKeys.GAMEMODE_KEY_VALUE);
         GameModeController.getInstance().setGameModeFromName(gameModeSaved);
     }
 
     public void loadDifficulty() {
-        String difficultySaved = JSONTools.extractStringFromJSONObject(save.getDifficulty(), "value");
+        String difficultySaved = JSONTools.extractStringFromJSONObject(save.getDifficulty(), JSONKeys.DIFFICULTY_KEY_VALUE);
         DifficultyController.getInstance().setDifficultyFromName(difficultySaved);
     }
 
     private void loadLastEvent() {
         EventController controller = EventController.getInstance();
-        String eventType = JSONTools.extractStringFromJSONObject(save.getLastEvent(), "type");
-        String eventDescription = JSONTools.extractStringFromJSONObject(save.getLastEvent(), "description");
+        String eventType = JSONTools.extractStringFromJSONObject(save.getLastEvent(), JSONKeys.EVENT_EFFECT_TYPE_KEY);
+        String eventDescription = JSONTools.extractStringFromJSONObject(save.getLastEvent(), JSONKeys.EVENT_DESCRIPTION_KEY);
 
-        controller.setCurrentEvent(new Event(JSONTools.findJSONObjectInJSONArrayWithKeyValue(controller.getEventsByName(eventType), "description", eventDescription), eventType));
+        controller.setCurrentEvent(new Event(JSONTools.findJSONObjectInJSONArrayWithKeyValue(controller.getEventsByName(eventType), JSONKeys.EVENT_DESCRIPTION_KEY, eventDescription), eventType));
     }
 
     private void setSave(Save save) {

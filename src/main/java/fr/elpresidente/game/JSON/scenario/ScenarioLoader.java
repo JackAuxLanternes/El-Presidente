@@ -3,6 +3,7 @@ package fr.elpresidente.game.JSON.scenario;
 import fr.elpresidente.game.events.EventController;
 import fr.elpresidente.game.factions.supporters.SupportersDistributionController;
 import fr.elpresidente.game.JSON.JSONLoader;
+import fr.elpresidente.game.tools.JSONKeys;
 import fr.elpresidente.game.tools.JSONTools;
 import fr.elpresidente.game.turn.TurnController;
 
@@ -34,7 +35,7 @@ public class ScenarioLoader {
     }
 
     public void loadSupportersDistribution() {
-        SupportersDistributionController.getInstance().setSupportersDistributionFromJSONName(JSONTools.extractStringFromJSONObject(scenario.getSupportersDistribution(), "name"));
+        SupportersDistributionController.getInstance().setSupportersDistributionFromJSONName(JSONTools.extractStringFromJSONObject(scenario.getSupportersDistribution(), JSONKeys.FACTION_KEY_NAME));
     }
 
     private void setScenario(Scenario scenario) {

@@ -135,7 +135,7 @@ public class Event {
 
     public JSONObject toJSONObject() {
         JSONObject event = new JSONObject();
-        event.put(JSONKeys.EVENT_TYPE, this.type);
+        event.put(JSONKeys.EVENT_EFFECT_TYPE_KEY, this.type);
         event.put(JSONKeys.EVENT_DESCRIPTION_KEY, this.description);
 
         return event;

@@ -1,6 +1,7 @@
 package fr.elpresidente.game.JSON.scenario;
 
 import fr.elpresidente.game.JSON.JSONContent;
+import fr.elpresidente.game.tools.JSONKeys;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
@@ -27,14 +28,14 @@ public class Scenario implements JSONContent {
 
     public Scenario(String jsonFileContent) {
         setJSONObject((JSONObject) JSONValue.parse(jsonFileContent));
-        setDate((JSONObject) getJSONObject().get("date"));
-        setResources((JSONArray) getJSONObject().get("resources"));
-        setConsumable((JSONArray) getJSONObject().get("consumable"));
-        setFactions((JSONArray) getJSONObject().get("factions"));
-        setScriptedEvents((JSONArray) getJSONObject().get("events"));
-        setConditionalEvents((JSONArray) getJSONObject().get("conditional_events"));
-        setGenericEvents((JSONArray) getJSONObject().get("generic_events"));
-        setSupportersDistribution((JSONObject) getJSONObject().get("supporters_distribution"));
+        setDate((JSONObject) getJSONObject().get(JSONKeys.SCENARIO_DATE_KEY));
+        setResources((JSONArray) getJSONObject().get(JSONKeys.SCENARIO_RESOURCES_KEY));
+        setConsumable((JSONArray) getJSONObject().get(JSONKeys.SCENARIO_CONSUMABLE_KEY));
+        setFactions((JSONArray) getJSONObject().get(JSONKeys.SCENARIO_FACTION_KEY));
+        setScriptedEvents((JSONArray) getJSONObject().get(JSONKeys.SCENARIO_EVENT_KEY));
+        setConditionalEvents((JSONArray) getJSONObject().get(JSONKeys.SCENARIO_CONDITIONAL_EVENT_KEY));
+        setGenericEvents((JSONArray) getJSONObject().get(JSONKeys.SCENARIO_GENERIC_EVENT_KEY));
+        setSupportersDistribution((JSONObject) getJSONObject().get(JSONKeys.SCENARIO_SUPPORTERS_DISTRIBUTION_KEY));
     }
 
     @Override
