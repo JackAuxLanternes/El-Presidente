@@ -6,6 +6,7 @@ import fr.elpresidente.game.endofyear.EndOfYearController;
 import fr.elpresidente.game.endofyear.events.AgricultureSurplus;
 import fr.elpresidente.game.events.EventController;
 import fr.elpresidente.game.factions.FactionController;
+import fr.elpresidente.game.mode.GameModeController;
 import fr.elpresidente.game.resources.consumable.ConsumableController;
 import fr.elpresidente.game.resources.resource.ResourcesController;
 import fr.elpresidente.game.status.GameDisplay;
@@ -48,7 +49,7 @@ public class TurnController implements TurnBuilder, LoadFromSaveBuilder {
 
     @Override
     public void buildTurn() {
-        EventController.getInstance().findEvent(year, currentTurn);
+        GameModeController.getInstance().findEvent(year, currentTurn);
     }
 
     @Override

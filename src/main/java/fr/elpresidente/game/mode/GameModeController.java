@@ -1,5 +1,7 @@
 package fr.elpresidente.game.mode;
 
+import fr.elpresidente.game.turn.Seasons;
+
 public class GameModeController {
 
     private static GameModeController instance;
@@ -20,6 +22,10 @@ public class GameModeController {
 
     public void setGameMode(GameMode gameMode) {
         this.gameMode = gameMode;
+    }
+
+    public void findEvent(int year, Seasons season) {
+        gameMode.setEvent(year, season);
     }
 
     public void setGameModeFromName(String name) {
