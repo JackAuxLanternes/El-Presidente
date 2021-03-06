@@ -19,7 +19,7 @@ public class TurnController implements TurnBuilder, LoadFromSaveBuilder {
 
     private int year;
 
-    private int count_turn = 0;
+    private int count_turn;
 
     @Override
     public void setStartDate(int year, Seasons season) {
@@ -80,7 +80,7 @@ public class TurnController implements TurnBuilder, LoadFromSaveBuilder {
 
     public JSONObject toJSONObject() {
         JSONObject date = new JSONObject();
-        date.put("turn", this.getCountTurn());
+        date.put("starting_turn", this.getCountTurn());
         date.put("year", this.getYear());
         date.put("season", this.getCurrentTurn().toString());
 
@@ -115,5 +115,6 @@ public class TurnController implements TurnBuilder, LoadFromSaveBuilder {
     public void loadFromJSON(JSONObject jsonObject) {
         this.year = JSONTools.extractIntFromJSONObject(jsonObject, JSONKeys.DATE_YEAR_KEY);
         this.currentTurn = JSONTools.extractSeasonFromJSONObject(jsonObject);
+        this.count_turn = JSONTools.extractIntFromJSONObject(jsonObject, JSONKeys.DATE_COUNT_TURN);
     }
 }

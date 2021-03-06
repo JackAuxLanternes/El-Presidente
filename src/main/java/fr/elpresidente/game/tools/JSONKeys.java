@@ -3,6 +3,7 @@ package fr.elpresidente.game.tools;
 public class JSONKeys {
     public static final String DATE_YEAR_KEY = "year";
     public static final String DATE_SEASON_KEY = "season";
+    public static final String DATE_COUNT_TURN = "starting_turn";
 
     public static final String CONSUMABLE_KEY_NAME = "name";
     public static final String CONSUMABLE_KEY_VALUE = "value";

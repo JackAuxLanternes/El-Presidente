@@ -1,7 +1,8 @@
 {
   "date": {
     "year": 1953,
-    "season": "WINTER"
+    "season": "WINTER",
+    "starting_turn": 0
   },
   "supporters_distribution": {
     "name": "equilibrate"

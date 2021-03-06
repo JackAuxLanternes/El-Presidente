@@ -5,7 +5,7 @@
   "date": {
     "year": 1953,
     "season": "SUMMER",
-    "turn": 2
+    "starting_turn": 2
   },
   "consumable": [
     {
