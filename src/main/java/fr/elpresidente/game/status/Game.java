@@ -1,6 +1,5 @@
 package fr.elpresidente.game.status;
 
-import fr.elpresidente.game.endofyear.EndOfYearController;
 import fr.elpresidente.game.save.Save;
 import fr.elpresidente.game.save.SaveLoader;
 import fr.elpresidente.game.save.SaveWriter;
@@ -17,12 +16,9 @@ public class Game {
 
     private final TurnController turnController;
 
-    private final EndOfYearController endOfYearController;
-
     public Game() {
         turnController = new TurnController();
         gameDisplay = new GameDisplay(this.turnController);
-        endOfYearController = new EndOfYearController();
 
         turnController.setCurrentTurn(Seasons.WINTER);
     }
@@ -38,20 +34,6 @@ public class Game {
         SaveLoader saveLoader = new SaveLoader((Save) saveParser.getContent(), turnController);
 
         saveLoader.tryToLoadSave();
-        this.initCountTurnFromInitialScenarioToLoadScenario(turnController);
-    }
-
-    private void initCountTurnFromInitialScenarioToLoadScenario(TurnController turnController) {
-        this.turnController.setCountTurn(this.determinateCountTurnFromInitialScenarioToLoadScenario(turnController));
-    }
-
-    private int determinateCountTurnFromInitialScenarioToLoadScenario(TurnController turnController_old_json) {
-        int count_turn = 0;
-        while (turnController_old_json.getYear() != this.turnController.getYear() || turnController_old_json.getCurrentTurn() != this.turnController.getCurrentTurn()) {
-            count_turn += 1;
-            turnController_old_json.nextTurn();
-        }
-        return count_turn;
     }
 
     public void gameLoop() {

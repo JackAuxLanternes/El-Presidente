@@ -10,12 +10,12 @@ import org.json.simple.JSONObject;
 
 public class JSONLoader
 {
-    private JSONContent scenario;
+    private JSONContent jsonContent;
 
     private TurnController turnController;
 
-    public JSONLoader(JSONContent scenario, TurnController turnController) {
-        this.setScenario(scenario);
+    public JSONLoader(JSONContent jsonContent, TurnController turnController) {
+        this.setJsonContent(jsonContent);
         this.setTurnController(turnController);
     }
 
@@ -31,36 +31,36 @@ public class JSONLoader
     }
 
     public void loadDate() {
-        turnController.loadFromJSON(scenario.getDate());
+        turnController.loadFromJSON(jsonContent.getDate());
     }
 
     public void loadResource() {
-        JSONObject agriculture = JSONTools.findJSONObjectInJSONArrayWithKeyValue(scenario.getResources(), JSONKeys.RESOURCE_KEY_NAME, ResourcesController.getInstance().getAgriculture().getName());
-        JSONObject industry = JSONTools.findJSONObjectInJSONArrayWithKeyValue(scenario.getResources(), JSONKeys.RESOURCE_KEY_NAME, ResourcesController.getInstance().getIndustry().getName());
+        JSONObject agriculture = JSONTools.findJSONObjectInJSONArrayWithKeyValue(jsonContent.getResources(), JSONKeys.RESOURCE_KEY_NAME, ResourcesController.getInstance().getAgriculture().getName());
+        JSONObject industry = JSONTools.findJSONObjectInJSONArrayWithKeyValue(jsonContent.getResources(), JSONKeys.RESOURCE_KEY_NAME, ResourcesController.getInstance().getIndustry().getName());
 
         ResourcesController.getInstance().getAgriculture().loadFromJSON(agriculture);
         ResourcesController.getInstance().getIndustry().loadFromJSON(industry);
     }
 
     public void loadConsumable() {
-        JSONObject food = JSONTools.findJSONObjectInJSONArrayWithKeyValue(scenario.getConsumable(), JSONKeys.CONSUMABLE_KEY_NAME, ConsumableController.getInstance().getFood().getName());
-        JSONObject treasury = JSONTools.findJSONObjectInJSONArrayWithKeyValue(scenario.getConsumable(), JSONKeys.CONSUMABLE_KEY_NAME, ConsumableController.getInstance().getTreasury().getName());
+        JSONObject food = JSONTools.findJSONObjectInJSONArrayWithKeyValue(jsonContent.getConsumable(), JSONKeys.CONSUMABLE_KEY_NAME, ConsumableController.getInstance().getFood().getName());
+        JSONObject treasury = JSONTools.findJSONObjectInJSONArrayWithKeyValue(jsonContent.getConsumable(), JSONKeys.CONSUMABLE_KEY_NAME, ConsumableController.getInstance().getTreasury().getName());
 
         ConsumableController.getInstance().getFood().loadFromJSON(food);
         ConsumableController.getInstance().getTreasury().loadFromJSON(treasury);
     }
 
     public void loadFactions() {
-        JSONArray factions = scenario.getFactions();
+        JSONArray factions = jsonContent.getFactions();
 
         for (Faction faction : FactionController.getInstance().getFactions()) {
-            JSONObject scenarioFaction = JSONTools.findJSONObjectInJSONArrayWithKeyValue(factions, JSONKeys.FACTION_KEY_NAME, faction.getName());
-            faction.loadFromJSON(scenarioFaction);
+            JSONObject jsonContentFaction = JSONTools.findJSONObjectInJSONArrayWithKeyValue(factions, JSONKeys.FACTION_KEY_NAME, faction.getName());
+            faction.loadFromJSON(jsonContentFaction);
         }
     }
 
-    public void setScenario(JSONContent scenario) {
-        this.scenario = scenario;
+    public void setJsonContent(JSONContent jsonContent) {
+        this.jsonContent = jsonContent;
     }
 
     public void setTurnController(TurnController turnController) {
