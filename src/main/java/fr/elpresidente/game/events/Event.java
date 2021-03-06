@@ -19,10 +19,13 @@ public class Event {
 
     private ArrayList<JSONObject> choices;
 
+    private final String type;
+
     private String triggerEvent = null;
 
-    public Event(JSONObject event) {
+    public Event(JSONObject event, String type) {
         this.event = event;
+        this.type = type;
         this.initEvent();
     }
 
@@ -128,5 +131,13 @@ public class Event {
 
     private void setTriggerEvent(String triggerEvent) {
         this.triggerEvent = triggerEvent;
+    }
+
+    public JSONObject toJSONObject() {
+        JSONObject event = new JSONObject();
+        event.put(JSONKeys.EVENT_TYPE, this.type);
+        event.put(JSONKeys.EVENT_DESCRIPTION_KEY, this.description);
+
+        return event;
     }
 }

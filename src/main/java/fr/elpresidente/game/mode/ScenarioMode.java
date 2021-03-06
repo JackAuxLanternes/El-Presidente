@@ -7,14 +7,13 @@ import fr.elpresidente.game.tools.JSONTools;
 import fr.elpresidente.game.turn.Seasons;
 import org.json.simple.JSONObject;
 
-public class ScenarioMode implements GameMode
-{
+public class ScenarioMode implements GameMode {
     @Override
     public void setEvent(int year, Seasons season) {
         EventController controller = EventController.getInstance();
 
         if (controller.isCurrentEventAndTriggerNotNull()) {
-            controller.setCurrentEvent(new Event(JSONTools.findJSONObjectInJSONArrayWithKeyValue(controller.getConditionalEvents(), JSONKeys.EVENT_TRIGGER_ID_KEY, controller.getCurrentEvent().getTriggerEvent())));
+            controller.setCurrentEvent(new Event(JSONTools.findJSONObjectInJSONArrayWithKeyValue(controller.getConditionalEvents(), JSONKeys.EVENT_TRIGGER_ID_KEY, controller.getCurrentEvent().getTriggerEvent()), JSONKeys.EVENT_TYPE_CONDITIONAL));
             return;
         }
         controller.resetCurrentEvent();

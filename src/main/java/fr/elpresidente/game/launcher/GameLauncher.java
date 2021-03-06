@@ -10,7 +10,7 @@ public class GameLauncher implements GameBuilder {
     public void createNewGame(Scenario scenario) {
         Game game = new Game();
         game.initFromScenario(scenario);
-        game.gameLoop();
+        game.gameLoop(false);
     }
 
     @Override
@@ -18,6 +18,6 @@ public class GameLauncher implements GameBuilder {
         Game game = new Game();
         game.initFromScenario(scenario);
         game.initTurnForLoadGame();
-        game.gameLoop();
+        game.gameLoop(true);
     }
 }

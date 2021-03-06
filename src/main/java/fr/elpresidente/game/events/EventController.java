@@ -1,5 +1,6 @@
 package fr.elpresidente.game.events;
 
+import fr.elpresidente.game.tools.JSONKeys;
 import fr.elpresidente.game.tools.JSONTools;
 import fr.elpresidente.game.turn.Seasons;
 import org.json.simple.JSONArray;
@@ -38,12 +39,12 @@ public class EventController {
             return null;
         }
 
-        return new Event(jsonEvent);
+        return new Event(jsonEvent, JSONKeys.EVENT_TYPE_SCENARIO);
     }
 
     public Event fillWithGenericEvent() {
         Random random = new Random();
-        return new Event((JSONObject) genericEvents.get(random.nextInt(genericEvents.size())));
+        return new Event((JSONObject) genericEvents.get(random.nextInt(genericEvents.size())), JSONKeys.EVENT_TYPE_GENERIC);
     }
 
     public boolean isCurrentEventAndTriggerNotNull() {
@@ -66,6 +67,14 @@ public class EventController {
         return conditionalEvents;
     }
 
+    public JSONArray getScriptedEvents() {
+        return scriptedEvents;
+    }
+
+    public JSONArray getGenericEvents() {
+        return genericEvents;
+    }
+
     public void setGenericEvents(JSONArray genericEvents) {
         this.genericEvents = genericEvents;
     }
@@ -80,5 +89,20 @@ public class EventController {
 
     public void setCurrentEvent(Event currentEvent) {
         this.currentEvent = currentEvent;
+    }
+
+    public JSONArray getEventsByName(String name)
+    {
+        switch (name)
+        {
+            case JSONKeys.EVENT_TYPE_CONDITIONAL:
+                return getConditionalEvents();
+
+            case JSONKeys.EVENT_TYPE_GENERIC:
+                return getGenericEvents();
+
+            default:
+                return getScriptedEvents();
+        }
     }
 }

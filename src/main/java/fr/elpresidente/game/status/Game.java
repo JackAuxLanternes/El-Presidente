@@ -36,8 +36,11 @@ public class Game {
         saveLoader.tryToLoadSave();
     }
 
-    public void gameLoop() {
-        turnController.buildTurn();
+    public void gameLoop(boolean isGameLoaded) {
+        if(!isGameLoaded)
+        {
+            turnController.buildTurn();
+        }
 
         while (!isDefeated()) {
             turnController.callEndOfTheYearEventIfItsTime(gameDisplay);

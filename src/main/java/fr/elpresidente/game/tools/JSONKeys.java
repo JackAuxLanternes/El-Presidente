@@ -29,4 +29,8 @@ public class JSONKeys {
     public static final String EVENT_EFFECT_KEY = "key";
     public static final String EVENT_EFFECT_CHANGE_KEY = "change";
     public static final String EVENT_EFFECT_RANDOM_KEY = "random";
+    public static final String EVENT_TYPE_SCENARIO = "events";
+    public static final String EVENT_TYPE_CONDITIONAL = "conditional_events";
+    public static final String EVENT_TYPE_GENERIC = "generic_events";
+    public static final String EVENT_TYPE = "type";
 }

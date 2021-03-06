@@ -4,7 +4,6 @@ import fr.elpresidente.game.builders.LoadFromSaveBuilder;
 import fr.elpresidente.game.builders.TurnBuilder;
 import fr.elpresidente.game.endofyear.EndOfYearController;
 import fr.elpresidente.game.endofyear.events.AgricultureSurplus;
-import fr.elpresidente.game.events.EventController;
 import fr.elpresidente.game.factions.FactionController;
 import fr.elpresidente.game.mode.GameModeController;
 import fr.elpresidente.game.resources.consumable.ConsumableController;
@@ -106,10 +105,6 @@ public class TurnController implements TurnBuilder, LoadFromSaveBuilder {
 
     public int getCountTurn() {
         return this.count_turn;
-    }
-
-    public void setCountTurn(int count_turn) {
-        this.count_turn = count_turn;
     }
 
     @Override

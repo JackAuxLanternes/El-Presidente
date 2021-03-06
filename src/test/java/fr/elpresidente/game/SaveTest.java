@@ -34,6 +34,6 @@ public class SaveTest extends TestCase {
         SaveLoader saveLoader = new SaveLoader((Save) saveParser.getContent(), turnController);
         saveLoader.loadDifficulty();
 
-        assertEquals("easy", DifficultyController.getInstance().getDifficulty().toString());
+        assertEquals("normal", DifficultyController.getInstance().getDifficulty().toString());
     }
 }

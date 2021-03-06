@@ -1,6 +1,6 @@
 {
   "difficulty": {
-    "value": "easy"
+    "value": "normal"
   },
   "date": {
     "year": 1953,
@@ -10,13 +10,17 @@
   "consumable": [
     {
       "name": "food",
-      "value": 11984
+      "value": 12000
     },
     {
       "name": "treasury",
       "value": 3000
     }
   ],
+  "last_event": {
+    "description": "Fin de la guerre de corée",
+    "type": "events"
+  },
   "resources": [
     {
       "name": "agriculture",
@@ -24,7 +28,7 @@
     },
     {
       "name": "industry",
-      "value": 20
+      "value": 23
     }
   ],
   "gamemode": {
@@ -32,44 +36,44 @@
   },
   "factions": [
     {
-      "popularity": 75,
+      "popularity": 75.0,
       "name": "capitalist",
-      "supporters": 12
+      "supporters": 10
     },
     {
-      "popularity": 30,
+      "popularity": 30.0,
       "name": "communist",
-      "supporters": 11
+      "supporters": 10
     },
     {
-      "popularity": 35,
+      "popularity": 35.0,
       "name": "ecologist",
-      "supporters": 12
+      "supporters": 10
     },
     {
-      "popularity": 45,
+      "popularity": 45.0,
       "name": "liberal",
       "supporters": 10
     },
     {
-      "popularity": 70,
+      "popularity": 100.0,
       "name": "loyalist",
       "supporters": 10
     },
     {
-      "popularity": 60,
+      "popularity": 75.0,
       "name": "militarist",
-      "supporters": 11
+      "supporters": 10
     },
     {
-      "popularity": 55,
+      "popularity": 58.0,
       "name": "nationalist",
       "supporters": 10
     },
     {
-      "popularity": 45,
+      "popularity": 45.0,
       "name": "religious",
-      "supporters": 12
+      "supporters": 10
     }
   ]
 }

@@ -1,6 +1,7 @@
 package fr.elpresidente.game.JSON.save;
 
 import fr.elpresidente.game.difficulty.DifficultyController;
+import fr.elpresidente.game.events.EventController;
 import fr.elpresidente.game.factions.FactionController;
 import fr.elpresidente.game.mode.GameModeController;
 import fr.elpresidente.game.resources.consumable.ConsumableController;
@@ -52,6 +53,9 @@ public class SaveWriter {
 
         JSONArray factionArray = FactionController.getInstance().toJSONArray();
         jsonObject.put("factions", factionArray);
+
+        JSONObject lastEvent = EventController.getInstance().getCurrentEvent().toJSONObject();
+        jsonObject.put("last_event", lastEvent);
 
         return jsonObject;
     }

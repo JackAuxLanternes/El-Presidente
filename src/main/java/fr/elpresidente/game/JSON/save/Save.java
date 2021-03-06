@@ -15,6 +15,8 @@ public class Save implements JSONContent {
 
     private JSONObject difficulty;
 
+    private JSONObject lastEvent;
+
     private JSONArray resources;
 
     private JSONArray consumable;
@@ -25,6 +27,7 @@ public class Save implements JSONContent {
         setJSONObject((JSONObject) JSONValue.parse(jsonFileContent));
         setDate((JSONObject) getJSONObject().get("date"));
         setDifficulty((JSONObject) getJSONObject().get("difficulty"));
+        setLastEvent((JSONObject) getJSONObject().get("last_event"));
         setGameMode((JSONObject) getJSONObject().get("gamemode"));
         setResources((JSONArray) getJSONObject().get("resources"));
         setConsumable((JSONArray) getJSONObject().get("consumable"));
@@ -87,6 +90,14 @@ public class Save implements JSONContent {
 
     public void setGameMode(JSONObject gameMode) {
         this.gameMode = gameMode;
+    }
+
+    public JSONObject getLastEvent() {
+        return this.lastEvent;
+    }
+
+    public void setLastEvent(JSONObject lastEvent) {
+        this.lastEvent = lastEvent;
     }
 
     public JSONObject getDifficulty() {
