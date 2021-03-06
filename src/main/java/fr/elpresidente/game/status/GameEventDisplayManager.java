@@ -27,6 +27,7 @@ public class GameEventDisplayManager {
             System.out.println("===");
             System.out.println((i + 1) + " → " + event.getChoicesName().get(i));
         }
+        System.out.println("===");
     }
 
     private void applySelectedEvent() {

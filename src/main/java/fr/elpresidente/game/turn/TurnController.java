@@ -85,6 +85,24 @@ public class TurnController implements TurnBuilder, LoadFromSaveBuilder {
         return currentTurn;
     }
 
+    public String getTranslatedSeason()
+    {
+        switch (currentTurn) {
+            case WINTER:
+                return "Hiver";
+
+            case SPRING:
+                return "Printemps";
+
+            case SUMMER:
+                return "Été";
+
+            case AUTUMN:
+                return "Automne";
+        }
+        return null;
+    }
+
     public void setCurrentTurn(Seasons currentTurn) {
         this.currentTurn = currentTurn;
     }
