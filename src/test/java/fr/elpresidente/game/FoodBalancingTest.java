@@ -1,13 +1,11 @@
 package fr.elpresidente.game;
 
 import fr.elpresidente.game.difficulty.DifficultyController;
-import fr.elpresidente.game.difficulty.EasyDifficulty;
-import fr.elpresidente.game.difficulty.HardDifficulty;
 import fr.elpresidente.game.difficulty.NormalDifficulty;
 import fr.elpresidente.game.endofyear.events.BalanceSheetEvent;
 import fr.elpresidente.game.endofyear.events.FoodBalancing;
 import fr.elpresidente.game.factions.FactionController;
-import fr.elpresidente.game.resources.ConsumableController;
+import fr.elpresidente.game.resources.consumable.ConsumableController;
 import junit.framework.TestCase;
 
 public class FoodBalancingTest extends TestCase {

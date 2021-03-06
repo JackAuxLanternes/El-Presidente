@@ -2,7 +2,7 @@ package fr.elpresidente.game.endofyear.events;
 
 import fr.elpresidente.game.factions.FactionController;
 import fr.elpresidente.game.factions.supporters.SupportersDistributionController;
-import fr.elpresidente.game.resources.ResourcesController;
+import fr.elpresidente.game.resources.resource.ResourcesController;
 
 public class AgricultureSurplus implements BalanceSheetEvent {
 

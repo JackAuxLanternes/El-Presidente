@@ -1,4 +1,4 @@
-package fr.elpresidente.game.tools;
+package fr.elpresidente.game.JSON;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;

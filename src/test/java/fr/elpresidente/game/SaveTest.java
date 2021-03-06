@@ -1,9 +1,9 @@
 package fr.elpresidente.game;
 
 import fr.elpresidente.game.difficulty.DifficultyController;
-import fr.elpresidente.game.save.Save;
-import fr.elpresidente.game.save.SaveLoader;
-import fr.elpresidente.game.tools.JSONParser;
+import fr.elpresidente.game.JSON.save.Save;
+import fr.elpresidente.game.JSON.save.SaveLoader;
+import fr.elpresidente.game.JSON.JSONParser;
 import fr.elpresidente.game.tools.JSONTools;
 import fr.elpresidente.game.turn.TurnController;
 import junit.framework.TestCase;

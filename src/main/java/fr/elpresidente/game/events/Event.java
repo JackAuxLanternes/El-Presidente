@@ -2,8 +2,8 @@ package fr.elpresidente.game.events;
 
 import fr.elpresidente.game.factions.FactionController;
 import fr.elpresidente.game.factions.supporters.SupportersDistributionController;
-import fr.elpresidente.game.resources.ConsumableController;
-import fr.elpresidente.game.resources.ResourcesController;
+import fr.elpresidente.game.resources.consumable.ConsumableController;
+import fr.elpresidente.game.resources.resource.ResourcesController;
 import fr.elpresidente.game.tools.JSONKeys;
 import fr.elpresidente.game.tools.JSONTools;
 import org.json.simple.JSONArray;

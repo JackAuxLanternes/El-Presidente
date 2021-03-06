@@ -1,4 +1,4 @@
-package fr.elpresidente.game.resources;
+package fr.elpresidente.game.resources.consumable;
 
 import fr.elpresidente.game.builders.LoadFromSaveBuilder;
 import org.json.simple.JSONObject;

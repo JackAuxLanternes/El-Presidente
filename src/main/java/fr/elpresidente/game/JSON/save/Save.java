@@ -1,6 +1,6 @@
-package fr.elpresidente.game.save;
+package fr.elpresidente.game.JSON.save;
 
-import fr.elpresidente.game.tools.JSONContent;
+import fr.elpresidente.game.JSON.JSONContent;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;

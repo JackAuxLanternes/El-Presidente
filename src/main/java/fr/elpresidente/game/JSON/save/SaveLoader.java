@@ -1,8 +1,8 @@
-package fr.elpresidente.game.save;
+package fr.elpresidente.game.JSON.save;
 
 import fr.elpresidente.game.difficulty.DifficultyController;
 import fr.elpresidente.game.mode.GameModeController;
-import fr.elpresidente.game.tools.JSONLoader;
+import fr.elpresidente.game.JSON.JSONLoader;
 import fr.elpresidente.game.tools.JSONTools;
 import fr.elpresidente.game.turn.TurnController;
 

@@ -1,8 +1,7 @@
 package fr.elpresidente.game;
 
-import fr.elpresidente.game.scenario.Scenario;
-import fr.elpresidente.game.tools.JSONParser;
-import junit.framework.TestCase;
+import fr.elpresidente.game.JSON.scenario.Scenario;
+import fr.elpresidente.game.JSON.JSONParser;
 import org.junit.Assert;
 import org.junit.Test;
 

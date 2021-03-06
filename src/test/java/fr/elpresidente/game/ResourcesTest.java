@@ -1,6 +1,6 @@
 package fr.elpresidente.game;
 
-import fr.elpresidente.game.resources.ResourcesController;
+import fr.elpresidente.game.resources.resource.ResourcesController;
 import junit.framework.TestCase;
 
 public class ResourcesTest extends TestCase{

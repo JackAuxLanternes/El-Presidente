@@ -1,6 +1,6 @@
 package fr.elpresidente.game.endofyear.events;
 
-import fr.elpresidente.game.resources.ConsumableController;
+import fr.elpresidente.game.resources.consumable.ConsumableController;
 
 public class FoodMarket {
 

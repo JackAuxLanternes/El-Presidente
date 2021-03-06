@@ -1,9 +1,11 @@
-package fr.elpresidente.game.tools;
+package fr.elpresidente.game.JSON;
 
 import fr.elpresidente.game.factions.Faction;
 import fr.elpresidente.game.factions.FactionController;
-import fr.elpresidente.game.resources.ConsumableController;
-import fr.elpresidente.game.resources.ResourcesController;
+import fr.elpresidente.game.resources.consumable.ConsumableController;
+import fr.elpresidente.game.resources.resource.ResourcesController;
+import fr.elpresidente.game.tools.JSONKeys;
+import fr.elpresidente.game.tools.JSONTools;
 import fr.elpresidente.game.turn.TurnController;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;

@@ -1,7 +1,7 @@
 package fr.elpresidente.game.launcher;
 
 import fr.elpresidente.game.builders.GameBuilder;
-import fr.elpresidente.game.scenario.Scenario;
+import fr.elpresidente.game.JSON.scenario.Scenario;
 import fr.elpresidente.game.status.Game;
 
 public class GameLauncher implements GameBuilder {

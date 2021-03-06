@@ -1,7 +1,7 @@
-package fr.elpresidente.game.tools;
+package fr.elpresidente.game.JSON;
 
-import fr.elpresidente.game.save.Save;
-import fr.elpresidente.game.scenario.Scenario;
+import fr.elpresidente.game.JSON.save.Save;
+import fr.elpresidente.game.JSON.scenario.Scenario;
 
 import java.io.File;
 import java.io.FileNotFoundException;

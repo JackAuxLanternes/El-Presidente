@@ -1,8 +1,8 @@
-package fr.elpresidente.game.scenario;
+package fr.elpresidente.game.JSON.scenario;
 
 import fr.elpresidente.game.events.EventController;
 import fr.elpresidente.game.factions.supporters.SupportersDistributionController;
-import fr.elpresidente.game.tools.JSONLoader;
+import fr.elpresidente.game.JSON.JSONLoader;
 import fr.elpresidente.game.tools.JSONTools;
 import fr.elpresidente.game.turn.TurnController;
 

@@ -1,7 +1,7 @@
 package fr.elpresidente.game.endofyear.events;
 
-import fr.elpresidente.game.resources.ConsumableController;
-import fr.elpresidente.game.resources.ResourcesController;
+import fr.elpresidente.game.resources.consumable.ConsumableController;
+import fr.elpresidente.game.resources.resource.ResourcesController;
 
 public class EarnMoney implements BalanceSheetEvent {
 

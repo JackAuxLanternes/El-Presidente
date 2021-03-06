@@ -1,9 +1,11 @@
 package fr.elpresidente.game.status;
 
+import fr.elpresidente.game.difficulty.DifficultyController;
 import fr.elpresidente.game.factions.Faction;
 import fr.elpresidente.game.factions.FactionController;
-import fr.elpresidente.game.resources.ConsumableController;
-import fr.elpresidente.game.resources.ResourcesController;
+import fr.elpresidente.game.mode.GameModeController;
+import fr.elpresidente.game.resources.consumable.ConsumableController;
+import fr.elpresidente.game.resources.resource.ResourcesController;
 import fr.elpresidente.game.tools.UserIOTools;
 import fr.elpresidente.game.turn.TurnController;
 
