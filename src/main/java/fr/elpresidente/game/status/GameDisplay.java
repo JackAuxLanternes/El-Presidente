@@ -1,9 +1,11 @@
 package fr.elpresidente.game.status;
 
+import fr.elpresidente.game.difficulty.DifficultyController;
 import fr.elpresidente.game.factions.Faction;
 import fr.elpresidente.game.factions.FactionController;
-import fr.elpresidente.game.resources.ConsumableController;
-import fr.elpresidente.game.resources.ResourcesController;
+import fr.elpresidente.game.mode.GameModeController;
+import fr.elpresidente.game.resources.consumable.ConsumableController;
+import fr.elpresidente.game.resources.resource.ResourcesController;
 import fr.elpresidente.game.tools.UserIOTools;
 import fr.elpresidente.game.turn.TurnController;
 
@@ -43,22 +45,22 @@ public class GameDisplay {
     }
 
     public void showTurnStatus() {
-        System.out.println("Year #" + turnController.getYear() + ", " + turnController.getCurrentTurn());
+        System.out.println("Année #" + turnController.getYear() + ", " + turnController.getTranslatedSeason());
     }
 
     public void showResourcesStatus() {
-        System.out.println("=== Consumable ===");
-        System.out.println("Money: "
-                + ConsumableController.getInstance().getTreasury().getAmount()
-                + ", Food: "
-                + ConsumableController.getInstance().getFood().getAmount());
-        System.out.println("=== Resources ===");
-        System.out.println("Industry size: "
-                + ResourcesController.getInstance().getIndustry().getSize()
-                + ", Agriculture size: "
-                + ResourcesController.getInstance().getAgriculture().getSize());
-        System.out.println("Total size of the agriculture and industry: "
-                + (ResourcesController.getInstance().getAgriculture().getSize() + ResourcesController.getInstance().getIndustry().getSize()));
+        System.out.println("=== Consommables ===");
+        System.out.println("Argent: "
+                + ConsumableController.getInstance().getTreasury().getAmount()+ " $"
+                + ", Nourriture: "
+                + ConsumableController.getInstance().getFood().getAmount()+ " unités");
+        System.out.println("=== Ressources ===");
+        System.out.println("Taille de l'industrie: "
+                + ResourcesController.getInstance().getIndustry().getSize()+ " %"
+                + ", Taille de l'agriculture: "
+                + ResourcesController.getInstance().getAgriculture().getSize()+ " %");
+        System.out.println("Taille totale de l'industrie et de l'agriculture: "
+                + (ResourcesController.getInstance().getAgriculture().getSize() + ResourcesController.getInstance().getIndustry().getSize())+ " %" );
         displayGraphicChart((ResourcesController.getInstance().getAgriculture().getSize() + ResourcesController.getInstance().getIndustry().getSize()));
     }
 
@@ -80,7 +82,7 @@ public class GameDisplay {
 
     public void showGameStatusOnDefeat() {
         System.out.println("==============================");
-        System.out.println("=== Vous avez perdu ");
+        System.out.println("=== Vous avez perdu, c'est tellement triste :'( ");
         System.out.println("==============================");
         this.showTurnStatus();
         this.showResourcesStatus();

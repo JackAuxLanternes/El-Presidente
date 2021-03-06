@@ -1,7 +1,7 @@
 package fr.elpresidente.game.launcher;
 
 import fr.elpresidente.game.builders.GameBuilder;
-import fr.elpresidente.game.scenario.Scenario;
+import fr.elpresidente.game.JSON.scenario.Scenario;
 import fr.elpresidente.game.status.Game;
 
 public class GameLauncher implements GameBuilder {
@@ -10,7 +10,7 @@ public class GameLauncher implements GameBuilder {
     public void createNewGame(Scenario scenario) {
         Game game = new Game();
         game.initFromScenario(scenario);
-        game.gameLoop();
+        game.gameLoop(false);
     }
 
     @Override
@@ -18,6 +18,6 @@ public class GameLauncher implements GameBuilder {
         Game game = new Game();
         game.initFromScenario(scenario);
         game.initTurnForLoadGame();
-        game.gameLoop();
+        game.gameLoop(true);
     }
 }

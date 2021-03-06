@@ -1,4 +1,4 @@
-package fr.elpresidente.game.resources;
+package fr.elpresidente.game.resources.resource;
 
 import fr.elpresidente.game.difficulty.DifficultyController;
 import fr.elpresidente.game.tools.JSONKeys;

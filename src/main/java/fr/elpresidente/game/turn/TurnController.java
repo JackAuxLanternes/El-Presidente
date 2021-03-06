@@ -4,10 +4,10 @@ import fr.elpresidente.game.builders.LoadFromSaveBuilder;
 import fr.elpresidente.game.builders.TurnBuilder;
 import fr.elpresidente.game.endofyear.EndOfYearController;
 import fr.elpresidente.game.endofyear.events.AgricultureSurplus;
-import fr.elpresidente.game.events.EventController;
 import fr.elpresidente.game.factions.FactionController;
-import fr.elpresidente.game.resources.ConsumableController;
-import fr.elpresidente.game.resources.ResourcesController;
+import fr.elpresidente.game.mode.GameModeController;
+import fr.elpresidente.game.resources.consumable.ConsumableController;
+import fr.elpresidente.game.resources.resource.ResourcesController;
 import fr.elpresidente.game.status.GameDisplay;
 import fr.elpresidente.game.tools.JSONKeys;
 import fr.elpresidente.game.tools.JSONTools;
@@ -19,13 +19,7 @@ public class TurnController implements TurnBuilder, LoadFromSaveBuilder {
 
     private int year;
 
-    private int count_turn = 0;
-
-    @Override
-    public void setStartDate(int year, Seasons season) {
-        this.year = year;
-        this.currentTurn = season;
-    }
+    private int count_turn;
 
     @Override
     public Seasons getNextTurn() {
@@ -48,7 +42,7 @@ public class TurnController implements TurnBuilder, LoadFromSaveBuilder {
 
     @Override
     public void buildTurn() {
-        EventController.getInstance().findEvent(year, currentTurn);
+        GameModeController.getInstance().findEvent(year, currentTurn);
     }
 
     @Override
@@ -80,7 +74,7 @@ public class TurnController implements TurnBuilder, LoadFromSaveBuilder {
 
     public JSONObject toJSONObject() {
         JSONObject date = new JSONObject();
-        date.put("turn", this.getCountTurn());
+        date.put("starting_turn", this.getCountTurn());
         date.put("year", this.getYear());
         date.put("season", this.getCurrentTurn().toString());
 
@@ -89,6 +83,24 @@ public class TurnController implements TurnBuilder, LoadFromSaveBuilder {
 
     public Seasons getCurrentTurn() {
         return currentTurn;
+    }
+
+    public String getTranslatedSeason()
+    {
+        switch (currentTurn) {
+            case WINTER:
+                return "Hiver";
+
+            case SPRING:
+                return "Printemps";
+
+            case SUMMER:
+                return "Été";
+
+            case AUTUMN:
+                return "Automne";
+        }
+        return null;
     }
 
     public void setCurrentTurn(Seasons currentTurn) {
@@ -107,13 +119,10 @@ public class TurnController implements TurnBuilder, LoadFromSaveBuilder {
         return this.count_turn;
     }
 
-    public void setCountTurn(int count_turn) {
-        this.count_turn = count_turn;
-    }
-
     @Override
     public void loadFromJSON(JSONObject jsonObject) {
         this.year = JSONTools.extractIntFromJSONObject(jsonObject, JSONKeys.DATE_YEAR_KEY);
         this.currentTurn = JSONTools.extractSeasonFromJSONObject(jsonObject);
+        this.count_turn = JSONTools.extractIntFromJSONObject(jsonObject, JSONKeys.DATE_COUNT_TURN);
     }
 }

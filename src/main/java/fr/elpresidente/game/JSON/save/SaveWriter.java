@@ -1,10 +1,12 @@
-package fr.elpresidente.game.save;
+package fr.elpresidente.game.JSON.save;
 
 import fr.elpresidente.game.difficulty.DifficultyController;
+import fr.elpresidente.game.events.EventController;
 import fr.elpresidente.game.factions.FactionController;
 import fr.elpresidente.game.mode.GameModeController;
-import fr.elpresidente.game.resources.ConsumableController;
-import fr.elpresidente.game.resources.ResourcesController;
+import fr.elpresidente.game.resources.consumable.ConsumableController;
+import fr.elpresidente.game.resources.resource.ResourcesController;
+import fr.elpresidente.game.tools.JSONKeys;
 import fr.elpresidente.game.turn.TurnController;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -36,22 +38,25 @@ public class SaveWriter {
         JSONObject jsonObject = new JSONObject();
 
         JSONObject gamemode = GameModeController.getInstance().getGameMode().toJSONObject();
-        jsonObject.put("gamemode", gamemode);
+        jsonObject.put(JSONKeys.SAVE_GAMEMODE_KEY, gamemode);
 
         JSONObject difficulty = DifficultyController.getInstance().getDifficulty().toJSONObject();
-        jsonObject.put("difficulty", difficulty);
+        jsonObject.put(JSONKeys.SAVE_DIFFICULTY_KEY, difficulty);
 
         JSONObject date = turnController.toJSONObject();
-        jsonObject.put("date", date);
+        jsonObject.put(JSONKeys.SAVE_DATE_KEY, date);
 
         JSONArray resourcesArray = ResourcesController.getInstance().toJSONArray();
-        jsonObject.put("resources", resourcesArray);
+        jsonObject.put(JSONKeys.SAVE_RESOURCES_KEY, resourcesArray);
 
         JSONArray consumablesArray = ConsumableController.getInstance().toJSONArray();
-        jsonObject.put("consumable", consumablesArray);
+        jsonObject.put(JSONKeys.SAVE_CONSUMABLE_KEY, consumablesArray);
 
         JSONArray factionArray = FactionController.getInstance().toJSONArray();
-        jsonObject.put("factions", factionArray);
+        jsonObject.put(JSONKeys.SAVE_FACTION_KEY, factionArray);
+
+        JSONObject lastEvent = EventController.getInstance().getCurrentEvent().toJSONObject();
+        jsonObject.put(JSONKeys.SAVE_LAST_EVENT_KEY, lastEvent);
 
         return jsonObject;
     }

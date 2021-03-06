@@ -1,22 +1,22 @@
-package fr.elpresidente.game.resources;
+package fr.elpresidente.game.resources.consumable;
 
 import fr.elpresidente.game.difficulty.DifficultyController;
 import fr.elpresidente.game.tools.JSONKeys;
 import fr.elpresidente.game.tools.JSONTools;
 import org.json.simple.JSONObject;
 
-class Food implements Consumable {
+class Treasury implements Consumable {
 
-    private final String name = "food";
+    private final String name = "treasury";
     private int amount;
 
-    public Food(int amount) {
+    public Treasury(int amount) {
         this.amount = amount;
     }
 
     @Override
     public int getAmount() {
-        return this.amount;
+        return amount;
     }
 
     @Override
@@ -53,11 +53,11 @@ class Food implements Consumable {
 
     @Override
     public JSONObject toJSONObject() {
-        JSONObject consumablesFood = new JSONObject();
-        consumablesFood.put(JSONKeys.CONSUMABLE_KEY_NAME, this.getName());
-        consumablesFood.put(JSONKeys.CONSUMABLE_KEY_VALUE, this.amount);
+        JSONObject consumablesTreasury = new JSONObject();
+        consumablesTreasury.put(JSONKeys.CONSUMABLE_KEY_NAME, this.getName());
+        consumablesTreasury.put(JSONKeys.CONSUMABLE_KEY_VALUE, this.amount);
 
-        return consumablesFood;
+        return consumablesTreasury;
     }
 
     @Override

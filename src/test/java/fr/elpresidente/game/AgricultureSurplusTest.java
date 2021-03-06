@@ -4,7 +4,7 @@ import fr.elpresidente.game.endofyear.events.AgricultureSurplus;
 import fr.elpresidente.game.endofyear.events.BalanceSheetEvent;
 import fr.elpresidente.game.factions.FactionController;
 import fr.elpresidente.game.factions.supporters.SupportersDistributionController;
-import fr.elpresidente.game.resources.ResourcesController;
+import fr.elpresidente.game.resources.resource.ResourcesController;
 import junit.framework.TestCase;
 
 public class AgricultureSurplusTest extends TestCase {

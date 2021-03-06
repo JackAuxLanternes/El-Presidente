@@ -1,25 +1,32 @@
-package fr.elpresidente.game.scenario;
+package fr.elpresidente.game.JSON;
+
+import fr.elpresidente.game.JSON.save.Save;
+import fr.elpresidente.game.JSON.scenario.Scenario;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class ScenarioParser {
-
-    private Scenario scenario;
+public class JSONParser {
+    private JSONContent content;
 
     private File jsonFile;
 
     private String jsonFileContent;
 
-    public ScenarioParser(String file_name) {
+    public JSONParser(String file_name) {
         setJsonFile(new File(file_name));
         setJsonFileContent("");
     }
 
-    public void openScenario() {
+    public void openAsScenario() {
         readJsonFile();
-        scenario = new Scenario(jsonFileContent);
+        content = new Scenario(jsonFileContent);
+    }
+
+    public void openAsSave() {
+        readJsonFile();
+        content = new Save(jsonFileContent);
     }
 
     private void readJsonFile() {
@@ -50,7 +57,7 @@ public class ScenarioParser {
         this.jsonFile = jsonFile;
     }
 
-    public Scenario getScenario() {
-        return scenario;
+    public JSONContent getContent() {
+        return content;
     }
 }

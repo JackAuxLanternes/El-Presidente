@@ -1,7 +1,5 @@
 package fr.elpresidente.game.events;
 
-import fr.elpresidente.game.mode.GameModeController;
-import fr.elpresidente.game.mode.ScenarioMode;
 import fr.elpresidente.game.tools.JSONKeys;
 import fr.elpresidente.game.tools.JSONTools;
 import fr.elpresidente.game.turn.Seasons;
@@ -34,48 +32,26 @@ public class EventController {
         return instance;
     }
 
-    public void findEvent(int year, Seasons season) {
-        if (isGameInScenarioMode()) {
-            if (isCurrentEventAndTriggerNotNull()) {
-                setCurrentEvent(new Event(JSONTools.findJSONObjectInJSONArrayWithKeyValue(conditionalEvents, JSONKeys.EVENT_TRIGGER_ID_KEY, currentEvent.getTriggerEvent())));
-                return;
-            }
-            resetCurrentEvent();
-            Event event = searchScriptedEvent(year, season);
-            if (!isEventNull(event)) {
-                setCurrentEvent(event);
-            } else {
-                setCurrentEvent(fillWithGenericEvent());
-            }
-        } else {
-            setCurrentEvent(fillWithGenericEvent());
-        }
-    }
-
-    private Event searchScriptedEvent(int year, Seasons season) {
+    public Event searchScriptedEvent(int year, Seasons season) {
         JSONObject jsonEvent = JSONTools.findJSONObjectForScriptedEvent(scriptedEvents, year, season);
 
         if (JSONTools.isJSONObjectNull(jsonEvent)) {
             return null;
         }
 
-        return new Event(jsonEvent);
+        return new Event(jsonEvent, JSONKeys.EVENT_TYPE_SCENARIO);
     }
 
-    private Event fillWithGenericEvent() {
+    public Event fillWithGenericEvent() {
         Random random = new Random();
-        return new Event((JSONObject) genericEvents.get(random.nextInt(genericEvents.size())));
+        return new Event((JSONObject) genericEvents.get(random.nextInt(genericEvents.size())), JSONKeys.EVENT_TYPE_GENERIC);
     }
 
-    private boolean isGameInScenarioMode() {
-        return GameModeController.getInstance().getGameMode() instanceof ScenarioMode;
-    }
-
-    private boolean isCurrentEventAndTriggerNotNull() {
+    public boolean isCurrentEventAndTriggerNotNull() {
         return currentEvent != null && currentEvent.getTriggerEvent() != null;
     }
 
-    private boolean isEventNull(Event event) {
+    public boolean isEventNull(Event event) {
         return event == null;
     }
 
@@ -87,11 +63,23 @@ public class EventController {
         this.conditionalEvents = conditionalEvents;
     }
 
+    public JSONArray getConditionalEvents() {
+        return conditionalEvents;
+    }
+
+    public JSONArray getScriptedEvents() {
+        return scriptedEvents;
+    }
+
+    public JSONArray getGenericEvents() {
+        return genericEvents;
+    }
+
     public void setGenericEvents(JSONArray genericEvents) {
         this.genericEvents = genericEvents;
     }
 
-    private void resetCurrentEvent() {
+    public void resetCurrentEvent() {
         this.currentEvent = null;
     }
 
@@ -99,7 +87,22 @@ public class EventController {
         return currentEvent;
     }
 
-    private void setCurrentEvent(Event currentEvent) {
+    public void setCurrentEvent(Event currentEvent) {
         this.currentEvent = currentEvent;
+    }
+
+    public JSONArray getEventsByName(String name)
+    {
+        switch (name)
+        {
+            case JSONKeys.EVENT_TYPE_CONDITIONAL:
+                return getConditionalEvents();
+
+            case JSONKeys.EVENT_TYPE_GENERIC:
+                return getGenericEvents();
+
+            default:
+                return getScriptedEvents();
+        }
     }
 }

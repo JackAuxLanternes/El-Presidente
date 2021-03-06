@@ -2,8 +2,8 @@ package fr.elpresidente.game.events;
 
 import fr.elpresidente.game.factions.FactionController;
 import fr.elpresidente.game.factions.supporters.SupportersDistributionController;
-import fr.elpresidente.game.resources.ConsumableController;
-import fr.elpresidente.game.resources.ResourcesController;
+import fr.elpresidente.game.resources.consumable.ConsumableController;
+import fr.elpresidente.game.resources.resource.ResourcesController;
 import fr.elpresidente.game.tools.JSONKeys;
 import fr.elpresidente.game.tools.JSONTools;
 import org.json.simple.JSONArray;
@@ -19,10 +19,13 @@ public class Event {
 
     private ArrayList<JSONObject> choices;
 
+    private final String type;
+
     private String triggerEvent = null;
 
-    public Event(JSONObject event) {
+    public Event(JSONObject event, String type) {
         this.event = event;
+        this.type = type;
         this.initEvent();
     }
 
@@ -128,5 +131,13 @@ public class Event {
 
     private void setTriggerEvent(String triggerEvent) {
         this.triggerEvent = triggerEvent;
+    }
+
+    public JSONObject toJSONObject() {
+        JSONObject event = new JSONObject();
+        event.put(JSONKeys.EVENT_EFFECT_TYPE_KEY, this.type);
+        event.put(JSONKeys.EVENT_DESCRIPTION_KEY, this.description);
+
+        return event;
     }
 }

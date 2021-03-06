@@ -1,4 +1,4 @@
-package fr.elpresidente.game.resources;
+package fr.elpresidente.game.resources.consumable;
 
 import org.json.simple.JSONArray;
 

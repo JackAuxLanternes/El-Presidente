@@ -3,8 +3,7 @@ package fr.elpresidente.game;
 import fr.elpresidente.game.difficulty.DifficultyController;
 import fr.elpresidente.game.difficulty.NormalDifficulty;
 import fr.elpresidente.game.endofyear.events.FoodMarket;
-import fr.elpresidente.game.factions.FactionController;
-import fr.elpresidente.game.resources.ConsumableController;
+import fr.elpresidente.game.resources.consumable.ConsumableController;
 import junit.framework.TestCase;
 
 public class FoodMarketTest extends TestCase {
