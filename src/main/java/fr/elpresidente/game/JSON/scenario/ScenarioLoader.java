@@ -24,7 +24,7 @@ public class ScenarioLoader {
             this.loadEventsFromScenario();
             this.loadSupportersDistribution();
         } catch (NullPointerException nullPointerException) {
-            throw new NullPointerException("Couldn't load scenario completely, check file is in the right folder and not corrupted.\n" + nullPointerException);
+            throw new NullPointerException("Impossible de charger complètement le JSON, vérifiez que le fichier est dans le bon dossier et n'est pas corrompu.\n" + nullPointerException);
         }
     }
 

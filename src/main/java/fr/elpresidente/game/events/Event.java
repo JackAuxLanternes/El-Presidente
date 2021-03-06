@@ -52,7 +52,7 @@ public class Event {
             try {
                 applyEffect(effect);
             } catch (Exception e) {
-                System.err.println("Couldn't apply effect from event, make sure the file is correct.\n" + e);
+                System.err.println("Impossible d'appliquer l'effet de l'événement, assurez-vous que le fichier est correct et non corrompu.\n" + e);
             }
         }
 

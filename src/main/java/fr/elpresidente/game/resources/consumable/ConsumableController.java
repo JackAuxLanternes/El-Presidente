@@ -45,7 +45,7 @@ public class ConsumableController {
     public Consumable getConsumableFromConsumableName(String consumableName) {
         return toArrayList()
                 .stream().filter(resource -> resource.getName().equals(consumableName)).findFirst()
-                .orElseThrow(() -> new NoSuchElementException("the resource " + consumableName + " doesn't exist"));
+                .orElseThrow(() -> new NoSuchElementException("la ressource " + consumableName + " n'existe pas"));
     }
 
     public JSONArray toJSONArray() {

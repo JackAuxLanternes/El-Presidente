@@ -42,7 +42,7 @@ public class FoodBalancing implements BalanceSheetEvent {
             this.factionController.removeSupportersRandomly(number_supporter_that_have_to_be_removed);
             this.factionController.subtractSatisfactionAccordingToNumberSupporters(number_supporter_that_have_to_be_removed);
         } else {
-            throw new NoSuchElementException("You can't delete all your Supporters, you don't have enough food");
+            throw new NoSuchElementException("Vous ne pouvez pas supprimez tous vos supporters et vous n'avez pas assez d'agriculture pour en générer de nouveaux");
         }
     }
 

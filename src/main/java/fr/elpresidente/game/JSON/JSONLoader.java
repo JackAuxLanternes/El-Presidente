@@ -28,7 +28,7 @@ public class JSONLoader
             this.loadConsumable();
             this.loadFactions();
         } catch (NullPointerException nullPointerException) {
-            throw new NullPointerException("Couldn't load JSON completely, check file is in the right folder and not corrupted.\n" + nullPointerException);
+            throw new NullPointerException("Impossible de charger complètement le JSON, vérifiez que le fichier est dans le bon dossier et n'est pas corrompu.\n" + nullPointerException);
         }
     }
 
