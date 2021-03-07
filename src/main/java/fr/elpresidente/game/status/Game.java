@@ -29,7 +29,7 @@ public class Game {
     }
 
     public void initTurnForLoadGame() {
-        JSONParser saveParser = new JSONParser("src/main/resources/save.json");
+        JSONParser saveParser = new JSONParser("./save.json");
         saveParser.openAsSave();
         SaveLoader saveLoader = new SaveLoader((Save) saveParser.getContent(), turnController);
 
@@ -53,7 +53,7 @@ public class Game {
 
     private void saveGame() {
         SaveWriter saveWriter = new SaveWriter(turnController);
-        saveWriter.writeSave("src/main/resources/save.json");
+        saveWriter.writeSave("./save.json");
     }
 
     public boolean isDefeated() {

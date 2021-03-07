@@ -12,7 +12,7 @@ public class Main {
         LauncherMenu launcherMenu = new LauncherMenu();
 
         try {
-            JSONParser scenarioParser = new JSONParser("src/main/resources/scenario.json");
+            JSONParser scenarioParser = new JSONParser("./scenario.json");
             LauncherGameType gameType = launcherMenu.choseGameType();
             if (gameType == LauncherGameType.NEW_GAME) {
                 launcherMenu.choseGameMode();
