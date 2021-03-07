@@ -4,6 +4,16 @@
 | 2020/2021 | Thomas Domingues | tdomingues@myges.fr 1.0.0 |
 ***
 
+# Execution du projet avec le JAR
+
+Pour exécuter notre programme, il faut 
+- se placer dans le même répertoire que `El-Presidente-1.0.0.jar`
+- vérifier pour lancer le jeu en mode scenario de bien avoir le fichier `scenario.json` dans le même répertoire
+- vérifier pour lancer le jeu en mode bac à sable de bien avoir le fichier `sandbox.json` dans le même répertoire
+```shell
+java -jar El-Presidente-1.0.0.jar
+```
+
 ## Objectifs
 Le but de ce projet est de faire un jeu vidéo à la croisée entre Tropico et Reigns. Vous incarnerez
 un jeune dictateur en herbe sur une île tropicale, fraîchement
@@ -109,13 +119,6 @@ Vous pouvez tout simplement lors de l'événement ci-dessous
 Choisir l'option ci-dessous qui appliquera assez de malus pour faire perdre el-presidente à la fin du tour.
 > El-presidente n'est pas fait pour le mode de diffiulte difficile il choisit donc d'arrêter son supplice et de rendre les armes(Vous perdez la partie en mode difficile voir le README),
 
-# Execution
-
-Pour exécuter notre programme, il faut lancer se placer dans le meme repertoire que le `.jar` et lancer la commande suivante :
-
-```shell
-java -jar El-Presidente-1.0.0.jar
-```
 
 # Liens utiles
 
