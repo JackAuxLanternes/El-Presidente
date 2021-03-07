@@ -316,6 +316,96 @@
               "change": 5
             }
           ]
+        },
+        {
+          "name": "El-presidente n'est pas fait pour le mode de diffiulte moyen ou difficile, il choisit donc d'arrêter son supplice et de donner le pouvoir à sa femme(Vous perdez la partie en mode difficile ou moyen voir le README)",
+          "effects": [
+            {
+              "type": "faction",
+              "key": "capitalist",
+              "change": -30
+            },
+            {
+              "type": "faction",
+              "key": "communist",
+              "change": -30
+            },
+            {
+              "type": "faction",
+              "key": "liberal",
+              "change": -30
+            },
+            {
+              "type": "faction",
+              "key": "religious",
+              "change": -30
+            },
+            {
+              "type": "faction",
+              "key": "militarist",
+              "change": -30
+            },
+            {
+              "type": "faction",
+              "key": "ecologist",
+              "change": -30
+            },
+            {
+              "type": "faction",
+              "key": "nationalist",
+              "change": -30
+            },
+            {
+              "type": "faction",
+              "key": "loyalist",
+              "change": -30
+            }
+          ]
+        },
+        {
+          "name": "El-presidente n'est pas fait pour le mode de diffiulte difficile il choisit donc d'arrêter son supplice et de rendre les armes(Vous perdez la partie en mode difficile voir le README)",
+          "effects": [
+            {
+              "type": "faction",
+              "key": "capitalist",
+              "change": -18
+            },
+            {
+              "type": "faction",
+              "key": "communist",
+              "change": -20
+            },
+            {
+              "type": "faction",
+              "key": "liberal",
+              "change": -18
+            },
+            {
+              "type": "faction",
+              "key": "religious",
+              "change": -20
+            },
+            {
+              "type": "faction",
+              "key": "militarist",
+              "change": -18
+            },
+            {
+              "type": "faction",
+              "key": "ecologist",
+              "change": -20
+            },
+            {
+              "type": "faction",
+              "key": "nationalist",
+              "change": -18
+            },
+            {
+              "type": "faction",
+              "key": "loyalist",
+              "change": -20
+            }
+          ]
         }
       ]
     },

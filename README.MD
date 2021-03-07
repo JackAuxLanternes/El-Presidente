@@ -78,14 +78,36 @@ Pour `LoadFromSaveBuilder`, cette classe est implémentée dans tous les objets 
 Pour le bonus la répartition des partisans on a décidé d'utiliser un Singleton pour créer un Controller et ainsi pouvoir appeler la classe sans l'instancier au début du jeu et ainsi pouvoir tout au long du jeu avoir le même algorithme. En effet grace à l'interface SupportersDistribution on peut rajouter des algorithmes de répartition très facilement e, créant une classe implémentant SupportersDistribution puis en ajoutant dans SupportersDistributionController l'instanciation de notre nouvel sorte d'algorithme en fonction de la valeur dans le json de supporters_distribution.
 Pour l'algorithme equilibrate on va distribuer les partisans en fonction du pourcentage de satisfaction de chaque factions et de son rapport avec le pourcentage de satisfaction global. Une faction ne contenant que 10 Partisans ne pourra avoir plus de 5 nouveaux partisans à la fin de l'année, une faction ayant 0 % de satisfaction ne pourra avoir de nouveaux partisans. Les factions ayant le plus de satisfaction seront les premières factions ayant de nouveaux partisans car plus heureuses.
 
-# Pour tester la défaite
+# Pour tester les défaite
+
+## Perdre dans tous les modes 
 
 Vous pouvez tout simplement lors de l'événement ci-dessous
-> Mort de Staline. La population se demande comment se place El-presidente face à ce (tragique ?) évènement.",
+> Mort de Staline. La population se demande comment se place El-presidente face à ce (tragique ?) évènement.,
 
 
 Choisir l'option ci-dessous qui appliquera assez de malus pour faire perdre el-presidente à la fin du tour.
-> El-presidente n'est pas fait pour ce job, le suicide est la seule option (Vous perdez la partie voir le README)",
+> El-presidente n'est pas fait pour ce job, le suicide est la seule option (Vous perdez la partie voir le README),
+
+
+## Perdre en mode moyen et difficile
+
+Vous pouvez tout simplement lors de l'événement ci-dessous
+> Fin de la guerre de corée,
+
+
+Choisir l'option ci-dessous qui appliquera assez de malus pour faire perdre el-presidente à la fin du tour.
+> El-presidente n'est pas fait pour le mode de diffiulte moyen ou difficile, il choisit donc d'arrêter son supplice et de donner le pouvoir à sa femme(Vous perdez la partie en mode difficile ou moyen voir le README),
+
+
+## Perdre uniquement en mode diffciile
+
+Vous pouvez tout simplement lors de l'événement ci-dessous
+> Fin de la guerre de corée,
+
+
+Choisir l'option ci-dessous qui appliquera assez de malus pour faire perdre el-presidente à la fin du tour.
+> El-presidente n'est pas fait pour le mode de diffiulte difficile il choisit donc d'arrêter son supplice et de rendre les armes(Vous perdez la partie en mode difficile voir le README),
 
 # Execution
 
