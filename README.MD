@@ -107,7 +107,7 @@ Vous pouvez tout simplement lors de l'événement ci-dessous
 
 
 Choisir l'option ci-dessous qui appliquera assez de malus pour faire perdre el-presidente à la fin du tour.
-> El-presidente n'est pas fait pour le mode de diffiulte moyen ou difficile, il choisit donc d'arrêter son supplice et de donner le pouvoir à sa femme(Vous perdez la partie en mode difficile ou moyen voir le README),
+> El-presidente n'est pas fait pour le mode de difficulté moyen ou difficile, il choisit donc d'arrêter son supplice et de donner le pouvoir à sa femme(Vous perdez la partie en mode difficile ou moyen voir le README),
 
 
 ## Perdre uniquement en mode diffciile
@@ -117,7 +117,7 @@ Vous pouvez tout simplement lors de l'événement ci-dessous
 
 
 Choisir l'option ci-dessous qui appliquera assez de malus pour faire perdre el-presidente à la fin du tour.
-> El-presidente n'est pas fait pour le mode de diffiulte difficile il choisit donc d'arrêter son supplice et de rendre les armes(Vous perdez la partie en mode difficile voir le README),
+> El-presidente n'est pas fait pour le mode de difficulté difficile il choisit donc d'arrêter son supplice et de rendre les armes(Vous perdez la partie en mode difficile voir le README),
 
 
 # Liens utiles
