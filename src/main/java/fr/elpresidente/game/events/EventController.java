@@ -55,20 +55,20 @@ public class EventController {
         return event == null;
     }
 
-    public void setScriptedEvents(JSONArray scriptedEvents) {
-        this.scriptedEvents = scriptedEvents;
+    public JSONArray getConditionalEvents() {
+        return conditionalEvents;
     }
 
     public void setConditionalEvents(JSONArray conditionalEvents) {
         this.conditionalEvents = conditionalEvents;
     }
 
-    public JSONArray getConditionalEvents() {
-        return conditionalEvents;
-    }
-
     public JSONArray getScriptedEvents() {
         return scriptedEvents;
+    }
+
+    public void setScriptedEvents(JSONArray scriptedEvents) {
+        this.scriptedEvents = scriptedEvents;
     }
 
     public JSONArray getGenericEvents() {
@@ -91,10 +91,8 @@ public class EventController {
         this.currentEvent = currentEvent;
     }
 
-    public JSONArray getEventsByName(String name)
-    {
-        switch (name)
-        {
+    public JSONArray getEventsByName(String name) {
+        switch (name) {
             case JSONKeys.EVENT_TYPE_CONDITIONAL:
                 return getConditionalEvents();
 

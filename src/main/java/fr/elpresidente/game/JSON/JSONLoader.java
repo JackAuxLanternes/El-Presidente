@@ -10,8 +10,7 @@ import fr.elpresidente.game.turn.TurnController;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-public class JSONLoader
-{
+public class JSONLoader {
     private JSONContent jsonContent;
 
     private TurnController turnController;

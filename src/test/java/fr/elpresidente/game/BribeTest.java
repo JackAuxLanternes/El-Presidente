@@ -9,12 +9,11 @@ import junit.framework.TestCase;
 
 import java.util.NoSuchElementException;
 
-public class BribeTest extends TestCase{
+public class BribeTest extends TestCase {
 
-    ConsumableController consumableController  = ConsumableController.getInstance();
+    ConsumableController consumableController = ConsumableController.getInstance();
 
-    public void testSatisfactionOfAFactionAfterBribeThisFaction()
-    {
+    public void testSatisfactionOfAFactionAfterBribeThisFaction() {
         Bribe bribe = new Bribe();
         ConsumableController.getInstance().getTreasury().setAmount(2000);
         FactionController.getInstance().getFactionFromNameFaction("capitalist").setSatisfaction(50);
@@ -27,8 +26,7 @@ public class BribeTest extends TestCase{
 
     }
 
-    public void testSatisfactionOfAFactionThatDoesnotExist()
-    {
+    public void testSatisfactionOfAFactionThatDoesnotExist() {
         try {
             Bribe bribe = new Bribe();
             FactionController.getInstance().getFactionFromNameFaction("pomme").setSatisfaction(50);
@@ -38,14 +36,13 @@ public class BribeTest extends TestCase{
 
             bribe.bribeFaction("capitalist");
             assertEquals(55.0, FactionController.getInstance().getFactionFromNameFaction("capitalist").getSatisfaction());
-        }catch(NoSuchElementException exception) {
+        } catch (NoSuchElementException exception) {
             assertEquals("the faction pomme doesn\'t exist", exception.getMessage());
         }
-        
+
     }
 
-    public void testTreasuryAfterBribeAFaction()
-    {
+    public void testTreasuryAfterBribeAFaction() {
         Bribe bribe = new Bribe();
         FactionController.getInstance().getFactionFromNameFaction("capitalist").setSupporters(10);
         FactionController.getInstance().getFactionFromNameFaction("capitalist").setSatisfaction(80);

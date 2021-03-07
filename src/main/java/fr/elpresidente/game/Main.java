@@ -1,10 +1,10 @@
 package fr.elpresidente.game;
 
+import fr.elpresidente.game.JSON.JSONParser;
+import fr.elpresidente.game.JSON.scenario.Scenario;
 import fr.elpresidente.game.launcher.GameLauncher;
 import fr.elpresidente.game.launcher.LauncherGameType;
 import fr.elpresidente.game.launcher.LauncherMenu;
-import fr.elpresidente.game.JSON.scenario.Scenario;
-import fr.elpresidente.game.JSON.JSONParser;
 
 public class Main {
     public static void main(String[] args) {

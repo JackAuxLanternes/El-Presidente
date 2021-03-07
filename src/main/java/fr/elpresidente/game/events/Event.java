@@ -14,13 +14,9 @@ import java.util.ArrayList;
 public class Event {
 
     private final JSONObject event;
-
-    private String description;
-
-    private ArrayList<JSONObject> choices;
-
     private final String type;
-
+    private String description;
+    private ArrayList<JSONObject> choices;
     private String triggerEvent = null;
 
     public Event(JSONObject event, String type) {

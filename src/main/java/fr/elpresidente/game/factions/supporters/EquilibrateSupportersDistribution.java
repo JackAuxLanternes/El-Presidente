@@ -33,7 +33,7 @@ public class EquilibrateSupportersDistribution implements SupportersDistribution
     private void setFactions_add_supporters_number(int total_new_supporters) {
         this.factions_add_supporters_number = new HashMap<>();
         this.valid_factions.forEach(faction ->
-            this.factions_add_supporters_number.put(faction, this.getNumberOfNewSupportersForThisFaction(faction, total_new_supporters))
+                this.factions_add_supporters_number.put(faction, this.getNumberOfNewSupportersForThisFaction(faction, total_new_supporters))
         );
     }
 
@@ -60,7 +60,6 @@ public class EquilibrateSupportersDistribution implements SupportersDistribution
     private boolean newSupportersForThisFactionInferiorMaximumAuthorized(Faction faction) {
         return this.getMaxNewSupportersForThisFaction(faction) > this.factions_add_supporters_number.get(faction);
     }
-
 
 
     private List<Faction> getAllFactionsWithMoreThanMinSupportersMinSatisfaction() {

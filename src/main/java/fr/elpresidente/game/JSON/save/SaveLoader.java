@@ -53,8 +53,7 @@ public class SaveLoader {
         this.save = save;
     }
 
-    private void setJSONLoader(Save save, TurnController turnController)
-    {
+    private void setJSONLoader(Save save, TurnController turnController) {
         this.jsonLoader = new JSONLoader(save, turnController);
     }
 }

@@ -10,8 +10,7 @@ import junit.framework.TestCase;
 
 public class FoodBalancingTest extends TestCase {
 
-    public void testIfWeDontHaveToEliminateSupporters()
-    {
+    public void testIfWeDontHaveToEliminateSupporters() {
         BalanceSheetEvent foodbalancing = new FoodBalancing();
         FactionController factionController = FactionController.getInstance();
         factionController.initFactions(4, 50);
@@ -24,8 +23,7 @@ public class FoodBalancingTest extends TestCase {
         assertEquals(72, consumableController.getFood().getAmount());
     }
 
-    public void testIfWeHaveToEliminateSupporters()
-    {
+    public void testIfWeHaveToEliminateSupporters() {
         BalanceSheetEvent foodbalancing = new FoodBalancing();
         FactionController factionController = FactionController.getInstance();
         factionController.initFactions(4, 50);

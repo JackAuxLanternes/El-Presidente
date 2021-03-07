@@ -1,9 +1,7 @@
 package fr.elpresidente.game.status;
 
-import fr.elpresidente.game.difficulty.DifficultyController;
 import fr.elpresidente.game.factions.Faction;
 import fr.elpresidente.game.factions.FactionController;
-import fr.elpresidente.game.mode.GameModeController;
 import fr.elpresidente.game.resources.consumable.ConsumableController;
 import fr.elpresidente.game.resources.resource.ResourcesController;
 import fr.elpresidente.game.tools.UserIOTools;
@@ -51,16 +49,16 @@ public class GameDisplay {
     public void showResourcesStatus() {
         System.out.println("=== Consommables ===");
         System.out.println("Argent: "
-                + ConsumableController.getInstance().getTreasury().getAmount()+ " $"
+                + ConsumableController.getInstance().getTreasury().getAmount() + " $"
                 + ", Nourriture: "
-                + ConsumableController.getInstance().getFood().getAmount()+ " unités");
+                + ConsumableController.getInstance().getFood().getAmount() + " unités");
         System.out.println("=== Ressources ===");
         System.out.println("Taille de l'industrie: "
-                + ResourcesController.getInstance().getIndustry().getSize()+ " %"
+                + ResourcesController.getInstance().getIndustry().getSize() + " %"
                 + ", Taille de l'agriculture: "
-                + ResourcesController.getInstance().getAgriculture().getSize()+ " %");
+                + ResourcesController.getInstance().getAgriculture().getSize() + " %");
         System.out.println("Taille totale de l'industrie et de l'agriculture: "
-                + (ResourcesController.getInstance().getAgriculture().getSize() + ResourcesController.getInstance().getIndustry().getSize())+ " %" );
+                + (ResourcesController.getInstance().getAgriculture().getSize() + ResourcesController.getInstance().getIndustry().getSize()) + " %");
         displayGraphicChart((ResourcesController.getInstance().getAgriculture().getSize() + ResourcesController.getInstance().getIndustry().getSize()));
     }
 

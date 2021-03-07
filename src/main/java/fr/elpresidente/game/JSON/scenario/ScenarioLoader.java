@@ -1,8 +1,8 @@
 package fr.elpresidente.game.JSON.scenario;
 
+import fr.elpresidente.game.JSON.JSONLoader;
 import fr.elpresidente.game.events.EventController;
 import fr.elpresidente.game.factions.supporters.SupportersDistributionController;
-import fr.elpresidente.game.JSON.JSONLoader;
 import fr.elpresidente.game.tools.JSONKeys;
 import fr.elpresidente.game.tools.JSONTools;
 import fr.elpresidente.game.turn.TurnController;
@@ -42,8 +42,7 @@ public class ScenarioLoader {
         this.scenario = scenario;
     }
 
-    private void setJSONLoader(Scenario scenario, TurnController turnController)
-    {
+    private void setJSONLoader(Scenario scenario, TurnController turnController) {
         this.jsonLoader = new JSONLoader(scenario, turnController);
     }
 }

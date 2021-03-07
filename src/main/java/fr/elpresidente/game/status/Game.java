@@ -1,11 +1,11 @@
 package fr.elpresidente.game.status;
 
+import fr.elpresidente.game.JSON.JSONParser;
 import fr.elpresidente.game.JSON.save.Save;
 import fr.elpresidente.game.JSON.save.SaveLoader;
 import fr.elpresidente.game.JSON.save.SaveWriter;
 import fr.elpresidente.game.JSON.scenario.Scenario;
 import fr.elpresidente.game.JSON.scenario.ScenarioLoader;
-import fr.elpresidente.game.JSON.JSONParser;
 import fr.elpresidente.game.turn.Defeat;
 import fr.elpresidente.game.turn.Seasons;
 import fr.elpresidente.game.turn.TurnController;
@@ -37,8 +37,7 @@ public class Game {
     }
 
     public void gameLoop(boolean isGameLoaded) {
-        if(!isGameLoaded)
-        {
+        if (!isGameLoaded) {
             turnController.buildTurn();
         }
 

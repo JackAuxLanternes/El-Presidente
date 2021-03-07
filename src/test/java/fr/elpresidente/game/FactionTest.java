@@ -2,13 +2,11 @@ package fr.elpresidente.game;
 
 import fr.elpresidente.game.factions.Faction;
 import fr.elpresidente.game.factions.FactionController;
-import fr.elpresidente.game.factions.supporters.SupportersDistribution;
 import fr.elpresidente.game.factions.supporters.SupportersDistributionController;
 import junit.framework.TestCase;
 
 public class FactionTest extends TestCase {
 
-    /*TODO Bouger ce test d'ici*/
     public void testAddSupportersOfTheOnlyFactionSuperiorThan0() {
         FactionController factionController = FactionController.getInstance();
         factionController.initFactions(0, 10);

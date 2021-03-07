@@ -5,8 +5,7 @@ import fr.elpresidente.game.tools.JSONKeys;
 import fr.elpresidente.game.turn.Seasons;
 import org.json.simple.JSONObject;
 
-public class SandboxMode implements GameMode
-{
+public class SandboxMode implements GameMode {
     @Override
     public void setEvent(int year, Seasons season) {
         EventController controller = EventController.getInstance();

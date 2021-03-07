@@ -9,15 +9,13 @@ import junit.framework.TestCase;
 public class FoodMarketTest extends TestCase {
     FoodMarket foodMarket = new FoodMarket();
 
-    public void setup()
-    {
+    public void setup() {
         //FactionController.getInstance().initFactions(4, 50);
         DifficultyController.getInstance().setDifficulty(new NormalDifficulty());
         ConsumableController.resetInstance();
     }
 
-    public void testWhenThePlayerHaveEnoughMoney()
-    {
+    public void testWhenThePlayerHaveEnoughMoney() {
         setup();
         ConsumableController.getInstance().getTreasury().updateAmount(40);
         foodMarket.goToFoodMarket(5);
@@ -26,8 +24,7 @@ public class FoodMarketTest extends TestCase {
         assertEquals(5, ConsumableController.getInstance().getFood().getAmount());
     }
 
-    public void testWhenThePlayerHaveNotEnoughMoney()
-    {
+    public void testWhenThePlayerHaveNotEnoughMoney() {
         setup();
         ConsumableController.getInstance().getTreasury().updateAmount(8);
         foodMarket.goToFoodMarket(5);

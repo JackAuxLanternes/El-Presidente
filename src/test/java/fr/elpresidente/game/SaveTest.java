@@ -1,23 +1,21 @@
 package fr.elpresidente.game;
 
-import fr.elpresidente.game.difficulty.DifficultyController;
+import fr.elpresidente.game.JSON.JSONParser;
 import fr.elpresidente.game.JSON.save.Save;
 import fr.elpresidente.game.JSON.save.SaveLoader;
-import fr.elpresidente.game.JSON.JSONParser;
+import fr.elpresidente.game.difficulty.DifficultyController;
 import fr.elpresidente.game.tools.JSONTools;
 import fr.elpresidente.game.turn.TurnController;
 import junit.framework.TestCase;
 
 public class SaveTest extends TestCase {
 
-    public void testIfSaveWorkCanBeOpened()
-    {
+    public void testIfSaveWorkCanBeOpened() {
         JSONParser saveParser = new JSONParser("src/test/resources/testSave.json");
         saveParser.openAsSave();
     }
 
-    public void testIfWeCanGetAnAttributOfSave()
-    {
+    public void testIfWeCanGetAnAttributOfSave() {
         JSONParser saveParser = new JSONParser("src/test/resources/testSave.json");
         saveParser.openAsSave();
         Save save = (Save) saveParser.getContent();
@@ -26,8 +24,7 @@ public class SaveTest extends TestCase {
         assertEquals("scenario", JSONTools.extractStringFromJSONObject(save.getGameMode(), "value"));
     }
 
-    public void testIfWeCanLoadDifficultyWork()
-    {
+    public void testIfWeCanLoadDifficultyWork() {
         TurnController turnController = new TurnController();
         JSONParser saveParser = new JSONParser("src/test/resources/testSave.json");
         saveParser.openAsSave();

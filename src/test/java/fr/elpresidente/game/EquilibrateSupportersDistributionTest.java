@@ -1,8 +1,6 @@
 package fr.elpresidente.game;
 
 import fr.elpresidente.game.factions.FactionController;
-import fr.elpresidente.game.factions.supporters.EquilibrateSupportersDistribution;
-import fr.elpresidente.game.factions.supporters.SupportersDistribution;
 import fr.elpresidente.game.factions.supporters.SupportersDistributionController;
 import junit.framework.TestCase;
 import org.junit.Before;
@@ -15,7 +13,7 @@ public class EquilibrateSupportersDistributionTest extends TestCase {
     private int number_supporters_by_faction;
 
     @Before
-    public void setUp(){
+    public void setUp() {
 
         this.number_supporters_by_faction = 8;
         int satisfaction_by_faction = 50;

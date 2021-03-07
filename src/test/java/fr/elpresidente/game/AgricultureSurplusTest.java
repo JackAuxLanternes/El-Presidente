@@ -9,24 +9,22 @@ import junit.framework.TestCase;
 
 public class AgricultureSurplusTest extends TestCase {
 
-    public void testIfAgricultureIsInSurplus()
-    {
+    public void testIfAgricultureIsInSurplus() {
         BalanceSheetEvent agricultureSurplus = new AgricultureSurplus();
         FactionController factionController = FactionController.getInstance();
         factionController.initFactions(10, 50);
         int faction_initial_number_supporters = factionController.determineTotalSupporters();
-        int value_to_add_to_supporter_to_get_the_max =  factionController.determineTotalSupporters() * 10 / 100;
+        int value_to_add_to_supporter_to_get_the_max = factionController.determineTotalSupporters() * 10 / 100;
         ResourcesController resourcesController = ResourcesController.getInstance();
         resourcesController.getAgriculture().setSize(51);
         SupportersDistributionController.getInstance().setSupportersDistributionFromJSONName("random");
 
         agricultureSurplus.callEvent();
-        assertTrue( faction_initial_number_supporters + value_to_add_to_supporter_to_get_the_max >= factionController.determineTotalSupporters());
-        assertTrue( faction_initial_number_supporters <= factionController.determineTotalSupporters());
+        assertTrue(faction_initial_number_supporters + value_to_add_to_supporter_to_get_the_max >= factionController.determineTotalSupporters());
+        assertTrue(faction_initial_number_supporters <= factionController.determineTotalSupporters());
     }
 
-    public void testIfAgricultureIsNotInSurplus()
-    {
+    public void testIfAgricultureIsNotInSurplus() {
         BalanceSheetEvent agricultureSurplus = new AgricultureSurplus();
         FactionController factionController = FactionController.getInstance();
         factionController.initFactions(32, 50);
@@ -35,7 +33,7 @@ public class AgricultureSurplusTest extends TestCase {
         resourcesController.getAgriculture().setSize(25);
 
         agricultureSurplus.callEvent();
-        assertEquals(  true,faction_initial_number_supporters == factionController.determineTotalSupporters());
+        assertEquals(true, faction_initial_number_supporters == factionController.determineTotalSupporters());
 
     }
 }
