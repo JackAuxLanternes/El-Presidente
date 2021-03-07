@@ -1,10 +1,10 @@
-##Outils & techniques de développement - Projet final
+# Outils & techniques de développement - Projet final
 | Année     | Auteur           | Version                   |
 | --------- | ---------------- | ------------------------- |
 | 2020/2021 | Thomas Domingues | tdomingues@myges.fr 1.0.0 |
 ***
 
-##Objectifs
+## Objectifs
 Le but de ce projet est de faire un jeu vidéo à la croisée entre Tropico et Reigns. Vous incarnerez
 un jeune dictateur en herbe sur une île tropicale, fraîchement
 élu comme Président. Vous aurez la lourde tâche de faire prospérer cette nouvelle mini-
@@ -73,7 +73,7 @@ Pour `GameBuilder` et `TurnBuilder`, cela nous permet de construire avant de sav
 Pour `LoadFromSaveBuilder`, cette classe est implémentée dans tous les objets qui sont rechargés après une sauvegarde, nous pouvons donc les créer avant de les recharger et ensuite les traiter pour leur assigner une valeur ou non si l'utilisateur décide de créer une nouvelle partie.
 
 
-## Répartition des partisans
+# Répartition des partisans
 
 Pour le bonus la répartition des partisans on a décidé d'utiliser un Singleton pour créer un Controller et ainsi pouvoir appeler la classe sans l'instancier au début du jeu et ainsi pouvoir tout au long du jeu avoir le même algorithme. En effet grace à l'interface SupportersDistribution on peut rajouter des algorithmes de répartition très facilement e, créant une classe implémentant SupportersDistribution puis en ajoutant dans SupportersDistributionController l'instanciation de notre nouvel sorte d'algorithme en fonction de la valeur dans le json de supporters_distribution.
 Pour l'algorithme equilibrate on va distribuer les partisans en fonction du pourcentage de satisfaction de chaque factions et de son rapport avec le pourcentage de satisfaction global. Une faction ne contenant que 10 Partisans ne pourra avoir plus de 5 nouveaux partisans à la fin de l'année, une faction ayant 0 % de satisfaction ne pourra avoir de nouveaux partisans. Les factions ayant le plus de satisfaction seront les premières factions ayant de nouveaux partisans car plus heureuses.
