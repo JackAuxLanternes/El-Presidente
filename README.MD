@@ -87,6 +87,14 @@ Vous pouvez tout simplement lors de l'événement ci-dessous
 Choisir l'option ci-dessous qui appliquera assez de malus pour faire perdre el-presidente à la fin du tour.
 > El-presidente n'est pas fait pour ce job, le suicide est la seule option (Vous perdez la partie voir le README)",
 
+# Execution
+
+Pour exécuter notre programme, il faut lancer se placer dans le meme repertoire que le `.jar` et lancer la commande suivante :
+
+```shell
+java -jar El-Presidente-1.0.0.jar
+```
+
 # Liens utiles
 
 [le github du projet](https://github.com/JackAuxLanternes/El-Presidente/tree/master)
