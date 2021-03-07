@@ -81,11 +81,11 @@ Pour l'algorithme equilibrate on va distribuer les partisans en fonction du pour
 # Pour tester la défaite
 
 Vous pouvez tout simplement lors de l'événement ci-dessous
-- "Mort de Staline. La population se demande comment se place El-presidente face à ce (tragique ?) évènement.",
+> Mort de Staline. La population se demande comment se place El-presidente face à ce (tragique ?) évènement.",
 
 
 Choisir l'option ci-dessous qui appliquera assez de malus pour faire perdre el-presidente à la fin du tour.
-- "El-presidente n'est pas fait pour ce job, le suicide est la seule option (Vous perdez la partie voir le README)",
+> El-presidente n'est pas fait pour ce job, le suicide est la seule option (Vous perdez la partie voir le README)",
 
 # Liens utiles
 
