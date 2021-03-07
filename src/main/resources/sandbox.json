@@ -1,0 +1,679 @@
+{
+  "date": {
+    "year": 1953,
+    "season": "WINTER",
+    "starting_turn": 0
+  },
+  "supporters_distribution": {
+    "name": "equilibrate"
+  },
+  "resources": [
+    {
+      "name": "industry",
+      "value": 15
+    },
+    {
+      "name": "agriculture",
+      "value": 15
+    }
+  ],
+  "consumable": [
+    {
+      "name": "food",
+      "value": 1000
+    },
+    {
+      "name": "treasury",
+      "value": 200
+    }
+  ],
+  "factions": [
+    {
+      "name": "capitalist",
+      "popularity": 50,
+      "supporters": 15
+    },
+    {
+      "name": "communist",
+      "popularity": 50,
+      "supporters": 15
+    },
+    {
+      "name": "liberal",
+      "popularity": 50,
+      "supporters": 15
+    },
+    {
+      "name": "religious",
+      "popularity": 50,
+      "supporters": 15
+    },
+    {
+      "name": "militarist",
+      "popularity": 50,
+      "supporters": 15
+    },
+    {
+      "name": "ecologist",
+      "popularity": 50,
+      "supporters": 15
+    },
+    {
+      "name": "nationalist",
+      "popularity": 50,
+      "supporters": 15
+    },
+    {
+      "name": "loyalist",
+      "popularity": 100,
+      "supporters": 15
+    }
+  ],
+  "generic_events": [
+    {
+      "description": "El-presidente s'ennuie",
+      "choices": [
+        {
+          "name": "Une bonne après-midi au stand de tir lui changeras les idées! (les militarist approuvent)",
+          "effects": [
+            {
+              "type": "faction",
+              "key": "militarist",
+              "change": 1
+            },
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": -50
+            }
+          ]
+        },
+        {
+          "name": "Une bonne soirée au strip-club lui changeras les idées! (les religious n'approuvent pas mais El-presidente s'amuseras beaucoup)",
+          "effects": [
+            {
+              "type": "faction",
+              "key": "religious",
+              "change": -1
+            },
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": -50
+            }
+          ]
+        },
+        {
+          "name": "Une banquet avec ces conseillers lui changeras les idées! (les conseillers mangent beaucoup)",
+          "effects": [
+            {
+              "type": "consumable",
+              "key": "food",
+              "change": -20
+            },
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": -50
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Une maladie se propage sur l'île",
+      "choices": [
+        {
+          "name": "Une maladie ? Quelle maladie ? Je ne vois personne de malade (vous ordonnez l'élimination de tout les contaminés)",
+          "effects": [
+            {
+              "type": "supporters",
+              "key": "random",
+              "change": -25
+            }
+          ]
+        },
+        {
+          "name": "Déployons tout les moyens possibles pour éradiquer cette maladie avant que ça ne soit trop tard (des gros moyens financier sont nécessaires)",
+          "effects": [
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": -3000
+            }
+          ]
+        },
+        {
+          "name": "Nos habitants sont robustes, nous n'avons rien à craindre (les factions n'approuvent pas)",
+          "effects": [
+            {
+              "type": "faction",
+              "key": "capitalist",
+              "change": -8
+            },
+            {
+              "type": "faction",
+              "key": "communist",
+              "change": -8
+            },
+            {
+              "type": "faction",
+              "key": "liberal",
+              "change": -8
+            },
+            {
+              "type": "faction",
+              "key": "religious",
+              "change": -8
+            },
+            {
+              "type": "faction",
+              "key": "militarist",
+              "change": -8
+            },
+            {
+              "type": "faction",
+              "key": "ecologist",
+              "change": -8
+            },
+            {
+              "type": "faction",
+              "key": "nationalist",
+              "change": -8
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Nos cultures sont décimés par un champignon inconnu",
+      "choices": [
+        {
+          "name": "Brulez les champs contaminés pour empecher la propagation (détruit de l'argiculture et les écolos n'approuvent pas)",
+          "effects": [
+            {
+              "type": "faction",
+              "key": "ecologist",
+              "change": -6
+            },
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": -100
+            },
+            {
+              "type": "resource",
+              "key": "agriculture",
+              "change": -4
+            },
+            {
+              "type": "consumable",
+              "key": "food",
+              "change": -480
+            }
+          ]
+        },
+        {
+          "name": "Nos scientifiques ont carte blanche pour trouver un remède (coute de l'argent)",
+          "effects": [
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": -2500
+            },
+            {
+              "type": "consumable",
+              "key": "food",
+              "change": -80
+            }
+          ]
+        },
+        {
+          "name": "Nous avons assez de stocks pour se permettre une mauvaise année (les cultures sont décimés)",
+          "effects": [
+            {
+              "type": "consumable",
+              "key": "food",
+              "change": -600
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Durant des travaux, les ouvriers ont découvert ce qui semble être des restes de dinosaures encore inconnu !",
+      "choices": [
+        {
+          "name": "Exposons les os dans notre musée pour attirer les touristes du monde entier, cette nouvelle espèce sera connu sous le nom de \"Présidentausorus\" (rapporte de l'argent et attire du monde)",
+          "effects": [
+            {
+              "type": "supporters",
+              "key": "random",
+              "change": 8
+            },
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": 600
+            }
+          ]
+        },
+        {
+          "name": "Les os partirons au plus offrant dans une vente aux enchères (rapporte de l'argent)",
+          "effects": [
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": 1700
+            }
+          ]
+        },
+        {
+          "name": "Les chinois se proposent de racheter les os pour en faire un aphrodisiaque apparement très puissant (certaines faction n'approuvent pas, rapporte de l'argent)",
+          "effects": [
+            {
+              "type": "faction",
+              "key": "capitalist",
+              "change": -4
+            },
+            {
+              "type": "faction",
+              "key": "liberal",
+              "change": -2
+            },
+            {
+              "type": "faction",
+              "key": "ecologist",
+              "change": -4
+            },
+            {
+              "type": "faction",
+              "key": "nationalist",
+              "change": -6
+            },
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": 1500
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "En grimpant sur la plus haute montagne de notre île, un habitant aurait découvert une grotte remplis de cristaux",
+      "choices": [
+        {
+          "name": "Récupérons les critaux pour se faire de l'argent (rapporte de l'argent)",
+          "effects": [
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": 1200
+            }
+          ]
+        },
+        {
+          "name": "Transformons la grotte en attraction touristique (rapporte de l'argent et attire des habitants)",
+          "effects": [
+            {
+              "type": "supporters",
+              "key": "random",
+              "change": 8
+            },
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": 500
+            }
+          ]
+        },
+        {
+          "name": "Nous avions justement besoin d'un site de test pour nos armes secrètes, récupérons les cristaux pour financer ce projet (les militaristes approuvent, permet le développement de l'industrie)",
+          "effects": [
+            {
+              "type": "resource",
+              "key": "industry",
+              "change": 3
+            },
+            {
+              "type": "faction",
+              "key": "militarist",
+              "change": 15
+            },
+            {
+              "type": "faction",
+              "key": "nationalist",
+              "change": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "De l'or noir ! Qui aurait cru que notre ZEE possédait un puit de pétrole.",
+      "choices": [
+        {
+          "name": "Les américains nous propose un bon prix pour nous aider à l'exploiter si nous leur vendons (rpaporte de l'argent et de l'industrie)",
+          "effects": [
+            {
+              "type": "faction",
+              "key": "ecologist",
+              "change": -8
+            },
+            {
+              "type": "faction",
+              "key": "capitalist",
+              "change": 15
+            },
+            {
+              "type": "resource",
+              "key": "industry",
+              "change": 3
+            },
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": 500
+            }
+          ]
+        },
+        {
+          "name": "L'URSS est prêt à envoyer une équipe d'inénieurs pour nous aider si nous leurs vendons le pétrole (rapporte des habitant et de l'argent)",
+          "effects": [
+            {
+              "type": "faction",
+              "key": "ecologist",
+              "change": -8
+            },
+            {
+              "type": "faction",
+              "key": "communist",
+              "change": 15
+            },
+            {
+              "type": "supporters",
+              "key": "capitalist",
+              "change": 20
+            },
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": 200
+            }
+          ]
+        },
+        {
+          "name": "Exploitons le pétrole nous même pour le vendre au plus offrant (rapporte de l'argent)",
+          "effects": [
+            {
+              "type": "faction",
+              "key": "ecologist",
+              "change": -8
+            },
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": 2000
+            }
+          ]
+        },
+        {
+          "name": "Une plate-forme pétrolière gacherais la vue d'El-Presidente sur l'océan ! (les écologistes approuvent)",
+          "effects": [
+            {
+              "type": "faction",
+              "key": "ecologist",
+              "change": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Un cargo s'échoue sur l'île, il transportait des vivres vers le portugal",
+      "choices": [
+        {
+          "name": "Tous ce qui se trouve sur l'île appartient à El-Presidente, saisissons la cargaison (rapporte de la nourriture)",
+          "effects": [
+            {
+              "type": "consumable",
+              "key": "food",
+              "change": 800
+            }
+          ]
+        },
+        {
+          "name": "Le Portugal pourrait offrir une récompense en l'échange de la cargaison (rapporte un peu d'argent)",
+          "effects": [
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": 600
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Un habitant sème le trouble après avoir volé de la nourriture",
+      "choices": [
+        {
+          "name": "Pas de bras pas de chocolats ! Coupons lui les bras (le partisan meurt dans d'attroce souffrance les religieux n'approuvent pas)",
+          "effects": [
+            {
+              "type": "faction",
+              "key": "religious",
+              "change": -2
+            },
+            {
+              "type": "supporters",
+              "key": "random",
+              "change": -1
+            }
+          ]
+        },
+        {
+          "name": "Un homme affamé ne doit pas être punis (les autres habitants n'approuvent pas)",
+          "effects": [
+            {
+              "type": "faction",
+              "key": "capitalist",
+              "change": -2
+            },
+            {
+              "type": "faction",
+              "key": "communist",
+              "change": -2
+            },
+            {
+              "type": "faction",
+              "key": "liberal",
+              "change": -2
+            },
+            {
+              "type": "faction",
+              "key": "religious",
+              "change": -2
+            },
+            {
+              "type": "faction",
+              "key": "militarist",
+              "change": -2
+            },
+            {
+              "type": "faction",
+              "key": "ecologist",
+              "change": -2
+            },
+            {
+              "type": "faction",
+              "key": "nationalist",
+              "change": -2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Des pirates s'en prennent à nos côtes",
+      "choices": [
+        {
+          "name": "Envoyons nos meuilleurs hommes (des militaires partent en OPEX)",
+          "effects": [
+            {
+              "type": "supporters",
+              "key": "random",
+              "change": -3
+            },
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": -80
+            }
+          ]
+        },
+        {
+          "name": "Demandons une intervention auprès de l'OTAN (le monde entier pense que notre île est faible, coute de l'argent)",
+          "effects": [
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": -150
+            }
+          ]
+        },
+        {
+          "name": "Négocions avec les pirates (les pirates veulent de l'argent, de la nourriture et des femmes, El-Presidente devient une grosse salope aux yeux du monde entier)",
+          "effects": [
+            {
+              "type": "consumable",
+              "key": "food",
+              "change": -280
+            },
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": -500
+            },
+            {
+              "type": "supporters",
+              "key": "random",
+              "change": -12
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Des migrants demandent à El-Presidente de les acceuillir",
+      "choices": [
+        {
+          "name": "Ca tombe bien, il nous fallait de nouvelles cibles pour le stand de tir (les liberaux n'approuvent pas du tout)",
+          "effects": [
+            {
+              "type": "faction",
+              "key": "militarist",
+              "change": -30
+            }
+          ]
+        },
+        {
+          "name": "El-Presidente est pret à acceuillir toutes les personnes en age de travailler (la population augmente un peu, les migrants ont faim)",
+          "effects": [
+            {
+              "type": "supporters",
+              "key": "random",
+              "change": 8
+            },
+            {
+              "type": "consumable",
+              "key": "food",
+              "change": -32
+            }
+          ]
+        },
+        {
+          "name": "El-Presidente est pret à acceuillir tout le monde (la population augmente, les migrants ont faim)",
+          "effects": [
+            {
+              "type": "supporters",
+              "key": "random",
+              "change": 14
+            },
+            {
+              "type": "consumable",
+              "key": "food",
+              "change": -56
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Panne de production dans une usine suite à une mauvaise manipulation du matériel",
+      "choices": [
+        {
+          "name": "Derrière chaque erreur se trouve un homme qui doit payer le prix (un partisans est exécuté, les religieux n'approuvent pas)",
+          "effects": [
+            {
+              "type": "supporters",
+              "key": "random",
+              "change": -1
+            },
+            {
+              "type": "faction",
+              "key": "religious",
+              "change": -2
+            }
+          ]
+        },
+        {
+          "name": "Nous assumerons les réparations, l'erreur est humaine (coute de l'argent)",
+          "effects": [
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": -50
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "El-presidente part en vacances",
+      "choices": [
+        {
+          "name": "Les Etats-Unis possèdent les villes les plus imprésionnantes (les cpaitalistes approuvent)",
+          "effects": [
+            {
+              "type": "faction",
+              "key": "capitalist",
+              "change": 5
+            },
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": -120
+            }
+          ]
+        },
+        {
+          "name": "Les territoires Soviétiques possèdes tout les climats, des brulants étés du Caucase au glacial hiver de Sibérie (les communistes approuvent)",
+          "effects": [
+            {
+              "type": "faction",
+              "key": "communist",
+              "change": 5
+            },
+            {
+              "type": "consumable",
+              "key": "treasury",
+              "change": -120
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

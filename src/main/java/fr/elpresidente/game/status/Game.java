@@ -42,9 +42,12 @@ public class Game {
         }
 
         while (!isDefeated()) {
-            turnController.callEndOfTheYearEventIfItsTime(gameDisplay);
-            gameDisplay.showGameStatusWithEvent();
-            turnController.nextTurn();
+            if(!turnController.callEndOfTheYearEventIfItsTime(gameDisplay))
+            {
+                gameDisplay.showGameStatusWithEvent();
+                turnController.nextTurn();
+            }
+
             this.saveGame();
         }
         gameDisplay.showGameStatusOnDefeat();

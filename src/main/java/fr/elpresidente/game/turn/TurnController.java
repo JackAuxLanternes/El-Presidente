@@ -52,16 +52,24 @@ public class TurnController implements TurnBuilder, LoadFromSaveBuilder {
         this.count_turn += 1;
     }
 
-    public void callEndOfTheYearEventIfItsTime(GameDisplay gameDisplay) {
+    public boolean callEndOfTheYearEventIfItsTime(GameDisplay gameDisplay) {
         if (this.isEndOfTheYear()) {
             gameDisplay.showGameStatus();
             EndOfYearController endOfYearController = new EndOfYearController();
             endOfYearController.callEvents();
+
+            this.count_turn += 1;
+
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 
     private boolean isEndOfTheYear() {
-        return this.count_turn > 0 && this.count_turn % 4 == 0;
+        return this.count_turn % 5 == 4;
     }
 
     @Override
